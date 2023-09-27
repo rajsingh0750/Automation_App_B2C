@@ -1,0 +1,7 @@
+[Android_Android_Redmi 12 INFO ] 2023-09-27 14:00:33.656 ServerManager:21 - starting appium server
+[Android_Android_Redmi 12 INFO ] 2023-09-27 14:00:35.665 ServerManager:30 - Appium server started
+[Android_Android_Redmi 12 INFO ] 2023-09-27 14:00:35.678 DriverManager:29 - initializing Appium driver
+[Android_Android_Redmi 12 INFO ] 2023-09-27 14:00:35.696 PropertyManager:17 - loading config properties
+[Android_Android_Redmi 12 INFO ] 2023-09-27 14:00:35.697 CapabilitiesManager:20 - getting capabilities
+[Android_Android_Redmi 12 INFO ] 2023-09-27 14:00:35.698 CapabilitiesManager:28 - Reading Android Properties
+[Android_Android_Redmi 12 INFO ] 2023-09-27 14:00:43.365 DriverManager:41 - Driver is initialized
