@@ -1,0 +1,64 @@
+package com.appreciatewealth.utils;
+
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
+
+import java.io.File;
+import java.util.HashMap;
+
+public class ServerManager {
+
+    private static final ThreadLocal<AppiumDriverLocalService> server = new ThreadLocal<>();
+    TestUtils utils = new TestUtils();
+
+    public AppiumDriverLocalService getServer(){
+        return server.get();
+    }
+
+    public void startServer(){
+        utils.log().info("starting appium server");
+        AppiumDriverLocalService server = MacGetAppiumService();
+        server.start();
+        if(!server.isRunning()){
+            utils.log().fatal("Appium server not started. ABORT!!!");
+            throw new AppiumServerHasNotBeenStartedLocallyException("Appium server not started. ABORT!!!");
+        }
+        server.clearOutPutStreams(); // -> Comment this if you want to see server logs in the console
+        ServerManager.server.set(server);
+        utils.log().info("Appium server started");
+    }
+
+ /*   public AppiumDriverLocalService getAppiumServerDefault() {
+        return AppiumDriverLocalService.buildDefaultService();
+    }
+
+    public AppiumDriverLocalService WindowsGetAppiumService() {
+        GlobalParams params = new GlobalParams();
+        return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                .usingAnyFreePort()
+                .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                .withLogFile(new File(params.getPlatformName() + "_"
+                        + params.getDeviceName() + File.separator + "Server.log")));
+    }*/
+
+    public AppiumDriverLocalService MacGetAppiumService() {
+        GlobalParams params = new GlobalParams();
+        HashMap<String, String> environment = new HashMap<String, String>();
+        environment.put("PATH", "/Users/shubhamkumar/Library/Android/sdk/platform-tools:/Users/shubhamkumar/Library/Android/sdk/cmdline-tools:/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin:/Users/shubhamkumar/Library/Android/sdk/platform-tools:/Users/shubhamkumar/Library/Android/sdk/cmdline-tools:/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin" + System.getenv("PATH"));
+        environment.put("ANDROID_HOME", "/Users/shubhamkumar/Library/Android/sdk");
+        environment.put("JAVA_HOME", "/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java/usr/bin/java");
+        return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                .usingDriverExecutable(new File("/opt/homebrew/bin/node"))
+                .withAppiumJS(new File("/opt/homebrew/lib/node_modules/appium/build/lib/main.js"))
+                .usingAnyFreePort()
+                .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                .withEnvironment(environment)
+                .withLogFile(new File(params.getPlatformName() + "_"
+                        + params.getDeviceName() + File.separator + "Server.log")));
+    }
+
+
+
+}
