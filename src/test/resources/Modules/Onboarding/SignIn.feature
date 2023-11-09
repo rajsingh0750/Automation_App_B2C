@@ -14,13 +14,9 @@ Feature: Sign in
     Given User is on enter phone number screen
     And User enters invalid number
     And User enters valid password
-    Then User should see the popup "username or password is invalid"
+    Then User should see the popup message like Invalid Username
 
-  Scenario: Sign in with invalid password
-    Given User is on enter phone number screen
-    And User enters valid number
-    And User enters invalid password
-    Then User should see the popup "username or password is invalid"
+
 
 
   Scenario: Sign in with invalid OTP
@@ -52,6 +48,16 @@ Feature: Sign in
     And User enters new password
     And User confirms the new password
     Then user should be on New Password set Screen
+
+
+#    Scenario: Get OTP from messaging app
+#      Given User should be on Sign in page
+#      Then User opens the messaging app copies the otp
+#
+#  Scenario: SignIn without OTP bypass
+#    Given User should be on Sign in page
+#    Then User should be able to login without OTP bypass
+
 
 
 

@@ -1,6 +1,7 @@
 package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.BasePage;
+import com.appreciatewealth.pages.DashboardPage;
 import com.appreciatewealth.pages.SignInPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,17 +10,18 @@ import io.cucumber.java.en.When;
 import java.io.IOException;
 
 public class SignInStepDef {
+    DashboardPage dashboardPage = new DashboardPage();
+    BasePage basePage = new BasePage();
 
     @Given("App is launched")
     public void app_is_launched() throws IOException, InterruptedException {
-        BasePage.ClearCache(1);
 
         System.out.println("App is Launched");
     }
     @When("User clicks continue button")
     public void user_clicks_continue_button() throws InterruptedException {
         Thread.sleep(3000);
-       new SignInPage().ClickContinue();
+        new SignInPage().ClickContinue();
     }
     @When("User clicks on get started button")
     public void user_clicks_on_get_started_button() throws InterruptedException {
@@ -27,7 +29,8 @@ public class SignInStepDef {
     }
     @Then("User should be on Sign in page")
     public void user_should_be_on_sign_in_page() throws InterruptedException {
-       new SignInPage().ValidateSigninPage();
+        new SignInPage().ValidateSigninPage();
+
     }
 
 
@@ -39,19 +42,24 @@ public class SignInStepDef {
         new SignInPage().Signin();
         new SignInPage().EnterPassword("Test@123");*/
         new SignInPage().Signin();
+        dashboardPage.ClickOnGoToDashboard();
+        Thread.sleep(3000);
+        basePage.ClickProfileSettings();
+        basePage.Logout();
     }
 
 //Start of Scenario: Sign in with invalid phone-number
 
     @Given("User is on enter phone number screen")
     public void user_is_on_enter_phone_number_screen() throws InterruptedException {
-      new SignInPage().ValidateSigninPage();
+        new SignInPage().ValidateSigninPage();
     }
 
     @Given("User enters invalid number")
     public void user_enters_invalid_number() throws InterruptedException {
         new SignInPage().EnterPhonenumber("9538256789");
         new SignInPage().ClickonSignin();
+
 
     }
 
@@ -62,9 +70,10 @@ public class SignInStepDef {
         new SignInPage().ClickonSendOTP();
     }
 
-    @Then("User should see the popup {string}")
-    public void user_should_see_the_popup(String string) {
-    new SignInPage().ValidateErrorMessage("username or password is invalid.");
+    @Then("User should see the popup message like Invalid Username")
+    public void user_should_see_the_popup() throws InterruptedException {
+        new SignInPage().InvalidUsernameMessage();
+
 
     }
     //End of Scenario: Sign in with invalid phone-number
@@ -72,7 +81,7 @@ public class SignInStepDef {
     //Start of Scenario: Sign in with invalid password
     @Given("User enters valid number")
     public void user_enters_valid_number() throws InterruptedException {
-        new SignInPage().EnterPhonenumber("9326459356");
+        new SignInPage().EnterPhonenumber("9538256787");
         new SignInPage().ClickonSignin();
     }
 
@@ -84,15 +93,19 @@ public class SignInStepDef {
     }
 //End of Scenario: Sign in with invalid password
 
-// Start of  Scenario: Sign in with invalid OTP
+    // Start of  Scenario: Sign in with invalid OTP
     @Given("User enters invalid OTP")
     public void user_enters_invalid_otp() throws InterruptedException {
-       new SignInPage().EnterOTP("123453");
+        new SignInPage().EnterOTP("123453");
         new SignInPage().ClickonSendOTP();
     }
     @Then("User should see the popup message {string}")
-    public void user_should_see_the_popup_message(String string) {
+    public void user_should_see_the_popup_message(String string) throws InterruptedException {
         new SignInPage().ValidateErrorMessage("Incorrect OTP entered, please try again.");
+        basePage.AndroidBack();
+        Thread.sleep(7000);
+        new SignInPage().ClickOK();
+
     }
     // End of  Scenario: Sign in with invalid OTP
 
@@ -105,7 +118,7 @@ public class SignInStepDef {
 
     @Then("User should see the error message {string}")
     public void user_should_see_the_error_message(String string) {
-       new SignInPage().ValidatePhoneErrorMessage("Please enter valid mobile number");
+        new SignInPage().ValidatePhoneErrorMessage("Please enter valid mobile number");
     }
     //End of Scenario: Sign in without passing phone number
 
@@ -116,8 +129,7 @@ public class SignInStepDef {
     }
     //End of Scenario: Sign in without passing password
 
-
-   // Start of Scenario: Verify if user is able to reset the password
+    // Start of Scenario: Verify if user is able to reset the password
     @Given("User is on the forgot password screen")
     public void user_is_on_the_forgot_password_screen() throws InterruptedException {
         new SignInPage().EnterPhonenumber("9538256787");

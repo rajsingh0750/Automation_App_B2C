@@ -1,16 +1,21 @@
 package com.appreciatewealth.pages;
 import java.io.BufferedReader;
 
-import com.appreciatewealth.utils.DriverManager;
-import com.appreciatewealth.utils.GlobalParams;
-import com.appreciatewealth.utils.TestUtils;
+import com.appreciatewealth.utils.*;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.*;
+import java.util.Properties;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -20,12 +25,31 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.HashMap;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 import static io.appium.java_client.touch.offset.PointOption.point;
 
+
+
 public class BasePage {
+    public static String OTP;
+    public static String otp;
+    PropertyManager props = new PropertyManager();
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ImageView\n" + "\t")
+   WebElement ProfileSettings;
+
+    @AndroidFindBy(xpath = "//*[@text='Logout']")
+   WebElement LogoutButton;
+
+    @AndroidFindBy(id ="//*[@text='Clear all']")
+   WebElement CloseRecentApp;
+
 
     protected final AppiumDriver driver;
 
@@ -60,15 +84,179 @@ public class BasePage {
 
     }
 
-       //
+    public  void Logout() throws InterruptedException {
+
+        //ProfileSettings.click();
+        Thread.sleep(6000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Logout\").instance(0))"));
+       LogoutButton.click();
+        //((AndroidDriver)driver).terminateApp("com.appreciatewealth.android.uat");
+        Thread.sleep(6000);
+    }
+    public static void KillApp(AndroidDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+        //driver.pressKey(new KeyEvent(AndroidKey.HOME));
+        //driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+        //Thread.sleep(3000);
+        //CloseRecentApp.click();
+      /*driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+        Thread.sleep(2000);
+        boolean canScrollMore = true;
+        while (canScrollMore) {
+            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 600, "height", 1130,
+//                "elementId", ((RemoteWebElement) element).getId(),
+                    "direction", "down",
+                    "percent", 1.0
+            ));
+        }*/
+
+    }
+
+    public   void  KillAppRealMe(AndroidDriver driver) throws InterruptedException {
+        Thread.sleep(3000);
+        driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+        Thread.sleep(4000);
+        //CloseRecentApp.click();
+        WebElement element = driver.findElement(AppiumBy.xpath("//*[@text='Clear all']"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId()
+        ));
+
+    }
+
+    public static void ClickSignOut(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+    /*WebElement element= driver.findElement(AppiumBy.xpath("//*[contains(@text,'sign out')]"));
+       // WebElement element4 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId()
+        ));*/
+        int x =415;
+        int y = 225;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        // System.out.println(text);
+
+    }
+    public static String FormattedDateWithAddedDays(){
+        Date currentDate = new Date();
+
+        // Create a Calendar instance and set it to the current date
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+
+        // Add 10 years to the date
+        calendar.add(Calendar.DAY_OF_YEAR, 90);
+
+        // Get the updated date
+        Date updatedDate = calendar.getTime();
+
+        // Create a SimpleDateFormat with the desired format pattern
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+
+        // Format the updated date and return it as a string
+
+        return dateFormat.format(updatedDate);
+
+
+    }
+    public static String GetCurrentDate(){
+        Date currentDate = new Date();
+
+        // Create a Calendar instance and set it to the current date
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+        return dateFormat.format(currentDate);
+    }
+
+    public String CopyOTPFromMessage() throws InterruptedException, IOException {
+        Thread.sleep(3000);
+        //((AndroidDriver) driver).runAppInBackground(Duration.ofSeconds(5));
+        //Thread.sleep(3000);
+        ((AndroidDriver) driver).activateApp("com.google.android.apps.messaging");
+        Thread.sleep(3000);
+       OTP =  driver.findElement(By.xpath("//android.support.v7.widget.RecyclerView[@content-desc=\"Conversation list\"]/android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.TextView[2]")).getText();
+        String pattern = "\\b\\d{6}\\b";
+
+        // Create a Pattern object
+        Pattern r = Pattern.compile(pattern);
+
+        // Create a Matcher object
+        Matcher matcher = r.matcher(OTP);
+
+        if (matcher.find()) {
+            otp = matcher.group(0);
+            System.out.println("Found OTP: " + otp);
+        } else {
+            System.out.println("OTP not found in the content.");
+        }
+
+        ((AndroidDriver) driver).activateApp(ConfigLoader.getInstance().getProperty("androidAppPackage"));
+        return otp;
 
 
 
 
+    }
+
+    public static String generateRandomString(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder randomString = new StringBuilder();
+
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            char randomChar = characters.charAt(index);
+            randomString.append(randomChar);
+        }
+
+        return randomString.toString();
+    }
+
+
+    public void ClickProfileSettings() throws InterruptedException {
+        Thread.sleep(9000);
+        ProfileSettings.click();
+    }
+    public void AndroidBack() throws InterruptedException {
+        Thread.sleep(5000);
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+    }
 
     public void clear(WebElement e) {
         waitForVisibility(e, Duration.ofSeconds(5));
         e.clear();
+    }
+
+    public static String formatDateWithAddedYears() {
+        // Get the current date
+        Date currentDate = new Date();
+
+        // Create a Calendar instance and set it to the current date
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+
+        // Add 10 years to the date
+        calendar.add(Calendar.YEAR, 20);
+
+        // Get the updated date
+        Date updatedDate = calendar.getTime();
+
+        // Create a SimpleDateFormat with the desired format pattern
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+
+        // Format the updated date and return it as a string
+
+        return dateFormat.format(updatedDate);
     }
 
     public void click(WebElement e) {

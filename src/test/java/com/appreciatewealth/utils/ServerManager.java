@@ -46,9 +46,9 @@ public class ServerManager {
     public AppiumDriverLocalService MacGetAppiumService() {
         GlobalParams params = new GlobalParams();
         HashMap<String, String> environment = new HashMap<String, String>();
-        environment.put("PATH", "/Users/shubhamkumar/Library/Android/sdk/platform-tools:/Users/shubhamkumar/Library/Android/sdk/cmdline-tools:/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin:/Users/shubhamkumar/Library/Android/sdk/platform-tools:/Users/shubhamkumar/Library/Android/sdk/cmdline-tools:/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin" + System.getenv("PATH"));
-        environment.put("ANDROID_HOME", "/Users/shubhamkumar/Library/Android/sdk");
-        environment.put("JAVA_HOME", "/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java/usr/bin/java");
+        environment.put("PATH", "/Users/varshathandava/Library/Android/sdk/platform-tools:/Users/varshathandava/Library/Android/sdk/cmdline-tools:/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin:/user/local/opt/node@14/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin" + System.getenv("PATH"));
+        environment.put("ANDROID_HOME", "/Users/varshathandava/Library/Android/sdk");
+        environment.put("JAVA_HOME", "/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java");
         return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                 .usingDriverExecutable(new File("/opt/homebrew/bin/node"))
                 .withAppiumJS(new File("/opt/homebrew/lib/node_modules/appium/build/lib/main.js"))

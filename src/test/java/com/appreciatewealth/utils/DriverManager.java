@@ -11,11 +11,11 @@ public class DriverManager {
     private final static   ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
     TestUtils utils = new TestUtils();
 
-    public AppiumDriver getDriver(){
+    public static AppiumDriver getDriver(){
         return driver.get();
     }
 
-    public void setDriver(AppiumDriver driver2){
+    public static void setDriver(AppiumDriver driver2){
         driver.set(driver2);
     }
 

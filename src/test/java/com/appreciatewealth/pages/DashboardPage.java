@@ -20,7 +20,7 @@ public class DashboardPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.Button")
     private WebElement clickonViewDashboard;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[2]/android.widget.Button")
+    @AndroidFindBy(xpath = "//*[@text='add funds']")
     private WebElement addFunds;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
@@ -32,6 +32,10 @@ public class DashboardPage extends BasePage {
         Thread.sleep(2000);
         clickonViewDashboard.click();
 
+    }
+    public void ClickOnGoToDashboard() throws InterruptedException {
+        Thread.sleep(3000);
+        clickonViewDashboard.click();
     }
 
     public void ValidateAddFund() throws InterruptedException {
@@ -46,17 +50,11 @@ public class DashboardPage extends BasePage {
     }
 
     public void ClickonFunds() throws InterruptedException {
-
-      WebElement Addfundelement =  driver.findElement((AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[2]/android.widget.Button")));
-        /* boolean canScrollMore = (Boolean)driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                 "left", 100, "top", 100, "width", 600, "height", 600,
-                 "direction", "down",
-                 "percent", 1.0
-         ));*/
-
-         WebElement clickonFunds = driver.findElement((MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrolldIntoView("+ "new UiSelector().text(\"goal calculator\"));")));
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
         Thread.sleep(3000);
-       Addfundelement.click();
+        addFunds.click();
+
+
 
     }
 

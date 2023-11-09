@@ -1,9 +1,0 @@
-[Android_Nokia C22 INFO ] 2023-09-19 03:00:55.228 ServerManager:21 - starting appium server
-[Android_Nokia C22 INFO ] 2023-09-19 03:00:59.191 ServerManager:30 - Appium server started
-[Android_Nokia C22 INFO ] 2023-09-19 03:00:59.204 DriverManager:29 - initializing Appium driver
-[Android_Nokia C22 INFO ] 2023-09-19 03:00:59.218 PropertyManager:17 - loading config properties
-[Android_Nokia C22 INFO ] 2023-09-19 03:00:59.219 CapabilitiesManager:19 - getting capabilities
-[Android_Nokia C22 INFO ] 2023-09-19 03:00:59.220 CapabilitiesManager:27 - Reading Android Properties
-[Android_Nokia C22 INFO ] 2023-09-19 03:01:09.216 DriverManager:41 - Driver is initialized
-[Android_Nokia C22 INFO ] 2023-09-19 03:01:21.798 SignUpSteps:25 - user launches the Appreciate application
-[Android_Nokia C22 INFO ] 2023-09-19 03:01:21.800 SignUpSteps:32 - the user should navigate to  Choose your language page

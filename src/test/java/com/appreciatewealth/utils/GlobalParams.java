@@ -70,8 +70,8 @@ public class GlobalParams {
     public void initializeGlobalParams(){
         GlobalParams params = new GlobalParams();
         params.setPlatformName(System.getProperty("platformName", "Android"));
-        params.setUDID(System.getProperty("udid", "c11e02ad7d75"));
-        params.setDeviceName(System.getProperty("deviceName", "Android_Redmi 12"));
+        params.setUDID(System.getProperty("udid", "0K537311312168E1"));
+        params.setDeviceName(System.getProperty("deviceName", "Realme C53"));
 
         switch (params.getPlatformName()) {
             case "Android" -> {

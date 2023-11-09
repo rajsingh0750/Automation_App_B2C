@@ -37,7 +37,7 @@ public class CapabilitiesManager extends BasePage {
 
 
 
-                    caps.setCapability(MobileCapabilityType.APP,"/Users/shubhamkumar/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk");
+                    caps.setCapability(MobileCapabilityType.APP,"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk");
                      //caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
                   //caps.setCapability("systemPort", params.getSystemPort());
                     //caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
