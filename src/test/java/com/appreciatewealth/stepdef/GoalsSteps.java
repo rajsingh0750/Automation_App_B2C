@@ -104,7 +104,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().ValidateRetirementby();
         new GoalsPage().ValidateExpenseswithinflation("₹64,144 / month");
         new GoalsPage().ValidateTotalamount("₹2,15,52,384");
-        new GoalsPage().ValidateToretire("To retire by Oct 2043, you need");
+        new GoalsPage().ValidateToretire("To retire by Nov 2043, you need");
         new GoalsPage().Close();
         basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
