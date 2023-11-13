@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         plugin = {"pretty","html:target/Reports/report.html"},
-        features = {"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Modules/Onboarding/Dashboard.feature"},
+        features = {"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Modules/Goals/GoalsCalculator.feature"},
         glue = {"com.appreciatewealth.stepdef"}
 
 )
