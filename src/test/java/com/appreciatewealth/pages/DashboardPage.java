@@ -17,7 +17,7 @@ public class DashboardPage extends BasePage {
         this.signInPage = new SignInPage();
     }
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.Button")
+    @AndroidFindBy(xpath = "//*[@text='go to dashboard']")
     private WebElement clickonViewDashboard;
 
     @AndroidFindBy(xpath = "//*[@text='add funds']")
@@ -34,7 +34,7 @@ public class DashboardPage extends BasePage {
 
     }
     public void ClickOnGoToDashboard() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         clickonViewDashboard.click();
     }
 

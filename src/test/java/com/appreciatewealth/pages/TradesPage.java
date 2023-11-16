@@ -46,7 +46,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Order Placed']")
     WebElement ValidateOrderPlaced;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.Button")
+    @AndroidFindBy(xpath = "//*[@text='go to dashboard']")
     private WebElement clickonViewDashboard;
 
     @AndroidFindBy(xpath = "//*[@text='LIVE MARKET']")

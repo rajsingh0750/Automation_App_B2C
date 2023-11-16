@@ -1,5 +1,6 @@
 package com.appreciatewealth.pages;
 
+import com.appreciatewealth.utils.ConfigLoader;
 import com.appreciatewealth.utils.TestUtils;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
@@ -175,7 +176,8 @@ public class SignInPage extends BasePage {
     public void Signin() throws InterruptedException, IOException {
         Thread.sleep(5000);
         TapEmail.click();
-        TextBox.sendKeys("faureretruba-9695@yopmail.com");
+        //TextBox.sendKeys("faureretruba-9695@yopmail.com");
+        TextBox.sendKeys(ConfigLoader.getInstance().getProperty("StageEmail"));
         SendOTP.click();
         // Thread.sleep(3000);
         //Password.sendKeys("Test@123");
@@ -343,7 +345,7 @@ public class SignInPage extends BasePage {
         // String GetOTP = basePage.CopyOTPFromMessage();
         // EnterOTP.sendKeys(GetOTP);
         confirmOTP.click();
-        Thread.sleep(8000);
+        Thread.sleep(10000);
         //AllowOTPfromClipboard();
         boolean b = ((AndroidDriver) driver).isKeyboardShown();
         System.out.println("Keyboard Shown " + b);
