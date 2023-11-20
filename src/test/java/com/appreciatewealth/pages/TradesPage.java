@@ -70,7 +70,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup")
     WebElement StockName;
 
-    @AndroidFindBy(xpath = "//*[@text='AMZN']")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup")
     WebElement StockNameOnDetailsPage;
 
     @AndroidFindBy(xpath = "//*[@text='Transactions']")
@@ -358,23 +358,23 @@ public class TradesPage extends BasePage {
     }
 
     public void ClickReviewOrderButton() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         ReviewOrderButton.click();
     }
 
     public void ValidateOrderAmount(String finalAmount) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualAmount = ReviewOrderAmount.getText();
         Assert.assertEquals(ActualAmount, finalAmount);
     }
 
     public void ClickPlaceOrderButton() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         PlaceOrderButton.click();
     }
 
     public void ValidateIfOrderPlaced() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         ValidateOrderPlaced.isDisplayed();
 
     }
@@ -389,7 +389,7 @@ public class TradesPage extends BasePage {
 
         if (currentTimeIST.isAfter(startTime) || currentTimeIST.isBefore(endTime)) {
             System.out.println(" Market is open since the current time is between 7:30 PM and 2:30 AM in India.");
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             MarketLiveLabel.isDisplayed();
         } else {
             MarketCloseLabel.isDisplayed();
@@ -421,14 +421,14 @@ public class TradesPage extends BasePage {
     }
 
     public void ClickonViewEnhancements() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Portfolio\").instance(0))"));
         ViewEnhancementButton.click();
     }
 
 
     public void GetStockNameOnPortfolio() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         boolean canScrollMore = true;
         while (canScrollMore) {
             canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
@@ -445,9 +445,9 @@ public class TradesPage extends BasePage {
 
     public void ValidateStockLink() throws InterruptedException {
 
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         String geStocknameDetailsPage = StockNameOnDetailsPage.getText();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         ValidateActivitiesPage.isDisplayed();
         //Assert.assertEquals(StockNameOnPortfolio, geStocknameDetailsPage);
 
@@ -469,7 +469,7 @@ public class TradesPage extends BasePage {
     }*/
 
     public String getInvestedOnDashboard() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
         Thread.sleep(5000);
         RunTimeInvestedAmountonDashboard = InvestedAmountOnDashboard.getText();
@@ -487,13 +487,13 @@ public class TradesPage extends BasePage {
 
 
     public String getInvestedOnPortfolio() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         RunTimeInvestedAmountonPortfolio = GetCurrentValue.getText();
         return RunTimeInvestedAmountonPortfolio;
     }
 
     public String getCurrentAmountOnPortfolio() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         RunTimeurrentAmountonPortfolio = GetTotalInvested.getText();
         return RunTimeurrentAmountonPortfolio;
     }
@@ -540,9 +540,9 @@ public class TradesPage extends BasePage {
     }
 
     public void SelectOrderType() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         SelectOrderType.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         SelectQuantityTypeOrder.click();
         ConfirmOrderType.click();
     }
@@ -574,10 +574,10 @@ public class TradesPage extends BasePage {
     }
 
     public void RemovefromWatchlist() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         AddtoWatchlist.click();
         ConfirmRemovefromWatchlist.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
     }
 
@@ -649,18 +649,18 @@ public class TradesPage extends BasePage {
     }
 
     public void MinimizeApp() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         ((AndroidDriver) driver).runAppInBackground(Duration.ofSeconds(5));
     }
 
     public void ValidateErrorMessageRemoved() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         List<WebElement> list = driver.findElements(By.xpath("//*[@text='Minimum Transaction Amount Should be 0.85 INR.']"));
         int count = list.size();
         System.out.println("count to check if element is deleted it should be zero " + count);
         Assert.assertEquals(count, 0);
         basePage.AndroidBack();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         //basePage.Logout();
 
     }
@@ -690,7 +690,7 @@ public class TradesPage extends BasePage {
         ConfirmProOrderType.click();
     }
     public void SelectMITOrder() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         OrderTypeDropdown.click();
         MITOrderType.click();
         ConfirmProOrderType.click();
@@ -698,7 +698,7 @@ public class TradesPage extends BasePage {
 
 
     public void EnterQuantity(String Quantity) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         EnterQuantity.click();
         EnterQuantity.sendKeys(Quantity);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
@@ -746,7 +746,7 @@ public class TradesPage extends BasePage {
     }
 
     public void EnterSellAmount(String Amount) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         EnterSellAmount.click();
         EnterSellAmount.sendKeys(Amount);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
@@ -754,32 +754,32 @@ public class TradesPage extends BasePage {
 
 
     public void ClickOnSell() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         SellButton.click();
     }
     public void SelectSellType() throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(5000);
         SellTypeDropdown.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         ConfirmOrderType.click();
     }
 
     public void ValidateSellOrderType(String OrderType) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualType = ValidateSellOrder.getText();
         Assert.assertEquals(ActualType,OrderType);
 
     }
     public void SelectSellTypeOrder() throws InterruptedException {
         SelectOrderTypeSell.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         SelectQuantityTypeOrder.click();
         ConfirmOrderType.click();
 
     }
 
     public void EnterQuantitySell(String Quantity) throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(5000);
         EnterQuantitySell.click();
         EnterQuantitySell.sendKeys(Quantity);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
@@ -836,7 +836,7 @@ public class TradesPage extends BasePage {
     }
     public void EnterTradeQuantityThroughKeyboard() throws InterruptedException {
         EnterAmount.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         EnterAmount.sendKeys("1.");
         for (int i = 0; i < 9; i++) {
             ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_3));
@@ -845,7 +845,7 @@ public class TradesPage extends BasePage {
     }
 
     public String CurrentPandLBeforeBuy() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Top picks\").instance(0))"));
         Thread.sleep(5000);
         return CurrentPandL.getText();
@@ -862,7 +862,7 @@ public class TradesPage extends BasePage {
     }
 
     public String GetCurrentInvestmentBeforeBuy() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
         return InvestedAmountOnDashboard.getText();
     }
@@ -892,12 +892,12 @@ public class TradesPage extends BasePage {
     }
 
     public void ClickOnGlobalSearch() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         GlobalSearchClick.click();
     }
 
     public void EnterInGlobalSearch(String StockName) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         GlobalSearchEnter.sendKeys(StockName);
     }
 
@@ -905,7 +905,7 @@ public class TradesPage extends BasePage {
         ValidateSearchResults.isDisplayed();
     }
     public  void ValidateOrderExpiryAsGoodTillCancelled() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualDate = ValidateCustomExpiryDate.getText();
         System.out.println("90 days after that "+FormattedDateWithAddedDays());
         Assert.assertEquals(ActualDate,FormattedDateWithAddedDays());
@@ -913,14 +913,14 @@ public class TradesPage extends BasePage {
     }
 
     public void ValidateCustomExpiryDate() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualDate = ValidateCustomExpiryDate.getText();
         Assert.assertEquals(ActualDate,GetCurrentDate());
 
     }
 
     public void CloseSimBindingPopupTrade() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         CloseSimBindingPopup.click();
 
     }
@@ -968,14 +968,14 @@ public class TradesPage extends BasePage {
 
     public void GetAmountHeldBeforeBuy() throws InterruptedException {
         InfoBuyingPower.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GetAmountHeldBeforeBuy =  GetAmountHeld.getText();
         ClickOkay.click();
     }
 
     public void GetAmountHeldAfterBuy() throws InterruptedException {
         InfoBuyingPower.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GetAmountHeldAfterBuy =  GetAmountHeld.getText();
         ClickOkay.click();
     }

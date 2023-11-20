@@ -83,7 +83,7 @@ public class TradesSteps extends BasePage{
 
     @Then("User should see Holdings with accurate data")
     public void userShouldSeeHoldingsWithAccurateData() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         new TradesPage().CalculateCurrentValue();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -114,7 +114,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Investment and Current Value on Portfolio should match with the Trade Dashboard")
     public void investmentCurrentValueOnPortfolioShouldMatchWithTheTradeDashboard() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         new TradesPage().getInvestedOnPortfolio();
         new TradesPage().getCurrentAmountOnPortfolio();
         new TradesPage().CompareInvestedandCurrentValue();

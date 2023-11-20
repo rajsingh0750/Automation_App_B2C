@@ -1,0 +1,5 @@
+[Android_pixel3a INFO ] 2023-11-10 16:17:30.467 ServerManager:21 - starting appium server
+[Android_pixel3a INFO ] 2023-11-10 16:17:32.458 ServerManager:30 - Appium server started
+[Android_pixel3a INFO ] 2023-11-10 16:17:32.459 DriverManager:29 - initializing Appium driver
+[Android_pixel3a INFO ] 2023-11-10 16:17:32.522 CapabilitiesManager:20 - getting capabilities
+[Android_pixel3a INFO ] 2023-11-10 16:17:32.523 CapabilitiesManager:28 - Reading Android Properties
