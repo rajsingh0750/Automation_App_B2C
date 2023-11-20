@@ -206,6 +206,9 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.Button")
     private WebElement ContinueLanguage;
 
+    @AndroidFindBy(xpath = "//*[@text='भाषा बदलें']")
+    private WebElement HindiLanguage;
+
     @AndroidFindBy(xpath = "//*[@text='English']")
     private WebElement English;
 
@@ -251,10 +254,20 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='change']")
     private WebElement ChangeDashboard;
 
-    @AndroidFindBy(xpath = "//*[@text='dashboard']")
+    @AndroidFindBy(xpath = "//*[@text='डैशबोर्ड']")
     private WebElement HomeDashboard;
     @AndroidFindBy(xpath = "//*[@text='Portfolio']")
     private WebElement Portfolio;
+
+    @AndroidFindBy(xpath = "//*[@text='लक्ष्य']")
+    private WebElement HindiGoal;
+
+    @AndroidFindBy(xpath = "//*[@text='ट्रेड' and @class='android.widget.TextView']")
+    private WebElement HindiTrade;
+
+    @AndroidFindBy(xpath = "//*[@text='बदलाव']")
+    private WebElement HindiChange;
+
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
     private WebElement YourPortfolioHeading;
@@ -701,6 +714,12 @@ public class MiniModulePage extends BasePage {
 
     }
 
+    public void ClickHindiLanguageChange() throws InterruptedException {
+        Thread.sleep(3000);
+        HindiLanguage.click();
+
+    }
+
 
     public void ValidateTextChange(String ChangeText) throws InterruptedException {
         Thread.sleep(3000);
@@ -795,6 +814,21 @@ public class MiniModulePage extends BasePage {
         Thread.sleep(5000);
         HomeDashboard.isDisplayed();
     }
+
+    public void ClickHomeGoal() throws InterruptedException {
+        Thread.sleep(5000);
+        HindiGoal.isDisplayed();
+    }
+    public void ClickHomeTrade() throws InterruptedException {
+        Thread.sleep(5000);
+        HindiTrade.isDisplayed();
+    }
+
+    public void ClickHomeChange() throws InterruptedException {
+        Thread.sleep(5000);
+        HindiChange.isDisplayed();
+    }
+
 
     public void MiniPortfolio() throws InterruptedException {
         Thread.sleep(3000);

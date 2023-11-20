@@ -396,7 +396,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User should successfully see change language")
     public void userShouldSuccessfullySeeChangeLanguage() throws InterruptedException {
-        new MiniModulePage().ClickChangeLanguage();
+        new MiniModulePage().ClickHindiLanguageChange();
         new MiniModulePage().ClickEnglish();
         new MiniModulePage().Continuebutton();
         Thread.sleep(8000);
@@ -504,26 +504,26 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @And("User Clicks on Goals dashboard")
     public void userClicksOnGoalsDashboard() throws IOException, InterruptedException {
-        new GoalsPage().SwitchtoGoal();
+        new MiniModulePage().ClickHomeGoal();
 
     }
 
     @And("User Clicks on Trade dashboard")
     public void userClicksOnTradeDashboard() throws InterruptedException {
-        new MiniModulePage().TradeOption();
+        new MiniModulePage().ClickHomeTrade();
 
     }
 
     @And("User Clicks on Change dashboard")
     public void userClicksOnChangeDashboard() throws InterruptedException {
-        new MiniModulePage().ChangeOption();
+        new MiniModulePage().ClickHomeChange();
 
     }
 
     @And("User should see Hindi language in all dashboards")
     public void userShouldSeeHindiLanguageInAllDashboards() throws InterruptedException {
         new BasePage().ClickProfileSettings();
-        new MiniModulePage().ClickChangeLanguage();
+        new MiniModulePage().ClickHindiLanguageChange();
 
     }
 
@@ -664,8 +664,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page for passcode")
     public void theUserIsOnMiniModulePageForPasscode() throws InterruptedException, IOException {
-        //signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
-        signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        //signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
 
 
@@ -699,7 +699,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("the User Confirm the new passcode")
     public void theUserConfirmTheNewPasscode() throws InterruptedException, IOException {
         new MiniModulePage().SetPasscode();
-        signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
         basePage.Logout();
 
