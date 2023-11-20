@@ -34,7 +34,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("the sell order should be placed successfully")
     public void the_sell_order_should_be_placed_successfully() throws InterruptedException {
-        new TradesPage().ValidateSellOrderType("Market");
+        new TradesPage().ValidateSellOrderType(" Market");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -52,14 +52,14 @@ public class TradesSellSteps extends BasePage {
 
     @And("User enters the Quantity for sell")
     public void userEntersTheQuantityForSell() throws InterruptedException {
-        new TradesPage().EnterSellAmount("0.8");
+        new TradesPage().EnterSellAmount("0.1");
 
 
     }
 
     @Then("the sell order of quantity type should be placed successfully")
     public void theSellOrderOfQuantityTypeShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateSellOrderType("Market");
+        new TradesPage().ValidateSellOrderType(" Market");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();

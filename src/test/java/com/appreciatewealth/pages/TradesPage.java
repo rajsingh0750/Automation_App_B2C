@@ -178,7 +178,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Sell in Rupees']")
     WebElement SellTypeDropdown;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "//*[@text=' Market']")
     WebElement ValidateSellOrder;
 
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
@@ -677,6 +677,7 @@ public class TradesPage extends BasePage {
     public void SelectProOrderType() throws InterruptedException {
         Thread.sleep(5000);
         OrderTypeDropdown.click();
+        Thread.sleep(5000);
         LimitOrderType.click();
         Thread.sleep(5000);
         ConfirmProOrderType.click();
@@ -736,7 +737,7 @@ public class TradesPage extends BasePage {
         Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
         Thread.sleep(5000);
-        driver.findElement(AppiumBy.xpath("//*[@text='VT']")).click();
+        driver.findElement(AppiumBy.xpath("//*[@text='TSLA']")).click();
         /*driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
         ));*/
@@ -768,12 +769,14 @@ public class TradesPage extends BasePage {
         Thread.sleep(5000);
         String ActualType = ValidateSellOrder.getText();
         Assert.assertEquals(ActualType,OrderType);
+        //ValidateSellOrder.isDisplayed();
 
     }
     public void SelectSellTypeOrder() throws InterruptedException {
         SelectOrderTypeSell.click();
         Thread.sleep(5000);
         SelectQuantityTypeOrder.click();
+        Thread.sleep(5000);
         ConfirmOrderType.click();
 
     }
@@ -781,6 +784,7 @@ public class TradesPage extends BasePage {
     public void EnterQuantitySell(String Quantity) throws InterruptedException {
         Thread.sleep(5000);
         EnterQuantitySell.click();
+        Thread.sleep(5000);
         EnterQuantitySell.sendKeys(Quantity);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
