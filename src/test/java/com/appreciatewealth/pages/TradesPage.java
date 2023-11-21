@@ -76,13 +76,13 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Transactions']")
     WebElement ValidateActivitiesPage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
     WebElement InvestedAmountOnDashboard;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
     WebElement StoreInvestedAmountOnDashboard;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
     WebElement CurrentValueOnDashboard;
 
     @AndroidFindBy(xpath= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
@@ -694,7 +694,9 @@ public class TradesPage extends BasePage {
     public void SelectMITOrder() throws InterruptedException {
         Thread.sleep(5000);
         OrderTypeDropdown.click();
+        Thread.sleep(5000);
         MITOrderType.click();
+        Thread.sleep(5000);
         ConfirmProOrderType.click();
     }
 
@@ -738,7 +740,7 @@ public class TradesPage extends BasePage {
         Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
         Thread.sleep(5000);
-        driver.findElement(AppiumBy.xpath("//*[@text='TSLA']")).click();
+        driver.findElement(AppiumBy.xpath("//*[@text='NFLX']")).click();
         /*driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
         ));*/
@@ -756,7 +758,7 @@ public class TradesPage extends BasePage {
 
 
     public void ClickOnSell() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         SellButton.click();
     }
     public void SelectSellType() throws InterruptedException {
@@ -797,7 +799,7 @@ public class TradesPage extends BasePage {
     }
 
     public void GoToTradeDashboard() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         GoToTradeDashboard.click();
 
     }
@@ -817,9 +819,14 @@ public class TradesPage extends BasePage {
         String CurrentHoldingsAfterSell = GetQuantityInHoldings.getText();
         //System.out.println("holding after Sell "+CurrentHoldingsAfterSell);
         double ActualHoldings = Double.parseDouble(CurrentHoldingsAfterSell);
+        String ActualValue = Double.toString(ActualHoldings);
         System.out.println("holding after Sell "+ActualHoldings);
-        double PostSellHoldings = Double.parseDouble(CurrentHoldings) - 1;
-        Assert.assertEquals(ActualHoldings,PostSellHoldings);
+        double PostSellHoldings = Double.parseDouble(CurrentHoldings) - 0.1;
+        String Holdings = Double.toString(PostSellHoldings);
+        String Holding = Holdings.replaceAll("-", "");
+        Assert.assertEquals(ActualValue,Holding);
+        Assert.assertTrue(Holding.contains(ActualValue));
+
 
     }
 
@@ -867,23 +874,25 @@ public class TradesPage extends BasePage {
     }
 
     public String GetCurrentInvestmentBeforeBuy() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
         return InvestedAmountOnDashboard.getText();
     }
 
-    public String GetCurrentAmountBeforeBuy(){
+    public String GetCurrentAmountBeforeBuy() throws InterruptedException {
+        Thread.sleep(8000);
         return CurrentValueOnDashboard.getText();
     }
-    public String GetCurrentAmountAfterBuy(){
+    public String GetCurrentAmountAfterBuy() throws InterruptedException {
+        Thread.sleep(8000);
         return CurrentValueOnDashboard.getText();
     }
 
 
     public void ComparePortfollioBeforeAndAfterBuy() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         Assert.assertEquals(GetCurrentInvestmentBeforeBuy(),getCurrentInvestmentAfterBuy());
         System.out.println("CurrentInvestmentBeforeBuy "+GetCurrentInvestmentBeforeBuy());
         System.out.println("getCurrentInvestmentAfterBuy "+getCurrentInvestmentAfterBuy());

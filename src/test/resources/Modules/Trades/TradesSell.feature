@@ -83,5 +83,5 @@ Feature: Trades all buy related scenarios
     And User enters the amount for sell
     And User clicks on review order button
     And User clicks on place order
-    And the order should be placed successfully
-    Then Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
+    And the Order should be placed successfully
+    Then current P and L, Current Investment and Current Amount should not change when the order is placed in Market close

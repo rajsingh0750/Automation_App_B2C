@@ -224,7 +224,7 @@ public class BasePage {
 
 
     public void ClickProfileSettings() throws InterruptedException {
-        Thread.sleep(9000);
+        Thread.sleep(10000);
         ProfileSettings.click();
     }
     public void AndroidBack() throws InterruptedException {

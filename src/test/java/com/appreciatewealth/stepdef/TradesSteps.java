@@ -357,7 +357,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close")
     public void currentPAndLCurrentInvestmentAndCurrentAmountShouldNotChangeWhenTheOrderIsPlacedInMarketClose() throws InterruptedException {
-        new TradesPage().GoToTradeDashboard();
+        //new TradesPage().GoToTradeDashboard();
         new TradesPage().ComparePortfollioBeforeAndAfterBuy();
         basePage.ClickProfileSettings();
         basePage.Logout();

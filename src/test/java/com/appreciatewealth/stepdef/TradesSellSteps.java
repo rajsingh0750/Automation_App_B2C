@@ -79,7 +79,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("Limit order in sell should be placed Successfully")
     public void limitOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Limit");
+        new TradesPage().ValidateOrderType(" Limit");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -98,7 +98,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("MIT order in sell should be placed Successfully")
     public void mitOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Market If Touched(MIT)");
+        new TradesPage().ValidateOrderType(" Market If Touched(MIT)");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -112,7 +112,7 @@ public class TradesSellSteps extends BasePage {
     }
     @And("User enters the Quantity to sell")
     public void userEntersTheQuantityToSell() throws InterruptedException {
-        new TradesPage().EnterSellAmount("1");
+        new TradesPage().EnterSellAmount("0.1");
     }
 
     @And("User Clicks on Go to home dashboard")
@@ -135,7 +135,7 @@ public class TradesSellSteps extends BasePage {
     @And("User navigates to Activity tab and notice the Current Amount")
     public void userNavigatesToActivityTabAndNoticeTheCurrentAmount() throws InterruptedException {
         new TradesPage().NavigateToActivityTab();
-        new TradesPage().GetCurrentAmountBeforeSell();
+         TradesPage.GetCurrentAmountBeforeSell();
     }
 
     @And("User enters the amount for sell order")
@@ -183,6 +183,19 @@ public class TradesSellSteps extends BasePage {
     public void orderStatusShouldBeSuccessfullWithCorrectDetails() throws InterruptedException {
         new TradesPage().CheckOrderDetailsActivityTab();
         basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @And("the Order should be placed successfully")
+    public void theOrderShouldBePlacedSuccessfully() throws InterruptedException {
+        new TradesPage().ValidateIfOrderPlaced();
+    }
+
+    @Then("current P and L, Current Investment and Current Amount should not change when the order is placed in Market close")
+    public void currentPAndLCurrentInvestmentAndCurrentAmountShouldNotChangeWhenTheOrderIsPlacedInMarketClose() throws InterruptedException {
+        new TradesPage().GoToTradeDashboard();
+        new TradesPage().ComparePortfollioBeforeAndAfterBuy();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
