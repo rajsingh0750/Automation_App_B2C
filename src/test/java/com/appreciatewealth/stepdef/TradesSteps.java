@@ -299,7 +299,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Stop order should be placed Successfully")
     public void stopOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Stop Order");
+        new TradesPage().ValidateOrderType(" Stop Order");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();

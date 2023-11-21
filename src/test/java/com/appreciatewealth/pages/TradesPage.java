@@ -686,6 +686,7 @@ public class TradesPage extends BasePage {
     public void SelectStopOrder() throws InterruptedException {
         Thread.sleep(5000);
         OrderTypeDropdown.click();
+        Thread.sleep(5000);
         StopOrderType.click();
         Thread.sleep(5000);
         ConfirmProOrderType.click();
