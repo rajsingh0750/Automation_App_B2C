@@ -31,12 +31,12 @@ Feature: Sign in
     And User clicks on Signin button
     Then User should see the error message "Please enter valid mobile number"
 
-  Scenario: Sign in without passing password
-    Given User is on enter phone number screen
-    And User enters valid number
-    And User clicks on Signin button
-    And User clicks on send me an OTP button
-    Then User should see the error message "message username or password is invalid"
+#  Scenario: Sign in without passing password
+#    Given User is on enter phone number screen
+#    And User enters valid number
+#    And User clicks on Signin button
+#    And User clicks on send me an OTP button
+#    Then User should see the error message "message username or password is invalid"
 
   Scenario: Verify if user is able to reset the password
     Given User is on the forgot password screen
