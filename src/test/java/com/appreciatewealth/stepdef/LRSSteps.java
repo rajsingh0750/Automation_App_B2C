@@ -7,6 +7,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import java.io.IOException;
+
 public class LRSSteps {
     BasePage basePage = new BasePage();
     @Given("User clicks on Add Funds")
@@ -119,5 +121,73 @@ public class LRSSteps {
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
+    }
+
+    @And("User clicks on continue button")
+    public void userClicksOnContinueButton() throws InterruptedException {
+        new LRSPage().ClickonContinue();
+
+    }
+
+    @And("User enters the amount to be deposited")
+    public void userEntersTheAmountToBeDeposited() throws InterruptedException {
+        new LRSPage().EnterDepositAmount("1");
+    }
+
+    @And("User click on tranfer from yes bank")
+    public void userClickOnTranferFromYesBank() throws InterruptedException {
+        new LRSPage().TransferFromYesBank();
+    }
+
+    @And("User Enters the PAN details")
+    public void userEntersThePANDetails() throws InterruptedException {
+        new LRSPage().EnterPAN();
+    }
+
+    @And("User Enters the CustomerID")
+    public void userEntersTheCustomerID() {
+        new LRSPage().EnterYesBankCustomerID();
+    }
+
+
+    @And("User click on Proceed")
+    public void userClickOnProceed() throws InterruptedException {
+        new LRSPage().ClickonProceed();
+    }
+
+    @And("User Enters the first OTP")
+    public void userEntersTheFirstOTP() throws IOException, InterruptedException {
+        new LRSPage().EnterOTP1();
+    }
+
+    @And("User Confirms all the agreement checkbox")
+    public void userConfirmsAllTheAgreementCheckbox() throws InterruptedException {
+        new LRSPage().SelectCheckBoxes();
+    }
+
+    @And("User Selects YesLogin")
+    public void userSelectsYesLogin() throws InterruptedException {
+        new LRSPage().SelectYesOnline();
+    }
+
+    @And("User submits the Net Banking Details")
+    public void userSubmitsTheNetBankingDetails() throws InterruptedException {
+        new LRSPage().SubmitCustomerIDandPassword();
+
+    }
+
+    @And("User enters the Net Banking OTP")
+    public void userEntersTheNetBankingOTP() throws IOException, InterruptedException {
+        new LRSPage().EnterNetBankingOTP();
+
+    }
+
+    @Then("the transaction should be successfull")
+    public void theTransactionShouldBeSuccessfull() throws InterruptedException {
+        new LRSPage().ValidateTransactionIsSuccessFull();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+
+
     }
 }

@@ -31,8 +31,8 @@ Feature: Trades all buy related scenarios
     And User selects order type as limit order
     And User enters the Sell Quantity
     And User enters the Sell Limit Price
-    And User clicks on review order button
-    And User selects order expiry as Till Market is closed
+    And User clicks on the review order button
+    And User selects order expiry as Till Market is closed in sell
     Then Limit order in sell should be placed Successfully
 
 

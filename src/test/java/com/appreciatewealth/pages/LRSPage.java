@@ -1,5 +1,6 @@
 package com.appreciatewealth.pages;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -7,19 +8,91 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 
+import java.io.IOException;
+
 public class LRSPage extends BasePage {
+    BasePage basePage = new BasePage();
 
     @AndroidFindBy(xpath = "//*[@text='add funds']")
     WebElement AddFundsButton;
 
-    @AndroidFindBy(xpath = "//*[@text='Add funds']")
+    @AndroidFindBy(xpath = "//*[@text='go to dashboard']")
+    private WebElement clickonViewDashboard;
+
+    @AndroidFindBy(xpath = "//*[@text='Transaction Submitted Successfully!']")
+    WebElement CheckTransactionStatusMsg;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.TextView")
+    WebElement OTP1Click;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText")
+    WebElement OTP1Enter;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.widget.EditText")
+    WebElement EnterNetOTP;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Image")
+    WebElement CheckBox1;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Image")
+    WebElement CheckBox2;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[6]/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Image")
+    WebElement CheckBox3;
+
+    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Image")
+    WebElement CheckBox4;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[8]/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Image")
+    WebElement CheckBox5;
+
+    @AndroidFindBy(xpath = "//*[@text='Ok']")
+    WebElement ClickOk;
+
+    @AndroidFindBy(xpath = "//*[@text='AUTHORIZE']")
+    WebElement ClickAuthorize;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[5]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.TextView[1]")
+    WebElement LoginCheckBox;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[5]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.widget.EditText")
+    WebElement LoginIdEnter;
+
+    @AndroidFindBy(xpath = "//*[contains(@text,'login')]")
+    WebElement LoginClick;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[5]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.widget.EditText")
+    WebElement EnterPassword;
+
+    @AndroidFindBy(xpath = "//*[contains(@text,'Password')]")
+    WebElement PasswordClick;
+
+    @AndroidFindBy(xpath = "//*[@text='Next']")
+    WebElement Next;
+
+    @AndroidFindBy(xpath = "//*[@text='transfer from YES a/c to buying power']")
+    WebElement TransferFromYesBank;
+
+    @AndroidFindBy(xpath = "//*[@text='add money to buying power']")
     WebElement AddMoneytoBuyingPower;
 
     @AndroidFindBy(xpath = "//*[@text='continue']")
     WebElement ContinueButton;
 
+    @AndroidFindBy(xpath = "//*[@text='NEXT']")
+    WebElement NEXTButton;
+    @AndroidFindBy(xpath = "//*[contains(@text,'PAN')]")
+    WebElement PAN;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
+    WebElement EnterPan;
+    @AndroidFindBy(xpath = "//*[contains(@text,'Customer ID')]")
+    WebElement CustomerID;
+
+    @AndroidFindBy  (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[4]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
+    WebElement EnterCustomerID;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")
     WebElement EnterDepositAmount;
 
@@ -37,6 +110,11 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='I Confirm']")
     WebElement IconfirmButton;
 
+    @AndroidFindBy(xpath = "//*[@text='Confirm']")
+    WebElement Confirm;
+
+    @AndroidFindBy(xpath = "//*[@text='Proceed']")
+    WebElement Proceed;
     @AndroidFindBy(xpath = "//*[contains(@text,'You have successfully uploaded')]")
     WebElement SuccessStatementUploadMsg;
     @AndroidFindBy(xpath = "//*[@text='UPLOAD YOUR BANK E-STATEMENTS']")
@@ -84,7 +162,7 @@ public class LRSPage extends BasePage {
 
     }
     public void AddMoneytoBuyingPower() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         AddMoneytoBuyingPower.click();
     }
     public void EnterDepositAmount(String amount) throws InterruptedException {
@@ -95,7 +173,8 @@ public class LRSPage extends BasePage {
         //driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
-    public void ClickonContinue(){
+    public void ClickonContinue() throws InterruptedException {
+        Thread.sleep(5000);
         ContinueButton.click();
     }
 
@@ -167,15 +246,119 @@ public class LRSPage extends BasePage {
 
     }
 
+    public void TransferFromYesBank() throws InterruptedException {
+        Thread.sleep(4000);
+        Thread.sleep(3000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
+        TransferFromYesBank.click();
+
+    }
 
 
 
+    public void EnterPAN() throws InterruptedException {
+        Thread.sleep(20000);
+        PAN.click();
+        EnterPan.sendKeys("EMLPK2328J");
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
 
+    }
 
+    public void EnterYesBankCustomerID(){
+        CustomerID.click();
 
+        EnterCustomerID.sendKeys("8883564");
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
 
+    }
 
+    public void ClickonProceed() throws InterruptedException {
+        Proceed.click();
+        Thread.sleep(20000);
 
+    }
+
+    public void EnterOTP1() throws IOException, InterruptedException {
+        String otp = basePage.CopyOTPFromMessage();
+        OTP1Click.click();
+        OTP1Enter.sendKeys(otp);
+        Proceed.click();
+
+    }
+
+    public void SelectCheckBoxes() throws InterruptedException {
+        Thread.sleep(5000);
+        int numberOfScrolls = 6; // Adjust the number of scrolls as needed
+
+        for (int i = 0; i < numberOfScrolls; i++) {
+            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
+        }
+        Thread.sleep(12000);
+        CheckBox1.click();
+        Thread.sleep(3000);
+        ClickOk.click();
+        Thread.sleep(2000);
+        CheckBox2.click();
+        Thread.sleep(3000);
+        ClickOk.click();
+        Thread.sleep(2000);
+        CheckBox3.click();
+        Thread.sleep(3000);
+        ClickOk.click();
+        Thread.sleep(2000);
+        CheckBox4.click();
+        Thread.sleep(3000);
+        ClickOk.click();
+        Thread.sleep(2000);
+        CheckBox5.click();
+        Thread.sleep(3000);
+        ClickOk.click();
+        Thread.sleep(2000);
+        NEXTButton.click();
+
+    }
+
+    public void SelectYesOnline() throws InterruptedException {
+        Thread.sleep(10000);
+        WebElement element4 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[5]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.TextView[1]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element4).getId()
+        ));
+        // LoginCheckBox.click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Next\").instance(0))"));
+        Thread.sleep(5000);
+        Next.click();
+
+    }
+
+    public void SubmitCustomerIDandPassword() throws InterruptedException {
+        Thread.sleep(8000);
+        // LoginClick.click();
+        LoginIdEnter.sendKeys("8883564");
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+        Thread.sleep(3000);
+        PasswordClick.click();
+        EnterPassword.sendKeys("Shubham@321");
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+        ClickAuthorize.click();
+        Thread.sleep(8000);
+
+    }
+
+    public void EnterNetBankingOTP() throws IOException, InterruptedException {
+        String NetOTP = basePage.CopyOTPFromMessage();
+        EnterNetOTP.sendKeys(NetOTP);
+        Confirm.click();
+        Thread.sleep(6000);
+
+    }
+
+    public void ValidateTransactionIsSuccessFull(){
+        CheckTransactionStatusMsg.isDisplayed();
+        clickonViewDashboard.click();
+
+    }
 
 
 }

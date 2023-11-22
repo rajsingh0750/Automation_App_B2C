@@ -284,7 +284,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Limit order should be placed Successfully")
     public void limitOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Limit");
+        new TradesPage().ValidateOrderType(" Limit");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();

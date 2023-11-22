@@ -72,10 +72,25 @@ public class TradesSellSteps extends BasePage {
     }
 
     @And("User enters the Sell Limit Price")
-    public void userEntersTheSellLimitPrice() {
+    public void userEntersTheSellLimitPrice() throws InterruptedException {
         new TradesPage().EnterLimitPriceSell("10000");
+        new TradesPage().ClickReviewOrderButton();
+        new TradesPage().ClickSellContinue();
+        //new TradesPage().OrderExpirytillMarketClose();
 
     }
+    @And("User selects order expiry as Till Market is closed in sell")
+    public void userSelectsOrderExpiryAsTillMarketIsClosedInSell() throws InterruptedException {
+        new TradesPage().OrderExpirytillMarketClose();
+    }
+    @And("User clicks on the review order button")
+    public void userClicksOnTheReviewOrderButton() throws InterruptedException {
+        new TradesPage().ClickReviewOrderButton();
+        new TradesPage().ClickPlaceOrderButton();
+
+
+    }
+
 
     @Then("Limit order in sell should be placed Successfully")
     public void limitOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
@@ -89,7 +104,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("Stop order in sell should be placed Successfully")
     public void stopOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Stop Order");
+        new TradesPage().ValidateOrderType(" Stop Order");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -199,4 +214,7 @@ public class TradesSellSteps extends BasePage {
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
+
+
+
 }

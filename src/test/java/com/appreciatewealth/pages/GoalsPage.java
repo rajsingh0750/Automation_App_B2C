@@ -403,9 +403,9 @@ public class GoalsPage extends BasePage {
 
     public void NavigatetoGoals() throws IOException, InterruptedException {
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         dashboardPage.NavigatetoDashboard();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         clickonViewGoals.click();
 
     }
@@ -472,10 +472,10 @@ public class GoalsPage extends BasePage {
 
 
     public void ClickOnGoalCalculator() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         WebElement clickongoalcalculator = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"goal calculator\").instance(0))"));
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[3]"));
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         clickongoalcalculator.click();
 
     }

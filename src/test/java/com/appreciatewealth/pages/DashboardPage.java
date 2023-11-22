@@ -26,20 +26,23 @@ public class DashboardPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
     private WebElement ValidateMoneyTransferPage;
 
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
+    private WebElement MoneyTransferClose;
+
     public void NavigatetoDashboard() throws IOException, InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(8000);
         signInPage.Signin();
-        Thread.sleep(2000);
+        Thread.sleep(8000);
         clickonViewDashboard.click();
 
     }
     public void ClickOnGoToDashboard() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         clickonViewDashboard.click();
     }
 
     public void ValidateAddFund() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
        boolean IsFundDisplayed = addFunds.isDisplayed();
        if(IsFundDisplayed){
            utils.log().info("Add funds button is displayed");
@@ -67,6 +70,11 @@ public class DashboardPage extends BasePage {
             utils.log().info("Money transfer screen is not displayed");
         }
 
+    }
+
+    public void ClickClose() throws InterruptedException {
+        Thread.sleep(5000);
+        MoneyTransferClose.click();
     }
 
 

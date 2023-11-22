@@ -28,6 +28,7 @@ public class GoalsCalculatorSteps extends  BasePage {
         GoalsPage.CalculateTotalTargetValue(574350);
         basePage.AndroidBack();
         basePage.AndroidBack();
+        new BasePage().ClickProfileSettings();
         basePage.Logout();
 
 

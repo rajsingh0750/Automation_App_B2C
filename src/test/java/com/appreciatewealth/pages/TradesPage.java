@@ -285,6 +285,9 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[1]")
     private WebElement CraftedStockAtFirst;
 
+    @AndroidFindBy(xpath = "//*[@text='continue']")
+    private WebElement SellContinue;
+
     private static String QuantityOnSellScreen;
 
     private static String QuantityOnPreviewScreen;
@@ -331,11 +334,11 @@ public class TradesPage extends BasePage {
 
 
     public void NavigatetoTradeDashboard() throws InterruptedException, IOException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         signInPage.Signin();
-        Thread.sleep(2000);
+        Thread.sleep(8000);
         clickonViewDashboard.click();
-        Thread.sleep(2000);
+        Thread.sleep(8000);
         TradeButton.click();
 
     }
@@ -344,7 +347,7 @@ public class TradesPage extends BasePage {
 
         WebElement clickonbuynow = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
         driver.findElement(By.xpath("//*[@index='9' and @text='buy now']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
     }
 
@@ -713,8 +716,8 @@ public class TradesPage extends BasePage {
         SetLimitPrice.sendKeys(LimitPrice);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
-    public void OrderExpirytillMarketClose(){
-
+    public void OrderExpirytillMarketClose() throws InterruptedException {
+        Thread.sleep(8000);
         ExpireTillMarketDayClose.click();
     }
 
@@ -815,7 +818,7 @@ public class TradesPage extends BasePage {
 
     public void ValidateQuantityInHoldings() throws InterruptedException {
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
-        Thread.sleep(4000);
+        Thread.sleep(8000);
         String CurrentHoldingsAfterSell = GetQuantityInHoldings.getText();
         //System.out.println("holding after Sell "+CurrentHoldingsAfterSell);
         double ActualHoldings = Double.parseDouble(CurrentHoldingsAfterSell);
@@ -1044,7 +1047,7 @@ public class TradesPage extends BasePage {
     }
 
     public void CheckOrderDetailsPlaceOrder() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         QuantityOnPlaceOrderScreen = TradeQuantityOrderPlaced.getText();
         System.out.println("Trade quantity on order placed screen "+  QuantityOnPlaceOrderScreen);
         GetEstimatedCreditAmount =  EstimatedPriceOrderPlaced.getText();
@@ -1053,7 +1056,7 @@ public class TradesPage extends BasePage {
     }
 
     public void CheckOrderDetailsActivityTab() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         String  ActualMsg = SuccessFullStatusTransactions.getText();
         Assert.assertEquals(ActualMsg,"Successful");
         String ActualAmount = OrderAmountTransactions.getText();
@@ -1068,11 +1071,12 @@ public class TradesPage extends BasePage {
 
     }
     public void GetCraftedStockName() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         CraftedItemLabel = CraftedListItem.getText();
         System.out.println(CraftedItemLabel);
     }
-    public void ClickOnCraftedList(){
+    public void ClickOnCraftedList() throws InterruptedException {
+        Thread.sleep(5000);
         CraftedListItem.click();
     }
 
@@ -1086,6 +1090,13 @@ public class TradesPage extends BasePage {
 
 
     }
+
+    public void ClickSellContinue() throws InterruptedException {
+        Thread.sleep(5000);
+        SellContinue.click();
+    }
+
+
 
 
 

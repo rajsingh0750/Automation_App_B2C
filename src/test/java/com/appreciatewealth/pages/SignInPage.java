@@ -190,7 +190,7 @@ public class SignInPage extends BasePage {
         //AllowOTPfromClipboard();
         boolean b = ((AndroidDriver) driver).isKeyboardShown();
         System.out.println("Keyboard Shown "+b);
-        //Thread.sleep(6000);
+        Thread.sleep(8000);
 
         WebElement element = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView"));
 
@@ -242,11 +242,11 @@ public class SignInPage extends BasePage {
         Thread.sleep(3000);
         EnterOTP.sendKeys("904123");
         confirmOTP.click();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         //AllowOTPfromClipboard();
         boolean b = ((AndroidDriver) driver).isKeyboardShown();
         System.out.println("Keyboard Shown "+b);
-        //Thread.sleep(6000);
+        Thread.sleep(6000);
 
         WebElement element = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView"));
 
