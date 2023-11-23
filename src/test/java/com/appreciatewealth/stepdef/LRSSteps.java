@@ -137,6 +137,7 @@ public class LRSSteps {
     @And("User click on tranfer from yes bank")
     public void userClickOnTranferFromYesBank() throws InterruptedException {
         new LRSPage().TransferFromYesBank();
+
     }
 
     @And("User Enters the PAN details")
@@ -181,6 +182,14 @@ public class LRSSteps {
         new LRSPage().EnterNetBankingOTP();
 
     }
+    @And("User see Transaction Details")
+    public void userSeeTransactionDetails() throws IOException, InterruptedException {
+        new LRSPage().FetchDetails();
+        new LRSPage().TransactionDetails();
+        new LRSPage().ValidateTransferAmount();
+        new LRSPage().ValidateDepositAmount();
+        basePage.AndroidBack();
+    }
 
     @Then("the transaction should be successfull")
     public void theTransactionShouldBeSuccessfull() throws InterruptedException {
@@ -190,4 +199,14 @@ public class LRSSteps {
 
 
     }
+
+    @And("User Uploads the statement for first time")
+    public void userUploadsTheStatementForFirstTime() throws InterruptedException {
+        new LRSPage().ClickonUploadStatement();
+        new LRSPage().UploadBankStatement();
+        new LRSPage().TransferFromYesBank();
+    }
+
+
+
 }

@@ -68,14 +68,14 @@ Feature: Trades all buy related scenarios
 
   @Regression
   Scenario: User should be able to move stock from Top picks to Watchlist
-    Given User is on Trade dashboard
+    Given User is on the Trade dashboard
     And User clicks on Top picks tab
     And User clicks on watchlist icon for one of the stock
     Then User should see the same stocks under Watchlist
 
   @Regression
   Scenario: User should be able to remove stock from Watchlist
-    Given User is on Trade dashboard
+    Given User is on the Trade dashboard
     And User clicks on Top picks tab
     And User clicks on watchlist icon for one of the stock
     And User clicks on watchlist icon from Watchlist screen

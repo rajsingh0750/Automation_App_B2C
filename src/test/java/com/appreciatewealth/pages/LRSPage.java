@@ -120,7 +120,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='UPLOAD YOUR BANK E-STATEMENTS']")
     WebElement UploadEstatementButton;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.TextView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.GridView/androidx.cardview.widget.CardView[1]/androidx.cardview.widget.CardView/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.ImageView")
     WebElement SelectStatementFromDrive;
 
     @AndroidFindBy(xpath = "//*[@text='Or click here to finish']")
@@ -147,6 +147,17 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath="//*[@text='Axis']")
     WebElement SelectAxis;
 
+    @AndroidFindBy(xpath="//*[@text='view details']")
+    WebElement ViewDetails;
+
+    @AndroidFindBy(id ="img_arrow_order_history_list")
+    WebElement MoneyTransactionDetails;
+
+    @AndroidFindBy(id ="txv_label_transfer_amount_value")
+    WebElement TransferAmount;
+
+    @AndroidFindBy(id ="txv_label_deposit_amount_value")
+    WebElement DepositAmount;
     SignInPage signInPage;
 
     public LRSPage() {
@@ -162,7 +173,7 @@ public class LRSPage extends BasePage {
 
     }
     public void AddMoneytoBuyingPower() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         AddMoneytoBuyingPower.click();
     }
     public void EnterDepositAmount(String amount) throws InterruptedException {
@@ -259,7 +270,7 @@ public class LRSPage extends BasePage {
     public void EnterPAN() throws InterruptedException {
         Thread.sleep(20000);
         PAN.click();
-        EnterPan.sendKeys("EMLPK2328J");
+        EnterPan.sendKeys("ATKPV4759N");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
 
     }
@@ -267,7 +278,7 @@ public class LRSPage extends BasePage {
     public void EnterYesBankCustomerID(){
         CustomerID.click();
 
-        EnterCustomerID.sendKeys("8883564");
+        EnterCustomerID.sendKeys("32413278");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
 
     }
@@ -279,6 +290,7 @@ public class LRSPage extends BasePage {
     }
 
     public void EnterOTP1() throws IOException, InterruptedException {
+        Thread.sleep(8000);
         String otp = basePage.CopyOTPFromMessage();
         OTP1Click.click();
         OTP1Enter.sendKeys(otp);
@@ -335,11 +347,11 @@ public class LRSPage extends BasePage {
     public void SubmitCustomerIDandPassword() throws InterruptedException {
         Thread.sleep(8000);
         // LoginClick.click();
-        LoginIdEnter.sendKeys("8883564");
+        LoginIdEnter.sendKeys("varsha92");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         PasswordClick.click();
-        EnterPassword.sendKeys("Shubham@321");
+        EnterPassword.sendKeys("Rogger@321");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
         ClickAuthorize.click();
         Thread.sleep(8000);
@@ -353,9 +365,32 @@ public class LRSPage extends BasePage {
         Thread.sleep(6000);
 
     }
+    public void FetchDetails() throws IOException, InterruptedException {
+        Thread.sleep(10000);
+        ViewDetails.click();
+    }
 
-    public void ValidateTransactionIsSuccessFull(){
+    public void TransactionDetails() throws IOException, InterruptedException {
+        Thread.sleep(10000);
+        MoneyTransactionDetails.click();
+    }
+
+
+    public void ValidateTransferAmount() throws IOException, InterruptedException {
+        Thread.sleep(10000);
+        TransferAmount.isDisplayed();
+    }
+
+    public void ValidateDepositAmount() throws IOException, InterruptedException {
+        Thread.sleep(10000);
+        DepositAmount.isDisplayed();
+    }
+
+
+        public void ValidateTransactionIsSuccessFull() throws InterruptedException {
+            Thread.sleep(5000);
         CheckTransactionStatusMsg.isDisplayed();
+            Thread.sleep(5000);
         clickonViewDashboard.click();
 
     }

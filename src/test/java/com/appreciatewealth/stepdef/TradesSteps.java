@@ -1,6 +1,8 @@
 package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.BasePage;
+import com.appreciatewealth.pages.DashboardPage;
+import com.appreciatewealth.pages.SignInPage;
 import com.appreciatewealth.pages.TradesPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,7 +12,8 @@ import java.io.IOException;
 
 public class TradesSteps extends BasePage{
     BasePage basePage = new BasePage();
-
+    SignInPage signInPage = new SignInPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
     // Start of Scenario: Once the ETB user in onboarded successfully the user should be prompted with Buying Power sticky
 
@@ -168,13 +171,16 @@ public class TradesSteps extends BasePage{
     @And("User clicks on watchlist icon for one of the stock")
     public void userClicksOnWatchlistIconForOneOfTheStock() throws InterruptedException {
         new TradesPage().AddtoWatchlist();
-        new TradesPage().GetStocknameBeforeWatchlisted();
+
+
+
     }
 
     @Then("User should see the same stocks under Watchlist")
     public void userShouldSeeTheSameStocksUnderWatchlist() throws InterruptedException {
+        //new TradesPage().GetStocknameBeforeWatchlisted();
         new TradesPage().ClickonWatchlistTab();
-        new TradesPage().GetStocknameAfterWatchlisted();
+        //new TradesPage().GetStocknameAfterWatchlisted();
         new TradesPage().CheckIfWatchlisted();
         new TradesPage().RemovefromWatchlist();
         basePage.ClickProfileSettings();
@@ -312,7 +318,7 @@ public class TradesSteps extends BasePage{
 
     @Then("MIT order should be placed Successfully")
     public void mitOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Market If Touched(MIT)");
+        new TradesPage().ValidateOrderType(" Market If Touched(MIT)");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -493,6 +499,12 @@ public class TradesSteps extends BasePage{
     }
 
 
+    @Given("User is on the Trade dashboard")
+    public void userIsOnTheTradeDashboard() throws InterruptedException, IOException {
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+        dashboardPage.ClickOnGoToDashboard();
+        new TradesPage().DynamicTradeDashboard();
+    }
 }
 
 

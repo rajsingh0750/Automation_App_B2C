@@ -179,12 +179,12 @@ public class BasePage {
     }
 
     public String CopyOTPFromMessage() throws InterruptedException, IOException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         //((AndroidDriver) driver).runAppInBackground(Duration.ofSeconds(5));
         //Thread.sleep(3000);
         ((AndroidDriver) driver).activateApp("com.google.android.apps.messaging");
-        Thread.sleep(3000);
-       OTP =  driver.findElement(By.xpath("//android.support.v7.widget.RecyclerView[@content-desc=\"Conversation list\"]/android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.TextView[2]")).getText();
+        Thread.sleep(5000);
+       OTP =  driver.findElement(By.xpath("//android.support.v7.widget.RecyclerView[@content-desc=\"Conversation list\"]/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.TextView[2]")).getText();
         String pattern = "\\b\\d{6}\\b";
 
         // Create a Pattern object

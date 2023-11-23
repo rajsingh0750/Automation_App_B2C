@@ -8,6 +8,7 @@
 #    And User enters the amount to be deposited
 #    And User clicks on continue button
 #    And User click on tranfer from yes bank
+#    And User Uploads the statement for first time
 #    And User Enters the PAN details
 #    And User Enters the CustomerID
 #    And User click on Proceed
@@ -16,6 +17,7 @@
 #    And User Selects YesLogin
 #    And User submits the Net Banking Details
 #    And User enters the Net Banking OTP
+#    And User see Transaction Details
 #    Then the transaction should be successfull
 #
 #

@@ -1,6 +1,8 @@
 package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.BasePage;
+import com.appreciatewealth.pages.DashboardPage;
+import com.appreciatewealth.pages.SignInPage;
 import com.appreciatewealth.pages.TradesPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -9,6 +11,9 @@ import io.cucumber.java.en.Then;
 
 public class TradesSellSteps extends BasePage {
     BasePage basePage = new BasePage();
+
+    SignInPage signInPage = new SignInPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
     @Given("User clicks on Stock")
     public void user_clicks_on_stock() throws InterruptedException {
@@ -216,5 +221,10 @@ public class TradesSellSteps extends BasePage {
     }
 
 
-
+    @Given("User is on Trade dashboard Sell")
+    public void userIsOnTradeDashboardSell() throws InterruptedException {
+        signInPage.DynamicSignIn("tejal.tanniru@ppreciate.com");
+        dashboardPage.ClickOnGoToDashboard();
+        new TradesPage().DynamicTradeDashboard();
+    }
 }

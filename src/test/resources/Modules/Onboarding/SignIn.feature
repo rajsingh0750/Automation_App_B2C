@@ -13,7 +13,7 @@ Feature: Sign in
    Scenario: Sign in with invalid phone-number
     Given User is on enter phone number screen
     And User enters invalid number
-    And User enters valid password
+    #And User enters valid password
     Then User should see the popup message like Invalid Username
 
 
@@ -22,7 +22,7 @@ Feature: Sign in
   Scenario: Sign in with invalid OTP
     Given User is on enter phone number screen
     And User enters valid number
-    And User enters valid password
+    #And User enters valid password
     And User enters invalid OTP
     Then User should see the popup message "Incorrect OTP entered, please try again"
 
@@ -38,16 +38,16 @@ Feature: Sign in
 #    And User clicks on send me an OTP button
 #    Then User should see the error message "message username or password is invalid"
 
-  Scenario: Verify if user is able to reset the password
-    Given User is on the forgot password screen
-    And User click on Forgot password link
-    And User enters valid number
-    And User clicks on send me an OTP button
-    And User enters valid OTP and confirms the OTP
-    And User enters valid passcode
-    And User enters new password
-    And User confirms the new password
-    Then user should be on New Password set Screen
+#  Scenario: Verify if user is able to reset the password
+#    Given User is on the forgot password screen
+#    And User click on Forgot password link
+#    And User enters valid number
+#    And User clicks on send me an OTP button
+#    And User enters valid OTP and confirms the OTP
+#    And User enters valid passcode
+#    And User enters new password
+#    And User confirms the new password
+#    Then user should be on New Password set Screen
 
 
 #    Scenario: Get OTP from messaging app

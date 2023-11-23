@@ -150,7 +150,7 @@ public class SignInPage extends BasePage {
 
     public void ClickonSignin() throws InterruptedException {
 
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         SigninButton.click();
 
     }
@@ -161,13 +161,13 @@ public class SignInPage extends BasePage {
     }
 
     public void EnterOTP(String OTP) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         EnterOTP.sendKeys(OTP);
     }
 
     public void ClickonSendOTP() throws InterruptedException {
 
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         confirmOTP.click();
 
 

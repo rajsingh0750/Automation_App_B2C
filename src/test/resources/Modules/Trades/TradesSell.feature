@@ -1,8 +1,8 @@
-Feature: Trades all buy related scenarios
+Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Rupees
-    Given User is on Trade dashboard
+    Given User is on Trade dashboard Sell
     And User clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Rupees
@@ -13,7 +13,7 @@ Feature: Trades all buy related scenarios
 
   @Sanity @Regression
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Quantity
-    Given User is on Trade dashboard
+    Given User is on Trade dashboard Sell
     And User clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Quantity
@@ -24,7 +24,7 @@ Feature: Trades all buy related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place Limit order in Sell
-    Given User is on Trade dashboard
+    Given User is on Trade dashboard Sell
     And User clicks on Stock
     And User clicks on Sell
     And User clicks on Pro button
@@ -38,7 +38,7 @@ Feature: Trades all buy related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place Stop order in Sell
-    Given User is on Trade dashboard
+    Given User is on Trade dashboard Sell
     And User clicks on Stock
     And User clicks on Sell
     And User clicks on Pro button
@@ -51,7 +51,7 @@ Feature: Trades all buy related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place MIT order in Sell
-    Given User is on Trade dashboard
+    Given User is on Trade dashboard Sell
     And User clicks on Stock
     And User clicks on Sell
     And User clicks on Pro button
@@ -64,7 +64,7 @@ Feature: Trades all buy related scenarios
 
   @Sanity @Regression
   Scenario: Validate Quantity in holding is decreased after selling the stock in Quantity during Market close
-    Given User is on Trade dashboard
+    Given User is on Trade dashboard Sell
     And User checks the current holdings and clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Quantity
@@ -76,7 +76,7 @@ Feature: Trades all buy related scenarios
 
   @Sanity @Regression
   Scenario: Once the user sells stock in market close then all data points like P&L, total invested and current value should remain as it is until the order is processed
-    Given User is on Trade dashboard
+    Given User is on Trade dashboard Sell
     And User clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Rupees

@@ -17,6 +17,8 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.List;
 
+import static io.appium.java_client.AppiumBy.id;
+
 
 public class TradesPage extends BasePage {
     BasePage basePage = new BasePage();
@@ -67,7 +69,8 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup[3]/android.widget.TextView[2]")
     WebElement GetTotalInvested;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup")
+
+    @AndroidFindBy(id = "txv_portfolio_title")
     WebElement StockName;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup")
@@ -76,13 +79,13 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Transactions']")
     WebElement ValidateActivitiesPage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
+    @AndroidFindBy(id = "txvCurrentInvestedPrice")
     WebElement InvestedAmountOnDashboard;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
     WebElement StoreInvestedAmountOnDashboard;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
+    @AndroidFindBy(id = "txvCurrentValuePrice")
     WebElement CurrentValueOnDashboard;
 
     @AndroidFindBy(xpath= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
@@ -94,7 +97,7 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='Top picks']")
     WebElement TopPicksTab;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button")
+    @AndroidFindBy(id = "btnBuyNow")
     WebElement BuyNowTopPicks;
 
     @AndroidFindBy(xpath = "//*[@text='Buy in Rupees']")
@@ -108,13 +111,13 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='confirm selection']")
     WebElement ConfirmOrderType;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.ImageView[1]")
+    @AndroidFindBy(id = "imgFavourite")
     WebElement AddtoWatchlist;
 
     @AndroidFindBy(xpath = "//*[@text='Watchlist']")
     WebElement WatchlistTab;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView/android.view.ViewGroup")
+    @AndroidFindBy(id = "constraintChildOtherPicks")
     WebElement GetStockNameWatchListed;
 
     @AndroidFindBy(xpath = "//*[@text='Yes']")
@@ -204,7 +207,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='1.33333333']")
     WebElement ValidateQuantityDecimals;
 
-    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
+    @AndroidFindBy (id = "txvNetChange")
     private WebElement CurrentPandL;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/androidx.cardview.widget.CardView[3]/android.view.ViewGroup/android.widget.ImageView")
@@ -343,6 +346,12 @@ public class TradesPage extends BasePage {
 
     }
 
+    public void DynamicTradeDashboard() throws InterruptedException {
+        Thread.sleep(5000);
+        TradeButton.click();
+    }
+
+
     public void ClickonBuyNow() throws InterruptedException {
 
         WebElement clickonbuynow = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
@@ -449,7 +458,7 @@ public class TradesPage extends BasePage {
     public void ValidateStockLink() throws InterruptedException {
 
         Thread.sleep(8000);
-        String geStocknameDetailsPage = StockNameOnDetailsPage.getText();
+        //String geStocknameDetailsPage = StockNameOnDetailsPage.getText();
         Thread.sleep(8000);
         ValidateActivitiesPage.isDisplayed();
         //Assert.assertEquals(StockNameOnPortfolio, geStocknameDetailsPage);
@@ -459,6 +468,7 @@ public class TradesPage extends BasePage {
     public void ClickonStock() throws InterruptedException {
         Thread.sleep(5000);
         // GetStockNameOnPortfolio();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"AMZN\").instance(0))"));
         StockName.click();
     }
 
@@ -552,26 +562,37 @@ public class TradesPage extends BasePage {
 
     public void AddtoWatchlist() throws InterruptedException {
         Thread.sleep(5000);
-        // driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Hot stock\").instance(0))"));
-        AddtoWatchlist.click();
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"view more\").instance(0))"));
+        boolean canScrollMore = true;
+        while (canScrollMore) {
+            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 700, "height", 800,
+                    "direction", "down",
+                    "percent", 1.0
+            ));
+            Thread.sleep(5000);
+            AddtoWatchlist.click();
+        }
     }
 
-    public void GetStocknameBeforeWatchlisted() throws InterruptedException {
+//    public void GetStocknameBeforeWatchlisted() throws InterruptedException {
+//        Thread.sleep(5000);
+//        StocknameBeforeWatchlisting = GetStockNameWatchListed.getText();
+//
+//    }
+
+//    public void GetStocknameAfterWatchlisted() throws InterruptedException {
+//        Thread.sleep(5000);
+//        StocknameAfterWatchlsiting = GetStockNameWatchListed.getText();
+//    }
+
+    public void ClickonWatchlistTab() throws InterruptedException {
         Thread.sleep(5000);
-        StocknameBeforeWatchlisting = GetStockNameWatchListed.getText();
-
-    }
-
-    public void GetStocknameAfterWatchlisted() throws InterruptedException {
-        Thread.sleep(5000);
-        StocknameAfterWatchlsiting = GetStockNameWatchListed.getText();
-    }
-
-    public void ClickonWatchlistTab() {
         WatchlistTab.click();
     }
 
-    public void CheckIfWatchlisted() {
+    public void CheckIfWatchlisted() throws InterruptedException {
+        Thread.sleep(5000);
         Assert.assertEquals(StocknameBeforeWatchlisting, StocknameAfterWatchlsiting);
 
     }
@@ -579,14 +600,15 @@ public class TradesPage extends BasePage {
     public void RemovefromWatchlist() throws InterruptedException {
         Thread.sleep(5000);
         AddtoWatchlist.click();
-        ConfirmRemovefromWatchlist.click();
         Thread.sleep(5000);
+        ConfirmRemovefromWatchlist.click();
+
 
     }
 
     public void CheckIfRemovedfromWatchlisted() throws InterruptedException {
         Thread.sleep(8000);
-        List<WebElement> list = driver.findElements(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[1]"));
+        List<WebElement> list = driver.findElements(By.id("txvStockName"));
         int count = list.size();
         System.out.println("count to check if element is deleted it should be zero " + count);
         Assert.assertEquals(count, 0);
@@ -743,7 +765,7 @@ public class TradesPage extends BasePage {
         Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
         Thread.sleep(5000);
-        driver.findElement(AppiumBy.xpath("//*[@text='TSLA']")).click();
+        driver.findElement(AppiumBy.id("constraintChildOtherPicks")).click();
         /*driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
         ));*/
@@ -867,7 +889,8 @@ public class TradesPage extends BasePage {
 
     }
 
-    public String CurrentPandLAfterBuy(){
+    public String CurrentPandLAfterBuy() throws InterruptedException {
+        Thread.sleep(5000);
         return CurrentPandL.getText();
     }
 
@@ -894,7 +917,7 @@ public class TradesPage extends BasePage {
 
     public void ComparePortfollioBeforeAndAfterBuy() throws InterruptedException {
         Thread.sleep(8000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
         Thread.sleep(10000);
         Assert.assertEquals(GetCurrentInvestmentBeforeBuy(),getCurrentInvestmentAfterBuy());
         System.out.println("CurrentInvestmentBeforeBuy "+GetCurrentInvestmentBeforeBuy());
