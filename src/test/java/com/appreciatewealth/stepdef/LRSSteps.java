@@ -208,5 +208,8 @@ public class LRSSteps {
     }
 
 
-
+    @Given("User is on Message App")
+    public void userIsOnMessageApp() throws IOException, InterruptedException {
+        basePage.CopyOTPFromMessage();
+    }
 }

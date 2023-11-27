@@ -173,7 +173,7 @@ public class LRSPage extends BasePage {
 
     }
     public void AddMoneytoBuyingPower() throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(10000);
         AddMoneytoBuyingPower.click();
     }
     public void EnterDepositAmount(String amount) throws InterruptedException {
@@ -258,8 +258,8 @@ public class LRSPage extends BasePage {
     }
 
     public void TransferFromYesBank() throws InterruptedException {
-        Thread.sleep(4000);
-        Thread.sleep(3000);
+        Thread.sleep(10000);
+        //Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
         TransferFromYesBank.click();
 

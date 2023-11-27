@@ -179,18 +179,19 @@ public class BasePage {
     }
 
     public String CopyOTPFromMessage() throws InterruptedException, IOException {
-        Thread.sleep(5000);
-        //((AndroidDriver) driver).runAppInBackground(Duration.ofSeconds(5));
-        //Thread.sleep(3000);
+        Thread.sleep(3000);
+//((AndroidDriver) driver).runAppInBackground(Duration.ofSeconds(5));
+//Thread.sleep(3000);
         ((AndroidDriver) driver).activateApp("com.google.android.apps.messaging");
-        Thread.sleep(5000);
-       OTP =  driver.findElement(By.xpath("//android.support.v7.widget.RecyclerView[@content-desc=\"Conversation list\"]/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.TextView[2]")).getText();
+        Thread.sleep(3000);
+
+        OTP = driver.findElement(By.xpath("//android.support.v7.widget.RecyclerView[@content-desc=\"Conversation list\"]/android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.TextView[2]")).getText();
         String pattern = "\\b\\d{6}\\b";
 
-        // Create a Pattern object
+// Create a Pattern object
         Pattern r = Pattern.compile(pattern);
 
-        // Create a Matcher object
+// Create a Matcher object
         Matcher matcher = r.matcher(OTP);
 
         if (matcher.find()) {
@@ -199,13 +200,24 @@ public class BasePage {
         } else {
             System.out.println("OTP not found in the content.");
         }
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.HOME));
+        boolean canScrollMore = true;
+        while (canScrollMore) {
+            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 600, "height", 600,
+// "elementId", ((RemoteWebElement) element).getId(),
+                    "direction", "down",
+                    "percent", 1.0
+            ));
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("//*[@text='WORK']")).click();
 
-        ((AndroidDriver) driver).activateApp(ConfigLoader.getInstance().getProperty("androidAppPackage"));
+            ((AndroidDriver) driver).activateApp(ConfigLoader.getInstance().getProperty("androidAppPackage"));
+
+
+
+        }
         return otp;
-
-
-
-
     }
 
     public static String generateRandomString(int length) {

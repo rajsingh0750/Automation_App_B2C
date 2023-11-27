@@ -174,7 +174,7 @@ public class SignInPage extends BasePage {
     }
 
     public void Signin() throws InterruptedException, IOException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         TapEmail.click();
         //TextBox.sendKeys("faureretruba-9695@yopmail.com");
         TextBox.sendKeys(ConfigLoader.getInstance().getProperty("StageEmail"));
@@ -182,11 +182,11 @@ public class SignInPage extends BasePage {
         // Thread.sleep(3000);
         //Password.sendKeys("Test@123");
         //SendOTP.click();
-        Thread.sleep(3000);
+        Thread.sleep(8000);
 
         EnterOTP.sendKeys("904123");
         confirmOTP.click();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         //AllowOTPfromClipboard();
         boolean b = ((AndroidDriver) driver).isKeyboardShown();
         System.out.println("Keyboard Shown "+b);
