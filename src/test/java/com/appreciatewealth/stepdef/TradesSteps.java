@@ -46,7 +46,7 @@ public class TradesSteps extends BasePage{
 
     @Given("User enters the amount")
     public void user_enters_the_amount() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("2000");
+        new TradesPage().EnterTradeAmount("1");
     }
 
     @Given("User clicks on review order button")
