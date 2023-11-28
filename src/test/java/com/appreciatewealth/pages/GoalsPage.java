@@ -53,7 +53,7 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]")
     private WebElement ValidateGoalCalculatorScreen;
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'35')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'30')]")
     private WebElement ValidateCurrentAge;
 
     @AndroidFindBy(xpath = "//*[contains(@text,'65')]")

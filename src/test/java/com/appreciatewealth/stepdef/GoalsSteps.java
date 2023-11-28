@@ -48,7 +48,7 @@ public class GoalsSteps extends BasePage {
     public void the_user_should_be_redirected_to_the_goal_to_calculate_target_goal_amount() throws InterruptedException {
         new GoalsPage().SelectGoalType();
         new GoalsPage().EnterAmount("20000");
-        new GoalsPage().ValidateCurrentAge("35");
+        new GoalsPage().ValidateCurrentAge("30");
         new GoalsPage().ValidateRetirementAge("65");
         new GoalsPage().ClickonSeeTargetAmount();
         Thread.sleep(3000);
@@ -716,7 +716,7 @@ public class GoalsSteps extends BasePage {
 
     @Given("the user is on the Goals Dashboard")
     public void theUserIsOnTheGoalsDashboard() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
