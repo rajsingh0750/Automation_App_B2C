@@ -111,7 +111,7 @@ Feature: Trades all buy related scenarios
       Then the entered value should be retained
 
      @Sanity @Regression
-     Scenario: Validate if the user is able to place Limit order
+     Scenario: Validate if the user is able to place Limit order with order expiry as Till Market Closed
        Given User is on Trade dashboard
        And User clicks on Buy now for a stock
        And User clicks on Pro button
@@ -121,10 +121,34 @@ Feature: Trades all buy related scenarios
        And User clicks on review order button
        And User selects order expiry as Till Market is closed
        Then Limit order should be placed Successfully
+       
+       @Sanity @Regression
+  Scenario: Validate if the user is able to place Limit order with order expiry as Good till Cancelled
+    Given User is on Trade dashboard
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as limit order
+    And User enters the Quantity
+    And User enters the limit price
+    And User clicks on review order button
+    And User selects Limit order expiry as Good till Cancelled
+    Then Limit order should be placed Successfully
+
+     @Sanity @Regression
+  Scenario: Validate if the user is able to place Limit order with order expiry as Custom Date
+    Given User is on Trade dashboard
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as limit order
+    And User enters the Quantity
+    And User enters the limit price
+    And User clicks on review order button
+    And User selects Limit order expiry as Custom Date
+    Then Limit order should be placed Successfully
 
 
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place Stop order
+@Sanity @Regression
+  Scenario: Validate if the user is able to place Stop order with order expiry as till Market Closed
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User clicks on Pro button
@@ -134,9 +158,34 @@ Feature: Trades all buy related scenarios
     And User clicks on review order button
     And User selects order expiry as Till Market is closed
     Then Stop order should be placed Successfully
+    
+      @Sanity @Regression
+  Scenario: Validate if the user is able to place Stop order with order expiry as Good till Cancelled
+    Given User is on Trade dashboard
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as Stop order
+    And User enters the Quantity
+    And User enters the limit price
+    And User clicks on review order button
+    And User selects Stop order expiry as Good till Cancelled
+    Then Stop order should be placed Successfully
+    
+    @Sanity @Regression
+  Scenario: Validate if the user is able to place Stop order with order expiry as Custom Date
+    Given User is on Trade dashboard
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as Stop order
+    And User enters the Quantity
+    And User enters the limit price
+    And User clicks on review order button
+    And User selects Stop order expiry as Custom Date
+    Then Stop order should be placed Successfully
+
 
   @Sanity @Regression
-  Scenario: Validate if the user is able to place MIT order
+  Scenario: Validate if the user is able to place MIT order with order expiry as till Market Closed
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User clicks on Pro button
@@ -145,6 +194,30 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on review order button
     And User selects order expiry as Till Market is closed
+    Then MIT order should be placed Successfully
+
+      @Sanity @Regression
+  Scenario: Validate if the user is able to place MIT order with order expiry as Good till Cancelled
+    Given User is on Trade dashboard
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as MIT order
+    And User enters the Quantity
+    And User enters the limit price
+    And User clicks on review order button
+    And User selects MIT order expiry as Good till Cancelled
+    Then MIT order should be placed Successfully
+
+    @Sanity @Regression
+  Scenario: Validate if the user is able to place MIT order with order expiry as Custom Date
+    Given User is on Trade dashboard
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as MIT order
+    And User enters the Quantity
+    And User enters the limit price
+    And User clicks on review order button
+    And User selects MIT order expiry as Custom Date
     Then MIT order should be placed Successfully
 
 
