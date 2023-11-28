@@ -398,6 +398,28 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Drafts\"]")
     WebElement DraftTab;
 
+    @AndroidFindBy(id = "txvActiveTitle")
+    WebElement PauseGoalName;
+
+    @AndroidFindBy(id = "three_dot")
+    WebElement ThreeDots;
+
+    @AndroidFindBy(xpath = "//*[@text='pause']")
+    WebElement Pause;
+
+    @AndroidFindBy(xpath = "//*[@text='pause 1 SIP']")
+    WebElement PauseSIP;
+
+    @AndroidFindBy(xpath = "//*[@text='go back to goals']")
+    WebElement BackToGoals;
+
+    @AndroidFindBy(xpath = "//*[@text='History']")
+    WebElement History;
+
+    @AndroidFindBy(id = "tvTransactionStatus")
+    WebElement PauseStatus;
+
+
     public static String RandomGoalName;
     public static String finalName;
 
@@ -1297,7 +1319,51 @@ public class GoalsPage extends BasePage {
 
     }
 
+    public void SelectPauseGoal() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
+        Thread.sleep(5000);
+        PauseGoalName.click();
 
+    }
+
+    public void SelectThreeDots() throws InterruptedException {
+        Thread.sleep(5000);
+        ThreeDots.click();
+
+    }
+
+    public void SelectPause() throws InterruptedException {
+        Thread.sleep(5000);
+       Pause.click();
+
+    }
+
+    public void SelectSIP() throws InterruptedException {
+        Thread.sleep(5000);
+        PauseSIP.click();
+
+    }
+
+    public void GoalHomePage() throws InterruptedException {
+        Thread.sleep(5000);
+        BackToGoals.click();
+
+    }
+
+    public void SelectHistory() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
+        Thread.sleep(5000);
+        History.click();
+
+    }
+
+    public void ValidateGoalsPauseStatus() throws InterruptedException {
+        Thread.sleep(5000);
+        PauseStatus.isDisplayed();
+
+    }
 
 }
 

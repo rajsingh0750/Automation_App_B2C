@@ -189,8 +189,10 @@ public class LRSPage extends BasePage {
         ContinueButton.click();
     }
 
-    public void ClickonUploadStatement(){
+    public void ClickonUploadStatement() throws InterruptedException {
+        Thread.sleep(8000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
+        Thread.sleep(8000);
         UploadStatementButton.click();
     }
 
@@ -206,9 +208,9 @@ public class LRSPage extends BasePage {
         uploadManually.click();
         Thread.sleep(5000);
         IconfirmButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         UploadEstatementButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         SelectStatementFromDrive.click();
         Thread.sleep(10000);
         ClickonFinish.click();

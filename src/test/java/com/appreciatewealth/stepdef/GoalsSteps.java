@@ -716,7 +716,7 @@ public class GoalsSteps extends BasePage {
 
     @Given("the user is on the Goals Dashboard")
     public void theUserIsOnTheGoalsDashboard() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
@@ -783,37 +783,49 @@ public class GoalsSteps extends BasePage {
     }
 
     @Given("the User is on Goals Dashboard for monthly goal pause")
-    public void theUserIsOnGoalsDashboardForMonthlyGoalPause() {
+    public void theUserIsOnGoalsDashboardForMonthlyGoalPause() throws InterruptedException, IOException {
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+        dashboardPage.ClickOnGoToDashboard();
+        new GoalsPage().SwitchtoGoal();
         
     }
 
     @And("user selects mothly goals in Active List")
-    public void userSelectsMothlyGoalsInActiveList() {
+    public void userSelectsMothlyGoalsInActiveList() throws InterruptedException {
+        new GoalsPage().SelectPauseGoal();
+
         
     }
 
     @And("user clicks on Pause option")
-    public void userClicksOnPauseOption() {
+    public void userClicksOnPauseOption() throws InterruptedException {
+        new GoalsPage().SelectThreeDots();
+        new GoalsPage().SelectPause();
+
         
     }
 
     @And("user selects pause SIP button")
-    public void userSelectsPauseSIPButton() {
-        
+    public void userSelectsPauseSIPButton() throws InterruptedException {
+        new GoalsPage().SelectSIP();
+
     }
 
     @When("user selects go back to goals")
-    public void userSelectsGoBackToGoals() {
+    public void userSelectsGoBackToGoals() throws InterruptedException {
+        new GoalsPage().GoalHomePage();
         
     }
 
     @And("user selects history")
-    public void userSelectsHistory() {
+    public void userSelectsHistory() throws InterruptedException {
+        new GoalsPage().SelectHistory();
         
     }
 
     @Then("user should see Pause status")
-    public void userShouldSeePauseStatus() {
+    public void userShouldSeePauseStatus() throws InterruptedException {
+        new GoalsPage().ValidateGoalsPauseStatus();
     }
 }
 
