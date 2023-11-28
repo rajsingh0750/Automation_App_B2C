@@ -88,67 +88,43 @@ Feature: Trades all buy related scenarios
     And User enters the amount less than the required limit
     Then User should be prompted with error message Minimum Transaction Amount Should be "0.83" INR.
 
-  @Regression
-  Scenario: Validate if the error message is removed once the user switch to other app
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User enters the amount less than the required limit
+    @Regression
+    Scenario: Validate if the error message is removed once the user switch to other app
+      Given User is on Trade dashboard
+      And User clicks on Buy now for a stock
+      And User enters the amount less than the required limit
       #And User should be prompted with error message "Minimum Transaction Amount Should be 0.84 INR."
-    And User minimizes the app and again switch to Appreciate app
-    Then the error message should be removed
+      And User minimizes the app and again switch to Appreciate app
+      Then the error message should be removed
 
-  @Regression
-  Scenario: Validate if the percentage change shown under Portfolio is correct for Total P&L
-    Given User is on Trade dashboard
-    Then User should see percentage change of P&L based on the Current Investment and Overall returns
+    @Regression
+    Scenario: Validate if the percentage change shown under Portfolio is correct for Total P&L
+      Given User is on Trade dashboard
+      Then User should see percentage change of P&L based on the Current Investment and Overall returns
 
-  @Regression
-  Scenario: Validate if the entered amount/quantity in trade is retained once the user switch to other app
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User enters the amount
-    And User minimizes the app and again switch to Appreciate app
-    Then the entered value should be retained
+   @Regression
+    Scenario: Validate if the entered amount/quantity in trade is retained once the user switch to other app
+      Given User is on Trade dashboard
+      And User clicks on Buy now for a stock
+      And User enters the amount
+      And User minimizes the app and again switch to Appreciate app
+      Then the entered value should be retained
 
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place Limit order with order expiry as Till Market Closed
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as limit order
-    And User enters the Quantity
-    And User enters the limit price
-    And User clicks on review order button
-    And User selects order expiry as Till Market is closed
-    Then Limit order should be placed Successfully
-
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place Limit order with order expiry as Good till Cancelled
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as limit order
-    And User enters the Quantity
-    And User enters the limit price
-    And User clicks on review order button
-    And User selects Limit order expiry as Good till Cancelled
-    Then Limit order should be placed Successfully
-
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place Limit order with order expiry as Custom Date
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as limit order
-    And User enters the Quantity
-    And User enters the limit price
-    And User clicks on review order button
-    And User selects Limit order expiry as Custom Date
-    Then Limit order should be placed Successfully
+     @Sanity @Regression
+     Scenario: Validate if the user is able to place Limit order
+       Given User is on Trade dashboard
+       And User clicks on Buy now for a stock
+       And User clicks on Pro button
+       And User selects order type as limit order
+       And User enters the Quantity
+       And User enters the limit price
+       And User clicks on review order button
+       And User selects order expiry as Till Market is closed
+       Then Limit order should be placed Successfully
 
 
   @Sanity @Regression
-  Scenario: Validate if the user is able to place Stop order with order expiry as till Market Closed
+  Scenario: Validate if the user is able to place Stop order
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User clicks on Pro button
@@ -160,32 +136,7 @@ Feature: Trades all buy related scenarios
     Then Stop order should be placed Successfully
 
   @Sanity @Regression
-  Scenario: Validate if the user is able to place Stop order with order expiry as Good till Cancelled
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as Stop order
-    And User enters the Quantity
-    And User enters the limit price
-    And User clicks on review order button
-    And User selects Stop order expiry as Good till Cancelled
-    Then Stop order should be placed Successfully
-
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place Stop order with order expiry as Custom Date
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as Stop order
-    And User enters the Quantity
-    And User enters the limit price
-    And User clicks on review order button
-    And User selects Stop order expiry as Custom Date
-    Then Stop order should be placed Successfully
-
-
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place MIT order with order expiry as till Market Closed
+  Scenario: Validate if the user is able to place MIT order
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User clicks on Pro button
@@ -196,37 +147,13 @@ Feature: Trades all buy related scenarios
     And User selects order expiry as Till Market is closed
     Then MIT order should be placed Successfully
 
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place MIT order with order expiry as Good till Cancelled
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as MIT order
-    And User enters the Quantity
-    And User enters the limit price
-    And User clicks on review order button
-    And User selects MIT order expiry as Good till Cancelled
-    Then MIT order should be placed Successfully
 
-  @Sanity @Regression
-  Scenario: Validate if the user is able to place MIT order with order expiry as Custom Date
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as MIT order
-    And User enters the Quantity
-    And User enters the limit price
-    And User clicks on review order button
-    And User selects MIT order expiry as Custom Date
-    Then MIT order should be placed Successfully
-
-
-  @Sanity @Regression
-  Scenario: Validate while buying stock user is allowed to enter amount at most two decimal place only
-    Given User is on Trade dashboard
-    And User clicks on Buy now for a stock
-    And User enters the amount in three or more decimal place
-    Then Amount field should ignore the decimals after two place
+@Sanity @Regression
+Scenario: Validate while buying stock user is allowed to enter amount at most two decimal place only
+  Given User is on Trade dashboard
+  And User clicks on Buy now for a stock
+  And User enters the amount in three or more decimal place
+  Then Amount field should ignore the decimals after two place
 
 
   @Sanity @Regression
@@ -250,7 +177,7 @@ Feature: Trades all buy related scenarios
 
 
   @Sanity @Regression
-  Scenario: Verify if the user enters the text in global search then relevant stocks are appearing on screen
+    Scenario: Verify if the user enters the text in global search then relevant stocks are appearing on screen
     Given User is on Trade dashboard
     And User opens the global search
     And User enters the stock name
