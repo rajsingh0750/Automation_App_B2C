@@ -209,25 +209,31 @@ Feature: Goals
     Then User should successfully create goals from draft
 
 
-#  @Sanity @Regression
-#  Scenario: Verify that monthly Goals can be paused
-#
-#    Given the User is on Goals Dashboard for monthly goal pause
-#    And user select Retire goal type
-#    And user click on the CTA for monthly payment
-#    When user is on Optional payment page
-#    And user adds one-time payment for retirement
-#    And user click on the CTA to proceed with one-time payment
-#    Then user should be on the Step Up page
-#    And user click increase monthly investment by
-#    And user click on the CTA for proceed with step up
-#    And user clicks on okay button
-#    And user see setup details
-#    And user see Investment details
-#    And user click on the CTA for next
-#    And the Retirement goal for monthly payment is successfully created
-#    And user click on the CTA take me back to goals
-#    Then user sucessfully Creates monthly payment Retirement goals
+  @Sanity @Regression
+  Scenario: Verify that monthly Goals can be paused
+
+    Given the User is on Goals Dashboard for monthly goal pause
+    And user select Retire goal type
+    And user click on the CTA for monthly payment
+    When user is on Optional payment page
+    And user adds one-time payment for retirement
+    And user click on the CTA to proceed with one-time payment
+    Then user should be on the Step Up page
+    And user click increase monthly investment by
+    And user click on the CTA for proceed with step up
+    And user clicks on okay button
+    And user see setup details
+    And user see Investment details
+    And user click on the CTA for next
+    And the Retirement goal for monthly payment is successfully created
+    And user click on the CTA take me back to goals
+    And user selects mothly goals in Active List
+    And user clicks on Pause option
+    And user selects pause SIP button
+    When user selects go back to goals
+    And user selects history
+    Then user should see Pause status
+
 
 
 

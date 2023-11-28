@@ -468,7 +468,7 @@ public class TradesPage extends BasePage {
     public void ClickonStock() throws InterruptedException {
         Thread.sleep(5000);
         // GetStockNameOnPortfolio();
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"AMZN\").instance(0))"));
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"JPM\").instance(0))"));
         StockName.click();
     }
 

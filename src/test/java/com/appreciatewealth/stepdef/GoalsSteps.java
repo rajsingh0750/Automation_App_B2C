@@ -781,6 +781,40 @@ public class GoalsSteps extends BasePage {
         new BasePage().ClickProfileSettings();
         basePage.Logout();
     }
+
+    @Given("the User is on Goals Dashboard for monthly goal pause")
+    public void theUserIsOnGoalsDashboardForMonthlyGoalPause() {
+        
+    }
+
+    @And("user selects mothly goals in Active List")
+    public void userSelectsMothlyGoalsInActiveList() {
+        
+    }
+
+    @And("user clicks on Pause option")
+    public void userClicksOnPauseOption() {
+        
+    }
+
+    @And("user selects pause SIP button")
+    public void userSelectsPauseSIPButton() {
+        
+    }
+
+    @When("user selects go back to goals")
+    public void userSelectsGoBackToGoals() {
+        
+    }
+
+    @And("user selects history")
+    public void userSelectsHistory() {
+        
+    }
+
+    @Then("user should see Pause status")
+    public void userShouldSeePauseStatus() {
+    }
 }
 
 

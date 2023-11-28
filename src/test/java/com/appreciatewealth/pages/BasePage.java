@@ -42,16 +42,16 @@ public class BasePage {
     PropertyManager props = new PropertyManager();
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ImageView\n" + "\t")
-   WebElement ProfileSettings;
+    WebElement ProfileSettings;
 
     @AndroidFindBy(xpath = "//*[@text='Logout']")
-   WebElement LogoutButton;
+    WebElement LogoutButton;
 
     @AndroidFindBy(id ="//*[@text='Clear all']")
-   WebElement CloseRecentApp;
+    WebElement CloseRecentApp;
 
 
-    protected final AppiumDriver driver;
+    public static AppiumDriver driver;
 
     TestUtils utils = new TestUtils();
 
@@ -89,7 +89,7 @@ public class BasePage {
         //ProfileSettings.click();
         Thread.sleep(6000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Logout\").instance(0))"));
-       LogoutButton.click();
+        LogoutButton.click();
         //((AndroidDriver)driver).terminateApp("com.appreciatewealth.android.uat");
         Thread.sleep(6000);
     }
@@ -201,25 +201,63 @@ public class BasePage {
             System.out.println("OTP not found in the content.");
         }
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.HOME));
-        boolean canScrollMore = true;
-        while (canScrollMore) {
-            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 600,
-// "elementId", ((RemoteWebElement) element).getId(),
-                    "direction", "down",
-                    "percent", 1.0
-            ));
-            Thread.sleep(3000);
-            driver.findElement(By.xpath("//*[@text='WORK']")).click();
+//        boolean canScrollMore = true;
+//        while (canScrollMore) {
+//            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+//                    "left", 100, "top", 100, "width", 600, "height", 600,
+//// "elementId", ((RemoteWebElement) element).getId(),
+//                    "direction", "down",
+//                    "percent", 1.0
+//            ));
+        Thread.sleep(3000);
+        BasePage.SwipeUP();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@text='WORK']")).click();
 
-            ((AndroidDriver) driver).activateApp(ConfigLoader.getInstance().getProperty("androidAppPackage"));
+
+        ((AndroidDriver) driver).activateApp(ConfigLoader.getInstance().getProperty("androidAppPackage"));
 
 
 
-        }
+
         return otp;
     }
 
+    public static void SwipeUP() throws InterruptedException {
+        Thread.sleep(2000);
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.HOME));
+        Thread.sleep(3000);
+    /*WebElement element= driver.findElement(AppiumBy.xpath("//*[contains(@text,'sign out')]"));
+       // WebElement element4 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId()
+        ));*/
+        int startX = 352;
+        int startY = 1075;
+        int endY = 700;  // Adjust this value for the end position of the swipe
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipeUp = new Sequence(finger, 1);
+
+// Move to the starting position
+        swipeUp.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
+
+// Press down to start the swipe
+        swipeUp.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+// Move to the end position to simulate the swipe
+        swipeUp.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), startX, endY));
+
+// Release the button to complete the swipe
+        swipeUp.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        driver.perform(List.of(swipeUp));
+
+
+        // System.out.println(text);
+
+    }
     public static String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder randomString = new StringBuilder();
