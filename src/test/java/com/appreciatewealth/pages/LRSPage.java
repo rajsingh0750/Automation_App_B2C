@@ -192,8 +192,8 @@ public class LRSPage extends BasePage {
     public void ClickonUploadStatement() throws InterruptedException {
         Thread.sleep(8000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
-        Thread.sleep(8000);
         UploadStatementButton.click();
+        Thread.sleep(8000);
     }
 
     public void SelectBankAccount() throws InterruptedException {
