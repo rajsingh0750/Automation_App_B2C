@@ -494,10 +494,10 @@ public class GoalsPage extends BasePage {
     public void Validategoalcalculator() throws InterruptedException {
 
 
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         WebElement clickongoalcalculator = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"goal calculator\").instance(0))"));
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[3]"));
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         clickongoalcalculator.isDisplayed();
 
     }
@@ -519,7 +519,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void EnterCurrentAge(String Age) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Tapcurrent.click();
         Sendcurrentage.clear();
         // EnterCurrentAge.clear();
@@ -527,14 +527,14 @@ public class GoalsPage extends BasePage {
     }
 
     public void EnterRetireAge(String RetireAge) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         TapRetire.click();
         SendRetireAge.clear();
         SendRetireAge.sendKeys(RetireAge);
     }
 
     public void EnterAmount(String Amount) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         EnterAmount.sendKeys(Amount);
     }
 
@@ -545,56 +545,56 @@ public class GoalsPage extends BasePage {
     }
 
     public void ValidateRetirementby() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualRetirementAge = ValidateRetirementby.getText();
         //BasePage.formatDate();
        Assert.assertEquals(ActualRetirementAge,BasePage.formatDateWithAddedYears() );
     }
 
     public void ValidateCurrentexpenses(String Expenses) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualExpenses = ValidateCurrentexpenses.getText();
         Assert.assertEquals(ActualExpenses, Expenses);
     }
 
     public void ValidateExpenseswithinflation(String inflation) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String Actualinflation = ValidateExpenseswithinflation.getText();
         Assert.assertEquals(Actualinflation, inflation);
     }
 
     public void ValidateToretire(String Toretire) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualToretire = ValidateToretire.getText();
         Assert.assertEquals(ActualToretire, Toretire);
     }
 
     public void ValidateTotalamount(String Totalamount) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualTotalamount = ValidateTotalamount.getText();
         Assert.assertEquals(ActualTotalamount, Totalamount);
     }
 
 
     public void ValidateCurrentAge(String Age) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String ActualAge = ValidateCurrentAge.getText();
         Assert.assertEquals(ActualAge, Age);
     }
 
     public void ValidateRetirementAge(String RetirementAge) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String Age2 = ValidateRetireAge.getText();
         Assert.assertEquals(RetirementAge, Age2);
     }
 
     public void ClickonSeeTargetAmount() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         SelectSeeTargetButton.click();
     }
 
     public void ValidateStartGoalButton() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         ValidateStartGoalSetUp.isDisplayed();
     }
 
@@ -664,7 +664,7 @@ public class GoalsPage extends BasePage {
 
     //Select goal type from goal creation
     public void clickongoaltype() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goaltype.click();
         SelectOkay.click();
 
@@ -680,19 +680,19 @@ public class GoalsPage extends BasePage {
 
     //Enter goal name in goal creation page
     public void Entergoalname(String Name) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Entergoalname.sendKeys(Name);
     }
 
     // Select the target date in goal creation page
     public void clicktargetdate() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         targetdate.click();
 
     }
 
     public void clicktargetyear() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         targetyear.click();
 
     }
@@ -701,52 +701,52 @@ public class GoalsPage extends BasePage {
 
         WebElement clicktargetyear = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2025\").instance(0))"));
         driver.findElement(By.xpath("//*[@index='2' and @text='2025']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         oktargetdate.click();
 
 
     }
 
     public void targetamount(String Amount) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         targetamount.sendKeys(Amount);
     }
 
     // Investment option selections
     public void onetimeinvestment() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goalonetimeinvestment.click();
 
 
     }
 
     public void investment() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goalinvestmentoptions.click();
 
 
     }
 
     public void Targetportfoliodashboard() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Targetportfoliodashboard.isDisplayed();
     }
 
     public void investmentpage() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"proceed with investment\").instance(0))"));
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")).click();
     }
 
     public void settgoal() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         clicksetupgoal.click();
 
 
     }
 
     public void Successfullinvestment() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goalsuccessfullpage.isDisplayed();
     }
 
@@ -765,13 +765,13 @@ public class GoalsPage extends BasePage {
     }
 
     public void ValidateReviewgoalpage() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         ValidateReviewgoalpage.isDisplayed();
 
     }
 
     public void Backbutton() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         clickbackbutton.click();
     }
 
@@ -850,24 +850,24 @@ public class GoalsPage extends BasePage {
     }
 
     public void GoalsIncrement() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         IncrementInvestment.click();
 
     }
 
     public void ValidateIncrementMessage(String Message) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         String msg = PromptMessage.getText();
         Assert.assertEquals(Message, msg);
     }
 
     public void GoalsDecrement() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         DecrementInvestment.click();
     }
 
     public void ValidateDecrementMessage(String Message1) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         String msgd = DecrementPromptMessage.getText();
         Assert.assertEquals(Message1, msgd);
     }
@@ -881,13 +881,13 @@ public class GoalsPage extends BasePage {
         Sendcurrentage.sendKeys(CurrentAge);
     }*/
     public void ValidateAgeErrorMessage(String AgeErrorMessage1) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         String errormessage = AgeErrorMessage.getText();
         Assert.assertEquals(AgeErrorMessage1, errormessage);
     }
 
     public void Close() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         ErrorClose.click();
     }
 
@@ -914,7 +914,7 @@ public class GoalsPage extends BasePage {
 
      // Creation of education Goal
     public void Educationgoaltype() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goaltype.click();
         TypeEducationFund.click();
         SelectOkay.click();
@@ -926,28 +926,28 @@ public class GoalsPage extends BasePage {
 
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2035\").instance(0))")).click();
         //driver.findElement(By.xpath("//*[@index='2' and @text='2035']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         oktargetdate.click();
 
 
     }
 
     public void EducationDetails() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         EducationInvestmentdetails.click();
 
 
     }
     // Creation of dream home Goal
     public void DreamHomegoaltype() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goaltype.click();
         TypeDreamHome.click();
         SelectOkay.click();
     }
 
     public void DreamDetails() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         DreamHomeInvestmentdetails.click();
 
 
@@ -958,7 +958,7 @@ public class GoalsPage extends BasePage {
 
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2032\").instance(0))")).click();
         //driver.findElement(By.xpath("//*[@index='2' and @text='2035']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         oktargetdate.click();
 
     }
@@ -970,7 +970,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void Monthlyinvestment() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         MonthlyPayment.click();
 
 
@@ -980,19 +980,19 @@ public class GoalsPage extends BasePage {
 
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2032\").instance(0))"));
         driver.findElement(By.xpath("//*[@index='4' and @text='2032']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         oktargetdate.click();
 
 
     }
 
     public void Optionaldashboard() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         OptionalPayment.isDisplayed();
     }
 
     public void EnteronetimeAmount(String OnetimeAmount) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         EnteronetimePayment.sendKeys(OnetimeAmount);
     }
 
@@ -1004,17 +1004,17 @@ public class GoalsPage extends BasePage {
     }
 
     public void steppage() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         StepUppage.isDisplayed();
     }
 
     public void InvestmentIncrement() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         IncreaseMonthlyInvest.click();
     }
 
     public void Proceedstep() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         proceedwithstepup.click();
 
     }
@@ -1026,21 +1026,21 @@ public class GoalsPage extends BasePage {
     }
 
     public void stepupDetails() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Stepup.click();
 
 
     }
 
     public void InvetmentgoalDetails() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Investmonthly.click();
 
 
     }
 
     public void GoalsPaymentdashboard() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GoalsPaymentpage.isDisplayed();
 
 
@@ -1069,7 +1069,7 @@ public class GoalsPage extends BasePage {
     }*/
 
     public void SelectDigitalGold() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         //WebElement Clickdigitalgold =driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"More on goals\").instance(0))"));
         boolean canScrollMore = true;
         while (canScrollMore) {
@@ -1088,13 +1088,13 @@ public class GoalsPage extends BasePage {
 
 
     public void SelectGoldDate() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GoldTargetDate.click();
 
     }
 
     public void SelectGoldYear() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GoldTargetYear.click();
 
 
@@ -1104,59 +1104,59 @@ public class GoalsPage extends BasePage {
 
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2026\").instance(0))"));
         driver.findElement(By.xpath("//*[@index='3' and @text='2026']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GoldDateok.click();
 
 
     }
 
     public void Digitalamount(String Goldamt) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GoldAmount.sendKeys(Goldamt);
     }
 
     public void DigitalGoldDashboard() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Goldportfolio.isDisplayed();
     }
 
     public void DigitalInvest() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Goldinvestment.click();
     }
 
     public void DigitalGoldPay() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         paynowgold.click();
     }
 
     public void DigitalGoldonetimeblock() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         onetimeinvestblock.isDisplayed();
     }
 
     public void Digitalcontinue() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         ContinueButton.click();
     }
 
     public void DigitalGoldStatus() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         GoldStatus.isDisplayed();
     }
 
     public void DigitalGoldSuccessfull() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Goldsuccessfull.isDisplayed();
     }
 
     public void DigitalMonthInvestment() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goldmonthinvest.click();
     }
 
     public void digitalsetup() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         goldset.click();
 
 
@@ -1201,7 +1201,7 @@ public class GoalsPage extends BasePage {
    }
 
     public void Retirewithoutpayment() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Retirewithout.click();
 
 
@@ -1225,12 +1225,12 @@ public class GoalsPage extends BasePage {
     }
 
     public void GoalRetireReview() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         RetireReviewPage.isDisplayed();
     }
 
     public void Stepupedits() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Retirestepupedit.click();
     }
 
@@ -1240,7 +1240,7 @@ public class GoalsPage extends BasePage {
     }*/
 
     public void EnterIncrement(String Percentage) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         TapStepup.click();
         Sendincrement.clear();
         // EnterCurrentAge.clear();
@@ -1248,7 +1248,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void ValidateStepupmessage(String RetireMessage1) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         String incrementstepup = Warningeditstepup.getText();
         Assert.assertEquals(RetireMessage1, incrementstepup);
     }
@@ -1279,22 +1279,22 @@ public class GoalsPage extends BasePage {
         }
 
     public void ReviewMessageClick() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         messageok.click();
     }
 
     public void AddOnetime(String Payment) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         taponetime.click();
         sendonetime.clear();
         sendonetime.sendKeys(Payment);
     }
     public void ClickUpdateone() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         Updateonetime.click();
     }
     public void Onetimepaymentedit() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         editonetimepayment.click();
     }
     public void Validateonetimepaymentmessage(String OneTimeMessage2) throws InterruptedException {
@@ -1316,7 +1316,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void SelectDraft() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
         Thread.sleep(5000);
         DraftTab.click(); // Select Draft Tab
@@ -1330,7 +1330,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void SelectPauseGoal() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
         Thread.sleep(5000);
         PauseGoalName.click();
