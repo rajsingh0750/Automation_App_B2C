@@ -706,4 +706,21 @@ DashboardPage dashboardPage = new DashboardPage();
     }
 
 
+    @And("User Clicks on the Submit a Ticket in Profile Details")
+    public void userClicksOnTheSubmitATicketInProfileDetails() throws InterruptedException {
+        new MiniModulePage().ClickProfileSubmit();
+
+        
+    }
+
+    @Then("User should successfully create a support ticket from Profile Details Page")
+    public void userShouldSuccessfullyCreateASupportTicketFromProfileDetailsPage() throws InterruptedException {
+        new MiniModulePage().MiniTransClose();
+        basePage.Logout();
+    }
+
+    @And("User navigates to the Profile screen")
+    public void userNavigatesToTheProfileScreen() throws InterruptedException {
+        new MiniModulePage().ClickOnProfile();
+    }
 }

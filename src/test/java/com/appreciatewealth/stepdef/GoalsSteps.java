@@ -826,6 +826,37 @@ public class GoalsSteps extends BasePage {
     @Then("user should see Pause status")
     public void userShouldSeePauseStatus() throws InterruptedException {
         new GoalsPage().ValidateGoalsPauseStatus();
+        new BasePage().ClickProfileSettings();
+        basePage.Logout();
+
+    }
+
+    @Given("the User is on Goals Dashboard for monthly goal Resume")
+    public void theUserIsOnGoalsDashboardForMonthlyGoalResume() throws InterruptedException, IOException {
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        dashboardPage.ClickOnGoToDashboard();
+        new GoalsPage().SwitchtoGoal();
+    }
+
+    @And("user selects Resume this goal")
+    public void userSelectsResumeThisGoal() throws InterruptedException {
+        new GoalsPage().ClickResumeGoal();
+        new GoalsPage().ClickResumeOk();
+        new GoalsPage().Close();
+        
+    }
+
+    @And("user click on the CTA for Skip")
+    public void userClickOnTheCTAForSkip() throws InterruptedException {
+        new GoalsPage().ClickResumeSkip();
+        
+    }
+
+    @Then("user should not see the Pause status goals in the list")
+    public void userShouldNotSeeThePauseStatusGoalsInTheList() throws InterruptedException {
+        new GoalsPage().ValidateHistoryTab();
+        new BasePage().ClickProfileSettings();
+        basePage.Logout();
     }
 }
 

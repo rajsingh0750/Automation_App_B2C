@@ -419,7 +419,17 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(id = "tvTransactionStatus")
     WebElement PauseStatus;
 
+    @AndroidFindBy(id = "bt_okay_confirmation")
+    WebElement ResumeGoal;
 
+    @AndroidFindBy(id = "bt_okay_confirmation")
+    WebElement ResumeGoalOk;
+
+    @AndroidFindBy(xpath = "//*[@text='skip']")
+    WebElement ResumeSkip;
+
+    @AndroidFindBy(id = "txv_no_goal")
+    WebElement ResumeHistory;
     public static String RandomGoalName;
     public static String finalName;
 
@@ -1359,13 +1369,42 @@ public class GoalsPage extends BasePage {
 
     }
 
+
     public void ValidateGoalsPauseStatus() throws InterruptedException {
         Thread.sleep(5000);
         PauseStatus.isDisplayed();
 
     }
+    public void ClickResumeGoal() throws InterruptedException {
+        Thread.sleep(5000);
+        ResumeGoal.click();
+
+    }
+
+    public void ClickResumeOk() throws InterruptedException {
+        Thread.sleep(5000);
+        ResumeGoalOk.click();
+
+    }
+
+    public void ClickResumeSkip() throws InterruptedException {
+        Thread.sleep(5000);
+        ResumeSkip.click();
+
+    }
+
+    public void ValidateHistoryTab() throws InterruptedException {
+        Thread.sleep(5000);
+        ResumeHistory.isDisplayed();
+
+    }
+
+
+
 
 }
+
+
 
 
 

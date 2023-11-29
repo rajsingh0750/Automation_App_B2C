@@ -200,7 +200,7 @@ public class BasePage {
         } else {
             System.out.println("OTP not found in the content.");
         }
-        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.HOME));
+        //((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.HOME));
 //        boolean canScrollMore = true;
 //        while (canScrollMore) {
 //            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
@@ -209,10 +209,10 @@ public class BasePage {
 //                    "direction", "down",
 //                    "percent", 1.0
 //            ));
-        Thread.sleep(3000);
-        BasePage.SwipeUP();
         Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@text='WORK']")).click();
+        //BasePage.SwipeUP();
+        //Thread.sleep(5000);
+        //driver.findElement(By.xpath("//*[@text='WORK']")).click();
 
 
         ((AndroidDriver) driver).activateApp(ConfigLoader.getInstance().getProperty("androidAppPackage"));

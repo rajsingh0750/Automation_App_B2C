@@ -235,7 +235,58 @@ Feature: Goals
     Then user should see Pause status
 
 
+  @Sanity @Regression
+  Scenario: Verify that monthly Goals can be Resume
 
+    Given the User is on Goals Dashboard for monthly goal Resume
+    And user select Retire goal type
+    And user click on the CTA for monthly payment
+    When user is on Optional payment page
+    And user adds one-time payment for retirement
+    And user click on the CTA to proceed with one-time payment
+    Then user should be on the Step Up page
+    And user click increase monthly investment by
+    And user click on the CTA for proceed with step up
+    And user clicks on okay button
+    And user see setup details
+    And user see Investment details
+    And user click on the CTA for next
+    And the Retirement goal for monthly payment is successfully created
+    And user click on the CTA take me back to goals
+    And user selects mothly goals in Active List
+    And user clicks on Pause option
+    And user selects pause SIP button
+    And user selects Resume this goal
+    And user click on the CTA for Skip
+    And user selects history
+    Then user should not see the Pause status goals in the list
+
+
+#  @Sanity @Regression
+#  Scenario: Verify that monthly Goals can be Cancel
+#
+#    Given the User is on Goals Dashboard for monthly goal Cancel
+#    And user select Retire goal type
+#    And user click on the CTA for monthly payment
+#    When user is on Optional payment page
+#    And user adds one-time payment for retirement
+#    And user click on the CTA to proceed with one-time payment
+#    Then user should be on the Step Up page
+#    And user click increase monthly investment by
+#    And user click on the CTA for proceed with step up
+#    And user clicks on okay button
+#    And user see setup details
+#    And user see Investment details
+#    And user click on the CTA for next
+#    And the Retirement goal for monthly payment is successfully created
+#    And user click on the CTA take me back to goals
+#    And user selects mothly goals in Active List
+#    And user clicks on Pause option
+#    And user selects pause SIP button
+#    And user selects Resume this goal
+#    And user click on the CTA for Skip
+#    And user selects history
+#    Then user should not see the Pause status goals in the list
 
 
 

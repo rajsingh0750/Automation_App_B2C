@@ -222,6 +222,15 @@ Feature: MiniModule
       Then the User Confirm the new passcode
 
 
-
+  @Sanity @Regression
+  Scenario: Validate Support page  in MiniModule from Profile
+    Given the User is on MiniModule page
+    And User navigates to the Profile screen
+    And User Clicks on the Submit a Ticket in Profile Details
+    And User Select issue type
+    And User enters Subject
+    And User enters Your message
+    And User clicks on the CTA for Submit a ticket
+    Then User should successfully create a support ticket from Profile Details Page
 
 

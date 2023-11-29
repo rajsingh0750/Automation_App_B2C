@@ -362,6 +362,9 @@ public class MiniModulePage extends BasePage {
     WebElement NewPasscode;
 
 
+    @AndroidFindBy(id ="note_tv")
+    WebElement ProfileSubmit;
+
 
 
     public void Login() throws IOException, InterruptedException {
@@ -1063,6 +1066,11 @@ public class MiniModulePage extends BasePage {
                 "elementId", ((RemoteWebElement) element4).getId()
         ));
 
+    }
+
+    public void ClickProfileSubmit() throws InterruptedException {
+        Thread.sleep(5000);
+        ProfileSubmit.click();
     }
 
 }
