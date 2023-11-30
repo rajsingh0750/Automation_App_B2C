@@ -728,12 +728,12 @@ public class GoalsPage extends BasePage {
     }
 
     public void Targetportfoliodashboard() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         Targetportfoliodashboard.isDisplayed();
     }
 
     public void investmentpage() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"proceed with investment\").instance(0))"));
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")).click();
     }
