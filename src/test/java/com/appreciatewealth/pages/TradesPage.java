@@ -386,7 +386,7 @@ public class TradesPage extends BasePage {
     }
 
     public void ValidateIfOrderPlaced() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         ValidateOrderPlaced.isDisplayed();
 
     }

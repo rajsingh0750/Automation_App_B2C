@@ -136,9 +136,9 @@ public class LRSSteps {
 
     @And("User click on tranfer from yes bank")
     public void userClickOnTranferFromYesBank() throws InterruptedException {
-        new LRSPage().ClickonUploadStatement();
-        new LRSPage().SelectBankAccount();
-        new LRSPage().UploadBankStatement();
+        //new LRSPage().ClickonUploadStatement();
+        //new LRSPage().SelectBankAccount();
+        //new LRSPage().UploadBankStatement();
         new LRSPage().TransferFromYesBank();
 
 

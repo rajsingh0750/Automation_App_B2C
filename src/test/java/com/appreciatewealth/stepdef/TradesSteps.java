@@ -501,7 +501,7 @@ public class TradesSteps extends BasePage{
 
     @Given("User is on the Trade dashboard")
     public void userIsOnTheTradeDashboard() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("stannir007@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
         new TradesPage().DynamicTradeDashboard();
     }
