@@ -158,6 +158,13 @@ public class LRSPage extends BasePage {
 
     @AndroidFindBy(id ="txv_label_deposit_amount_value")
     WebElement DepositAmount;
+
+    @AndroidFindBy(xpath = "//*[@text='Money Transfer']")
+    WebElement MoneyTransfer;
+
+    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[2]")
+    WebElement AddFundsSmallInvestmentSection;
+
     SignInPage signInPage;
 
     public LRSPage() {
@@ -397,5 +404,15 @@ public class LRSPage extends BasePage {
 
     }
 
+    public void MoneyTransferClick() throws InterruptedException {
+        Thread.sleep(3000);
+        MoneyTransfer.click();
+    }
+
+    public void ClickAddFundsFromSmallInvestment() throws InterruptedException {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"start SIP\").instance(0))"));
+        Thread.sleep(5000);
+        AddFundsSmallInvestmentSection.click();
+    }
 
 }

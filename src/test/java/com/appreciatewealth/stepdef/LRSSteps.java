@@ -216,4 +216,14 @@ public class LRSSteps {
     public void userIsOnMessageApp() throws IOException, InterruptedException {
         basePage.CopyOTPFromMessage();
     }
+
+    @And("User clicks on Money Transfer CTA")
+    public void userClicksOnMoneyTransferCTA() throws InterruptedException {
+        new LRSPage().MoneyTransferClick();
+    }
+
+    @And("User clicks on add funds from Small investment and Large returns section")
+    public void userClicksOnAddFundsFromSmallInvestmentAndLargeReturnsSection() throws InterruptedException {
+        new LRSPage().ClickAddFundsFromSmallInvestment();
+    }
 }
