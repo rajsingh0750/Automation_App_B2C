@@ -88,6 +88,7 @@ public class TradesSteps extends BasePage{
     public void userShouldSeeHoldingsWithAccurateData() throws InterruptedException {
         Thread.sleep(5000);
         new TradesPage().CalculateCurrentValue();
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }

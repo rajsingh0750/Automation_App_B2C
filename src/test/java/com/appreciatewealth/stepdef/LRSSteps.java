@@ -226,4 +226,9 @@ public class LRSSteps {
     public void userClicksOnAddFundsFromSmallInvestmentAndLargeReturnsSection() throws InterruptedException {
         new LRSPage().ClickAddFundsFromSmallInvestment();
     }
+
+    @And("User clicks on Plus icon from Small investment and Large returns")
+    public void userClicksOnPlusIconFromSmallInvestmentAndLargeReturns() throws InterruptedException {
+        new LRSPage().ClickOnPlusIcon();
+    }
 }

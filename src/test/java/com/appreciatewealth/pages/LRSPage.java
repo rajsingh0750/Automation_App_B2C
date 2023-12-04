@@ -165,6 +165,9 @@ public class LRSPage extends BasePage {
     @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[2]")
     WebElement AddFundsSmallInvestmentSection;
 
+    @AndroidFindBy (xpath= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView")
+    WebElement PlusIcon;
+
     SignInPage signInPage;
 
     public LRSPage() {
@@ -299,7 +302,7 @@ public class LRSPage extends BasePage {
     }
 
     public void EnterOTP1() throws IOException, InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         String otp = basePage.CopyOTPFromMessage();
         OTP1Click.click();
         OTP1Enter.sendKeys(otp);
@@ -314,7 +317,7 @@ public class LRSPage extends BasePage {
         for (int i = 0; i < numberOfScrolls; i++) {
             driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
         }
-        Thread.sleep(12000);
+        Thread.sleep(15000);
         CheckBox1.click();
         Thread.sleep(3000);
         ClickOk.click();
@@ -358,7 +361,7 @@ public class LRSPage extends BasePage {
         // LoginClick.click();
         LoginIdEnter.sendKeys("varsha92");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         PasswordClick.click();
         EnterPassword.sendKeys("Rogger@321");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
@@ -415,4 +418,10 @@ public class LRSPage extends BasePage {
         AddFundsSmallInvestmentSection.click();
     }
 
+
+    public void ClickOnPlusIcon() throws InterruptedException {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"start SIP\").instance(0))"));
+        Thread.sleep(5000);
+        PlusIcon.click();
+    }
 }
