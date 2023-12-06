@@ -1,450 +1,476 @@
-2023-12-06 08:15:14:944 [Appium] Welcome to Appium v2.1.3 (REV 7f745d04d90eaec76c8d5830d6ce6a0d7db888b3)
-2023-12-06 08:15:14:945 [Appium] Non-default server args:
-2023-12-06 08:15:14:946 [Appium] { port: 10653, sessionOverride: true }
-2023-12-06 08:15:14:946 [Appium] Attempting to load driver uiautomator2...
-2023-12-06 08:15:14:947 [Appium] Requiring driver at /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver
-2023-12-06 08:15:15:338 [Appium] Appium REST http interface listener started on http://0.0.0.0:10653
-2023-12-06 08:15:15:338 [Appium] You can provide the following URLs in your client code to connect to this server:
-2023-12-06 08:15:15:338 [Appium] 	http://127.0.0.1:10653/ (only accessible from the same host)
-2023-12-06 08:15:15:338 [Appium] 	http://192.168.29.167:10653/
-2023-12-06 08:15:15:338 [Appium] Available drivers:
-2023-12-06 08:15:15:339 [Appium]   - uiautomator2@2.29.5 (automationName 'UiAutomator2')
-2023-12-06 08:15:15:339 [Appium] No plugins have been installed. Use the "appium plugin" command to install the one(s) you want to use.
-2023-12-06 08:15:15:396 [HTTP] --> GET /status
-2023-12-06 08:15:15:396 [HTTP] {}
-2023-12-06 08:15:15:396 [AppiumDriver@6f50] Calling AppiumDriver.getStatus() with args: []
-2023-12-06 08:15:15:397 [AppiumDriver@6f50] Responding to client with driver.getStatus() result: {"ready":true,"message":"The server is ready to accept new connections","build":{"version":"2.1.3","git-sha":"7f745d04d90eaec76c8d5830d6ce6a0d7db888b3","built":"2023-11-06 14:35:24 +0800"}}
-2023-12-06 08:15:15:399 [HTTP] <-- GET /status 200 3 ms - 199
-2023-12-06 08:15:15:399 [HTTP] 
-2023-12-06 08:15:15:401 [HTTP] --> GET /status
-2023-12-06 08:15:15:401 [HTTP] {}
-2023-12-06 08:15:15:401 [AppiumDriver@6f50] Calling AppiumDriver.getStatus() with args: []
-2023-12-06 08:15:15:401 [AppiumDriver@6f50] Responding to client with driver.getStatus() result: {"ready":true,"message":"The server is ready to accept new connections","build":{"version":"2.1.3","git-sha":"7f745d04d90eaec76c8d5830d6ce6a0d7db888b3","built":"2023-11-06 14:35:24 +0800"}}
-2023-12-06 08:15:15:402 [HTTP] <-- GET /status 200 1 ms - 199
-2023-12-06 08:15:15:402 [HTTP] 
-2023-12-06 08:15:15:425 [HTTP] Request idempotency key: cd8b8c51-0a9c-4390-97ff-6e35b55dd649
-2023-12-06 08:15:15:432 [HTTP] --> POST /session
-2023-12-06 08:15:15:432 [HTTP] {"capabilities":{"firstMatch":[{}],"alwaysMatch":{"appium:app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appium:appPackage":"com.appreciatewealth.android","appium:automationName":"UiAutomator2","appium:deviceName":"Realme C53","appium:fullReset":false,"appium:noReset":true,"appium:resetKeyboard":false,"appium:udid":"0K537311312168E1","appium:unicodeKeyboard":false,"platformName":"ANDROID"}}}
-2023-12-06 08:15:15:433 [AppiumDriver@6f50] Calling AppiumDriver.createSession() with args: [null,null,{"firstMatch":[{}],"alwaysMatch":{"appium:app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appium:appPackage":"com.appreciatewealth.android","appium:automationName":"UiAutomator2","appium:deviceName":"Realme C53","appium:fullReset":false,"appium:noReset":true,"appium:resetKeyboard":false,"appium:udid":"0K537311312168E1","appium:unicodeKeyboard":false,"platformName":"ANDROID"}}]
-2023-12-06 08:15:15:433 [AppiumDriver@6f50] Event 'newSessionRequested' logged at 1701850515433 (13:45:15 GMT+0530 (India Standard Time))
-2023-12-06 08:15:15:434 [Appium] Attempting to find matching driver for automationName 'UiAutomator2' and platformName 'ANDROID'
-2023-12-06 08:15:15:435 [Appium] The 'uiautomator2' driver was installed and matched caps.
-2023-12-06 08:15:15:435 [Appium] Will require it at /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver
-2023-12-06 08:15:15:435 [Appium] Requiring driver at /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver
-2023-12-06 08:15:15:435 [AppiumDriver@6f50] Appium v2.1.3 creating new AndroidUiautomator2Driver (v2.29.5) session
-2023-12-06 08:15:15:435 [AppiumDriver@6f50] Checking BaseDriver versions for Appium and AndroidUiautomator2Driver
-2023-12-06 08:15:15:435 [AppiumDriver@6f50] Appium's BaseDriver version is 9.3.20
-2023-12-06 08:15:15:435 [AppiumDriver@6f50] AndroidUiautomator2Driver's BaseDriver version is 9.3.20
-2023-12-06 08:15:15:435 [AppiumDriver@6f50] There are no active sessions for cleanup
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504] Creating session with W3C capabilities: {
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]   "alwaysMatch": {
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "platformName": "ANDROID",
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:app": "/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk",
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:appPackage": "com.appreciatewealth.android",
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:automationName": "UiAutomator2",
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:deviceName": "Realme C53",
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:fullReset": false,
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:noReset": true,
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:resetKeyboard": false,
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:udid": "0K537311312168E1",
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     "appium:unicodeKeyboard": false
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]   },
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]   "firstMatch": [
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]     {}
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504]   ]
-2023-12-06 08:15:15:436 [AndroidUiautomator2Driver@a504] }
-2023-12-06 08:15:15:438 [AndroidUiautomator2Driver@a504] The following capabilities were provided, but are not recognized by Appium:
-2023-12-06 08:15:15:438 [AndroidUiautomator2Driver@a504]   deviceName
-2023-12-06 08:15:15:438 [AndroidUiautomator2Driver@a504 (2654a4ad)] Session created with session id: 2654a4ad-df22-4001-9e7b-455707d96411
-2023-12-06 08:15:15:439 [BaseDriver] Using local app '/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk'
-2023-12-06 08:15:15:522 [AndroidUiautomator2Driver@a504 (2654a4ad)] Checking whether app is actually present
-2023-12-06 08:15:15:527 [ADB] Found 1 'build-tools' folders under '/Users/varshathandava/Library/Android/sdk' (newest first):
-2023-12-06 08:15:15:527 [ADB]     /Users/varshathandava/Library/Android/sdk/build-tools/34.0.0
-2023-12-06 08:15:15:527 [ADB] Using 'adb' from '/Users/varshathandava/Library/Android/sdk/platform-tools/adb'
-2023-12-06 08:15:15:528 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 start-server'
-2023-12-06 08:15:15:538 [AndroidDriver] Retrieving device list
-2023-12-06 08:15:15:538 [ADB] Trying to find a connected android device
-2023-12-06 08:15:15:538 [ADB] Getting connected devices
-2023-12-06 08:15:15:547 [ADB] Connected devices: [{"udid":"0K537311312168E1","state":"device"}]
-2023-12-06 08:15:15:548 [AndroidDriver] Using device: 0K537311312168E1
-2023-12-06 08:15:15:548 [ADB] Using 'adb' from '/Users/varshathandava/Library/Android/sdk/platform-tools/adb'
-2023-12-06 08:15:15:548 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 start-server'
-2023-12-06 08:15:15:557 [ADB] Setting device id to 0K537311312168E1
-2023-12-06 08:15:15:558 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell getprop ro.build.version.sdk'
-2023-12-06 08:15:15:591 [ADB] Current device property 'ro.build.version.sdk': 33
-2023-12-06 08:15:15:591 [ADB] Getting device platform version
-2023-12-06 08:15:15:591 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell getprop ro.build.version.release'
-2023-12-06 08:15:15:623 [ADB] Current device property 'ro.build.version.release': 13
-2023-12-06 08:15:15:623 [ADB] Device API level: 33
-2023-12-06 08:15:15:623 [AndroidUiautomator2Driver@a504 (2654a4ad)] Relaxing hidden api policy
-2023-12-06 08:15:15:624 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell 'settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1''
-2023-12-06 08:15:15:738 [AndroidDriver] Parsing package and activity from app manifest
-2023-12-06 08:15:15:759 [ADB] Package name: 'com.appreciatewealth.android.uat'
-2023-12-06 08:15:15:759 [ADB] Main activity name: 'com.appreciatewealth.android.activity.startup.SplashScreen'
-2023-12-06 08:15:15:759 [AndroidDriver] Parsed package and activity are: com.appreciatewealth.android.uat/com.appreciatewealth.android.activity.startup.SplashScreen
-2023-12-06 08:15:15:760 [AndroidDriver] Pushing settings apk to device...
-2023-12-06 08:15:15:760 [ADB] Getting package info for 'io.appium.settings'
-2023-12-06 08:15:15:760 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys package io.appium.settings'
-2023-12-06 08:15:15:845 [ADB] The version name of the installed 'io.appium.settings' is greater or equal to the application version name ('5.1.0' >= '5.1.0')
-2023-12-06 08:15:15:846 [ADB] There is no need to install/upgrade '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/io.appium.settings/apks/settings_apk-debug.apk'
-2023-12-06 08:15:15:846 [ADB] Getting IDs of all 'io.appium.settings' processes
-2023-12-06 08:15:15:846 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell 'pgrep --help; echo $?''
-2023-12-06 08:15:15:889 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pgrep -f \(\[\[:blank:\]\]\|\^\)io\.appium\.settings\(\[\[:blank:\]\]\|\$\)'
-2023-12-06 08:15:15:960 [AndroidDriver] io.appium.settings is already running. There is no need to reset its permissions.
-2023-12-06 08:15:15:960 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell appops set io.appium.settings android:mock_location allow'
-2023-12-06 08:15:16:027 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell "[ -e '/data/local/tmp/mock_apps.json' ] && echo __PASS__"'
-2023-12-06 08:15:16:063 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell cat /data/local/tmp/mock_apps.json'
-2023-12-06 08:15:16:121 [Logcat] Starting logs capture with command: /Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 logcat -v threadtime
-2023-12-06 08:15:16:184 [AndroidUiautomator2Driver@a504 (2654a4ad)] Forwarding UiAutomator2 Server port 6790 to local port 8240
-2023-12-06 08:15:16:184 [ADB] Forwarding system: 8240 to device: 6790
-2023-12-06 08:15:16:185 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 forward tcp:8240 tcp:6790'
-2023-12-06 08:15:16:205 [ADB] Checking app cert for /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk
-2023-12-06 08:15:16:205 [ADB] Checking app cert for /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk
-2023-12-06 08:15:16:208 [ADB] Using 'apksigner.jar' from '/Users/varshathandava/Library/Android/sdk/build-tools/34.0.0/lib/apksigner.jar'
-2023-12-06 08:15:16:209 [ADB] Starting apksigner: /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java -Xmx1024M -Xss1m -jar /Users/varshathandava/Library/Android/sdk/build-tools/34.0.0/lib/apksigner.jar verify --print-certs /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk
-2023-12-06 08:15:16:223 [ADB] Starting apksigner: /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java -Xmx1024M -Xss1m -jar /Users/varshathandava/Library/Android/sdk/build-tools/34.0.0/lib/apksigner.jar verify --print-certs /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk
-2023-12-06 08:15:16:406 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
-2023-12-06 08:15:16:406 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
-2023-12-06 08:15:16:406 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
-2023-12-06 08:15:16:406 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
-2023-12-06 08:15:16:406 [ADB] 
-2023-12-06 08:15:16:407 [ADB] sha256 hash did match for 'appium-uiautomator2-server-debug-androidTest.apk'
-2023-12-06 08:15:16:407 [ADB] '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk' is signed with the default certificate
-2023-12-06 08:15:16:407 [ADB] Getting install status for io.appium.uiautomator2.server.test
-2023-12-06 08:15:16:407 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pm path io.appium.uiautomator2.server.test'
-2023-12-06 08:15:16:460 [ADB] 'io.appium.uiautomator2.server.test' is installed
-2023-12-06 08:15:16:860 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
-2023-12-06 08:15:16:860 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
-2023-12-06 08:15:16:860 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
-2023-12-06 08:15:16:860 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
-2023-12-06 08:15:16:860 [ADB] 
-2023-12-06 08:15:16:860 [ADB] sha256 hash did match for 'appium-uiautomator2-server-v5.12.3.apk'
-2023-12-06 08:15:16:860 [ADB] '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk' is signed with the default certificate
-2023-12-06 08:15:16:860 [ADB] Getting package info for 'io.appium.uiautomator2.server'
-2023-12-06 08:15:16:860 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys package io.appium.uiautomator2.server'
-2023-12-06 08:15:16:975 [ADB] The version name of the installed 'io.appium.uiautomator2.server' is greater or equal to the application version name ('5.12.3' >= '5.12.3')
-2023-12-06 08:15:16:975 [AndroidUiautomator2Driver@a504 (2654a4ad)] Server packages status: [{"wasSigned":true,"installState":"sameVersionInstalled","appPath":"/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk","appId":"io.appium.uiautomator2.server"},{"wasSigned":true,"installState":"sameVersionInstalled","appPath":"/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk","appId":"io.appium.uiautomator2.server.test"}]
-2023-12-06 08:15:16:975 [AndroidUiautomator2Driver@a504 (2654a4ad)] Server packages are not going to be (re)installed
-2023-12-06 08:15:16:976 [AndroidUiautomator2Driver@a504 (2654a4ad)] Waiting up to 30000ms for services to be available
-2023-12-06 08:15:16:976 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pm list instrumentation'
-2023-12-06 08:15:17:024 [AndroidUiautomator2Driver@a504 (2654a4ad)] Instrumentation target 'io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner' is available
-2023-12-06 08:15:17:026 [ADB] Adding packages ["io.appium.settings","io.appium.uiautomator2.server","io.appium.uiautomator2.server.test"] to Doze whitelist
-2023-12-06 08:15:17:026 [ADB] Got the following command chunks to execute: [["dumpsys","deviceidle","whitelist","+io.appium.settings",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server.test",";"]]
-2023-12-06 08:15:17:026 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys deviceidle whitelist +io.appium.settings ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server.test ;'
-2023-12-06 08:15:17:098 [ADB] Getting install status for com.appreciatewealth.android
-2023-12-06 08:15:17:098 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pm path com.appreciatewealth.android'
-2023-12-06 08:15:17:152 [ADB] 'com.appreciatewealth.android' is installed
-2023-12-06 08:15:17:152 [AndroidUiautomator2Driver@a504 (2654a4ad)] noReset has been requested and the app is already installed. Doing nothing
-2023-12-06 08:15:17:152 [AndroidUiautomator2Driver@a504 (2654a4ad)] Performing shallow cleanup of automation leftovers
-2023-12-06 08:15:17:162 [AndroidUiautomator2Driver@a504 (2654a4ad)] No obsolete sessions have been detected (socket hang up)
-2023-12-06 08:15:17:162 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell am force-stop io.appium.uiautomator2.server.test'
-2023-12-06 08:15:17:233 [AndroidUiautomator2Driver@a504 (2654a4ad)] Starting UIAutomator2 server 5.12.3
-2023-12-06 08:15:17:234 [AndroidUiautomator2Driver@a504 (2654a4ad)] Using UIAutomator2 server from '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk' and test from '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk'
-2023-12-06 08:15:17:234 [AndroidUiautomator2Driver@a504 (2654a4ad)] Waiting up to 30000ms for UiAutomator2 to be online...
-2023-12-06 08:15:17:234 [ADB] Creating ADB subprocess with args: ["-P","5037","-s","0K537311312168E1","shell","am","instrument","-w","-e","disableAnalytics",true,"io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner"]
-2023-12-06 08:15:17:236 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/status' to command name 'getStatus'
-2023-12-06 08:15:17:237 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /status] to [GET http://127.0.0.1:8240/status] with no body
-2023-12-06 08:15:17:246 [AndroidUiautomator2Driver@a504 (2654a4ad)] socket hang up
-2023-12-06 08:15:18:247 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/status' to command name 'getStatus'
-2023-12-06 08:15:18:249 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /status] to [GET http://127.0.0.1:8240/status] with no body
-2023-12-06 08:15:18:256 [AndroidUiautomator2Driver@a504 (2654a4ad)] socket hang up
-2023-12-06 08:15:18:714 [Instrumentation] io.appium.uiautomator2.server.test.AppiumUiAutomator2Server:
-2023-12-06 08:15:19:257 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/status' to command name 'getStatus'
-2023-12-06 08:15:19:258 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /status] to [GET http://127.0.0.1:8240/status] with no body
-2023-12-06 08:15:19:266 [AndroidUiautomator2Driver@a504 (2654a4ad)] socket hang up
-2023-12-06 08:15:20:268 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/status' to command name 'getStatus'
-2023-12-06 08:15:20:268 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /status] to [GET http://127.0.0.1:8240/status] with no body
-2023-12-06 08:15:20:345 [AndroidUiautomator2Driver@a504 (2654a4ad)] Got response with status 200: {"sessionId":"None","value":{"message":"UiAutomator2 Server is ready to accept commands","ready":true}}
-2023-12-06 08:15:20:345 [AndroidUiautomator2Driver@a504 (2654a4ad)] The initialization of the instrumentation process took 3111ms
-2023-12-06 08:15:20:345 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/session' to command name 'createSession'
-2023-12-06 08:15:20:346 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [POST /session] to [POST http://127.0.0.1:8240/session] with body: {"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android","automationName":"UiAutomator2","deviceName":"Realme C53","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false},"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android","automationName":"UiAutomator2","deviceName":"0K537311312168E1","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false,"deviceUDID":"0K537311312168E1"}],"alwaysMatch":{}}}
-2023-12-06 08:15:20:403 [AndroidUiautomator2Driver@a504 (2654a4ad)] Got response with status 200: {"sessionId":"f058a4e6-b841-4afc-9160-651fe3a2bd64","value":{"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android","automationName":"UiAutomator2","deviceName":"Realme C53","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false},"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android","automationName":"UiAutomator2","deviceName":"0K537311312168E1","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false,"deviceUD...
-2023-12-06 08:15:20:403 [AndroidUiautomator2Driver@a504 (2654a4ad)] Determined the downstream protocol as 'W3C'
-2023-12-06 08:15:20:415 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /appium/device/info] to [GET http://127.0.0.1:8240/session/f058a4e6-b841-4afc-9160-651fe3a2bd64/appium/device/info] with no body
-2023-12-06 08:15:20:465 [AndroidUiautomator2Driver@a504 (2654a4ad)] Got response with status 200: {"sessionId":"f058a4e6-b841-4afc-9160-651fe3a2bd64","value":{"androidId":"c83cf21e0e5b769c","apiVersion":"33","bluetooth":{"state":"OFF"},"brand":"realme","carrierName":"JIO 4G","displayDensity":272,"locale":"en_IN","manufacturer":"realme","model":"RMX3762","networks":[{"capabilities":{"SSID":null,"linkDownBandwidthKbps":57793,"linkUpstreamBandwidthKbps":26013,"networkCapabilities":"NET_CAPABILITY_NOT_METERED,NET_CAPABILITY_INTERNET,NET_CAPABILITY_NOT_RESTRICTED,NET_CAPABILITY_TRUSTED,NET_CAPABILITY_NOT_VPN,NET_CAPABILITY_VALIDATED,NET_CAPABILITY_NOT_ROAMING,NET_CAPABILITY_FOREGROUND,NET_CAPABILITY_NOT_CONGESTED,NET_CAPABILITY_NOT_SUSPENDED","signalStrength":-36,"transportTypes":"TRANSPORT_WIFI"},"detailedState":"CONNECTED","extraInfo":"","isAvailable":true,"isConnected":true,"isFailover":false,"isRoaming":false,"state":"CONNECTED","subtype":-1,"subtypeName":"","type":1,"typeName":"WIFI"}],"platformVersion":"13","realDisplaySize":"720x1600","timeZone":"Asia/Calcutta"}}
-2023-12-06 08:15:20:466 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys window'
-2023-12-06 08:15:20:566 [AndroidDriver] Screen already unlocked, doing nothing
-2023-12-06 08:15:20:566 [AndroidUiautomator2Driver@a504 (2654a4ad)] Starting 'com.appreciatewealth.android/com.appreciatewealth.android.activity.startup.SplashScreen and waiting for 'com.appreciatewealth.android/com.appreciatewealth.android.activity.startup.SplashScreen'
-2023-12-06 08:15:20:566 [ADB] Getting IDs of all 'com.appreciatewealth.android' processes
-2023-12-06 08:15:20:567 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pgrep -f \(\[\[:blank:\]\]\|\^\)com\.appreciatewealth\.android\(\[\[:blank:\]\]\|\$\)'
-2023-12-06 08:15:20:656 [AndroidUiautomator2Driver@a504 (2654a4ad)] 'com.appreciatewealth.android' is already running and noReset is enabled. Set forceAppLaunch capability to true if the app must be forcefully restarted on session startup.
-2023-12-06 08:15:20:659 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /appium/device/pixel_ratio] to [GET http://127.0.0.1:8240/session/f058a4e6-b841-4afc-9160-651fe3a2bd64/appium/device/pixel_ratio] with no body
-2023-12-06 08:15:20:671 [AndroidUiautomator2Driver@a504 (2654a4ad)] Got response with status 200: {"sessionId":"f058a4e6-b841-4afc-9160-651fe3a2bd64","value":1.7}
-2023-12-06 08:15:20:672 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/appium/device/system_bars' to command name 'getSystemBars'
-2023-12-06 08:15:20:673 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /appium/device/system_bars] to [GET http://127.0.0.1:8240/session/f058a4e6-b841-4afc-9160-651fe3a2bd64/appium/device/system_bars] with no body
-2023-12-06 08:15:20:685 [AndroidUiautomator2Driver@a504 (2654a4ad)] Got response with status 200: {"sessionId":"f058a4e6-b841-4afc-9160-651fe3a2bd64","value":{"statusBar":82}}
-2023-12-06 08:15:20:686 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/window/current/size' to command name 'getWindowSize'
-2023-12-06 08:15:20:686 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [GET /window/current/size] to [GET http://127.0.0.1:8240/session/f058a4e6-b841-4afc-9160-651fe3a2bd64/window/current/size] with no body
-2023-12-06 08:15:20:698 [AndroidUiautomator2Driver@a504 (2654a4ad)] Got response with status 200: {"sessionId":"f058a4e6-b841-4afc-9160-651fe3a2bd64","value":{"height":1454,"width":720}}
-2023-12-06 08:15:20:698 [AppiumDriver@6f50] New AndroidUiautomator2Driver session created successfully, session 2654a4ad-df22-4001-9e7b-455707d96411 added to master session list
-2023-12-06 08:15:20:699 [AppiumDriver@6f50] Event 'newSessionStarted' logged at 1701850520699 (13:45:20 GMT+0530 (India Standard Time))
-2023-12-06 08:15:20:699 [AndroidUiautomator2Driver@a504 (2654a4ad)] Cached the protocol value 'W3C' for the new session 2654a4ad-df22-4001-9e7b-455707d96411
-2023-12-06 08:15:20:700 [AndroidUiautomator2Driver@a504 (2654a4ad)] Responding to client with driver.createSession() result: {"capabilities":{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android","automationName":"UiAutomator2","deviceName":"Realme C53","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false},"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android","automationName":"UiAutomator2","deviceName":"0K537311312168E1","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false,"deviceUDID":"0K537311312168E1","deviceApiLevel":33,"platformVersion":"13","deviceSc...
-2023-12-06 08:15:20:701 [HTTP] <-- POST /session 200 5268 ms - 1281
-2023-12-06 08:15:20:701 [HTTP] 
-2023-12-06 08:15:32:729 [HTTP] --> POST /session/2654a4ad-df22-4001-9e7b-455707d96411/actions
-2023-12-06 08:15:32:729 [HTTP] {"actions":[{"id":"finger","type":"pointer","parameters":{"pointerType":"touch"},"actions":[{"duration":0,"type":"pause"},{"duration":0,"x":415,"y":225,"type":"pointerMove","origin":"viewport"},{"button":0,"type":"pointerDown"},{"button":0,"type":"pointerUp"}]}]}
-2023-12-06 08:15:32:734 [AndroidUiautomator2Driver@a504 (2654a4ad)] Calling AppiumDriver.performActions() with args: [[{"id":"finger","type":"pointer","parameters":{"pointerType":"touch"},"actions":[{"duration":0,"type":"pause"},{"duration":0,"x":415,"y":225,"type":"pointerMove","origin":"viewport"},{"button":0,"type":"pointerDown"},{"button":0,"type":"pointerUp"}]}],"2654a4ad-df22-4001-9e7b-455707d96411"]
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)] Received the following W3C actions: [
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]   {
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "id": "finger",
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "type": "pointer",
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "parameters": {
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]       "pointerType": "touch"
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]     },
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "actions": [
-2023-12-06 08:15:32:735 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "duration": 0,
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pause"
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]       },
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "duration": 0,
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "x": 415,
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "y": 225,
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pointerMove",
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "origin": "viewport"
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]       },
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "button": 0,
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pointerDown"
-2023-12-06 08:15:32:736 [AndroidUiautomator2Driver@a504 (2654a4ad)]       },
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "button": 0,
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pointerUp"
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]       }
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]     ]
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]   }
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)] ]
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)] Preprocessed actions: [
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]   {
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "id": "finger",
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "type": "pointer",
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "parameters": {
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]       "pointerType": "touch"
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]     },
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]     "actions": [
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "duration": 0,
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pause"
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]       },
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:737 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "duration": 0,
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "x": 415,
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "y": 225,
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pointerMove",
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "origin": "viewport"
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]       },
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "button": 0,
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pointerDown"
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]       },
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]       {
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "button": 0,
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]         "type": "pointerUp"
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]       }
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]     ]
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)]   }
-2023-12-06 08:15:32:738 [AndroidUiautomator2Driver@a504 (2654a4ad)] ]
-2023-12-06 08:15:32:742 [AndroidUiautomator2Driver@a504 (2654a4ad)] Matched '/actions' to command name 'performActions'
-2023-12-06 08:15:32:743 [AndroidUiautomator2Driver@a504 (2654a4ad)] Proxying [POST /actions] to [POST http://127.0.0.1:8240/session/f058a4e6-b841-4afc-9160-651fe3a2bd64/actions] with body: {"actions":[{"id":"finger","type":"pointer","parameters":{"pointerType":"touch"},"actions":[{"duration":0,"type":"pause"},{"duration":0,"x":415,"y":225,"type":"pointerMove","origin":"viewport"},{"button":0,"type":"pointerDown"},{"button":0,"type":"pointerUp"}]}]}
-2023-12-06 08:15:32:825 [AndroidUiautomator2Driver@a504 (2654a4ad)] Got response with status 200: {"sessionId":"f058a4e6-b841-4afc-9160-651fe3a2bd64","value":null}
-2023-12-06 08:15:32:826 [AndroidUiautomator2Driver@a504 (2654a4ad)] Responding to client with driver.performActions() result: null
-2023-12-06 08:15:32:827 [HTTP] <-- POST /session/2654a4ad-df22-4001-9e7b-455707d96411/actions 200 97 ms - 14
-2023-12-06 08:15:32:827 [HTTP] 
-2023-12-06 08:15:32:832 [Appium] Received SIGTERM - shutting down
-2023-12-06 08:15:32:835 [AppiumDriver@6f50] Cleaning up 1 active session
-2023-12-06 08:15:32:835 [AppiumDriver@6f50] Ending session, cause was 'The process has received SIGTERM signal'
-2023-12-06 08:15:32:835 [AppiumDriver@6f50] Removing session '2654a4ad-df22-4001-9e7b-455707d96411' from our master session list
-2023-12-06 08:15:32:836 [AndroidUiautomator2Driver@a504 (2654a4ad)] Deleting UiAutomator2 session
-2023-12-06 08:15:32:839 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:79:23)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-12-06 08:15:32:841 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-12-06 08:15:32:842 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-12-06 08:15:32:843 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-12-06 08:15:32:844 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-12-06 08:15:32:845 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-12-06 08:15:32:847 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-12-06 08:15:32:847 uncaughtException: write EPIPE
-Error: write EPIPE
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:952:11)
-    at Socket._write (node:net:964:8)
-    at writeOrBuffer (node:internal/streams/writable:399:12)
-    at _write (node:internal/streams/writable:340:10)
-    at Socket.Writable.write (node:internal/streams/writable:344:10)
-    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/index.js:103:17)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:381:5)
-    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:302:11)
-    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:629:20)
-    at DerivedLogger.emit (node:events:526:35)
-    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:279:12)
-    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:262:11)
-    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_readable.js:228:10)
-    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:132:32)
-    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:313:12)
-    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:166:10)
-    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_transform.js:155:83)
-    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+2023-12-06 12:25:43:590 [Appium] Welcome to Appium v2.1.3 (REV 7f745d04d90eaec76c8d5830d6ce6a0d7db888b3)
+2023-12-06 12:25:43:591 [Appium] Non-default server args:
+2023-12-06 12:25:43:592 [Appium] { port: 38911, sessionOverride: true }
+2023-12-06 12:25:43:592 [Appium] Attempting to load driver uiautomator2...
+2023-12-06 12:25:43:593 [Appium] Requiring driver at /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver
+2023-12-06 12:25:43:995 [Appium] Appium REST http interface listener started on http://0.0.0.0:38911
+2023-12-06 12:25:43:995 [Appium] You can provide the following URLs in your client code to connect to this server:
+2023-12-06 12:25:43:996 [Appium] 	http://127.0.0.1:38911/ (only accessible from the same host)
+2023-12-06 12:25:43:996 [Appium] 	http://192.168.29.167:38911/
+2023-12-06 12:25:43:996 [Appium] Available drivers:
+2023-12-06 12:25:43:996 [Appium]   - uiautomator2@2.29.5 (automationName 'UiAutomator2')
+2023-12-06 12:25:43:996 [Appium] No plugins have been installed. Use the "appium plugin" command to install the one(s) you want to use.
+2023-12-06 12:25:44:032 [HTTP] --> GET /status
+2023-12-06 12:25:44:032 [HTTP] {}
+2023-12-06 12:25:44:033 [AppiumDriver@4eca] Calling AppiumDriver.getStatus() with args: []
+2023-12-06 12:25:44:033 [AppiumDriver@4eca] Responding to client with driver.getStatus() result: {"ready":true,"message":"The server is ready to accept new connections","build":{"version":"2.1.3","git-sha":"7f745d04d90eaec76c8d5830d6ce6a0d7db888b3","built":"2023-11-06 14:35:24 +0800"}}
+2023-12-06 12:25:44:035 [HTTP] <-- GET /status 200 3 ms - 199
+2023-12-06 12:25:44:035 [HTTP] 
+2023-12-06 12:25:44:039 [HTTP] --> GET /status
+2023-12-06 12:25:44:039 [HTTP] {}
+2023-12-06 12:25:44:039 [AppiumDriver@4eca] Calling AppiumDriver.getStatus() with args: []
+2023-12-06 12:25:44:039 [AppiumDriver@4eca] Responding to client with driver.getStatus() result: {"ready":true,"message":"The server is ready to accept new connections","build":{"version":"2.1.3","git-sha":"7f745d04d90eaec76c8d5830d6ce6a0d7db888b3","built":"2023-11-06 14:35:24 +0800"}}
+2023-12-06 12:25:44:040 [HTTP] <-- GET /status 200 1 ms - 199
+2023-12-06 12:25:44:040 [HTTP] 
+2023-12-06 12:25:44:333 [HTTP] Request idempotency key: 1f5c621f-20f1-4ef1-9912-1fa16210072b
+2023-12-06 12:25:44:341 [HTTP] --> POST /session
+2023-12-06 12:25:44:341 [HTTP] {"capabilities":{"firstMatch":[{}],"alwaysMatch":{"appium:app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appium:appPackage":"com.appreciatewealth.android.uat","appium:automationName":"UiAutomator2","appium:deviceName":"Realme C53","appium:fullReset":false,"appium:noReset":true,"appium:resetKeyboard":false,"appium:udid":"0K537311312168E1","appium:unicodeKeyboard":false,"platformName":"ANDROID"}}}
+2023-12-06 12:25:44:341 [AppiumDriver@4eca] Calling AppiumDriver.createSession() with args: [null,null,{"firstMatch":[{}],"alwaysMatch":{"appium:app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appium:appPackage":"com.appreciatewealth.android.uat","appium:automationName":"UiAutomator2","appium:deviceName":"Realme C53","appium:fullReset":false,"appium:noReset":true,"appium:resetKeyboard":false,"appium:udid":"0K537311312168E1","appium:unicodeKeyboard":false,"platformName":"ANDROID"}}]
+2023-12-06 12:25:44:341 [AppiumDriver@4eca] Event 'newSessionRequested' logged at 1701865544341 (17:55:44 GMT+0530 (India Standard Time))
+2023-12-06 12:25:44:343 [Appium] Attempting to find matching driver for automationName 'UiAutomator2' and platformName 'ANDROID'
+2023-12-06 12:25:44:343 [Appium] The 'uiautomator2' driver was installed and matched caps.
+2023-12-06 12:25:44:343 [Appium] Will require it at /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver
+2023-12-06 12:25:44:343 [Appium] Requiring driver at /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver
+2023-12-06 12:25:44:343 [AppiumDriver@4eca] Appium v2.1.3 creating new AndroidUiautomator2Driver (v2.29.5) session
+2023-12-06 12:25:44:343 [AppiumDriver@4eca] Checking BaseDriver versions for Appium and AndroidUiautomator2Driver
+2023-12-06 12:25:44:343 [AppiumDriver@4eca] Appium's BaseDriver version is 9.3.20
+2023-12-06 12:25:44:343 [AppiumDriver@4eca] AndroidUiautomator2Driver's BaseDriver version is 9.3.20
+2023-12-06 12:25:44:343 [AppiumDriver@4eca] There are no active sessions for cleanup
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875] Creating session with W3C capabilities: {
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]   "alwaysMatch": {
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "platformName": "ANDROID",
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:app": "/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk",
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:appPackage": "com.appreciatewealth.android.uat",
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:automationName": "UiAutomator2",
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:deviceName": "Realme C53",
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:fullReset": false,
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:noReset": true,
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:resetKeyboard": false,
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:udid": "0K537311312168E1",
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     "appium:unicodeKeyboard": false
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]   },
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]   "firstMatch": [
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]     {}
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875]   ]
+2023-12-06 12:25:44:344 [AndroidUiautomator2Driver@c875] }
+2023-12-06 12:25:44:346 [AndroidUiautomator2Driver@c875] The following capabilities were provided, but are not recognized by Appium:
+2023-12-06 12:25:44:346 [AndroidUiautomator2Driver@c875]   deviceName
+2023-12-06 12:25:44:347 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Session created with session id: a59f4d9b-21ac-444a-8f1f-0d4c2483195b
+2023-12-06 12:25:44:347 [BaseDriver] Using local app '/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk'
+2023-12-06 12:25:44:424 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Checking whether app is actually present
+2023-12-06 12:25:44:430 [ADB] Found 1 'build-tools' folders under '/Users/varshathandava/Library/Android/sdk' (newest first):
+2023-12-06 12:25:44:430 [ADB]     /Users/varshathandava/Library/Android/sdk/build-tools/34.0.0
+2023-12-06 12:25:44:430 [ADB] Using 'adb' from '/Users/varshathandava/Library/Android/sdk/platform-tools/adb'
+2023-12-06 12:25:44:430 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 start-server'
+2023-12-06 12:25:44:454 [AndroidDriver] Retrieving device list
+2023-12-06 12:25:44:454 [ADB] Trying to find a connected android device
+2023-12-06 12:25:44:454 [ADB] Getting connected devices
+2023-12-06 12:25:44:465 [ADB] Connected devices: [{"udid":"0K537311312168E1","state":"device"}]
+2023-12-06 12:25:44:465 [AndroidDriver] Using device: 0K537311312168E1
+2023-12-06 12:25:44:466 [ADB] Using 'adb' from '/Users/varshathandava/Library/Android/sdk/platform-tools/adb'
+2023-12-06 12:25:44:466 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 start-server'
+2023-12-06 12:25:44:474 [ADB] Setting device id to 0K537311312168E1
+2023-12-06 12:25:44:475 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell getprop ro.build.version.sdk'
+2023-12-06 12:25:44:507 [ADB] Current device property 'ro.build.version.sdk': 33
+2023-12-06 12:25:44:507 [ADB] Getting device platform version
+2023-12-06 12:25:44:508 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell getprop ro.build.version.release'
+2023-12-06 12:25:44:540 [ADB] Current device property 'ro.build.version.release': 13
+2023-12-06 12:25:44:540 [ADB] Device API level: 33
+2023-12-06 12:25:44:540 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Relaxing hidden api policy
+2023-12-06 12:25:44:540 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell 'settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1''
+2023-12-06 12:25:44:671 [AndroidDriver] Parsing package and activity from app manifest
+2023-12-06 12:25:44:696 [ADB] Package name: 'com.appreciatewealth.android.uat'
+2023-12-06 12:25:44:696 [ADB] Main activity name: 'com.appreciatewealth.android.activity.startup.SplashScreen'
+2023-12-06 12:25:44:696 [AndroidDriver] Parsed package and activity are: com.appreciatewealth.android.uat/com.appreciatewealth.android.activity.startup.SplashScreen
+2023-12-06 12:25:44:697 [AndroidDriver] Pushing settings apk to device...
+2023-12-06 12:25:44:697 [ADB] Getting package info for 'io.appium.settings'
+2023-12-06 12:25:44:697 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys package io.appium.settings'
+2023-12-06 12:25:44:759 [ADB] The version name of the installed 'io.appium.settings' is greater or equal to the application version name ('5.1.0' >= '5.1.0')
+2023-12-06 12:25:44:760 [ADB] There is no need to install/upgrade '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/io.appium.settings/apks/settings_apk-debug.apk'
+2023-12-06 12:25:44:760 [ADB] Getting IDs of all 'io.appium.settings' processes
+2023-12-06 12:25:44:760 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell 'pgrep --help; echo $?''
+2023-12-06 12:25:44:800 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pgrep -f \(\[\[:blank:\]\]\|\^\)io\.appium\.settings\(\[\[:blank:\]\]\|\$\)'
+2023-12-06 12:25:44:878 [AndroidDriver] io.appium.settings is already running. There is no need to reset its permissions.
+2023-12-06 12:25:44:878 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell appops set io.appium.settings android:mock_location allow'
+2023-12-06 12:25:44:936 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell "[ -e '/data/local/tmp/mock_apps.json' ] && echo __PASS__"'
+2023-12-06 12:25:44:969 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell cat /data/local/tmp/mock_apps.json'
+2023-12-06 12:25:45:009 [Logcat] Starting logs capture with command: /Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 logcat -v threadtime
+2023-12-06 12:25:45:066 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Forwarding UiAutomator2 Server port 6790 to local port 8249
+2023-12-06 12:25:45:066 [ADB] Forwarding system: 8249 to device: 6790
+2023-12-06 12:25:45:066 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 forward tcp:8249 tcp:6790'
+2023-12-06 12:25:45:080 [ADB] Checking app cert for /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk
+2023-12-06 12:25:45:080 [ADB] Checking app cert for /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk
+2023-12-06 12:25:45:084 [ADB] Using 'apksigner.jar' from '/Users/varshathandava/Library/Android/sdk/build-tools/34.0.0/lib/apksigner.jar'
+2023-12-06 12:25:45:085 [ADB] Starting apksigner: /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java -Xmx1024M -Xss1m -jar /Users/varshathandava/Library/Android/sdk/build-tools/34.0.0/lib/apksigner.jar verify --print-certs /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk
+2023-12-06 12:25:45:103 [ADB] Starting apksigner: /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home/bin/java -Xmx1024M -Xss1m -jar /Users/varshathandava/Library/Android/sdk/build-tools/34.0.0/lib/apksigner.jar verify --print-certs /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk
+2023-12-06 12:25:45:281 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2023-12-06 12:25:45:281 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2023-12-06 12:25:45:281 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2023-12-06 12:25:45:281 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2023-12-06 12:25:45:281 [ADB] 
+2023-12-06 12:25:45:281 [ADB] sha256 hash did match for 'appium-uiautomator2-server-debug-androidTest.apk'
+2023-12-06 12:25:45:281 [ADB] '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk' is signed with the default certificate
+2023-12-06 12:25:45:281 [ADB] Getting install status for io.appium.uiautomator2.server.test
+2023-12-06 12:25:45:281 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pm path io.appium.uiautomator2.server.test'
+2023-12-06 12:25:45:330 [ADB] 'io.appium.uiautomator2.server.test' is installed
+2023-12-06 12:25:45:756 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2023-12-06 12:25:45:756 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2023-12-06 12:25:45:757 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2023-12-06 12:25:45:757 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2023-12-06 12:25:45:757 [ADB] 
+2023-12-06 12:25:45:757 [ADB] sha256 hash did match for 'appium-uiautomator2-server-v5.12.3.apk'
+2023-12-06 12:25:45:757 [ADB] '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk' is signed with the default certificate
+2023-12-06 12:25:45:757 [ADB] Getting package info for 'io.appium.uiautomator2.server'
+2023-12-06 12:25:45:757 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys package io.appium.uiautomator2.server'
+2023-12-06 12:25:45:872 [ADB] The version name of the installed 'io.appium.uiautomator2.server' is greater or equal to the application version name ('5.12.3' >= '5.12.3')
+2023-12-06 12:25:45:872 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Server packages status: [{"wasSigned":true,"installState":"sameVersionInstalled","appPath":"/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk","appId":"io.appium.uiautomator2.server"},{"wasSigned":true,"installState":"sameVersionInstalled","appPath":"/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk","appId":"io.appium.uiautomator2.server.test"}]
+2023-12-06 12:25:45:872 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Server packages are not going to be (re)installed
+2023-12-06 12:25:45:873 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 30000ms for services to be available
+2023-12-06 12:25:45:873 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pm list instrumentation'
+2023-12-06 12:25:45:924 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Instrumentation target 'io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner' is available
+2023-12-06 12:25:45:926 [ADB] Adding packages ["io.appium.settings","io.appium.uiautomator2.server","io.appium.uiautomator2.server.test"] to Doze whitelist
+2023-12-06 12:25:45:926 [ADB] Got the following command chunks to execute: [["dumpsys","deviceidle","whitelist","+io.appium.settings",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server.test",";"]]
+2023-12-06 12:25:45:926 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys deviceidle whitelist +io.appium.settings ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server.test ;'
+2023-12-06 12:25:46:001 [ADB] Getting install status for com.appreciatewealth.android.uat
+2023-12-06 12:25:46:001 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pm path com.appreciatewealth.android.uat'
+2023-12-06 12:25:46:054 [ADB] 'com.appreciatewealth.android.uat' is installed
+2023-12-06 12:25:46:054 [AndroidUiautomator2Driver@c875 (a59f4d9b)] noReset has been requested and the app is already installed. Doing nothing
+2023-12-06 12:25:46:055 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Performing shallow cleanup of automation leftovers
+2023-12-06 12:25:46:067 [AndroidUiautomator2Driver@c875 (a59f4d9b)] No obsolete sessions have been detected (socket hang up)
+2023-12-06 12:25:46:067 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell am force-stop io.appium.uiautomator2.server.test'
+2023-12-06 12:25:46:138 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Starting UIAutomator2 server 5.12.3
+2023-12-06 12:25:46:138 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Using UIAutomator2 server from '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v5.12.3.apk' and test from '/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk'
+2023-12-06 12:25:46:139 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 30000ms for UiAutomator2 to be online...
+2023-12-06 12:25:46:139 [ADB] Creating ADB subprocess with args: ["-P","5037","-s","0K537311312168E1","shell","am","instrument","-w","-e","disableAnalytics",true,"io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner"]
+2023-12-06 12:25:46:140 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/status' to command name 'getStatus'
+2023-12-06 12:25:46:141 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /status] to [GET http://127.0.0.1:8249/status] with no body
+2023-12-06 12:25:46:149 [AndroidUiautomator2Driver@c875 (a59f4d9b)] socket hang up
+2023-12-06 12:25:47:150 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/status' to command name 'getStatus'
+2023-12-06 12:25:47:151 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /status] to [GET http://127.0.0.1:8249/status] with no body
+2023-12-06 12:25:47:157 [AndroidUiautomator2Driver@c875 (a59f4d9b)] socket hang up
+2023-12-06 12:25:47:673 [Instrumentation] io.appium.uiautomator2.server.test.AppiumUiAutomator2Server:
+2023-12-06 12:25:48:158 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/status' to command name 'getStatus'
+2023-12-06 12:25:48:158 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /status] to [GET http://127.0.0.1:8249/status] with no body
+2023-12-06 12:25:48:166 [AndroidUiautomator2Driver@c875 (a59f4d9b)] socket hang up
+2023-12-06 12:25:49:168 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/status' to command name 'getStatus'
+2023-12-06 12:25:49:168 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /status] to [GET http://127.0.0.1:8249/status] with no body
+2023-12-06 12:25:49:240 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"None","value":{"message":"UiAutomator2 Server is ready to accept commands","ready":true}}
+2023-12-06 12:25:49:241 [AndroidUiautomator2Driver@c875 (a59f4d9b)] The initialization of the instrumentation process took 3102ms
+2023-12-06 12:25:49:241 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/session' to command name 'createSession'
+2023-12-06 12:25:49:241 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /session] to [POST http://127.0.0.1:8249/session] with body: {"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android.uat","automationName":"UiAutomator2","deviceName":"Realme C53","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false},"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android.uat","automationName":"UiAutomator2","deviceName":"0K537311312168E1","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false,"deviceUDID":"0K537311312168E1"}],"alwaysMatch":{}}}
+2023-12-06 12:25:49:291 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android.uat","automationName":"UiAutomator2","deviceName":"Realme C53","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false},"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android.uat","automationName":"UiAutomator2","deviceName":"0K537311312168E1","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false,"...
+2023-12-06 12:25:49:291 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Determined the downstream protocol as 'W3C'
+2023-12-06 12:25:49:300 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /appium/device/info] to [GET http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/appium/device/info] with no body
+2023-12-06 12:25:49:350 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"androidId":"c83cf21e0e5b769c","apiVersion":"33","bluetooth":{"state":"OFF"},"brand":"realme","carrierName":"JIO 4G","displayDensity":272,"locale":"en_IN","manufacturer":"realme","model":"RMX3762","networks":[{"capabilities":{"SSID":null,"linkDownBandwidthKbps":57793,"linkUpstreamBandwidthKbps":26013,"networkCapabilities":"NET_CAPABILITY_NOT_METERED,NET_CAPABILITY_INTERNET,NET_CAPABILITY_NOT_RESTRICTED,NET_CAPABILITY_TRUSTED,NET_CAPABILITY_NOT_VPN,NET_CAPABILITY_VALIDATED,NET_CAPABILITY_NOT_ROAMING,NET_CAPABILITY_FOREGROUND,NET_CAPABILITY_NOT_CONGESTED,NET_CAPABILITY_NOT_SUSPENDED","signalStrength":-40,"transportTypes":"TRANSPORT_WIFI"},"detailedState":"CONNECTED","extraInfo":"","isAvailable":true,"isConnected":true,"isFailover":false,"isRoaming":false,"state":"CONNECTED","subtype":-1,"subtypeName":"","type":1,"typeName":"WIFI"}],"platformVersion":"13","realDisplaySize":"720x1600","timeZone":"Asia/Calcutta"}}
+2023-12-06 12:25:49:350 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys window'
+2023-12-06 12:25:49:444 [AndroidDriver] Screen already unlocked, doing nothing
+2023-12-06 12:25:49:444 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Starting 'com.appreciatewealth.android.uat/com.appreciatewealth.android.activity.startup.SplashScreen and waiting for 'com.appreciatewealth.android.uat/com.appreciatewealth.android.activity.startup.SplashScreen'
+2023-12-06 12:25:49:444 [ADB] Getting IDs of all 'com.appreciatewealth.android.uat' processes
+2023-12-06 12:25:49:445 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell pgrep -f \(\[\[:blank:\]\]\|\^\)com\.appreciatewealth\.android\.uat\(\[\[:blank:\]\]\|\$\)'
+2023-12-06 12:25:49:532 [AndroidUiautomator2Driver@c875 (a59f4d9b)] 'com.appreciatewealth.android.uat' is already running and noReset is enabled. Set forceAppLaunch capability to true if the app must be forcefully restarted on session startup.
+2023-12-06 12:25:49:535 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /appium/device/pixel_ratio] to [GET http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/appium/device/pixel_ratio] with no body
+2023-12-06 12:25:49:549 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":1.7}
+2023-12-06 12:25:49:550 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/appium/device/system_bars' to command name 'getSystemBars'
+2023-12-06 12:25:49:550 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /appium/device/system_bars] to [GET http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/appium/device/system_bars] with no body
+2023-12-06 12:25:49:563 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"statusBar":82}}
+2023-12-06 12:25:49:564 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/window/current/size' to command name 'getWindowSize'
+2023-12-06 12:25:49:564 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [GET /window/current/size] to [GET http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/window/current/size] with no body
+2023-12-06 12:25:49:578 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"height":1454,"width":720}}
+2023-12-06 12:25:49:578 [AppiumDriver@4eca] New AndroidUiautomator2Driver session created successfully, session a59f4d9b-21ac-444a-8f1f-0d4c2483195b added to master session list
+2023-12-06 12:25:49:579 [AppiumDriver@4eca] Event 'newSessionStarted' logged at 1701865549579 (17:55:49 GMT+0530 (India Standard Time))
+2023-12-06 12:25:49:579 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Cached the protocol value 'W3C' for the new session a59f4d9b-21ac-444a-8f1f-0d4c2483195b
+2023-12-06 12:25:49:580 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.createSession() result: {"capabilities":{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android.uat","automationName":"UiAutomator2","deviceName":"Realme C53","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false},"platformName":"ANDROID","app":"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk","appPackage":"com.appreciatewealth.android.uat","automationName":"UiAutomator2","deviceName":"0K537311312168E1","fullReset":false,"noReset":true,"resetKeyboard":false,"udid":"0K537311312168E1","unicodeKeyboard":false,"deviceUDID":"0K537311312168E1","deviceApiLevel":33,"platformVersion":"13","...
+2023-12-06 12:25:49:581 [HTTP] <-- POST /session 200 5240 ms - 1289
+2023-12-06 12:25:49:581 [HTTP] 
+2023-12-06 12:25:55:196 [HTTP] --> GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context
+2023-12-06 12:25:55:197 [HTTP] {}
+2023-12-06 12:25:55:203 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.getCurrentContext() with args: ["a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:55:204 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2023-12-06 12:25:55:205 [HTTP] <-- GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context 200 8 ms - 22
+2023-12-06 12:25:55:205 [HTTP] 
+2023-12-06 12:25:55:219 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:25:55:219 [HTTP] {"using":"xpath","value":"//*[@text='Email']"}
+2023-12-06 12:25:55:221 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","//*[@text='Email']","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:55:222 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:25:55:222 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:25:55:224 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:25:55:224 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"//*[@text='Email']","context":"","multiple":false}
+2023-12-06 12:25:56:749 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aea-ffff-ffff000000d0","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aea-ffff-ffff000000d0"}}
+2023-12-06 12:25:56:750 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aea-ffff-ffff000000d0","ELEMENT":"00000000-0000-1aea-ffff-ffff000000d0"}
+2023-12-06 12:25:56:752 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 1532 ms - 137
+2023-12-06 12:25:56:752 [HTTP] 
+2023-12-06 12:25:56:760 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aea-ffff-ffff000000d0/click
+2023-12-06 12:25:56:760 [HTTP] {"id":"00000000-0000-1aea-ffff-ffff000000d0"}
+2023-12-06 12:25:56:761 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.click() with args: ["00000000-0000-1aea-ffff-ffff000000d0","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:56:762 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element/00000000-0000-1aea-ffff-ffff000000d0/click' to command name 'click'
+2023-12-06 12:25:56:763 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element/00000000-0000-1aea-ffff-ffff000000d0/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element/00000000-0000-1aea-ffff-ffff000000d0/click] with body: {"element":"00000000-0000-1aea-ffff-ffff000000d0"}
+2023-12-06 12:25:57:533 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:25:57:534 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.click() result: null
+2023-12-06 12:25:57:535 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aea-ffff-ffff000000d0/click 200 775 ms - 14
+2023-12-06 12:25:57:535 [HTTP] 
+2023-12-06 12:25:57:543 [HTTP] --> GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context
+2023-12-06 12:25:57:543 [HTTP] {}
+2023-12-06 12:25:57:546 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.getCurrentContext() with args: ["a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:57:546 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2023-12-06 12:25:57:547 [HTTP] <-- GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context 200 4 ms - 22
+2023-12-06 12:25:57:547 [HTTP] 
+2023-12-06 12:25:57:551 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:25:57:551 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText"}
+2023-12-06 12:25:57:551 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:57:552 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:25:57:552 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:25:57:552 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:25:57:552 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText","context":"","multiple":false}
+2023-12-06 12:25:57:771 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aea-ffff-ffff000000c4","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aea-ffff-ffff000000c4"}}
+2023-12-06 12:25:57:772 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aea-ffff-ffff000000c4","ELEMENT":"00000000-0000-1aea-ffff-ffff000000c4"}
+2023-12-06 12:25:57:774 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 223 ms - 137
+2023-12-06 12:25:57:774 [HTTP] 
+2023-12-06 12:25:57:784 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aea-ffff-ffff000000c4/value
+2023-12-06 12:25:57:784 [HTTP] {"id":"00000000-0000-1aea-ffff-ffff000000c4","text":"varshatmysuru1992@gmail.com","value":["v","a","r","s","h","a","t","m","y","s","u","r","u","1","9","9","2","@","g","m","a","i","l",".","c","o","m"]}
+2023-12-06 12:25:57:784 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.setValue() with args: [["v","a","r","s","h","a","t","m","y","s","u","r","u","1","9","9","2","@","g","m","a","i","l",".","c","o","m"],"00000000-0000-1aea-ffff-ffff000000c4","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:57:785 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element/00000000-0000-1aea-ffff-ffff000000c4/value' to command name 'setValue'
+2023-12-06 12:25:57:786 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Added 'value' property ["v","a","r","s","h","a","t","m","y","s","u","r","u","1","9","9","2","@","g","m","a","i","l",".","c","o","m"] to 'setValue' request body
+2023-12-06 12:25:57:786 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element/00000000-0000-1aea-ffff-ffff000000c4/value] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element/00000000-0000-1aea-ffff-ffff000000c4/value] with body: {"elementId":"00000000-0000-1aea-ffff-ffff000000c4","text":"varshatmysuru1992@gmail.com","replace":false,"unicodeKeyboard":false,"value":["v","a","r","s","h","a","t","m","y","s","u","r","u","1","9","9","2","@","g","m","a","i","l",".","c","o","m"]}
+2023-12-06 12:25:57:864 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:25:57:866 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.setValue() result: null
+2023-12-06 12:25:57:867 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aea-ffff-ffff000000c4/value 200 83 ms - 14
+2023-12-06 12:25:57:867 [HTTP] 
+2023-12-06 12:25:57:872 [HTTP] --> GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context
+2023-12-06 12:25:57:872 [HTTP] {}
+2023-12-06 12:25:57:873 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.getCurrentContext() with args: ["a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:57:873 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2023-12-06 12:25:57:874 [HTTP] <-- GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context 200 2 ms - 22
+2023-12-06 12:25:57:874 [HTTP] 
+2023-12-06 12:25:57:878 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:25:57:878 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button"}
+2023-12-06 12:25:57:879 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:57:879 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:25:57:879 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:25:57:880 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:25:57:880 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button","context":"","multiple":false}
+2023-12-06 12:25:58:086 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aea-ffff-ffff000000cb","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aea-ffff-ffff000000cb"}}
+2023-12-06 12:25:58:087 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aea-ffff-ffff000000cb","ELEMENT":"00000000-0000-1aea-ffff-ffff000000cb"}
+2023-12-06 12:25:58:088 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 209 ms - 137
+2023-12-06 12:25:58:088 [HTTP] 
+2023-12-06 12:25:58:094 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aea-ffff-ffff000000cb/click
+2023-12-06 12:25:58:094 [HTTP] {"id":"00000000-0000-1aea-ffff-ffff000000cb"}
+2023-12-06 12:25:58:095 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.click() with args: ["00000000-0000-1aea-ffff-ffff000000cb","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:25:58:095 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element/00000000-0000-1aea-ffff-ffff000000cb/click' to command name 'click'
+2023-12-06 12:25:58:095 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element/00000000-0000-1aea-ffff-ffff000000cb/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element/00000000-0000-1aea-ffff-ffff000000cb/click] with body: {"element":"00000000-0000-1aea-ffff-ffff000000cb"}
+2023-12-06 12:25:58:622 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:25:58:623 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.click() result: null
+2023-12-06 12:25:58:623 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aea-ffff-ffff000000cb/click 200 529 ms - 14
+2023-12-06 12:25:58:624 [HTTP] 
+2023-12-06 12:26:01:636 [HTTP] --> GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context
+2023-12-06 12:26:01:636 [HTTP] {}
+2023-12-06 12:26:01:636 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.getCurrentContext() with args: ["a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:01:637 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2023-12-06 12:26:01:638 [HTTP] <-- GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context 200 2 ms - 22
+2023-12-06 12:26:01:639 [HTTP] 
+2023-12-06 12:26:01:643 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:01:643 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText"}
+2023-12-06 12:26:01:643 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:01:644 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:01:644 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:01:644 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:01:644 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText","context":"","multiple":false}
+2023-12-06 12:26:01:935 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aee-ffff-ffff000000ed","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aee-ffff-ffff000000ed"}}
+2023-12-06 12:26:01:936 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aee-ffff-ffff000000ed","ELEMENT":"00000000-0000-1aee-ffff-ffff000000ed"}
+2023-12-06 12:26:01:937 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 294 ms - 137
+2023-12-06 12:26:01:937 [HTTP] 
+2023-12-06 12:26:01:944 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aee-ffff-ffff000000ed/value
+2023-12-06 12:26:01:944 [HTTP] {"id":"00000000-0000-1aee-ffff-ffff000000ed","text":"904123","value":["9","0","4","1","2","3"]}
+2023-12-06 12:26:01:944 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.setValue() with args: [["9","0","4","1","2","3"],"00000000-0000-1aee-ffff-ffff000000ed","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:01:945 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element/00000000-0000-1aee-ffff-ffff000000ed/value' to command name 'setValue'
+2023-12-06 12:26:01:945 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Added 'value' property ["9","0","4","1","2","3"] to 'setValue' request body
+2023-12-06 12:26:01:945 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element/00000000-0000-1aee-ffff-ffff000000ed/value] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element/00000000-0000-1aee-ffff-ffff000000ed/value] with body: {"elementId":"00000000-0000-1aee-ffff-ffff000000ed","text":"904123","replace":false,"unicodeKeyboard":false,"value":["9","0","4","1","2","3"]}
+2023-12-06 12:26:02:008 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:02:010 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.setValue() result: null
+2023-12-06 12:26:02:011 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aee-ffff-ffff000000ed/value 200 67 ms - 14
+2023-12-06 12:26:02:011 [HTTP] 
+2023-12-06 12:26:02:016 [HTTP] --> GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context
+2023-12-06 12:26:02:016 [HTTP] {}
+2023-12-06 12:26:02:017 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.getCurrentContext() with args: ["a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:02:017 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2023-12-06 12:26:02:018 [HTTP] <-- GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context 200 1 ms - 22
+2023-12-06 12:26:02:018 [HTTP] 
+2023-12-06 12:26:02:021 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:02:021 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button"}
+2023-12-06 12:26:02:022 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:02:022 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:02:022 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:02:022 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:02:023 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button","context":"","multiple":false}
+2023-12-06 12:26:02:200 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aee-ffff-ffff000000f5","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aee-ffff-ffff000000f5"}}
+2023-12-06 12:26:02:201 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aee-ffff-ffff000000f5","ELEMENT":"00000000-0000-1aee-ffff-ffff000000f5"}
+2023-12-06 12:26:02:202 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 180 ms - 137
+2023-12-06 12:26:02:202 [HTTP] 
+2023-12-06 12:26:02:209 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aee-ffff-ffff000000f5/click
+2023-12-06 12:26:02:209 [HTTP] {"id":"00000000-0000-1aee-ffff-ffff000000f5"}
+2023-12-06 12:26:02:209 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.click() with args: ["00000000-0000-1aee-ffff-ffff000000f5","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:02:210 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element/00000000-0000-1aee-ffff-ffff000000f5/click' to command name 'click'
+2023-12-06 12:26:02:210 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element/00000000-0000-1aee-ffff-ffff000000f5/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element/00000000-0000-1aee-ffff-ffff000000f5/click] with body: {"element":"00000000-0000-1aee-ffff-ffff000000f5"}
+2023-12-06 12:26:02:843 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:02:844 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.click() result: null
+2023-12-06 12:26:02:846 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1aee-ffff-ffff000000f5/click 200 636 ms - 14
+2023-12-06 12:26:02:846 [HTTP] 
+2023-12-06 12:26:10:859 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync
+2023-12-06 12:26:10:859 [HTTP] {"script":"mobile: isKeyboardShown","args":[]}
+2023-12-06 12:26:10:863 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.execute() with args: ["mobile: isKeyboardShown",[],"a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:10:863 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Executing native command 'mobile: isKeyboardShown'
+2023-12-06 12:26:10:864 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys input_method'
+2023-12-06 12:26:11:571 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.execute() result: false
+2023-12-06 12:26:11:573 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync 200 713 ms - 15
+2023-12-06 12:26:11:573 [HTTP] 
+2023-12-06 12:26:17:587 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:17:588 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView"}
+2023-12-06 12:26:17:588 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:17:588 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:17:588 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:17:591 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:17:592 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView","context":"","multiple":false}
+2023-12-06 12:26:17:954 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aef-ffff-ffff00000117","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff00000117"}}
+2023-12-06 12:26:17:955 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff00000117","ELEMENT":"00000000-0000-1aef-ffff-ffff00000117"}
+2023-12-06 12:26:17:956 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 368 ms - 137
+2023-12-06 12:26:17:956 [HTTP] 
+2023-12-06 12:26:17:964 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync
+2023-12-06 12:26:17:964 [HTTP] {"script":"mobile: clickGesture","args":[{"elementId":"00000000-0000-1aef-ffff-ffff00000117"}]}
+2023-12-06 12:26:17:969 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.execute() with args: ["mobile: clickGesture",[{"elementId":"00000000-0000-1aef-ffff-ffff00000117"}],"a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:17:969 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Executing native command 'mobile: clickGesture'
+2023-12-06 12:26:17:978 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /appium/gestures/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/appium/gestures/click] with body: {"origin":{"ELEMENT":"00000000-0000-1aef-ffff-ffff00000117","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff00000117"}}
+2023-12-06 12:26:18:058 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:18:058 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.execute() result: null
+2023-12-06 12:26:18:059 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync 200 95 ms - 14
+2023-12-06 12:26:18:060 [HTTP] 
+2023-12-06 12:26:18:065 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:18:065 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.TextView"}
+2023-12-06 12:26:18:066 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.TextView","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:18:066 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:18:067 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:18:067 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:18:067 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.TextView","context":"","multiple":false}
+2023-12-06 12:26:18:532 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aef-ffff-ffff00000131","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff00000131"}}
+2023-12-06 12:26:18:533 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff00000131","ELEMENT":"00000000-0000-1aef-ffff-ffff00000131"}
+2023-12-06 12:26:18:535 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 468 ms - 137
+2023-12-06 12:26:18:535 [HTTP] 
+2023-12-06 12:26:18:541 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync
+2023-12-06 12:26:18:541 [HTTP] {"script":"mobile: clickGesture","args":[{"elementId":"00000000-0000-1aef-ffff-ffff00000131"}]}
+2023-12-06 12:26:18:542 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.execute() with args: ["mobile: clickGesture",[{"elementId":"00000000-0000-1aef-ffff-ffff00000131"}],"a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:18:542 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Executing native command 'mobile: clickGesture'
+2023-12-06 12:26:18:544 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /appium/gestures/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/appium/gestures/click] with body: {"origin":{"ELEMENT":"00000000-0000-1aef-ffff-ffff00000131","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff00000131"}}
+2023-12-06 12:26:18:612 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:18:612 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.execute() result: null
+2023-12-06 12:26:18:613 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync 200 72 ms - 14
+2023-12-06 12:26:18:614 [HTTP] 
+2023-12-06 12:26:18:619 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:18:619 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"}
+2023-12-06 12:26:18:620 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:18:620 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:18:620 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:18:621 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:18:621 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView","context":"","multiple":false}
+2023-12-06 12:26:19:489 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aef-ffff-ffff0000012e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff0000012e"}}
+2023-12-06 12:26:19:489 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff0000012e","ELEMENT":"00000000-0000-1aef-ffff-ffff0000012e"}
+2023-12-06 12:26:19:491 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 872 ms - 137
+2023-12-06 12:26:19:491 [HTTP] 
+2023-12-06 12:26:19:497 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync
+2023-12-06 12:26:19:498 [HTTP] {"script":"mobile: clickGesture","args":[{"elementId":"00000000-0000-1aef-ffff-ffff0000012e"}]}
+2023-12-06 12:26:19:498 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.execute() with args: ["mobile: clickGesture",[{"elementId":"00000000-0000-1aef-ffff-ffff0000012e"}],"a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:19:498 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Executing native command 'mobile: clickGesture'
+2023-12-06 12:26:19:501 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /appium/gestures/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/appium/gestures/click] with body: {"origin":{"ELEMENT":"00000000-0000-1aef-ffff-ffff0000012e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff0000012e"}}
+2023-12-06 12:26:19:557 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:19:558 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.execute() result: null
+2023-12-06 12:26:19:559 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync 200 61 ms - 14
+2023-12-06 12:26:19:559 [HTTP] 
+2023-12-06 12:26:19:564 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:19:564 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"}
+2023-12-06 12:26:19:565 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:19:565 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:19:565 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:19:565 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:19:565 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView","context":"","multiple":false}
+2023-12-06 12:26:19:830 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1aef-ffff-ffff0000012e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff0000012e"}}
+2023-12-06 12:26:19:831 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff0000012e","ELEMENT":"00000000-0000-1aef-ffff-ffff0000012e"}
+2023-12-06 12:26:19:832 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 267 ms - 137
+2023-12-06 12:26:19:832 [HTTP] 
+2023-12-06 12:26:19:838 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync
+2023-12-06 12:26:19:838 [HTTP] {"script":"mobile: clickGesture","args":[{"elementId":"00000000-0000-1aef-ffff-ffff0000012e"}]}
+2023-12-06 12:26:19:839 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.execute() with args: ["mobile: clickGesture",[{"elementId":"00000000-0000-1aef-ffff-ffff0000012e"}],"a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:19:839 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Executing native command 'mobile: clickGesture'
+2023-12-06 12:26:19:841 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /appium/gestures/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/appium/gestures/click] with body: {"origin":{"ELEMENT":"00000000-0000-1aef-ffff-ffff0000012e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1aef-ffff-ffff0000012e"}}
+2023-12-06 12:26:20:106 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:20:106 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.execute() result: null
+2023-12-06 12:26:20:107 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/execute/sync 200 269 ms - 14
+2023-12-06 12:26:20:107 [HTTP] 
+2023-12-06 12:26:34:119 [HTTP] --> GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context
+2023-12-06 12:26:34:120 [HTTP] {}
+2023-12-06 12:26:34:120 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.getCurrentContext() with args: ["a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:34:121 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2023-12-06 12:26:34:122 [HTTP] <-- GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context 200 2 ms - 22
+2023-12-06 12:26:34:122 [HTTP] 
+2023-12-06 12:26:34:126 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:34:126 [HTTP] {"using":"xpath","value":"//*[@text='go to dashboard']"}
+2023-12-06 12:26:34:126 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","//*[@text='go to dashboard']","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:34:127 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:34:127 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:34:127 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:34:127 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"//*[@text='go to dashboard']","context":"","multiple":false}
+2023-12-06 12:26:34:268 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1af1-ffff-ffff00000156","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1af1-ffff-ffff00000156"}}
+2023-12-06 12:26:34:269 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1af1-ffff-ffff00000156","ELEMENT":"00000000-0000-1af1-ffff-ffff00000156"}
+2023-12-06 12:26:34:270 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 144 ms - 137
+2023-12-06 12:26:34:271 [HTTP] 
+2023-12-06 12:26:34:276 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1af1-ffff-ffff00000156/click
+2023-12-06 12:26:34:276 [HTTP] {"id":"00000000-0000-1af1-ffff-ffff00000156"}
+2023-12-06 12:26:34:277 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.click() with args: ["00000000-0000-1af1-ffff-ffff00000156","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:34:277 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element/00000000-0000-1af1-ffff-ffff00000156/click' to command name 'click'
+2023-12-06 12:26:34:277 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element/00000000-0000-1af1-ffff-ffff00000156/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element/00000000-0000-1af1-ffff-ffff00000156/click] with body: {"element":"00000000-0000-1af1-ffff-ffff00000156"}
+2023-12-06 12:26:34:349 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:34:349 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.click() result: null
+2023-12-06 12:26:34:351 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1af1-ffff-ffff00000156/click 200 74 ms - 14
+2023-12-06 12:26:34:351 [HTTP] 
+2023-12-06 12:26:48:368 [HTTP] --> GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context
+2023-12-06 12:26:48:368 [HTTP] {}
+2023-12-06 12:26:48:368 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.getCurrentContext() with args: ["a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:48:369 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2023-12-06 12:26:48:369 [HTTP] <-- GET /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/context 200 2 ms - 22
+2023-12-06 12:26:48:369 [HTTP] 
+2023-12-06 12:26:48:373 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element
+2023-12-06 12:26:48:373 [HTTP] {"using":"xpath","value":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ImageView\n\t"}
+2023-12-06 12:26:48:373 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.findElement() with args: ["xpath","/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ImageView\n\t","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:48:373 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2023-12-06 12:26:48:373 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Waiting up to 0 ms for condition
+2023-12-06 12:26:48:374 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element' to command name 'findElement'
+2023-12-06 12:26:48:374 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element] with body: {"strategy":"xpath","selector":"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ImageView\n\t","context":"","multiple":false}
+2023-12-06 12:26:49:402 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":{"ELEMENT":"00000000-0000-1af2-ffff-ffff0000017e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1af2-ffff-ffff0000017e"}}
+2023-12-06 12:26:49:403 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-1af2-ffff-ffff0000017e","ELEMENT":"00000000-0000-1af2-ffff-ffff0000017e"}
+2023-12-06 12:26:49:403 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element 200 1030 ms - 137
+2023-12-06 12:26:49:403 [HTTP] 
+2023-12-06 12:26:49:407 [HTTP] --> POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1af2-ffff-ffff0000017e/click
+2023-12-06 12:26:49:407 [HTTP] {"id":"00000000-0000-1af2-ffff-ffff0000017e"}
+2023-12-06 12:26:49:407 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Calling AppiumDriver.click() with args: ["00000000-0000-1af2-ffff-ffff0000017e","a59f4d9b-21ac-444a-8f1f-0d4c2483195b"]
+2023-12-06 12:26:49:408 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/element/00000000-0000-1af2-ffff-ffff0000017e/click' to command name 'click'
+2023-12-06 12:26:49:408 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [POST /element/00000000-0000-1af2-ffff-ffff0000017e/click] to [POST http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9/element/00000000-0000-1af2-ffff-ffff0000017e/click] with body: {"element":"00000000-0000-1af2-ffff-ffff0000017e"}
+2023-12-06 12:26:49:467 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:49:467 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Responding to client with driver.click() result: null
+2023-12-06 12:26:49:468 [HTTP] <-- POST /session/a59f4d9b-21ac-444a-8f1f-0d4c2483195b/element/00000000-0000-1af2-ffff-ffff0000017e/click 200 61 ms - 14
+2023-12-06 12:26:49:468 [HTTP] 
+2023-12-06 12:26:50:748 [Appium] Received SIGINT - shutting down
+2023-12-06 12:26:50:749 [AppiumDriver@4eca] Cleaning up 1 active session
+2023-12-06 12:26:50:749 [AppiumDriver@4eca] Ending session, cause was 'The process has received SIGINT signal'
+2023-12-06 12:26:50:749 [AppiumDriver@4eca] Removing session 'a59f4d9b-21ac-444a-8f1f-0d4c2483195b' from our master session list
+2023-12-06 12:26:50:749 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Deleting UiAutomator2 session
+2023-12-06 12:26:50:750 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Deleting UiAutomator2 server session
+2023-12-06 12:26:50:750 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Matched '/' to command name 'deleteSession'
+2023-12-06 12:26:50:750 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Proxying [DELETE /] to [DELETE http://127.0.0.1:8249/session/efaba705-f905-4828-840f-318b003bf6e9] with no body
+2023-12-06 12:26:50:751 [Logcat] Logcat terminated with code null, signal SIGINT
+2023-12-06 12:26:50:751 [Instrumentation] The process has exited with code null
+2023-12-06 12:26:50:765 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Got response with status 200: {"sessionId":"efaba705-f905-4828-840f-318b003bf6e9","value":null}
+2023-12-06 12:26:50:765 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell dumpsys activity services io.appium.settings/.recorder.RecorderService'
+2023-12-06 12:26:50:766 [Logcat] Stopping logcat capture
+2023-12-06 12:26:50:766 [Logcat] Logcat already stopped
+2023-12-06 12:26:50:767 [ADB] Removing forwarded port socket connection: 8249 
+2023-12-06 12:26:50:767 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 forward --remove tcp:8249'
+2023-12-06 12:26:50:778 [AndroidUiautomator2Driver@c875 (a59f4d9b)] Restoring hidden api policy to the device default configuration
+2023-12-06 12:26:50:778 [ADB] Running '/Users/varshathandava/Library/Android/sdk/platform-tools/adb -P 5037 -s 0K537311312168E1 shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy''
+2023-12-06 12:26:50:961 [HTTP] Waiting until the server is closed
+2023-12-06 12:26:50:961 [HTTP] Received server close event
