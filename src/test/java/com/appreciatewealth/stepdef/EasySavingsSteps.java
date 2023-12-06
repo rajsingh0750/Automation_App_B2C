@@ -1,9 +1,6 @@
 package com.appreciatewealth.stepdef;
 
-import com.appreciatewealth.pages.BasePage;
-import com.appreciatewealth.pages.DashboardPage;
-import com.appreciatewealth.pages.EasySavings;
-import com.appreciatewealth.pages.SignInPage;
+import com.appreciatewealth.pages.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -114,6 +111,60 @@ public class EasySavingsSteps {
     public void theUserIsOnTheDashboard() throws IOException, InterruptedException {
         new SignInPage().DynamicSignIn("faureretruba-9695@yopmail.com");
         dashboardPage.ClickOnGoToDashboard();
+
+    }
+
+    @And("the User Select Easy Savings Banner")
+    public void theUserSelectEasySavingsBanner() throws InterruptedException {
+        new EasySavings().ClickSavingBanner();
+        
+    }
+
+    @And("the User see Deposit Amount")
+    public void theUserSeeDepositAmount() throws InterruptedException {
+        new EasySavings().ValidateDepositsAmount();
+        
+    }
+
+    @And("the User see Deposit Date")
+    public void theUserSeeDepositDate() throws InterruptedException {
+        new EasySavings().ValidateDepositsDate();
+    }
+
+    @Then("User Should see all the Details with Transaction Status")
+    public void userShouldSeeAllTheDetailsWithTransactionStatus() throws InterruptedException {
+        new EasySavings().ValidateDepositsId();
+        new EasySavings().ValidateDepositsStatus();
+        new EasySavings().ClickBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @Given("User is Logged in and on Easy Saving Banner in Dashboard")
+    public void userIsLoggedInAndOnEasySavingBannerInDashboard() throws InterruptedException {
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        dashboardPage.ClickOnGoToDashboard();
+    }
+
+    @Then("User Should be able to scroll the Deposit tab")
+    public void userShouldBeAbleToScrollTheDepositTab() throws InterruptedException {
+        new EasySavings().ScrollDeposit();
+        new EasySavings().ClickBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+
+    }
+
+    @Given("the user is on Goals Dashboard for EasySavings")
+    public void theUserIsOnGoalsDashboardForEasySavings() throws InterruptedException, IOException {
+        signInPage.DynamicSignIn("shubh.kr.rjpt@gmail.com");
+        dashboardPage.ClickOnGoToDashboard();
+        new GoalsPage().SwitchtoGoal();
+
+    }
+
+    @Then("User Should be able to see Easy Saving Banner in goal Dashboard")
+    public void userShouldBeAbleToSeeEasySavingBannerInGoalDashboard() {
 
     }
 }

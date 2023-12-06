@@ -37,3 +37,19 @@ Feature: Easy Savings
   Scenario: Validate if the Incentive message is displayed if the savings in the current month is equal or greater than 500
     Given User is Logged in and on Dashboard
     Then User should see the Incentive message if the user is eligible
+
+  Scenario: Validate Deposits view displays with Deposit amounts, dates and other deposit details
+    Given User is Logged in and on Easy Saving Banner in Dashboard
+    And the User Select Easy Savings Banner
+    And the User see Deposit Amount
+    And the User see Deposit Date
+    Then User Should see all the Details with Transaction Status
+
+  Scenario: Verify the Deposit Lists
+    Given User is Logged in and on Dashboard
+    And the User Select Easy Savings Banner
+    Then User Should be able to scroll the Deposit tab
+
+  Scenario: Validate Easy Savings Banner is displayed in Goal Dashboard
+    Given User is Logged in and on Easy Saving Banner in Dashboard
+    Then User Should be able to see Easy Saving Banner in goal Dashboard

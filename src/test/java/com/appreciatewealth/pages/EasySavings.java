@@ -15,52 +15,74 @@ import java.util.regex.Pattern;
 
 public class EasySavings extends BasePage {
 
-    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/androidx.cardview.widget.CardView[2]/android.view.ViewGroup/android.widget.ImageView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/androidx.cardview.widget.CardView[2]/android.view.ViewGroup/android.widget.ImageView")
     WebElement ReferLink;
 
-    @AndroidFindBy (xpath = "//*[@text='Coupons']")
+    @AndroidFindBy(xpath = "//*[@text='Coupons']")
     WebElement CouponsTab;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.Button")
     WebElement AddFunds;
 
-    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
     WebElement EnterCoupons;
 
-    @AndroidFindBy (xpath = "//*[@text='apply']")
+    @AndroidFindBy(xpath = "//*[@text='apply']")
     WebElement Apply;
 
-    @AndroidFindBy (xpath = "//*[@text='try again']")
+    @AndroidFindBy(xpath = "//*[@text='try again']")
     WebElement TryAgain;
 
-    @AndroidFindBy (xpath = "//*[@text='Coupon code already in use']")
+    @AndroidFindBy(xpath = "//*[@text='Coupon code already in use']")
     WebElement CouponAlreadyUsedMsg;
 
-    @AndroidFindBy (xpath = "//*[@text='Invalid coupon code']")
+    @AndroidFindBy(xpath = "//*[@text='Invalid coupon code']")
     WebElement ValidateInvalidCode;
 
-    @AndroidFindBy (xpath = "//*[contains(@text,'remaining')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'remaining')]")
     WebElement RemainingDeposit;
 
-    @AndroidFindBy (id = "com.appreciatewealth.android.uat:id/tvSavingsMonth")
+    @AndroidFindBy(id = "com.appreciatewealth.android.uat:id/tvSavingsMonth")
     WebElement SavingsThisMonth;
-    @AndroidFindBy (xpath = "//*[@text='add funds']")
+    @AndroidFindBy(xpath = "//*[@text='add funds']")
     WebElement AddFundsCommon;
 
-    @AndroidFindBy (xpath = "//*[@text='transfer now']")
+    @AndroidFindBy(xpath = "//*[@text='transfer now']")
     WebElement TransferNow;
 
-    @AndroidFindBy (xpath = "//*[contains(@text,'@')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'@')]")
     WebElement SelectUPI;
 
-    @AndroidFindBy (xpath = "//*[@text='go to dashboard']")
+    @AndroidFindBy(xpath = "//*[@text='go to dashboard']")
     WebElement Dashboard;
 
-    @AndroidFindBy (xpath = "//*[contains(@text,'DAYS')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'DAYS')]")
     WebElement DaysRemaining;
 
-    @AndroidFindBy (xpath = "//*[contains(@text,'Appreciate incentive this month')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Appreciate incentive this month')]")
     WebElement IncentiveMessage;
+
+    @AndroidFindBy(id = "topLayout")
+    WebElement EasySavingBanner;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[1]")
+    WebElement EasySavingDate;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[2]")
+    WebElement EasySavingAmount;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[4]")
+    WebElement EasySavingStatus;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[3]")
+    WebElement EasySavingDepositID;
+
+    @AndroidFindBy(id = "ivBack")
+    WebElement EasySavingBack;
+
+    @AndroidFindBy(id = "rbDeposits")
+    WebElement EasySavingDeposit;
+
 
     SignInPage signInPage;
     BasePage basePage;
@@ -74,9 +96,9 @@ public class EasySavings extends BasePage {
 
     private static double CurrentSavingsModified;
 
-    public EasySavings(){
+    public EasySavings() {
         this.signInPage = new SignInPage();
-        this.dashboardPage= new DashboardPage();
+        this.dashboardPage = new DashboardPage();
         this.basePage = new BasePage();
     }
 
@@ -96,11 +118,12 @@ public class EasySavings extends BasePage {
 
     public void ValidateErrorMessageCouponAlreadyUsed(String ErrMsg) throws InterruptedException {
         Thread.sleep(3000);
-      String ActualMsg =  CouponAlreadyUsedMsg.getText();
-        Assert.assertEquals(ActualMsg,ErrMsg);
+        String ActualMsg = CouponAlreadyUsedMsg.getText();
+        Assert.assertEquals(ActualMsg, ErrMsg);
 
     }
-    public void TryAgain(){
+
+    public void TryAgain() {
         TryAgain.click();
     }
 
@@ -108,6 +131,7 @@ public class EasySavings extends BasePage {
         Thread.sleep(2000);
         CouponsTab.click();
     }
+
     public void AddInvalidCoupons(String CouponCode) throws InterruptedException {
         Thread.sleep(2000);
         CouponsTab.click();
@@ -117,43 +141,43 @@ public class EasySavings extends BasePage {
         //EnterCoupons.clear();
 
     }
-    public void ClearCoupon(){
+
+    public void ClearCoupon() {
         EnterCoupons.clear();
     }
+
     public void ValidateInvalidCouponMesssage(String ErrorMessage) throws InterruptedException {
         Thread.sleep(2000);
-        String ActualMsg= ValidateInvalidCode.getText();
-        Assert.assertEquals(ActualMsg,ErrorMessage);
+        String ActualMsg = ValidateInvalidCode.getText();
+        Assert.assertEquals(ActualMsg, ErrorMessage);
 
     }
 
     public void CalculateSavingAndDepositRemaining() throws InterruptedException {
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Easy Savings\"))"));
 
-       // String CurrentRemainingAfterPayment = RemainingDeposit.getText();
-      //String RemovedRupee =  CurrentRemainingAfterPayment.replaceAll("₹([0-9]*\\.[0-9]+) remaining", "").trim();
+        // String CurrentRemainingAfterPayment = RemainingDeposit.getText();
+        //String RemovedRupee =  CurrentRemainingAfterPayment.replaceAll("₹([0-9]*\\.[0-9]+) remaining", "").trim();
         String input = RemainingDeposit.getText();
         String regex = "₹([0-9]*\\.[0-9]+) remaining";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
-       capturedValue = matcher.find() ? matcher.group(1) : "";
-      double ActualRemaining = Double.parseDouble(capturedValue);
+        capturedValue = matcher.find() ? matcher.group(1) : "";
+        double ActualRemaining = Double.parseDouble(capturedValue);
         System.out.println("Captured Remaining amount after Payment: " + capturedValue);
 
         // String RemovedSymbols = CurrentRemainingDeposit.replaceAll("₹[0-9]*\\.[0-9]+ remaining", "").trim();
 
-            double PostPaymentRemaining = value - 1;
-            Assert.assertEquals(ActualRemaining,PostPaymentRemaining);
+        double PostPaymentRemaining = value - 1;
+        Assert.assertEquals(ActualRemaining, PostPaymentRemaining);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Savings this month\"))"));
         Thread.sleep(2000);
         CurrentRemainingSavings = SavingsThisMonth.getText();
-        String CurrentSavings =CurrentRemainingSavings.replaceAll("[₹,]", "");
-       double ActualSavings = Double.parseDouble(CurrentSavings);
-            double PostPaymentSavings =  CurrentSavingsModified +1;
-            System.out.println("PostPaymentSavings :" +PostPaymentSavings);
-        Assert.assertEquals(ActualSavings,PostPaymentSavings);
-
-
+        String CurrentSavings = CurrentRemainingSavings.replaceAll("[₹,]", "");
+        double ActualSavings = Double.parseDouble(CurrentSavings);
+        double PostPaymentSavings = CurrentSavingsModified + 1;
+        System.out.println("PostPaymentSavings :" + PostPaymentSavings);
+        Assert.assertEquals(ActualSavings, PostPaymentSavings);
 
 
     }
@@ -162,7 +186,7 @@ public class EasySavings extends BasePage {
         Thread.sleep(4000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Savings this month\"))"));
         Thread.sleep(4000);
-        String input  = RemainingDeposit.getText();
+        String input = RemainingDeposit.getText();
         //System.out.println(CurrentRemainingDeposit);
         String regex = "₹([0-9]*\\.[0-9]+) remaining";
         Pattern pattern = Pattern.compile(regex);
@@ -170,22 +194,21 @@ public class EasySavings extends BasePage {
         capturedValue = matcher.find() ? matcher.group(1) : "";
         //System.out.println("Captured Value before payment: " + capturedValue);
         // String RemovedSymbols = CurrentRemainingDeposit.replaceAll("₹[0-9]*\\.[0-9]+ remaining", "").trim();
-        value =  Double.parseDouble(capturedValue);
+        value = Double.parseDouble(capturedValue);
         System.out.println("Captured Remaining before payment: " + value);
-    return value;
+        return value;
     }
 
     public double GetCurrentSavings() throws InterruptedException {
         Thread.sleep(3000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Savings this month\"))"));
         Thread.sleep(3000);
-        CurrentRemainingSavings =SavingsThisMonth.getText();
-       String CurrentSavings =CurrentRemainingSavings.replaceAll("[₹,]", "");
-         CurrentSavingsModified = Double.parseDouble(CurrentSavings);
+        CurrentRemainingSavings = SavingsThisMonth.getText();
+        String CurrentSavings = CurrentRemainingSavings.replaceAll("[₹,]", "");
+        CurrentSavingsModified = Double.parseDouble(CurrentSavings);
         System.out.println(CurrentSavings);
         return CurrentSavingsModified;
     }
-
 
 
     public void TypeAmountForTransfer() throws InterruptedException {
@@ -209,7 +232,7 @@ public class EasySavings extends BasePage {
 
     public void TypeInvalidAmountForTransfer() throws InterruptedException {
         Thread.sleep(3000);
-       // driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\"))"));
+        // driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\"))"));
         //AddFunds.click();
         Thread.sleep(3000);
         WebElement element = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView"));
@@ -251,14 +274,14 @@ public class EasySavings extends BasePage {
 
     }
 
-    public void ValidateRemainingDays(){
+    public void ValidateRemainingDays() {
         LocalDate today = LocalDate.now();
         LocalDate endOfMonth = today.withDayOfMonth(today.lengthOfMonth());
         long daysRemaining = ChronoUnit.DAYS.between(today, endOfMonth);
-        System.out.println("Days Remaining: "+daysRemaining);
-      String finalDays =  daysRemaining+" DAYS";
-     String ActualDays = DaysRemaining.getText();
-     Assert.assertEquals(ActualDays,finalDays);
+        System.out.println("Days Remaining: " + daysRemaining);
+        String finalDays = daysRemaining + " DAYS";
+        String ActualDays = DaysRemaining.getText();
+        Assert.assertEquals(ActualDays, finalDays);
 
     }
 
@@ -378,10 +401,6 @@ public class EasySavings extends BasePage {
     }
 
 
-
-
-
-
     public void ValidateIncentiveMessage() throws InterruptedException {
         if (GetCurrentSavings() >= 500) {
             IncentiveMessage.isDisplayed();
@@ -391,6 +410,52 @@ public class EasySavings extends BasePage {
             IncentiveMessage.isDisplayed();
 
         }
+
+    }
+
+    public void ClickSavingBanner() throws InterruptedException {
+        Thread.sleep(5000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Easy Savings\"))"));
+        //Thread.sleep(5000);
+        EasySavingBanner.click();
+    }
+
+    public void ValidateDepositsDate() throws InterruptedException {
+        Thread.sleep(5000);
+        String depositsDate = EasySavingDate.getText();
+        System.out.println(depositsDate);
+    }
+
+    public void ValidateDepositsAmount() throws InterruptedException {
+        Thread.sleep(5000);
+        String DepositsAmount = EasySavingAmount.getText();
+        System.out.println(DepositsAmount);
+    }
+
+    public void ValidateDepositsId() throws InterruptedException {
+        Thread.sleep(5000);
+        String DepositsId = EasySavingDepositID.getText();
+        System.out.println(DepositsId);
+    }
+
+    public void ValidateDepositsStatus() throws InterruptedException {
+        Thread.sleep(5000);
+        EasySavingStatus.isDisplayed();
+    }
+
+    public void ClickBack() throws InterruptedException {
+        Thread.sleep(5000);
+        EasySavingBack.click();
+    }
+
+
+    public void ScrollDeposit() throws InterruptedException {
+        //Thread.sleep(5000);
+        //EasySavingDeposit.isDisplayed();
+        Thread.sleep(5000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Deposit: ikE7nfgN\"))"));
+        Thread.sleep(5000);
+
 
     }
 }
