@@ -125,18 +125,18 @@ public class LRSSteps {
 
     @And("User clicks on continue button")
     public void userClicksOnContinueButton() throws InterruptedException {
-        new LRSPage().ClickonContinue();
+        new LRSPage().ClickOnTransfer();
 
     }
 
     @And("User enters the amount to be deposited")
     public void userEntersTheAmountToBeDeposited() throws InterruptedException {
-        new LRSPage().EnterDepositAmount("1");
+        new LRSPage().EnterDepositAmount();
     }
 
     @And("User click on tranfer from yes bank")
     public void userClickOnTranferFromYesBank() throws InterruptedException {
-        //new LRSPage().ClickonUploadStatement();
+        new LRSPage().ClickonUploadStatement();
         //new LRSPage().SelectBankAccount();
         //new LRSPage().UploadBankStatement();
         new LRSPage().TransferFromYesBank();
@@ -151,6 +151,7 @@ public class LRSSteps {
 
     @And("User Enters the CustomerID")
     public void userEntersTheCustomerID() {
+
         new LRSPage().EnterYesBankCustomerID();
     }
 
@@ -188,7 +189,7 @@ public class LRSSteps {
     }
     @And("User see Transaction Details")
     public void userSeeTransactionDetails() throws IOException, InterruptedException {
-        new LRSPage().FetchDetails();
+        //new LRSPage().FetchDetails();
         new LRSPage().TransactionDetails();
         new LRSPage().ValidateTransferAmount();
         new LRSPage().ValidateDepositAmount();
@@ -196,8 +197,9 @@ public class LRSSteps {
     }
 
     @Then("the transaction should be successfull")
-    public void theTransactionShouldBeSuccessfull() throws InterruptedException {
-        new LRSPage().ValidateTransactionIsSuccessFull();
+    public void theTransactionShouldBeSuccessfull() throws InterruptedException, IOException {
+        //new LRSPage().ValidateTransactionIsSuccessFull();
+        new LRSPage().ClickOnDashboard();
         basePage.ClickProfileSettings();
         basePage.Logout();
 

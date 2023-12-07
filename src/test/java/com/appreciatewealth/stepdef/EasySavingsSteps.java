@@ -164,7 +164,28 @@ public class EasySavingsSteps {
     }
 
     @Then("User Should be able to see Easy Saving Banner in goal Dashboard")
-    public void userShouldBeAbleToSeeEasySavingBannerInGoalDashboard() {
+    public void userShouldBeAbleToSeeEasySavingBannerInGoalDashboard() throws InterruptedException {
+        new EasySavings().ValidateGoalEasySavings();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+
 
     }
+
+    @And("the User Clicks on Total Return")
+    public void theUserClicksOnTotalReturn() throws InterruptedException {
+        new EasySavings().ClickTotalReturn();
+    }
+
+    @Then("User Should See all related message in Total return")
+    public void userShouldSeeAllRelatedMessageInTotalReturn() throws InterruptedException {
+        new EasySavings().ValidateIncentivesMessage();
+        new EasySavings().ValidateReturnMessage();
+        new EasySavings().ValidateAnnualMessage();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+
 }

@@ -84,6 +84,21 @@ public class EasySavings extends BasePage {
     WebElement EasySavingDeposit;
 
 
+    @AndroidFindBy(id = "txvEasySavings")
+    WebElement GoalEasySaving;
+
+    @AndroidFindBy(id = "tvTotalRewardEarnedTitle")
+    WebElement IncentivesMessage;
+
+    @AndroidFindBy(id = "tvAnnualReturnTitle")
+    WebElement ReturnMessage;
+
+    @AndroidFindBy(id = "tvAnnualInterestTitle")
+    WebElement AnnualInterestMessage;
+
+    @AndroidFindBy(id = "rbTotalReturn")
+    WebElement TotalReturn;
+
     SignInPage signInPage;
     BasePage basePage;
     DashboardPage dashboardPage;
@@ -458,4 +473,31 @@ public class EasySavings extends BasePage {
 
 
     }
+
+    public void ValidateGoalEasySavings() throws InterruptedException {
+        Thread.sleep(5000);
+        GoalEasySaving.isDisplayed();
+    }
+
+    public void ClickTotalReturn() throws InterruptedException {
+        Thread.sleep(5000);
+        TotalReturn.click();
+    }
+
+    public void ValidateIncentivesMessage() throws InterruptedException {
+        Thread.sleep(5000);
+        IncentivesMessage.isDisplayed();
+    }
+
+    public void ValidateReturnMessage() throws InterruptedException {
+        Thread.sleep(5000);
+        ReturnMessage.isDisplayed();
+    }
+
+
+    public void ValidateAnnualMessage() throws InterruptedException {
+        Thread.sleep(5000);
+        AnnualInterestMessage.isDisplayed();
+    }
+
 }

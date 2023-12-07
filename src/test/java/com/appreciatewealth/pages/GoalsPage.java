@@ -272,12 +272,12 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='next']")
     WebElement Next;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView")
+    @AndroidFindBy(id = "tvTakeMeBack")
     WebElement takemebacktogoalpage;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[2]")
     WebElement GoalStatus;
-    @AndroidFindBy(xpath = "//*[@text='Build a savings habit and grow your Gold investment safely and securely.']")
+    @AndroidFindBy(id = "topLayoutGoldSip")
     WebElement Clickdigitalgold;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.EditText")
@@ -334,7 +334,7 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView[7]")
     WebElement digitalmstatus;
 
-    @AndroidFindBy(xpath = "//*[@index='0' and @text='Minimum monthly payment amount is ₹150 Please increase target amount to at least ₹6,635 to continue setting up this goal']")
+    @AndroidFindBy(id = "tvContentConfirmation")
     WebElement DigitalgoldMinimum;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")
     WebElement Digitalminimumcancel;
@@ -419,7 +419,7 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(id = "tvTransactionStatus")
     WebElement PauseStatus;
 
-    @AndroidFindBy(id = "bt_okay_confirmation")
+    @AndroidFindBy(id = "tvTakeMeBack")
     WebElement ResumeGoal;
 
     @AndroidFindBy(id = "bt_okay_confirmation")
@@ -444,7 +444,7 @@ public class GoalsPage extends BasePage {
 
     public void SwitchtoGoal() throws IOException, InterruptedException {
         Thread.sleep(3000);
-        clickonViewGoals.click();
+         clickonViewGoals.click();
 
     }
 
@@ -700,7 +700,7 @@ public class GoalsPage extends BasePage {
     public void selectyearinlist(String Year) throws InterruptedException {
 
         WebElement clicktargetyear = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2025\").instance(0))"));
-        driver.findElement(By.xpath("//*[@index='2' and @text='2025']")).click();
+        driver.findElement(By.xpath("//*[@index='1' and @text='2025']")).click();
         Thread.sleep(5000);
         oktargetdate.click();
 
@@ -887,7 +887,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void Close() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(9000);
         ErrorClose.click();
     }
 
@@ -979,7 +979,7 @@ public class GoalsPage extends BasePage {
     public void selectyearonetimepay(String Year) throws InterruptedException {
 
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2032\").instance(0))"));
-        driver.findElement(By.xpath("//*[@index='4' and @text='2032']")).click();
+        driver.findElement(By.xpath("//*[@index='3' and @text='2032']")).click();
         Thread.sleep(5000);
         oktargetdate.click();
 
@@ -1079,7 +1079,7 @@ public class GoalsPage extends BasePage {
                     "percent", 1.0
             ));
             //driver.findElement(By.xpath("//*[@index='3' and @text='Build a savings habit and grow your Gold investment safely and securely.']"));
-            Thread.sleep(5000);
+            Thread.sleep(8000);
             Clickdigitalgold.click();
 
         }
@@ -1103,7 +1103,7 @@ public class GoalsPage extends BasePage {
     public void clickgoldyear(String Year) throws InterruptedException {
 
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2026\").instance(0))"));
-        driver.findElement(By.xpath("//*[@index='3' and @text='2026']")).click();
+        driver.findElement(By.xpath("//*[@index='2' and @text='2026']")).click();
         Thread.sleep(5000);
         GoldDateok.click();
 
@@ -1189,8 +1189,9 @@ public class GoalsPage extends BasePage {
         digitalmstatus.isDisplayed();
     }*/
 
-    public void ValidateDigitalMessage(String DigitalMessage) throws InterruptedException {
+    public void ValidateDigitalMessage(String DigitalMessage ) throws InterruptedException {
         Thread.sleep(5000);
+        //DigitalgoldMinimum.isDisplayed();
         String minimum = DigitalgoldMinimum.getText();
         Assert.assertEquals(DigitalMessage, minimum);
     }
@@ -1376,7 +1377,7 @@ public class GoalsPage extends BasePage {
 
     }
     public void ClickResumeGoal() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         ResumeGoal.click();
 
     }
@@ -1388,7 +1389,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void ClickResumeSkip() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         ResumeSkip.click();
 
     }

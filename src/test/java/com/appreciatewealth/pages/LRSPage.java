@@ -72,14 +72,14 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Next']")
     WebElement Next;
 
-    @AndroidFindBy(xpath = "//*[@text='transfer from YES a/c to buying power']")
+    @AndroidFindBy(id = "btnTransfer")
     WebElement TransferFromYesBank;
 
     @AndroidFindBy(xpath = "//*[@text='add money to buying power']")
     WebElement AddMoneytoBuyingPower;
 
-    @AndroidFindBy(xpath = "//*[@text='continue']")
-    WebElement ContinueButton;
+    @AndroidFindBy(id = "btnPayNow")
+    WebElement TransferNow;
 
     @AndroidFindBy(xpath = "//*[@text='NEXT']")
     WebElement NEXTButton;
@@ -93,10 +93,10 @@ public class LRSPage extends BasePage {
 
     @AndroidFindBy  (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[4]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
     WebElement EnterCustomerID;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")
+    @AndroidFindBy(id = "one_btn")
     WebElement EnterDepositAmount;
 
-    @AndroidFindBy (xpath = "//*[@text='upload bank statement']")
+    @AndroidFindBy (id = "btnTransfer")
     WebElement UploadStatementButton;
 
     @AndroidFindBy(xpath="//*[@text='HDFC']")
@@ -120,7 +120,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='UPLOAD YOUR BANK E-STATEMENTS']")
     WebElement UploadEstatementButton;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.GridView/androidx.cardview.widget.CardView[1]/androidx.cardview.widget.CardView/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.ImageView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.GridView/androidx.cardview.widget.CardView[7]/androidx.cardview.widget.CardView/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.ImageView[1]")
     WebElement SelectStatementFromDrive;
 
     @AndroidFindBy(xpath = "//*[@text='Or click here to finish']")
@@ -150,23 +150,32 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath="//*[@text='view details']")
     WebElement ViewDetails;
 
-    @AndroidFindBy(id ="img_arrow_order_history_list")
+    @AndroidFindBy(id ="txvOrderHistory")
     WebElement MoneyTransactionDetails;
 
-    @AndroidFindBy(id ="txv_label_transfer_amount_value")
+    @AndroidFindBy(id ="tvTransferAmountValue")
     WebElement TransferAmount;
 
-    @AndroidFindBy(id ="txv_label_deposit_amount_value")
+    @AndroidFindBy(id ="tvDepositAmountValue")
     WebElement DepositAmount;
 
-    @AndroidFindBy(xpath = "//*[@text='Money Transfer']")
+    @AndroidFindBy(id = "cvBuyingPower")
     WebElement MoneyTransfer;
 
-    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[2]")
+    @AndroidFindBy (xpath = "//*[@index='2' and @text='add funds']")
     WebElement AddFundsSmallInvestmentSection;
 
     @AndroidFindBy (xpath= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView")
     WebElement PlusIcon;
+
+    @AndroidFindBy(xpath="//*[@text='Add funds']")
+    WebElement AddFunds;
+
+    @AndroidFindBy(id="btnSelectBank")
+    WebElement SelectBank;
+
+    @AndroidFindBy(id="btnGoTo")
+    WebElement GoToDashboard;
 
     SignInPage signInPage;
 
@@ -183,33 +192,37 @@ public class LRSPage extends BasePage {
 
     }
     public void AddMoneytoBuyingPower() throws InterruptedException {
-        Thread.sleep(10000);
-        AddMoneytoBuyingPower.click();
+        Thread.sleep(5000);
+        //AddMoneytoBuyingPower.click();
+        AddFunds.click();
     }
-    public void EnterDepositAmount(String amount) throws InterruptedException {
+    public void EnterDepositAmount() throws InterruptedException {
+        Thread.sleep(5000);
         EnterDepositAmount.click();
-        Thread.sleep(3000);
-        EnterDepositAmount.sendKeys(amount);
-        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+
+        //EnterDepositAmount.sendKeys(amount);
+        //((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
         //driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
-    public void ClickonContinue() throws InterruptedException {
+    public void ClickOnTransfer() throws InterruptedException {
         Thread.sleep(5000);
-        ContinueButton.click();
+        TransferNow.click();
     }
 
     public void ClickonUploadStatement() throws InterruptedException {
-        Thread.sleep(8000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
+        Thread.sleep(5000);
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
         UploadStatementButton.click();
-        Thread.sleep(8000);
+        //Thread.sleep(8000);
     }
 
     public void SelectBankAccount() throws InterruptedException {
         Thread.sleep(3000);
+        SelectBank.click();
+        Thread.sleep(3000);
         SelectHDFC.click();
-        SelectandContinue.click();
+        //SelectandContinue.click();
 
     }
 
@@ -270,9 +283,9 @@ public class LRSPage extends BasePage {
     }
 
     public void TransferFromYesBank() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         //Thread.sleep(5000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
         TransferFromYesBank.click();
 
     }
@@ -398,6 +411,11 @@ public class LRSPage extends BasePage {
         DepositAmount.isDisplayed();
     }
 
+
+    public void ClickOnDashboard() throws IOException, InterruptedException {
+        Thread.sleep(5000);
+        GoToDashboard.click();
+    }
 
         public void ValidateTransactionIsSuccessFull() throws InterruptedException {
             Thread.sleep(5000);

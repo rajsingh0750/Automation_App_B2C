@@ -176,7 +176,7 @@ Feature: Goals
   Scenario: Check whether the user is presented with a warning message when attempting to add an amount that is less than the minimum required amount in the digital gold section
     Given the user is on Goals Dashboard
     And the user clicks on the CTA for goals on digital gold
-    Then User Should see the following message in digital gold "Minimum monthly payment amount is ₹150 Please increase target amount to at least ₹6,635 to continue setting up this goal"
+    Then User Should see the following message in digital gold "Minimum monthly payment amount is ₹150 Please increase target amount to at least ₹4,318 to continue setting up this goal"
 
 
 

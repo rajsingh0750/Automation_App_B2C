@@ -114,7 +114,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
     private WebElement Close;
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Drive Wealth\"]")
+    @AndroidFindBy(xpath = "//*[@text='Drive Wealth']")
     private WebElement DriveWealth;
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Terms & Disclosures\"]")
@@ -124,7 +124,7 @@ public class MiniModulePage extends BasePage {
     private WebElement PrivacyPolicy;
 
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"W-8BEN\"]")
+    @AndroidFindBy(xpath = "//*[@text='W-8BEN']")
     private WebElement W8BEN;
 
     @AndroidFindBy(xpath = "//*[@text='YES Bank']")
@@ -365,7 +365,57 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(id ="note_tv")
     WebElement ProfileSubmit;
 
+    @AndroidFindBy(id ="cvBuyingPower")
+    WebElement BuyingPower;
 
+    @AndroidFindBy(id ="txvAccountDetails")
+    WebElement AccountDetails;
+
+    @AndroidFindBy(xpath ="//*[@text='DriveWealth']")
+    WebElement DriveWealthMini;
+
+    @AndroidFindBy(id ="card_distributor_details2")
+    WebElement DistributorDetails;
+
+    @AndroidFindBy(id ="im_close")
+    WebElement DistributorClose;
+
+    @AndroidFindBy(id ="card_request_advisary2")
+    WebElement RequestAdvisory;
+
+    @AndroidFindBy(id ="rbHiring")
+    WebElement ThinkingHiring;
+
+
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[1]")
+    WebElement AddEmail;
+
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[2]")
+    WebElement AddFeedback;
+
+    @AndroidFindBy(id ="tvTitleRecentTickets")
+    WebElement RecentTickets;
+
+    @AndroidFindBy(id ="txvSupport")
+    WebElement SupportTickets;
+
+    @AndroidFindBy(xpath ="//*[@text='Documents']")
+    WebElement Documents;
+
+    @AndroidFindBy(id ="tv_view_more_monthly_stats")
+    WebElement MonthlyView;
+
+    @AndroidFindBy(id ="tv_view_more_confirmations")
+    WebElement ConfirmationsView;
+
+    @AndroidFindBy(id ="tv_view_more_tax_docs")
+    WebElement TaxView;
+
+    @AndroidFindBy(id ="iv_close")
+    WebElement ViewClose;
+
+    @AndroidFindBy(id ="details_close_iv")
+    WebElement DocumentsClose;
 
     public void Login() throws IOException, InterruptedException {
         signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
@@ -1072,7 +1122,95 @@ public class MiniModulePage extends BasePage {
         Thread.sleep(5000);
         ProfileSubmit.click();
     }
+    public void ClickBuyingPower() throws InterruptedException {
+        Thread.sleep(5000);
+        BuyingPower.click();
+    }
 
+    public void ClickAccountDetails() throws InterruptedException {
+        Thread.sleep(5000);
+        AccountDetails.click();
+    }
+
+    public void ValidateDriveWealth() throws InterruptedException {
+        Thread.sleep(5000);
+        DriveWealthMini.isDisplayed();
+    }
+
+    public void ClickDistributorAgent() throws InterruptedException {
+        Thread.sleep(5000);
+        DistributorDetails.click();
+    }
+
+    public void ClickDistributClose() throws InterruptedException {
+        Thread.sleep(5000);
+        DistributorClose.click();
+    }
+
+    public void ClickRequestAdvisory() throws InterruptedException {
+        Thread.sleep(5000);
+        RequestAdvisory.click();
+    }
+
+    public void ValidateHiring() throws InterruptedException {
+        Thread.sleep(5000);
+       ThinkingHiring.click();
+    }
+
+    public void EnterEmailID(String Email) throws InterruptedException {
+        Thread.sleep(5000);
+        AddEmail.sendKeys(Email);
+    }
+
+    public void EnterFeedback(String Feedback) throws InterruptedException {
+        Thread.sleep(5000);
+       AddFeedback.sendKeys(Feedback);
+    }
+
+
+    public void ClickRecentTickets() throws InterruptedException {
+        Thread.sleep(5000);
+        RecentTickets.click();
+    }
+
+
+    public void ValidateSupportTickets() throws InterruptedException {
+        Thread.sleep(5000);
+        SupportTickets.isDisplayed();
+        //Thread.sleep(5000);
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"6439\").instance(0))"));
+        //Thread.sleep(5000);
+    }
+
+    public void ClickDocuments() throws InterruptedException {
+        Thread.sleep(5000);
+        Documents.click();
+    }
+
+    public void ClickMonthlyStatements() throws InterruptedException {
+        Thread.sleep(5000);
+        MonthlyView.click();
+    }
+
+    public void ClickConfirmations() throws InterruptedException {
+        Thread.sleep(5000);
+        ConfirmationsView.click();
+    }
+
+    public void ClickTaxDocuments() throws InterruptedException {
+        Thread.sleep(5000);
+        TaxView.click();
+    }
+
+    public void ClickViewClose() throws InterruptedException {
+        Thread.sleep(5000);
+        ViewClose.click();
+    }
+
+    public void ClickDocumentsClose() throws InterruptedException {
+        Thread.sleep(8000);
+       DocumentsClose.click();
+    }
 }
 
 

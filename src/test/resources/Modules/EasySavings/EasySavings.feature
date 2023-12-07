@@ -51,5 +51,11 @@ Feature: Easy Savings
     Then User Should be able to scroll the Deposit tab
 
   Scenario: Validate Easy Savings Banner is displayed in Goal Dashboard
-    Given User is Logged in and on Easy Saving Banner in Dashboard
+    Given the user is on Goals Dashboard for EasySavings
     Then User Should be able to see Easy Saving Banner in goal Dashboard
+
+  Scenario: Validate the Total Return Message
+    Given User is Logged in and on Dashboard
+    And the User Select Easy Savings Banner
+    And the User Clicks on Total Return
+    Then User Should See all related message in Total return

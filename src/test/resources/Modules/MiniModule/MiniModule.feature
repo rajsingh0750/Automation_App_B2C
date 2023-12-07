@@ -48,6 +48,14 @@ Feature: MiniModule
 #Then User should see Margin and Cash Account details on DriveWealth
 
   @Sanity @Regression
+  Scenario: Validate Account Details in MiniModule
+    Given the User is on MiniModule page
+    And the User Clicks on Buying Power
+    And the User Clicks on Account Details
+    Then User Should See Drive Wealth Account Details
+
+
+  @Sanity @Regression
   Scenario: Validate Refer your friends block in MiniModule
     Given the User is on MiniModule page
     And the User Clicks on refer now
@@ -88,6 +96,17 @@ Feature: MiniModule
     And User see the following message on email "Please enter valid email"
     And User see the following message on suggestion "Please tell us what you think"
     Then User Should see error message must be displayed
+
+  @Sanity @Regression
+  Scenario: Verify When User Submit feedback from CSR page in MiniModule
+    Given the User is on MiniModule page
+    And the User Clicks on CSR
+    And User see Send us your suggestions
+    And User Enter Valid EmailId
+    And User Adds Feedback
+    And User Select Submit
+    Then User Should Successfully create a feedback Note
+
 
   @Sanity @Regression
   Scenario: Validate Legal page for Appreciate Terms and Condition in MiniModule
@@ -140,6 +159,13 @@ Feature: MiniModule
     And User clicks on the CTA for Submit a ticket
     Then User should successfully create a support ticket
 
+
+  @Sanity @Regression
+  Scenario: Validate Recent Tickets Page in Support
+    Given the User is on MiniModule page
+    And the User Clicks on Support
+    And the User Clicks on Recent Tickets
+    Then User Should see all the Recent Tickets details
 
   @Sanity @Regression
   Scenario: Validate Change Language in MiniModule
@@ -212,6 +238,17 @@ Feature: MiniModule
     And the User Clicks on Add-On Services
     Then User Should see all Add-On Services details
 
+  @Sanity @Regression
+  Scenario: Validate  Distributor and Request Advisory services in Add-On Services
+    Given the User is on MiniModule page
+    And the User Clicks on Add-On Services
+    And the User Clicks on Distributor or Agent Details
+    And the User Clicks on Request Advisory Services
+    And User Selects Thinking of Hiring
+    Then User should see all the options in Add-on Services
+
+
+
 @Sanity @Regression
  Scenario: Verify the Account Passcode Change in MiniModule
       Given the User is on MiniModule page for passcode
@@ -232,5 +269,17 @@ Feature: MiniModule
     And User enters Your message
     And User clicks on the CTA for Submit a ticket
     Then User should successfully create a support ticket from Profile Details Page
+
+
+
+  @Sanity @Regression
+  Scenario: Validate Documents in MiniModule
+    Given the User is on MiniModule page
+    And User Clicks on the Documents
+    And User Select Monthly Statements
+    And User Select Confirmations
+    And User Select Tax Documents
+    Then User Should see Successfully all the documents in each option
+
 
 

@@ -352,7 +352,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User should successfully create a support ticket")
     public void userShouldSuccessfullyCreateASupportTicket() throws InterruptedException {
-        new MiniModulePage().ClickBack();
+        //new MiniModulePage().ClickBack();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -449,7 +450,7 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userSelectTargetDateForLatestGoal() throws InterruptedException {
         new GoalsPage().clicktargetdate();
         new GoalsPage().clicktargetyear();
-        new GoalsPage().selectyearinlist(" 2025 ");
+        new GoalsPage().selectyearinlist("2025");
     }
 
     @And("user adds Target amount for latest goal")
@@ -569,7 +570,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User Should see all Add-On Services details")
     public void userShouldSeeAllAddOnServicesDetails() throws InterruptedException {
-        new MiniModulePage().OtherClose();
+        //new MiniModulePage().OtherClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -722,5 +724,116 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User navigates to the Profile screen")
     public void userNavigatesToTheProfileScreen() throws InterruptedException {
         new MiniModulePage().ClickOnProfile();
+    }
+
+    @And("the User Clicks on Buying Power")
+    public void theUserClicksOnBuyingPower() throws InterruptedException {
+        new MiniModulePage().ClickBuyingPower();
+        
+    }
+
+    @And("the User Clicks on Account Details")
+    public void theUserClicksOnAccountDetails() throws InterruptedException {
+        new MiniModulePage().ClickAccountDetails();
+        
+    }
+
+    @Then("User Should See Drive Wealth Account Details")
+    public void userShouldSeeDriveWealthAccountDetails() throws InterruptedException {
+        new MiniModulePage().ValidateDriveWealth();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("the User Clicks on Distributor or Agent Details")
+    public void theUserClicksOnDistributorOrAgentDetails() throws InterruptedException {
+        new MiniModulePage().ClickDistributorAgent();
+        new MiniModulePage().ClickDistributClose();
+    }
+
+    @And("the User Clicks on Request Advisory Services")
+    public void theUserClicksOnRequestAdvisoryServices() throws InterruptedException {
+        new MiniModulePage().ClickRequestAdvisory();
+        
+    }
+
+    @And("User Selects Thinking of Hiring")
+    public void userSelectsThinkingOfHiring() throws InterruptedException {
+        new MiniModulePage().ValidateHiring();
+        
+    }
+
+    @Then("User should see all the options in Add-on Services")
+    public void userShouldSeeAllTheOptionsInAddOnServices() throws InterruptedException {
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("User Enter Valid EmailId")
+    public void userEnterValidEmailId() throws InterruptedException {
+        new MiniModulePage().EnterEmailID("varshatmysuru1992@gmail.com");
+        
+    }
+
+    @And("User Adds Feedback")
+    public void userAddsFeedback() throws InterruptedException {
+        new MiniModulePage().EnterFeedback("Adding Automation feedback");
+        
+    }
+
+    @Then("User Should Successfully create a feedback Note")
+    public void userShouldSuccessfullyCreateAFeedbackNote() throws InterruptedException {
+        new MiniModulePage().ScrollCSRClose();
+        basePage.Logout();
+    }
+
+    @And("the User Clicks on Recent Tickets")
+    public void theUserClicksOnRecentTickets() throws InterruptedException {
+        new MiniModulePage().ClickRecentTickets();
+        
+    }
+
+    @Then("User Should see all the Recent Tickets details")
+    public void userShouldSeeAllTheRecentTicketsDetails() throws InterruptedException {
+        new MiniModulePage().ValidateSupportTickets();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("User Clicks on the Documents")
+    public void userClicksOnTheDocuments() throws InterruptedException {
+        new MiniModulePage().ClickDocuments();
+        
+    }
+
+    @And("User Select Monthly Statements")
+    public void userSelectMonthlyStatements() throws InterruptedException {
+        new MiniModulePage().ClickMonthlyStatements();
+        new MiniModulePage().ClickViewClose();
+
+    }
+
+    @And("User Select Confirmations")
+    public void userSelectConfirmations() throws InterruptedException {
+        new MiniModulePage().ClickConfirmations();
+        new MiniModulePage().ClickViewClose();
+
+
+    }
+
+    @And("User Select Tax Documents")
+    public void userSelectTaxDocuments() throws InterruptedException {
+        new MiniModulePage().ClickTaxDocuments();
+        new MiniModulePage().ClickViewClose();
+        
+    }
+
+    @Then("User Should see Successfully all the documents in each option")
+    public void userShouldSeeSuccessfullyAllTheDocumentsInEachOption() throws InterruptedException {
+        new MiniModulePage().ClickDocumentsClose();
+        basePage.Logout();
     }
 }
