@@ -82,7 +82,6 @@ public class Hooks extends BasePage {
                         + params.getDeviceName());
 
                 new ServerManager().startServer();
-
                 new DriverManager().initializeDriver();
                 AndroidDriver driver2 = (AndroidDriver) DriverManager.getDriver();
 

@@ -28,13 +28,14 @@ public class RunnerBaseTest {
                            @Optional("iOS") String wdaLocalPort,
                            @Optional("iOS") String webkitDebugProxyPort) throws Exception {
 
-        ThreadContext.put("ROUTINGKEY", platformName + "_" + deviceName);
+
 
         GlobalParams params = new GlobalParams();
         params.setPlatformName(platformName);
         params.setUDID(udid);
         params.setDeviceName(deviceName);
-
+        ThreadContext.put("ROUTINGKEY", params.getPlatformName() + "_"
+                + params.getDeviceName());
         switch(platformName){
             case "Android":
                 params.setSystemPort(systemPort);

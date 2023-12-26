@@ -29,7 +29,7 @@ public class CapabilitiesManager extends BasePage {
                     caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, props.getProperty("androidAutomationName"));
                     caps.setCapability("appPackage", props.getProperty("androidAppPackage"));
 
-                   // caps.setCapability("shouldTerminateApp",true);
+                    // caps.setCapability("shouldTerminateApp",true);
                     caps.setCapability(MobileCapabilityType.NO_RESET,true);
                     caps.setCapability(MobileCapabilityType.FULL_RESET,false);
                     caps.setCapability("unicodeKeyboard", false);
@@ -38,14 +38,14 @@ public class CapabilitiesManager extends BasePage {
 
 
                     caps.setCapability(MobileCapabilityType.APP,"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/UAT/AppreciateAndroidUAT.apk");
-                     //caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
-                  //caps.setCapability("systemPort", params.getSystemPort());
+                    //caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
+                    //caps.setCapability("systemPort", params.getSystemPort());
                     //caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
-                   // String androidAppUrl = (getClass().getResource(props.getProperty("androidAppLocation"))).getFile();
-                   // props.getProperty("androidAppLocation");
-                   // System.out.println(props.getProperty("androidAppLocation"));
-                   // System.getProperty("/Users/shubhamkumar/Downloads/AppreciateMobileAutomation/src/test/resources/Apps/Appreciate.apk");
-                  // caps.setCapability("app", androidAppUrl);
+                    // String androidAppUrl = (getClass().getResource(props.getProperty("androidAppLocation"))).getFile();
+                    // props.getProperty("androidAppLocation");
+                    // System.out.println(props.getProperty("androidAppLocation"));
+                    // System.getProperty("/Users/shubhamkumar/Downloads/AppreciateMobileAutomation/src/test/resources/Apps/Appreciate.apk");
+                    // caps.setCapability("app", androidAppUrl);
                     //utils.log().info("appUrl is " + androidAppUrl);
                 }
                 case "iOS" -> {
