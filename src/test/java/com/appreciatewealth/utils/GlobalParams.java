@@ -1,5 +1,7 @@
 package com.appreciatewealth.utils;
 
+import java.io.File;
+
 public class GlobalParams {
 
     private static final ThreadLocal<String> platformName = new ThreadLocal<String>();
@@ -72,6 +74,7 @@ public class GlobalParams {
         params.setPlatformName(System.getProperty("platformName", "Android"));
         params.setUDID(System.getProperty("udid", "0K537311312168E1"));
         params.setDeviceName(System.getProperty("deviceName", "Realme C53"));
+
 
         switch (params.getPlatformName()) {
             case "Android" -> {
