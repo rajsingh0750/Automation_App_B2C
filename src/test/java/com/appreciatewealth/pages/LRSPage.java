@@ -370,16 +370,16 @@ public class LRSPage extends BasePage {
     }
 
     public void SubmitCustomerIDandPassword() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         // LoginClick.click();
         LoginIdEnter.sendKeys("varsha92");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         PasswordClick.click();
         EnterPassword.sendKeys("Rogger@321");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
         ClickAuthorize.click();
-        Thread.sleep(10000);
+        Thread.sleep(15000);
 
     }
 
