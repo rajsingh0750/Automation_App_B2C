@@ -283,7 +283,8 @@ public class LRSPage extends BasePage {
     }
 
     public void TransferFromYesBank() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(4000);
+        Thread.sleep(21000);
         //Thread.sleep(5000);
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
         TransferFromYesBank.click();
