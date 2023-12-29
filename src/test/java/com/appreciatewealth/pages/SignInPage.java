@@ -177,7 +177,7 @@ public class SignInPage extends BasePage {
         Thread.sleep(8000);
         TapEmail.click();
         //TextBox.sendKeys("faureretruba-9695@yopmail.com");
-        TextBox.sendKeys(ConfigLoader.getInstance().getProperty("ProdEmail"));
+        TextBox.sendKeys(ConfigLoader.getInstance().getProperty("StageEmail"));
         SendOTP.click();
         // Thread.sleep(3000);
         //Password.sendKeys("Test@123");
