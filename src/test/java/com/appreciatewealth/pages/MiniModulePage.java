@@ -103,15 +103,15 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@index='0' and @text='Appreciate Broking IFSC Private Limited']")
     private WebElement RegisterPage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.widget.Button[1]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.widget.Button[1]")
     private WebElement ViewRegisterNumber1;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.widget.Button[2]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.widget.Button[2]")
     private WebElement ViewRegisterNumber2;
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"legal\"]")
     private WebElement BackBroking;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
     private WebElement Close;
 
     @AndroidFindBy(xpath = "//*[@text='Drive Wealth']")
@@ -528,12 +528,12 @@ public class MiniModulePage extends BasePage {
     }
 
     public void PlatformDetails() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         platform.click();
     }
 
     public void LegalTerms() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         platformpage.isDisplayed();
     }
 
@@ -558,12 +558,12 @@ public class MiniModulePage extends BasePage {
     }
 
     public void LegalRegister1() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         ViewRegisterNumber1.click();
     }
 
     public void LegalRegister2() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         ViewRegisterNumber2.click();
     }
 
@@ -573,7 +573,7 @@ public class MiniModulePage extends BasePage {
     }
 
     public void LegalClose() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         Close.click();
     }
 
