@@ -344,7 +344,7 @@ public class TradesPage extends BasePage {
 
         WebElement clickonbuynow = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
         driver.findElement(By.xpath("//*[@index='9' and @text='buy now']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
     }
 
