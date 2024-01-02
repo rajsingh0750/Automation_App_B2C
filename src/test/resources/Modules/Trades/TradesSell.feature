@@ -1,8 +1,8 @@
-Feature: Trades all Sell related scenarios
+Feature: Trades all buy related scenarios
 
   @Sanity @Regression
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Rupees
-    Given User is on Trade dashboard Sell
+    Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Rupees
@@ -13,7 +13,7 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Quantity
-    Given User is on Trade dashboard Sell
+    Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Quantity
@@ -24,21 +24,21 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place Limit order in Sell
-    Given User is on Trade dashboard Sell
+    Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
     And User clicks on Pro button
     And User selects order type as limit order
     And User enters the Sell Quantity
     And User enters the Sell Limit Price
-    And User clicks on the review order button
-    And User selects order expiry as Till Market is closed in sell
+    And User clicks on review order button
+    And User selects order expiry as Till Market is closed
     Then Limit order in sell should be placed Successfully
 
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place Stop order in Sell
-    Given User is on Trade dashboard Sell
+    Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
     And User clicks on Pro button
@@ -51,7 +51,7 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place MIT order in Sell
-    Given User is on Trade dashboard Sell
+    Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
     And User clicks on Pro button
@@ -64,7 +64,7 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: Validate Quantity in holding is decreased after selling the stock in Quantity during Market close
-    Given User is on Trade dashboard Sell
+    Given User is on Trade dashboard
     And User checks the current holdings and clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Quantity
@@ -76,12 +76,42 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: Once the user sells stock in market close then all data points like P&L, total invested and current value should remain as it is until the order is processed
-    Given User is on Trade dashboard Sell
+    Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
     And User selects order type as Sell in Rupees
     And User enters the amount for sell
     And User clicks on review order button
     And User clicks on place order
-    And the Order should be placed successfully
-    Then current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
+    Then Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
+
+  @Sanity
+  Scenario: Check when stocks are sold during off market, then Amount held will be = Original Amount of Stock hold - Sold amount of stock
+    Given User is on Trade dashboard
+    And User clicks on Stock
+    And User navigates to Activity tab and notice the Current Amount
+    And User clicks on Sell
+    And User selects order type as Sell in Rupees
+    And User enters the amount for sell order
+    And User clicks on review order button
+    And User clicks on place order
+    And User Clicks on Go to home dashboard
+    And User clicks on Stock
+    Then Current Amount on Activity should be decreased by equivalent to sold amount of the stock
+
+
+  @Sanity
+  Scenario: Check Activity tab after sell, it should show the recent stock sold as a card item.
+    Given User is on Trade dashboard
+    And User clicks on Stock
+    And User clicks on Sell
+    And User selects order type as Sell in Rupees
+    And User enters the amount for sell and notices the estimated quantity as per the entered amount
+    And User clicks on review order button
+    And User notices the Order Quantity, Trade amount
+    And User clicks on place order
+    And User notices the Order Quantity and Estimated Price
+    And User Clicks on Go to home dashboard
+    And User clicks on Stock
+    And User navigates to Activity tab
+    Then Order status should be Successfull with correct details
