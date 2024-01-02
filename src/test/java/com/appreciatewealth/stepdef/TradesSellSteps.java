@@ -1,8 +1,6 @@
 package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.BasePage;
-import com.appreciatewealth.pages.DashboardPage;
-import com.appreciatewealth.pages.SignInPage;
 import com.appreciatewealth.pages.TradesPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,9 +9,6 @@ import io.cucumber.java.en.Then;
 
 public class TradesSellSteps extends BasePage {
     BasePage basePage = new BasePage();
-
-    SignInPage signInPage = new SignInPage();
-    DashboardPage dashboardPage = new DashboardPage();
 
     @Given("User clicks on Stock")
     public void user_clicks_on_stock() throws InterruptedException {
@@ -39,7 +34,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("the sell order should be placed successfully")
     public void the_sell_order_should_be_placed_successfully() throws InterruptedException {
-        new TradesPage().ValidateSellOrderType(" Market");
+        new TradesPage().ValidateSellOrderType("Market");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -57,14 +52,14 @@ public class TradesSellSteps extends BasePage {
 
     @And("User enters the Quantity for sell")
     public void userEntersTheQuantityForSell() throws InterruptedException {
-        new TradesPage().EnterSellAmount("0.1");
+        new TradesPage().EnterSellAmount("0.8");
 
 
     }
 
     @Then("the sell order of quantity type should be placed successfully")
     public void theSellOrderOfQuantityTypeShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateSellOrderType(" Market");
+        new TradesPage().ValidateSellOrderType("Market");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -77,29 +72,14 @@ public class TradesSellSteps extends BasePage {
     }
 
     @And("User enters the Sell Limit Price")
-    public void userEntersTheSellLimitPrice() throws InterruptedException {
+    public void userEntersTheSellLimitPrice() {
         new TradesPage().EnterLimitPriceSell("10000");
-        new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ClickSellContinue();
-        //new TradesPage().OrderExpirytillMarketClose();
 
     }
-    @And("User selects order expiry as Till Market is closed in sell")
-    public void userSelectsOrderExpiryAsTillMarketIsClosedInSell() throws InterruptedException {
-        new TradesPage().OrderExpirytillMarketClose();
-    }
-    @And("User clicks on the review order button")
-    public void userClicksOnTheReviewOrderButton() throws InterruptedException {
-        new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ClickPlaceOrderButton();
-
-
-    }
-
 
     @Then("Limit order in sell should be placed Successfully")
     public void limitOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType(" Limit");
+        new TradesPage().ValidateOrderType("Limit");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -109,7 +89,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("Stop order in sell should be placed Successfully")
     public void stopOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType(" Stop Order");
+        new TradesPage().ValidateOrderType("Stop Order");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -118,7 +98,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("MIT order in sell should be placed Successfully")
     public void mitOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType(" Market If Touched(MIT)");
+        new TradesPage().ValidateOrderType("Market If Touched(MIT)");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -132,7 +112,7 @@ public class TradesSellSteps extends BasePage {
     }
     @And("User enters the Quantity to sell")
     public void userEntersTheQuantityToSell() throws InterruptedException {
-        new TradesPage().EnterSellAmount("0.1");
+        new TradesPage().EnterSellAmount("1");
     }
 
     @And("User Clicks on Go to home dashboard")
@@ -155,7 +135,7 @@ public class TradesSellSteps extends BasePage {
     @And("User navigates to Activity tab and notice the Current Amount")
     public void userNavigatesToActivityTabAndNoticeTheCurrentAmount() throws InterruptedException {
         new TradesPage().NavigateToActivityTab();
-         TradesPage.GetCurrentAmountBeforeSell();
+        new TradesPage().GetCurrentAmountBeforeSell();
     }
 
     @And("User enters the amount for sell order")
@@ -205,26 +185,5 @@ public class TradesSellSteps extends BasePage {
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
-    }
-
-    @And("the Order should be placed successfully")
-    public void theOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateIfOrderPlaced();
-    }
-
-    @Then("current P and L, Current Investment and Current Amount should not change when the order is placed in Market close")
-    public void currentPAndLCurrentInvestmentAndCurrentAmountShouldNotChangeWhenTheOrderIsPlacedInMarketClose() throws InterruptedException {
-        new TradesPage().GoToTradeDashboard();
-        new TradesPage().ComparePortfollioBeforeAndAfterBuy();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
-    }
-
-
-    @Given("User is on Trade dashboard Sell")
-    public void userIsOnTradeDashboardSell() throws InterruptedException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
-        dashboardPage.ClickOnGoToDashboard();
-        new TradesPage().DynamicTradeDashboard();
     }
 }

@@ -1,8 +1,6 @@
 package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.BasePage;
-import com.appreciatewealth.pages.DashboardPage;
-import com.appreciatewealth.pages.SignInPage;
 import com.appreciatewealth.pages.TradesPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -12,8 +10,7 @@ import java.io.IOException;
 
 public class TradesSteps extends BasePage{
     BasePage basePage = new BasePage();
-    SignInPage signInPage = new SignInPage();
-    DashboardPage dashboardPage = new DashboardPage();
+
 
     // Start of Scenario: Once the ETB user in onboarded successfully the user should be prompted with Buying Power sticky
 
@@ -46,7 +43,7 @@ public class TradesSteps extends BasePage{
 
     @Given("User enters the amount")
     public void user_enters_the_amount() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("1");
+        new TradesPage().EnterTradeAmount();
     }
 
     @Given("User clicks on review order button")
@@ -80,15 +77,15 @@ public class TradesSteps extends BasePage{
 
     @And("User clicks on View Enhancements")
     public void userClicksOnViewEnhancements() throws InterruptedException {
+
         new TradesPage().ClickonViewEnhancements();
 
     }
 
     @Then("User should see Holdings with accurate data")
     public void userShouldSeeHoldingsWithAccurateData() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         new TradesPage().CalculateCurrentValue();
-        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -118,7 +115,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Investment and Current Value on Portfolio should match with the Trade Dashboard")
     public void investmentCurrentValueOnPortfolioShouldMatchWithTheTradeDashboard() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         new TradesPage().getInvestedOnPortfolio();
         new TradesPage().getCurrentAmountOnPortfolio();
         new TradesPage().CompareInvestedandCurrentValue();
@@ -129,7 +126,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enter amount more than buying power")
     public void userEnterAmountMoreThanBuyingPower() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("100000");
+        new TradesPage().EnterTradeAmount();
 
     }
 
@@ -160,7 +157,7 @@ public class TradesSteps extends BasePage{
     @And("User enters the quantity of the stock")
     public void userEntersTheQuantityOfTheStock() throws InterruptedException {
 
-        new TradesPage().EnterTradeAmount("1");
+        new TradesPage().EnterTradeAmount();
     }
 
     @And("User clicks on Top picks tab")
@@ -172,16 +169,13 @@ public class TradesSteps extends BasePage{
     @And("User clicks on watchlist icon for one of the stock")
     public void userClicksOnWatchlistIconForOneOfTheStock() throws InterruptedException {
         new TradesPage().AddtoWatchlist();
-
-
-
+        new TradesPage().GetStocknameBeforeWatchlisted();
     }
 
     @Then("User should see the same stocks under Watchlist")
     public void userShouldSeeTheSameStocksUnderWatchlist() throws InterruptedException {
-        //new TradesPage().GetStocknameBeforeWatchlisted();
         new TradesPage().ClickonWatchlistTab();
-        //new TradesPage().GetStocknameAfterWatchlisted();
+        new TradesPage().GetStocknameAfterWatchlisted();
         new TradesPage().CheckIfWatchlisted();
         new TradesPage().RemovefromWatchlist();
         basePage.ClickProfileSettings();
@@ -206,13 +200,13 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the amount less than the required limit")
     public void userEntersTheAmountLessThanTheRequiredLimit() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("0.83");
+        new TradesPage().EnterTradeAmount();
 
     }
 
     @Then("User should be prompted with error message Minimum Transaction Amount Should be {string} INR.")
     public void userShouldbePromptedWithErrorMessage(String arg0) throws InterruptedException {
-        new TradesPage().ValidateMinimumTransactionMsg("Minimum Transaction Amount Should be 0.83 INR.");
+        new TradesPage().ValidateMinimumTransactionMsg("Minimum Transaction Amount Should be 0.84 INR.");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -227,16 +221,9 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the maximum quantity limit")
     public void userEntersTheMaximumQuantityLimit() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("1000000");
+        new TradesPage().EnterTradeAmount();
     }
 
-    @Then("User should see the following message Transaction Limit")
-    public void userShouldSeeTheFollowingMessage() throws InterruptedException {
-        new TradesPage().ValidateTransactionLimitMsg();
-        basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
-    }
 
     @And("User minimizes the app and again switch to Appreciate app")
     public void userMinimizesTheAppAndAgainSwitchToAppreciateApp() throws InterruptedException {
@@ -291,7 +278,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Limit order should be placed Successfully")
     public void limitOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType(" Limit");
+        new TradesPage().ValidateOrderType("Limit");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -306,7 +293,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Stop order should be placed Successfully")
     public void stopOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType(" Stop Order");
+        new TradesPage().ValidateOrderType("Stop Order");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -319,7 +306,7 @@ public class TradesSteps extends BasePage{
 
     @Then("MIT order should be placed Successfully")
     public void mitOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType(" Market If Touched(MIT)");
+        new TradesPage().ValidateOrderType("Market If Touched(MIT)");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -327,7 +314,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the amount in three or more decimal place")
     public void userEntersTheAmountInThreeOrMoreDecimalPlace() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("1.333");
+        new TradesPage().EnterTradeAmount();
     }
 
     @Then("Amount field should ignore the decimals after two place")
@@ -364,7 +351,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close")
     public void currentPAndLCurrentInvestmentAndCurrentAmountShouldNotChangeWhenTheOrderIsPlacedInMarketClose() throws InterruptedException {
-        //new TradesPage().GoToTradeDashboard();
+        new TradesPage().GoToTradeDashboard();
         new TradesPage().ComparePortfollioBeforeAndAfterBuy();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -461,7 +448,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the trade amount")
     public void userEntersTheTradeAmount() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("1000");
+        new TradesPage().EnterTradeAmount();
     }
 
 
@@ -499,14 +486,11 @@ public class TradesSteps extends BasePage{
 
     }
 
-
-    @Given("User is on the Trade dashboard")
-    public void userIsOnTheTradeDashboard() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("stannir007@gmail.com");
-        dashboardPage.ClickOnGoToDashboard();
-        new TradesPage().DynamicTradeDashboard();
+    @Then("User should see the following message Transaction Limit")
+    public void userShouldSeeTheFollowingMessageTransactionLimit() throws InterruptedException {
+        new TradesPage().ValidateTransactionLimitMsg();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
     }
 }
-
-
-
