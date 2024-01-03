@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
  */
 @CucumberOptions(
         plugin = {"pretty","html:target/Reports/report.html"},
-        features = {"/Users/shubhamkumar/Downloads/AppreciateMobileAutomation 2/src/test/resources/Modules"},
+        features = {"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Modules/Goals"},
         glue = {"com.appreciatewealth.stepdef"}
 
 )
