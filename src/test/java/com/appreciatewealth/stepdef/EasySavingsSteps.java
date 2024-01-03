@@ -15,7 +15,7 @@ public class EasySavingsSteps {
 
     @Given("the user is on Dashboard")
     public void theUserIsOnDashboard() throws InterruptedException {
-        signInPage.DynamicSignIn("Shubh.kr.rjpt@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@appreciate.com");
         dashboardPage.ClickOnGoToDashboard();
 
     }
@@ -103,13 +103,13 @@ public class EasySavingsSteps {
 
     @Given("User is Logged in and on Dashboard")
     public void userIsLoggedInAndOnDashboard() throws InterruptedException {
-        signInPage.DynamicSignIn("shubh.kr.rjpt@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@appreciate.com");
         dashboardPage.ClickOnGoToDashboard();
     }
 
     @Given("the user is on the Dashboard")
     public void theUserIsOnTheDashboard() throws IOException, InterruptedException {
-        new SignInPage().DynamicSignIn("faureretruba-9695@yopmail.com");
+        new SignInPage().DynamicSignIn("varsha.thandav@appreciate.com");
         dashboardPage.ClickOnGoToDashboard();
 
     }
@@ -157,7 +157,7 @@ public class EasySavingsSteps {
 
     @Given("the user is on Goals Dashboard for EasySavings")
     public void theUserIsOnGoalsDashboardForEasySavings() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("shubh.kr.rjpt@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@appreciate.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
