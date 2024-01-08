@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
@@ -174,8 +173,21 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(id="btnSelectBank")
     WebElement SelectBank;
 
-    @AndroidFindBy(id="btnGoTo")
+    @AndroidFindBy(xpath="//*[@text='go to dashboard']")
     WebElement GoToDashboard;
+
+    @AndroidFindBy(xpath = "//*[contains(@text,' Mobile Number')]")
+    WebElement PhoneNumber;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
+    WebElement EnterNumber;
+
+    @AndroidFindBy(id="txv_processing_error")
+    WebElement TransactionError;
+
+
+    @AndroidFindBy(xpath="//*[@text='Invalid Identifiers -  Mobile Number / Customer ID ']")
+    WebElement ErrorNumberAndCustomer;
 
     SignInPage signInPage;
 
@@ -442,5 +454,30 @@ public class LRSPage extends BasePage {
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"start SIP\").instance(0))"));
         Thread.sleep(5000);
         PlusIcon.click();
+    }
+
+    public void EnterPhoneNumber() throws InterruptedException {
+        Thread.sleep(8000);
+        PhoneNumber.click();
+        EnterNumber.sendKeys("7019871038");
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+
+    }
+    public void EnterWrongYesBankCustomerID(){
+        CustomerID.click();
+
+        EnterCustomerID.sendKeys("5674536472");
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+
+    }
+
+    public void ValidateErrorTransaction(String s) throws InterruptedException {
+        Thread.sleep(5000);
+        TransactionError.isDisplayed();
+    }
+
+    public void ValidateMessage() throws InterruptedException {
+        Thread.sleep(5000);
+        ErrorNumberAndCustomer.isDisplayed();
     }
 }

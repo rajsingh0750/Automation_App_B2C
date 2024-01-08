@@ -417,6 +417,35 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(id ="details_close_iv")
     WebElement DocumentsClose;
 
+    @AndroidFindBy(id ="tvTitleFAQ")
+    WebElement FAQs;
+
+    @AndroidFindBy(xpath ="//*[@text='Product FAQs']")
+    WebElement ProductFAQs;
+
+    @AndroidFindBy(xpath ="//*[@text='Partner FAQs']")
+    WebElement PartnerFAQs;
+
+    @AndroidFindBy(xpath ="//*[@text='Company FAQs']")
+    WebElement CompanyFAQs;
+
+    @AndroidFindBy(id ="txvLabelBuyingPowerBal")
+    WebElement BuyingInfo;
+
+    @AndroidFindBy(id ="txvBuyingPowerDesc")
+    WebElement BuyingPowerText;
+
+    @AndroidFindBy(id ="txvCashInUSDesc")
+    WebElement CashInUsText;
+
+    @AndroidFindBy(id ="txvCashInTransitDesc")
+    WebElement CashInTransitText;
+
+    @AndroidFindBy(id ="txvAmountHeldDesc")
+    WebElement AmountHeldText;
+
+    @AndroidFindBy(id ="btnOkay")
+    WebElement Okay;
     public void Login() throws IOException, InterruptedException {
         signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
@@ -1210,6 +1239,49 @@ public class MiniModulePage extends BasePage {
     public void ClickDocumentsClose() throws InterruptedException {
         Thread.sleep(8000);
        DocumentsClose.click();
+    }
+    public void ClickFAQs() throws InterruptedException {
+        Thread.sleep(5000);
+        FAQs.click();
+    }
+
+    public void ValidateProductFAQs() throws InterruptedException {
+        Thread.sleep(8000);
+        ProductFAQs.isDisplayed();
+    }
+    public void ValidatePartnerFAQs() throws InterruptedException {
+        Thread.sleep(5000);
+        PartnerFAQs.click();
+    }
+    public void ValidateCompanyFAQs() throws InterruptedException {
+        Thread.sleep(5000);
+       CompanyFAQs.click();
+    }
+
+    public void ClickBuyingInfo() throws InterruptedException {
+        Thread.sleep(5000);
+        BuyingInfo.click();
+    }
+    public void ValidateBuyingDescription() throws InterruptedException {
+        Thread.sleep(5000);
+        BuyingPowerText.isDisplayed();
+    }
+    public void ValidateCashUSDescription() throws InterruptedException {
+        Thread.sleep(5000);
+        CashInUsText.isDisplayed();
+    }
+    public void ValidateTransitDescription() throws InterruptedException {
+        Thread.sleep(5000);
+        CashInTransitText.isDisplayed();
+    }
+    public void ValidateAmountHeldDescription() throws InterruptedException {
+        Thread.sleep(5000);
+        AmountHeldText.isDisplayed();
+    }
+
+    public void ClickOkay() throws InterruptedException {
+        Thread.sleep(5000);
+        Okay.click();
     }
 }
 

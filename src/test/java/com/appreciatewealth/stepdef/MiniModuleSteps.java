@@ -18,7 +18,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+     signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
      new MiniModulePage().NavigateToMiniModule();
 
     }
@@ -666,7 +666,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page for passcode")
     public void theUserIsOnMiniModulePageForPasscode() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         //signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
 
@@ -701,7 +701,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("the User Confirm the new passcode")
     public void theUserConfirmTheNewPasscode() throws InterruptedException, IOException {
         new MiniModulePage().SetPasscode();
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         new MiniModulePage().NavigateToMiniModule();
         basePage.Logout();
 
@@ -834,6 +834,54 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("User Should see Successfully all the documents in each option")
     public void userShouldSeeSuccessfullyAllTheDocumentsInEachOption() throws InterruptedException {
         new MiniModulePage().ClickDocumentsClose();
+        basePage.Logout();
+    }
+
+    @And("User Clicks FAQs")
+    public void userClicksFAQs() throws InterruptedException {
+        new MiniModulePage().ClickFAQs();
+        
+    }
+
+    @And("User Select Product FAQs")
+    public void userSelectProductFAQs() throws InterruptedException {
+        new MiniModulePage().ValidateProductFAQs();
+        
+    }
+
+    @And("User Select Partner FAQs")
+    public void userSelectPartnerFAQs() throws InterruptedException {
+        new MiniModulePage().ValidatePartnerFAQs();
+        
+    }
+
+    @And("User Select Company FAQs")
+    public void userSelectCompanyFAQs() throws InterruptedException {
+        new MiniModulePage().ValidateCompanyFAQs();
+        
+    }
+
+    @Then("FAQs pages Should load Successfully")
+    public void faqsPagesShouldLoadSuccessfully() throws InterruptedException {
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("Select info icon")
+    public void selectInfoIcon() throws InterruptedException {
+        new MiniModulePage().ClickBuyingInfo();
+
+    }
+
+    @Then("User should see all information related to buying power")
+    public void userShouldSeeAllInformationRelatedToBuyingPower() throws InterruptedException {
+        new MiniModulePage().ValidateBuyingDescription();
+        new MiniModulePage().ValidateCashUSDescription();
+        new MiniModulePage().ValidateTransitDescription();
+        new MiniModulePage().ValidateAmountHeldDescription();
+        new MiniModulePage().ClickOkay();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 }

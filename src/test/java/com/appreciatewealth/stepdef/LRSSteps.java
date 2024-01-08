@@ -233,4 +233,30 @@ public class LRSSteps {
     public void userClicksOnPlusIconFromSmallInvestmentAndLargeReturns() throws InterruptedException {
         new LRSPage().ClickOnPlusIcon();
     }
+
+    @And("User Enter the Phone Number")
+    public void userEnterThePhoneNumber() throws InterruptedException {
+        new LRSPage().EnterPhoneNumber();
+        
+    }
+
+    @And("User Enter Wrong Customer ID")
+    public void userEnterWrongCustomerID() throws InterruptedException {
+        new LRSPage().EnterWrongYesBankCustomerID();
+        
+    }
+
+    @Then("the User should see error message {string}")
+    public void theUserShouldSeeErrorMessage(String arg0) throws InterruptedException, IOException {
+    new LRSPage().ValidateErrorTransaction("Transaction Processing Error!");
+        new LRSPage().ValidateMessage();
+        new LRSPage().ClickOnDashboard();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @And("User enters the amount in paise to be deposited")
+    public void userEntersTheAmountInPaiseToBeDeposited() {
+
+    }
 }
