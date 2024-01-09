@@ -446,6 +446,25 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(id ="btnOkay")
     WebElement Okay;
+
+    @AndroidFindBy(id ="tvWhatsAppChat")
+    WebElement WhatsAPP;
+
+    @AndroidFindBy(id ="txvWithdraw")
+    WebElement Withdraw;
+
+    @AndroidFindBy(xpath ="//*[@text='1']")
+    WebElement TypeOne;
+
+    @AndroidFindBy(xpath ="//*[@text='0']")
+    WebElement TypeZero;
+
+    @AndroidFindBy(id ="btnWithdraw")
+    WebElement WithDrawButton;
+
+    @AndroidFindBy(id ="tvEditTextError")
+    WebElement ErrorMessage;
+
     public void Login() throws IOException, InterruptedException {
         signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
@@ -1283,6 +1302,35 @@ public class MiniModulePage extends BasePage {
         Thread.sleep(5000);
         Okay.click();
     }
+    public void ValidateWhatsAppChat() throws InterruptedException {
+        Thread.sleep(5000);
+        WhatsAPP.isDisplayed();
+    }
+
+    public void ClickWithdraw() throws InterruptedException {
+        Thread.sleep(5000);
+        Withdraw.click();
+    }
+
+    public void ClickOne() throws InterruptedException {
+        Thread.sleep(5000);
+        TypeOne.click();
+    }
+    public void ClickZero() throws InterruptedException {
+        Thread.sleep(5000);
+        TypeZero.click();
+    }
+
+    public void ValidateErrorMessage() throws InterruptedException {
+        Thread.sleep(5000);
+        ErrorMessage.isDisplayed();
+    }
+
+    public void ClickWithdrawButton() throws InterruptedException {
+        Thread.sleep(5000);
+        WithDrawButton.click();
+    }
+
 }
 
 

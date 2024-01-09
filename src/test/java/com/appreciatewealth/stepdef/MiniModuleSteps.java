@@ -884,4 +884,34 @@ DashboardPage dashboardPage = new DashboardPage();
         basePage.AndroidBack();
         basePage.Logout();
     }
+
+    @Then("User Should see Chat with us on whatsApp")
+    public void userShouldSeeChatWithUsOnWhatsApp() throws InterruptedException {
+        new MiniModulePage().ValidateWhatsAppChat();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("the User Clicks on Withdraw")
+    public void theUserClicksOnWithdraw() throws InterruptedException {
+        new MiniModulePage().ClickWithdraw();
+        
+    }
+
+    @And("the User enters the amount")
+    public void theUserEntersTheAmount() throws InterruptedException {
+        new MiniModulePage().ClickOne();
+        new MiniModulePage().ClickZero();
+        new MiniModulePage().ClickZero();
+        new MiniModulePage().ClickZero();
+        new MiniModulePage().ClickWithdrawButton();
+    }
+
+    @Then("User should see error message must be displayed {string}")
+    public void userShouldSeeErrorMessageMustBeDisplayed(String arg0) throws InterruptedException {
+        new MiniModulePage().ValidateErrorMessage();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
 }

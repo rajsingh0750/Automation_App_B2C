@@ -168,6 +168,13 @@ Feature: MiniModule
     Then User Should see all the Recent Tickets details
 
   @Sanity @Regression
+  Scenario: Validate Issue
+    Given the User is on MiniModule page
+    And the User Clicks on Support
+    And the User Clicks on Recent Tickets
+    Then User Should see all the Recent Tickets details
+
+  @Sanity @Regression
   Scenario: Validate Change Language in MiniModule
     Given the User is on MiniModule page
     And the User Clicks on Change Language
@@ -299,6 +306,23 @@ Feature: MiniModule
     And the User Clicks on Buying Power
     And Select info icon
     Then User should see all information related to buying power
+
+  @Sanity @Regression
+  Scenario: Validate Chat With Us on WhatsApp is present in MiniModule
+    Given the User is on MiniModule page
+    And the User Clicks on Support
+    Then User Should see Chat with us on whatsApp
+
+  @Regression
+  Scenario: Verify the presence of an error message when user Withdraw Funds from buying power
+    Given the User is on MiniModule page
+    And the User Clicks on Buying Power
+    And the User Clicks on Withdraw
+    And the User enters the amount
+    Then User should see error message must be displayed "Insufficient buying power balance"
+
+
+
 
 
 
