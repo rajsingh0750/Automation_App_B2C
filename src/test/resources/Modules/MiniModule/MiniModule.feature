@@ -167,12 +167,7 @@ Feature: MiniModule
     And the User Clicks on Recent Tickets
     Then User Should see all the Recent Tickets details
 
-  @Sanity @Regression
-  Scenario: Validate Issue
-    Given the User is on MiniModule page
-    And the User Clicks on Support
-    And the User Clicks on Recent Tickets
-    Then User Should see all the Recent Tickets details
+
 
   @Sanity @Regression
   Scenario: Validate Change Language in MiniModule
