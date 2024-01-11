@@ -1,13 +1,11 @@
-Feature: Trades all buy related scenarios
+Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Rupees
     Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
-    And User selects order type as Sell in Rupees
     And User enters the amount for sell
-    And User clicks on review order button
     And User clicks on place order
     Then the sell order should be placed successfully
 
@@ -16,9 +14,7 @@ Feature: Trades all buy related scenarios
     Given User is on Trade dashboard
     And User clicks on Stock
     And User clicks on Sell
-    And User selects order type as Sell in Quantity
     And User enters the Quantity for sell
-    And User clicks on review order button
     And User clicks on place order
     Then the sell order of quantity type should be placed successfully
 
@@ -30,8 +26,8 @@ Feature: Trades all buy related scenarios
     And User clicks on Pro button
     And User selects order type as limit order
     And User enters the Sell Quantity
-    And User enters the Sell Limit Price
-    And User clicks on review order button
+    And User enters the limit price for sell
+    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
     Then Limit order in sell should be placed Successfully
 
@@ -44,8 +40,8 @@ Feature: Trades all buy related scenarios
     And User clicks on Pro button
     And User selects order type as Stop order
     And User enters the Sell Quantity
-    And User enters the Sell Limit Price
-    And User clicks on review order button
+    And User enters the limit price for sell
+    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
     Then Stop order in sell should be placed Successfully
 
@@ -57,8 +53,8 @@ Feature: Trades all buy related scenarios
     And User clicks on Pro button
     And User selects order type as MIT order
     And User enters the Sell Quantity
-    And User enters the Sell Limit Price
-    And User clicks on review order button
+    And User enters the limit price for sell
+    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
     Then MIT order in sell should be placed Successfully
 
@@ -67,11 +63,9 @@ Feature: Trades all buy related scenarios
     Given User is on Trade dashboard
     And User checks the current holdings and clicks on Stock
     And User clicks on Sell
-    And User selects order type as Sell in Quantity
     And User enters the Quantity to sell
-    And User clicks on review order button
     And User clicks on place order
-    And User Clicks on Go to home dashboard
+   # And User Clicks on Go to home dashboard
     Then Quantity in Holdings should decrease and minus sign should display
 
   @Sanity @Regression

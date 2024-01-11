@@ -89,7 +89,7 @@ public class TradesSellSteps extends BasePage {
 
     @Then("Stop order in sell should be placed Successfully")
     public void stopOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Stop Order");
+        new TradesPage().ValidateOrderType("Stop");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -123,6 +123,7 @@ public class TradesSellSteps extends BasePage {
     @Then("Quantity in Holdings should decrease and minus sign should display")
     public void quantityInHoldingsShouldDecreaseAndMinusSignShouldDisplay() throws InterruptedException {
         // new TradesPage().ValidateMinusSign();
+
 
         new TradesPage().ValidateQuantityInHoldings();
         //basePage.AndroidBack();
@@ -185,5 +186,15 @@ public class TradesSellSteps extends BasePage {
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
+    }
+
+    @And("User clicks on the continue button")
+    public void userClicksOnTheContinueButton() throws InterruptedException {
+        new TradesPage().ClickContinue();
+    }
+
+    @And("User enters the limit price for sell")
+    public void userEntersTheLimitPriceForSell() {
+        new TradesPage().EnterLimitPrice("100000");
     }
 }
