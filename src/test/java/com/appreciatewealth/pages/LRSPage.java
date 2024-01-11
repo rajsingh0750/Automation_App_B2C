@@ -457,7 +457,7 @@ public class LRSPage extends BasePage {
     }
 
     public void EnterPhoneNumber() throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(10000);
         PhoneNumber.click();
         EnterNumber.sendKeys("7019871038");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
