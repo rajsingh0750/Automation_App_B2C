@@ -43,7 +43,7 @@ public class TradesSteps extends BasePage{
 
     @Given("User enters the amount")
     public void user_enters_the_amount() throws InterruptedException {
-        new TradesPage().EnterTradeAmount();
+        new TradesPage().EnterTradeAmount("1");
     }
 
     @Given("User clicks on review order button")
@@ -126,7 +126,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enter amount more than buying power")
     public void userEnterAmountMoreThanBuyingPower() throws InterruptedException {
-        new TradesPage().EnterTradeAmount();
+        new TradesPage().EnterTradeAmount("99999999");
 
     }
 
@@ -157,7 +157,7 @@ public class TradesSteps extends BasePage{
     @And("User enters the quantity of the stock")
     public void userEntersTheQuantityOfTheStock() throws InterruptedException {
 
-        new TradesPage().EnterTradeAmount();
+        new TradesPage().EnterQuantity("1");
     }
 
     @And("User clicks on Top picks tab")
@@ -200,12 +200,12 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the amount less than the required limit")
     public void userEntersTheAmountLessThanTheRequiredLimit() throws InterruptedException {
-        new TradesPage().EnterTradeAmount();
+        new TradesPage().EnterTradeAmount("0.0001");
 
     }
 
-    @Then("User should be prompted with error message Minimum Transaction Amount Should be {string} INR.")
-    public void userShouldbePromptedWithErrorMessage(String arg0) throws InterruptedException {
+    @Then("User should be prompted with error message Minimum Transaction Amount Should be 0.84 INR.")
+    public void userShouldbePromptedWithErrorMessage() throws InterruptedException {
         new TradesPage().ValidateMinimumTransactionMsg("Minimum Transaction Amount Should be 0.84 INR.");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
@@ -221,7 +221,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the maximum quantity limit")
     public void userEntersTheMaximumQuantityLimit() throws InterruptedException {
-        new TradesPage().EnterTradeAmount();
+        new TradesPage().EnterQuantity("500000");
     }
 
 
@@ -248,7 +248,7 @@ public class TradesSteps extends BasePage{
     }
 
     @And("User clicks on Pro button")
-    public void userClicksOnProButton() {
+    public void userClicksOnProButton() throws InterruptedException {
         new TradesPage().SelectPro();
     }
 
@@ -279,6 +279,7 @@ public class TradesSteps extends BasePage{
     @Then("Limit order should be placed Successfully")
     public void limitOrderShouldBePlacedSuccessfully() throws InterruptedException {
         new TradesPage().ValidateOrderType("Limit");
+
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -293,7 +294,7 @@ public class TradesSteps extends BasePage{
 
     @Then("Stop order should be placed Successfully")
     public void stopOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Stop Order");
+        new TradesPage().ValidateOrderType("Stop");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -314,7 +315,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the amount in three or more decimal place")
     public void userEntersTheAmountInThreeOrMoreDecimalPlace() throws InterruptedException {
-        new TradesPage().EnterTradeAmount();
+        new TradesPage().EnterTradeAmount("6.88888");
     }
 
     @Then("Amount field should ignore the decimals after two place")
@@ -448,7 +449,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the trade amount")
     public void userEntersTheTradeAmount() throws InterruptedException {
-        new TradesPage().EnterTradeAmount();
+        new TradesPage().EnterTradeAmount("10");
     }
 
 
@@ -492,5 +493,21 @@ public class TradesSteps extends BasePage{
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
+    }
+
+    @And("User clicks on Set time in force")
+    public void userClicksOnSetTimeInForce() {
+        new TradesPage().SelectTimeInForce();
+
+    }
+
+    @And("User enters the Pro type order Quantity")
+    public void userEntersTheProTypeOrderQuantity() throws InterruptedException {
+        new TradesPage().EnterProOrderQty("1");
+    }
+
+    @And("User enters min trade amount")
+    public void userEntersMinTradeAmount() throws InterruptedException {
+        new TradesPage().EnterTradeAmount("1");
     }
 }

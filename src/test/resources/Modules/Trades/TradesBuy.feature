@@ -42,15 +42,13 @@ Feature: Trades all buy related scenarios
   Scenario: Verify the presence of an error message when attempting to purchase stocks exceeding the available buying power.
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
-    And User selects the order type as Quantity
     And User enters the maximum quantity limit
     Then User should see the following error message Low funds! Add money to your YES Bank AC and transfer to your buying power read more here
 
   @Sanity @Regression
   Scenario: Verify the presence of an error message when usd value crosses the limit of 2,50,000.
     Given User is on Trade dashboard
-    And User click on Buy stocks for one of the stock under Top picks
-    And User selects the order type as Quantity
+    And User clicks on Buy now for a stock
     And User enters the maximum quantity limit
     Then User should see the following message Transaction Limit
 
@@ -58,10 +56,8 @@ Feature: Trades all buy related scenarios
   @Sanity @Regression
   Scenario: Confirm that the user can purchase stock by quantity even when the market is closed.
     Given User is on Trade dashboard
-    And User click on Buy stocks for one of the stock under Top picks
-    And User selects the order type as Quantity
+    And User clicks on Buy now for a stock
     And User enters the quantity of the stock
-    And User clicks on review order button
     And User clicks on place order
     Then the order should be placed successfully
 
@@ -85,7 +81,7 @@ Feature: Trades all buy related scenarios
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User enters the amount less than the required limit
-    Then User should be prompted with error message Minimum Transaction Amount Should be "0.84" INR.
+    Then User should be prompted with error message Minimum Transaction Amount Should be 0.84 INR.
 
   @Regression
   Scenario: Validate if the error message is removed once the user switch to other app
@@ -115,9 +111,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as limit order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
     Then Limit order should be placed Successfully
 
@@ -127,9 +123,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as limit order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects Limit order expiry as Good till Cancelled
     Then Limit order should be placed Successfully
 
@@ -139,9 +135,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as limit order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects Limit order expiry as Custom Date
     Then Limit order should be placed Successfully
 
@@ -152,9 +148,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as Stop order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
     Then Stop order should be placed Successfully
 
@@ -164,9 +160,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as Stop order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects Stop order expiry as Good till Cancelled
     Then Stop order should be placed Successfully
 
@@ -176,9 +172,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as Stop order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects Stop order expiry as Custom Date
     Then Stop order should be placed Successfully
 
@@ -188,9 +184,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as MIT order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
     Then MIT order should be placed Successfully
 
@@ -200,9 +196,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as MIT order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects MIT order expiry as Good till Cancelled
     Then MIT order should be placed Successfully
 
@@ -212,9 +208,9 @@ Feature: Trades all buy related scenarios
     And User clicks on Buy now for a stock
     And User clicks on Pro button
     And User selects order type as MIT order
-    And User enters the Quantity
+    And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on review order button
+    And User clicks on Set time in force
     And User selects MIT order expiry as Custom Date
     Then MIT order should be placed Successfully
 
@@ -240,10 +236,8 @@ Feature: Trades all buy related scenarios
     Given User is on Trade dashboard
     And User notices the Current P and L, Current Investment and Current Amount
     And User clicks on Buy now for a stock
-    And User enters the amount
-    And User clicks on review order button
+    And User enters min trade amount
     And User clicks on place order
-    And the order should be placed successfully
     Then Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
 
 
@@ -260,8 +254,7 @@ Feature: Trades all buy related scenarios
     And User notices the current buying power before buy
     And User notices the current money in held before buy
     And User clicks on Buy now for a stock
-    And User enters the trade amount
-    And User clicks on review order button
+    And User enters min trade amount
     And User clicks on place order
     And User Clicks on Go to home dashboard
     And User notices the current buying power after buy

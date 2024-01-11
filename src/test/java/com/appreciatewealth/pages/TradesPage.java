@@ -40,7 +40,7 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='place order']")
     WebElement PlaceOrderButton;
-    @AndroidFindBy(xpath = "//*[@text='₹2,000']")
+    @AndroidFindBy(xpath = "//*[@text='1']")
     WebElement ValidateEnteredAmount;
 
     @AndroidFindBy(xpath = "//*[@text='Order Placed']")
@@ -76,13 +76,13 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Transactions']")
     WebElement ValidateActivitiesPage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
+    @AndroidFindBy(id = "txvCurrentInvestedPrice")
     WebElement InvestedAmountOnDashboard;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
     WebElement StoreInvestedAmountOnDashboard;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
+    @AndroidFindBy(id = "txvCurrentValuePrice")
     WebElement CurrentValueOnDashboard;
 
     @AndroidFindBy(xpath= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
@@ -97,7 +97,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='buy now']")
     WebElement BuyNowTopPicks;
 
-    @AndroidFindBy(xpath = "//*[@text='Fraction']")
+    @AndroidFindBy(xpath = "//*[@text='0.0']")
     WebElement SelectOrderType;
 
     @AndroidFindBy(xpath = "//*[@text='Sell in Rupees']")
@@ -123,13 +123,13 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Minimum Transaction Amount Should be 0.83 INR.']")
     WebElement MinimumTransactionErrorMsg;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Transaction Limit:')]")
     WebElement TransactionLimitErrorMsg;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
     WebElement PandLPercentage;
 
-    @AndroidFindBy(xpath = "//*[@text='pro']")
+    @AndroidFindBy(xpath = "//*[@text='Pro']")
     WebElement ProTab;
 
     @AndroidFindBy(xpath = "//*[@text='Limit']")
@@ -140,34 +140,40 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Limit Order']")
     WebElement LimitOrderType;
 
-    @AndroidFindBy(xpath = "//*[@text='Stop Order']")
+    @AndroidFindBy(xpath = "//*[@text='Stop']")
     WebElement StopOrderType;
 
-    @AndroidFindBy(xpath = "//*[@text='Market If Touched(MIT) Order']")
+    @AndroidFindBy(xpath = "//*[@text='Market If Touched(MIT)']")
     WebElement MITOrderType;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@text='0.0']")
     WebElement EnterQuantity;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
+    @AndroidFindBy(xpath = "//*[@text='0']")
+    WebElement EnterTradeQuantity;
+
+
+    @AndroidFindBy(xpath = "//*[@text='₹0.00']")
     WebElement SetLimitPrice;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.RadioButton[1]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Good Till Next Market Day Close')]")
     WebElement ExpireTillMarketDayClose;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.RadioButton[2]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Good till cancelled')]")
     WebElement GoodTillCancelled;
 
 
 
-    @AndroidFindBy(xpath = "//*[@text='Select date']")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Select Date')]")
     WebElement SelectCustomExpiryDate;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[4]/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "//*[@text='Set time in force']")
+    WebElement SelectSetTimeInForce;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[4]/android.widget.TextView[2]")
     WebElement ValidateCustomExpiryDate;
     @AndroidFindBy(xpath = "//*[@text='OK']")
     WebElement ClickOK;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[6]/android.widget.TextView[2]")
+    @AndroidFindBy(id= "txvOrderTypeValue")
     WebElement ValidateOrderType;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView")
     WebElement ClickonVTStock;
@@ -178,7 +184,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Sell in Rupees']")
     WebElement SellTypeDropdown;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.TextView[2]")
+    @AndroidFindBy(id = "txvOrderTypeValue")
     WebElement ValidateSellOrder;
 
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
@@ -198,13 +204,13 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='go to dashboard']")
     WebElement GoToTradeDashboard;
-    @AndroidFindBy(xpath = "//*[@text='₹1.33']")
+    @AndroidFindBy(xpath = "//*[@text='₹6.89']")
     WebElement ValidateAmountDecimals;
 
-    @AndroidFindBy(xpath = "//*[@text='1.33333333']")
+    @AndroidFindBy(xpath = "//*[@text='1.33']")
     WebElement ValidateQuantityDecimals;
 
-    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
+    @AndroidFindBy (id = "txvNetChange")
     private WebElement CurrentPandL;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/androidx.cardview.widget.CardView[3]/android.view.ViewGroup/android.widget.ImageView")
@@ -263,6 +269,8 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='₹9.32']")
     private WebElement OrderAmountTransactions;
 
+    @AndroidFindBy(xpath = "//*[@text='continue']")
+    private WebElement Continue;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.TextView[2]")
     private WebElement TradeQuantityTransactions;
 
@@ -333,7 +341,7 @@ public class TradesPage extends BasePage {
     public void NavigatetoTradeDashboard() throws InterruptedException, IOException {
         Thread.sleep(2000);
         signInPage.Signin();
-        Thread.sleep(6000);
+        Thread.sleep(8000);
         clickonViewDashboard.click();
         Thread.sleep(4000);
         TradeButton.click();
@@ -344,19 +352,20 @@ public class TradesPage extends BasePage {
 
         WebElement clickonbuynow = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
         driver.findElement(By.xpath("//*[@index='9' and @text='buy now']")).click();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
     }
 
-    public void EnterTradeAmount() throws InterruptedException {
-        Thread.sleep(5000);
+    public void EnterTradeAmount(String amount) throws InterruptedException {
+        // Thread.sleep(5000);
         EnterAmount.click();
         Thread.sleep(5000);
-        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
-        // EnterAmount.sendKeys(amount);
+        // ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+        EnterAmount.sendKeys(amount);
         // Thread.sleep(5000);
 
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        Thread.sleep(5000);
     }
 
     public void ClickReviewOrderButton() throws InterruptedException {
@@ -412,7 +421,7 @@ public class TradesPage extends BasePage {
         double doublefinalInvestment = Double.parseDouble(OverallInvestedwithoutCurrency);
         // int totalinvested = Integer.parseInt(Totalinvested);
         System.out.println("this is the total invested amount from app " + doublefinalInvestment);
-        double Finalvalue = doublefinalInvestment - doubleoverallreturn;
+        double Finalvalue = doublefinalInvestment + doubleoverallreturn;
         System.out.println("this is the total current value amount from app " + Finalvalue);
         //String ExpectedCurrentValue = String.valueOf(""+Finalvalue);
 
@@ -542,11 +551,11 @@ public class TradesPage extends BasePage {
     }
 
     public void SelectOrderType() throws InterruptedException {
-        Thread.sleep(2000);
-        SelectOrderType.click();
-        Thread.sleep(2000);
-        SelectQuantityTypeOrder.click();
-        ConfirmOrderType.click();
+        Thread.sleep(5000);
+        SelectOrderType.sendKeys("1");
+        // Thread.sleep(2000);
+        // SelectQuantityTypeOrder.click();
+        // ConfirmOrderType.click();
     }
 
     public void AddtoWatchlist() throws InterruptedException {
@@ -595,7 +604,8 @@ public class TradesPage extends BasePage {
 
     }
 
-    public void ValidateMinimumTransactionMsg(String msg) {
+    public void ValidateMinimumTransactionMsg(String msg) throws InterruptedException {
+        Thread.sleep(3000);
         String Actualmsg = MinimumTransactionErrorMsg.getText();
         Assert.assertEquals(Actualmsg, msg);
     }
@@ -643,7 +653,7 @@ public class TradesPage extends BasePage {
     }
 
     public void ValidateTransactionLimitMsg() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         TransactionLimitErrorMsg.isDisplayed();
         //String ActualMsg = TransactionLimitErrorMsg.getText();
         //Assert.assertEquals(ActualMsg, msg);
@@ -668,38 +678,41 @@ public class TradesPage extends BasePage {
     }
 
     public void ValidateEnteredAmount() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         ValidateEnteredAmount.isDisplayed();
     }
 
-    public void SelectPro(){
+    public void SelectPro() throws InterruptedException {
+        Thread.sleep(6000);
         ProTab.click();
     }
+
+
 
     public void SelectProOrderType() throws InterruptedException {
         Thread.sleep(5000);
         OrderTypeDropdown.click();
         Thread.sleep(3000);
-        LimitOrderType.click();
-        Thread.sleep(5000);
-        ConfirmProOrderType.click();
+        // LimitOrderType.click();
+        // Thread.sleep(5000);
+        // ConfirmProOrderType.click();
     }
 
     public void SelectStopOrder() throws InterruptedException {
-        Thread.sleep(5000);
+        // Thread.sleep(5000);
 
-        OrderTypeDropdown.click();
+        //OrderTypeDropdown.click();
         Thread.sleep(3000);
         StopOrderType.click();
-        Thread.sleep(5000);
-        ConfirmProOrderType.click();
+        // Thread.sleep(5000);
+        //  ConfirmProOrderType.click();
     }
     public void SelectMITOrder() throws InterruptedException {
-        Thread.sleep(2000);
-        OrderTypeDropdown.click();
+        //Thread.sleep(2000);
+        //  OrderTypeDropdown.click();
         Thread.sleep(3000);
         MITOrderType.click();
-        ConfirmProOrderType.click();
+        //  ConfirmProOrderType.click();
     }
 
 
@@ -742,7 +755,7 @@ public class TradesPage extends BasePage {
         Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
         Thread.sleep(5000);
-        driver.findElement(AppiumBy.xpath("//*[@text='VT']")).click();
+        driver.findElement(AppiumBy.id("constraintChildOtherPicks")).click();
         /*driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
         ));*/
@@ -752,9 +765,9 @@ public class TradesPage extends BasePage {
     }
 
     public void EnterSellAmount(String Amount) throws InterruptedException {
-        Thread.sleep(3000);
-        EnterSellAmount.click();
-        EnterSellAmount.sendKeys(Amount);
+        Thread.sleep(6000);
+        EnterQuantity.click();
+        EnterQuantity.sendKeys(Amount);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
@@ -771,7 +784,7 @@ public class TradesPage extends BasePage {
     }
 
     public void ValidateSellOrderType(String OrderType) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         String ActualType = ValidateSellOrder.getText();
         Assert.assertEquals(ActualType,OrderType);
 
@@ -786,8 +799,8 @@ public class TradesPage extends BasePage {
 
     public void EnterQuantitySell(String Quantity) throws InterruptedException {
         Thread.sleep(4000);
-        EnterQuantitySell.click();
-        EnterQuantitySell.sendKeys(Quantity);
+        EnterTradeQuantity.click();
+        EnterTradeQuantity.sendKeys(Quantity);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
@@ -831,13 +844,13 @@ public class TradesPage extends BasePage {
 
     }
     public void ValidateAmountDecimals() throws InterruptedException {
-        Assert.assertEquals(ValidateAmountDecimals.getText(),"₹1.33");
+        Assert.assertEquals(ValidateAmountDecimals.getText(),"₹6.89");
     }
 
     public void ValidateQuantityDecimals() throws InterruptedException {
         Thread.sleep(6000);
         String ActualText = ValidateQuantityDecimals.getText();
-        Assert.assertEquals(ActualText,"1.33333333");
+        Assert.assertEquals(ActualText,"1.33");
 
     }
     public void EnterTradeQuantityThroughKeyboard() throws InterruptedException {
@@ -852,8 +865,8 @@ public class TradesPage extends BasePage {
 
     public String CurrentPandLBeforeBuy() throws InterruptedException {
         Thread.sleep(3000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Top picks\").instance(0))"));
-        Thread.sleep(5000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\").instance(0))"));
+        Thread.sleep(8000);
         return CurrentPandL.getText();
 
     }
@@ -989,14 +1002,14 @@ public class TradesPage extends BasePage {
 
     public void CompareBuyingPowerAndHeldAmount(){
         double BuyingPower = Double.parseDouble(GetBuyingPowerBeforeBuy.replace("₹", "")
-                .replace(" K", "")
+                .replace(" M", "")
                 .trim());
         System.out.println("Buying Power before buy: "+BuyingPower);
 
         double BuyingPowerPostBuy = BuyingPower-1;
 
         double BuyingPower2 = Double.parseDouble(GetBuyingPowerAfterBuy.replace("₹", "")
-                .replace(" K", "")
+                .replace(" M", "")
                 .trim());
         System.out.println("Buying Power post buy: "+BuyingPower2);
 
@@ -1075,11 +1088,24 @@ public class TradesPage extends BasePage {
         Assert.assertEquals(Title,CraftedItemLabel);
         Thread.sleep(5000);
         BuyNowButton.isDisplayed();
-
-
-
     }
 
+    public void SelectTimeInForce(){
+        SelectSetTimeInForce.click();
+    }
+
+    public void EnterProOrderQty(String Qty) throws InterruptedException {
+
+        Thread.sleep(4000);
+        EnterTradeQuantity.click();
+        EnterTradeQuantity.sendKeys(Qty);
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+    }
+
+    public void ClickContinue() throws InterruptedException {
+        Thread.sleep(3000);
+        Continue.click();
+    }
 
 
 }
