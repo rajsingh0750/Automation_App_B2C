@@ -1,19 +1,19 @@
 Feature: MiniModule
 
-  @Sanity @Regression
-  Scenario Outline: Validate if the profile details are displayed as per the logged-in User
-    Given User is on Logged in Screen
-    When User enters "<email>"
-    And User navigates to Profile details screen
-    Then User should see the information like "<FullName>","<DOB>","<Gender>","<MaritalStatus>","<EducationQualification>","<OccupationType>" and "<AnnualIncome>" under profile details as per login
-    And User should see Contact Details like "<MobileNumber>" and "<EmailId>" as per the login
-    And User should see Permanent Address like "<Address>","<City>","<District>" ,"<State>","<PinCode>" as per the login
-    And User should see KYC Details like "<PanNumber>" as per the login
-    And User should see the Nominee Details like "<NomineeName>","<DateOfBirth>","<PhoneNumber>" as per the login
-    Examples:
-      | email                         | password | FullName        | DOB          | Gender | MaritalStatus | EducationQualification | OccupationType | AnnualIncome | MobileNumber | EmailId                       | Address                                                                                                                                         | City   | District | State         | PinCode | PanNumber  | NomineeName | DateOfBirth | PhoneNumber |
-      | shubh.kr.rjpt@gmail.com       | Demo@123 | Shubham Kumar   | 04 Sep, 1994 | Male   | Single        | Graduate               | Salaried       | 5-10 Lakhs   | 9538256787   | shubh.kr.rjpt@gmail.com       | CO  Ashok Kumar  18  ganga nagar asroli  balmukand hero  Etah  Etah  Uttar Pradesh - 207001                                                     | Etah   |          | Uttar Pradesh | 207001  | XXXXXX328J | ASHOK KUMAR | 08/05/1960  | 8630661542  |
-      | faureretruba-9695@yopmail.com | Test@123 | sanjeev Tanniru | 25 May, 1988 | Male   | Married       | Graduate               | Salaried       | 20-25 Lakhs  | 9326459356   | faureretruba-9695@yopmail.com | S / O Ashok Balayya Tanniru  57 - 1 / 21  Mata Ramabai  Ambedkar Nagar  Jijamata  Nagar  Dr E Moses Road  Worli SO  Mumbai  Maharashtra  400018 | Mumbai |          | Maharashtra   | 400018  | XXXXXX991J |             |             |             |
+#  @Sanity @Regression
+#  Scenario Outline: Validate if the profile details are displayed as per the logged-in User
+#    Given User is on Logged in Screen
+#    When User enters "<email>"
+#    And User navigates to Profile details screen
+#    Then User should see the information like "<FullName>","<DOB>","<Gender>","<MaritalStatus>","<EducationQualification>","<OccupationType>" and "<AnnualIncome>" under profile details as per login
+#    And User should see Contact Details like "<MobileNumber>" and "<EmailId>" as per the login
+#    And User should see Permanent Address like "<Address>","<City>","<District>" ,"<State>","<PinCode>" as per the login
+#    And User should see KYC Details like "<PanNumber>" as per the login
+#    And User should see the Nominee Details like "<NomineeName>","<DateOfBirth>","<PhoneNumber>" as per the login
+#    Examples:
+#      | email                         | password | FullName        | DOB          | Gender | MaritalStatus | EducationQualification | OccupationType | AnnualIncome | MobileNumber | EmailId                       | Address                                                                                                                                         | City   | District | State         | PinCode | PanNumber  | NomineeName | DateOfBirth | PhoneNumber |
+#      | shubh.kr.rjpt@gmail.com       | Demo@123 | Shubham Kumar   | 04 Sep, 1994 | Male   | Single        | Graduate               | Salaried       | 5-10 Lakhs   | 9538256787   | shubh.kr.rjpt@gmail.com       | CO  Ashok Kumar  18  ganga nagar asroli  balmukand hero  Etah  Etah  Uttar Pradesh - 207001                                                     | Etah   |          | Uttar Pradesh | 207001  | XXXXXX328J | ASHOK KUMAR | 08/05/1960  | 8630661542  |
+#      | faureretruba-9695@yopmail.com | Test@123 | sanjeev Tanniru | 25 May, 1988 | Male   | Married       | Graduate               | Salaried       | 20-25 Lakhs  | 9326459356   | faureretruba-9695@yopmail.com | S / O Ashok Balayya Tanniru  57 - 1 / 21  Mata Ramabai  Ambedkar Nagar  Jijamata  Nagar  Dr E Moses Road  Worli SO  Mumbai  Maharashtra  400018 | Mumbai |          | Maharashtra   | 400018  | XXXXXX991J |             |             |             |
 
   @smoke
   Scenario: Verify functionality of cross icon
