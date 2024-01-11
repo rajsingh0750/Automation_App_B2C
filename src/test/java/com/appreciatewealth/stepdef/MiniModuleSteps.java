@@ -18,7 +18,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+     signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
      new MiniModulePage().NavigateToMiniModule();
 
     }
@@ -666,7 +666,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page for passcode")
     public void theUserIsOnMiniModulePageForPasscode() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         //signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
 
@@ -701,7 +701,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("the User Confirm the new passcode")
     public void theUserConfirmTheNewPasscode() throws InterruptedException, IOException {
         new MiniModulePage().SetPasscode();
-        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
         basePage.Logout();
 
