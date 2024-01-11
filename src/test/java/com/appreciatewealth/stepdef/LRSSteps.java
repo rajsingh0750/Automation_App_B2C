@@ -259,4 +259,20 @@ public class LRSSteps {
     public void userEntersTheAmountInPaiseToBeDeposited() {
 
     }
+
+    @And("User Select ReadMore option from review transfer screen")
+    public void userSelectReadMoreOptionFromReviewTransferScreen() throws InterruptedException {
+        new LRSPage().ReviewReadMore();
+        new LRSPage().ValidateTCSDescription();
+    }
+
+    @Then("User Should See Successfully TCS Description")
+    public void userShouldSeeSuccessfullyTCSDescription() throws InterruptedException {
+        new LRSPage().ReviewOkay();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
 }

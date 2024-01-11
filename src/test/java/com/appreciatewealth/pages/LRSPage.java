@@ -189,6 +189,15 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath="//*[@text='Invalid Identifiers -  Mobile Number / Customer ID ']")
     WebElement ErrorNumberAndCustomer;
 
+    @AndroidFindBy(id = "tvDescriptionReadMore")
+    WebElement ClickReadMore;
+
+    @AndroidFindBy(xpath = "//*[@text='Why is TCS charged to me?']")
+    WebElement TCSDescription;
+
+    @AndroidFindBy(id="btnOkay")
+    WebElement Okay;
+
     SignInPage signInPage;
 
     public LRSPage() {
@@ -480,4 +489,19 @@ public class LRSPage extends BasePage {
         Thread.sleep(5000);
         ErrorNumberAndCustomer.isDisplayed();
     }
+
+    public void ReviewReadMore() throws InterruptedException {
+        Thread.sleep(8000);
+        ClickReadMore.click();
+    }
+    public void ValidateTCSDescription() throws InterruptedException {
+        Thread.sleep(10000);
+        TCSDescription.isDisplayed();
+    }
+
+    public void ReviewOkay() throws InterruptedException {
+        Thread.sleep(5000);
+        Okay.click();
+    }
+
 }
