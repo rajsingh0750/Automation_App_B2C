@@ -1079,7 +1079,7 @@ public class GoalsPage extends BasePage {
                     "percent", 1.0
             ));
             //driver.findElement(By.xpath("//*[@index='3' and @text='Build a savings habit and grow your Gold investment safely and securely.']"));
-            Thread.sleep(8000);
+            //Thread.sleep(5000);
             Clickdigitalgold.click();
 
         }
