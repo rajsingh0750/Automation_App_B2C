@@ -914,4 +914,23 @@ DashboardPage dashboardPage = new DashboardPage();
         basePage.AndroidBack();
         basePage.Logout();
     }
+
+    @And("User Select Day Trade Settings")
+    public void userSelectDayTradeSettings() {
+        
+    }
+
+    @And("User Clicks on Day Trading")
+    public void userClicksOnDayTrading() {
+        
+    }
+
+    @And("User Clicks on Pattern Day")
+    public void userClicksOnPatternDay() {
+        
+    }
+
+    @Then("User should see all the Trade setting descriptions")
+    public void userShouldSeeAllTheTradeSettingDescriptions() {
+    }
 }

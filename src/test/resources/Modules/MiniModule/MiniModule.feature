@@ -316,6 +316,17 @@ Feature: MiniModule
     And the User enters the amount
     Then User should see error message must be displayed "Insufficient buying power balance"
 
+#  @Sanity @Regression
+#  Scenario: Validate Day Trade Settings in MiniModule
+#    Given the User is on MiniModule page
+#    And the User Clicks on Settings & Preferences
+#    And User Select Day Trade Settings
+#    And User Clicks on Day Trading
+#    And User Clicks on Pattern Day
+#    Then User should see all the Trade setting descriptions
+
+
+
 
 
 
