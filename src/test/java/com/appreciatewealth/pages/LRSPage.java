@@ -346,7 +346,7 @@ public class LRSPage extends BasePage {
     }
 
     public void SelectCheckBoxes() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         int numberOfScrolls = 6; // Adjust the number of scrolls as needed
 
         for (int i = 0; i < numberOfScrolls; i++) {

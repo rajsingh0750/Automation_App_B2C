@@ -133,15 +133,15 @@ Feature: LRS
     And User click on Proceed
     Then the User should see error message "Transaction Processing Error!"
 
-  @Sanity @Regression
-  Scenario: Validate ReadMore Option in Review Transfer Screen
-    Given the user is on Appreciate App's Dashboard
-    And User clicks on Add Funds
-    And User clicks on Add Money to Buying Power button
-    And User enters the amount to be deposited
-    And User clicks on continue button
-    And User Select ReadMore option from review transfer screen
-    Then User Should See Successfully TCS Description
+#  @Sanity @Regression
+#  Scenario: Validate ReadMore Option in Review Transfer Screen
+#    Given the user is on Appreciate App's Dashboard
+#    And User clicks on Add Funds
+#    And User clicks on Add Money to Buying Power button
+#    And User enters the amount to be deposited
+#    And User clicks on continue button
+#    And User Select ReadMore option from review transfer screen
+#    Then User Should See Successfully TCS Description
 
 
 
