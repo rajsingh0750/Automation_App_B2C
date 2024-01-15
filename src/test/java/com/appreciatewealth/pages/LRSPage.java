@@ -352,7 +352,7 @@ public class LRSPage extends BasePage {
         for (int i = 0; i < numberOfScrolls; i++) {
             driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
         }
-        Thread.sleep(15000);
+        Thread.sleep(3000);
         CheckBox1.click();
         Thread.sleep(3000);
         ClickOk.click();
