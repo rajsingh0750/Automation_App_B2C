@@ -18,7 +18,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+     signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
      new MiniModulePage().NavigateToMiniModule();
 
     }
@@ -666,7 +666,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page for passcode")
     public void theUserIsOnMiniModulePageForPasscode() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         //signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
 
@@ -701,7 +701,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("the User Confirm the new passcode")
     public void theUserConfirmTheNewPasscode() throws InterruptedException, IOException {
         new MiniModulePage().SetPasscode();
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         new MiniModulePage().NavigateToMiniModule();
         basePage.Logout();
 
@@ -916,21 +916,111 @@ DashboardPage dashboardPage = new DashboardPage();
     }
 
     @And("User Select Day Trade Settings")
-    public void userSelectDayTradeSettings() {
+    public void userSelectDayTradeSettings() throws InterruptedException {
+        new MiniModulePage().ClickDayTradeSettings();
         
     }
 
     @And("User Clicks on Day Trading")
-    public void userClicksOnDayTrading() {
+    public void userClicksOnDayTrading() throws InterruptedException {
+        new MiniModulePage().ClickDayTrading();
+        new MiniModulePage().ClickDistributClose();
         
     }
 
     @And("User Clicks on Pattern Day")
-    public void userClicksOnPatternDay() {
+    public void userClicksOnPatternDay() throws InterruptedException {
+        new MiniModulePage().ClickPatternDayTrading();
+        new MiniModulePage().ClickDistributClose();
         
     }
 
     @Then("User should see all the Trade setting descriptions")
-    public void userShouldSeeAllTheTradeSettingDescriptions() {
+    public void userShouldSeeAllTheTradeSettingDescriptions() throws InterruptedException {
+        new MiniModulePage().ClickEnableTrading();
+        new MiniModulePage().ClickDistributClose();
+        basePage.AndroidBack();
+        new MiniModulePage().ClickDocumentsClose();
+        basePage.Logout();
+    }
+
+    @Given("the User is on the MiniModule page")
+    public void theUserIsOnTheMiniModulePage() throws InterruptedException, IOException {
+        signInPage.DynamicSignIn("faureretruba-9695@yopmail.com");
+        new MiniModulePage().NavigateToMiniModule();
+    }
+
+    @And("User Clicks on Enable Pattern Day Trading")
+    public void userClicksOnEnablePatternDayTrading() throws IOException, InterruptedException {
+        new MiniModulePage().SelectEnablePattern();
+        new MiniModulePage().SelectEnablePDT();
+        //new MiniModulePage().ClickDistributClose();
+
+    }
+
+    @Then("User should see a toast message saying PDT Enabled")
+    public void userShouldSeeAToastMessageSayingPDTEnabled() throws InterruptedException {
+        //new MiniModulePage().ValidateToastMessage();
+        basePage.AndroidBack();
+        new MiniModulePage().ClickDocumentsClose();
+        basePage.Logout();
+    }
+
+    @And("User Clicks on Disable Pattern Day Trading")
+    public void userClicksOnDisablePatternDayTrading() throws InterruptedException {
+        new MiniModulePage().SelectDisablePattern();
+        new MiniModulePage().SelectEnablePDT();
+
+    }
+
+    @Then("User should see a toast message saying PDT Disabled")
+    public void userShouldSeeAToastMessageSayingPDTDisabled() throws InterruptedException {
+        basePage.AndroidBack();
+        new MiniModulePage().ClickDocumentsClose();
+        basePage.Logout();
+
+    }
+
+    @And("User Clicks on View account value")
+    public void userClicksOnViewAccountValue() throws InterruptedException {
+        new MiniModulePage().ClickAccountValue();
+
+        
+    }
+
+    @Then("User should see all description related to account value")
+    public void userShouldSeeAllDescriptionRelatedToAccountValue() throws InterruptedException {
+        new MiniModulePage().ValidateAccountText();
+        new MiniModulePage().ClickDistributClose();
+        basePage.AndroidBack();
+        new MiniModulePage().ClickDocumentsClose();
+        basePage.Logout();
+    }
+
+    @And("User Select Choose From Device")
+    public void userSelectChooseFromDevice() throws InterruptedException {
+        new MiniModulePage().ClickProfilePhoto();
+        new MiniModulePage().ClickChooseDevice();
+        
+    }
+
+    @And("User Select Gallery Option")
+    public void userSelectGalleryOption() throws InterruptedException {
+        new MiniModulePage().ClickGallery();
+        new MiniModulePage().ChoosePhoto();
+    }
+
+    @And("User Select Photo From Device")
+    public void userSelectPhotoFromDevice() throws InterruptedException {
+        new MiniModulePage().ClickImage();
+        
+    }
+
+    @Then("the User Profile Photo should be Updated Successfully")
+    public void theUserProfilePhotoShouldBeUpdatedSuccessfully() throws InterruptedException {
+        new MiniModulePage().ClickSave();
+        new MiniModulePage().CloseProfileScreen();
+        basePage.Logout();
+
     }
 }

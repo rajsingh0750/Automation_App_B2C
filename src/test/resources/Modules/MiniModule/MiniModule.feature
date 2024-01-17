@@ -1,34 +1,34 @@
 Feature: MiniModule
 
-#  @Sanity @Regression
-#  Scenario Outline: Validate if the profile details are displayed as per the logged-in User
-#    Given User is on Logged in Screen
-#    When User enters "<email>"
-#    And User navigates to Profile details screen
-#    Then User should see the information like "<FullName>","<DOB>","<Gender>","<MaritalStatus>","<EducationQualification>","<OccupationType>" and "<AnnualIncome>" under profile details as per login
-#    And User should see Contact Details like "<MobileNumber>" and "<EmailId>" as per the login
-#    And User should see Permanent Address like "<Address>","<City>","<District>" ,"<State>","<PinCode>" as per the login
-#    And User should see KYC Details like "<PanNumber>" as per the login
-#    And User should see the Nominee Details like "<NomineeName>","<DateOfBirth>","<PhoneNumber>" as per the login
-#    Examples:
-#      | email                         | password | FullName        | DOB          | Gender | MaritalStatus | EducationQualification | OccupationType | AnnualIncome | MobileNumber | EmailId                       | Address                                                                                                                                         | City   | District | State         | PinCode | PanNumber  | NomineeName | DateOfBirth | PhoneNumber |
-#      | shubh.kr.rjpt@gmail.com       | Demo@123 | Shubham Kumar   | 04 Sep, 1994 | Male   | Single        | Graduate               | Salaried       | 5-10 Lakhs   | 9538256787   | shubh.kr.rjpt@gmail.com       | CO  Ashok Kumar  18  ganga nagar asroli  balmukand hero  Etah  Etah  Uttar Pradesh - 207001                                                     | Etah   |          | Uttar Pradesh | 207001  | XXXXXX328J | ASHOK KUMAR | 08/05/1960  | 8630661542  |
-#      | faureretruba-9695@yopmail.com | Test@123 | sanjeev Tanniru | 25 May, 1988 | Male   | Married       | Graduate               | Salaried       | 20-25 Lakhs  | 9326459356   | faureretruba-9695@yopmail.com | S / O Ashok Balayya Tanniru  57 - 1 / 21  Mata Ramabai  Ambedkar Nagar  Jijamata  Nagar  Dr E Moses Road  Worli SO  Mumbai  Maharashtra  400018 | Mumbai |          | Maharashtra   | 400018  | XXXXXX991J |             |             |             |
+  @Stage @Regression
+  Scenario Outline: Validate if the profile details are displayed as per the logged-in User
+    Given User is on Logged in Screen
+    When User enters "<email>"
+    And User navigates to Profile details screen
+    Then User should see the information like "<FullName>","<DOB>","<Gender>","<MaritalStatus>","<EducationQualification>","<OccupationType>" and "<AnnualIncome>" under profile details as per login
+    And User should see Contact Details like "<MobileNumber>" and "<EmailId>" as per the login
+    And User should see Permanent Address like "<Address>","<City>","<District>" ,"<State>","<PinCode>" as per the login
+    And User should see KYC Details like "<PanNumber>" as per the login
+    And User should see the Nominee Details like "<NomineeName>","<DateOfBirth>","<PhoneNumber>" as per the login
+    Examples:
+      | email                         | password | FullName        | DOB          | Gender | MaritalStatus | EducationQualification | OccupationType | AnnualIncome | MobileNumber | EmailId                       | Address                                                                                                                                         | City   | District | State         | PinCode | PanNumber  | NomineeName | DateOfBirth | PhoneNumber |
+      | shubh.kr.rjpt@gmail.com       | Demo@123 | Shubham Kumar   | 04 Sep, 1994 | Male   | Single        | Graduate               | Salaried       | 5-10 Lakhs   | 9538256787   | shubh.kr.rjpt@gmail.com       | CO  Ashok Kumar  18  ganga nagar asroli  balmukand hero  Etah  Etah  Uttar Pradesh - 207001                                                     | Etah   |          | Uttar Pradesh | 207001  | XXXXXX328J | ASHOK KUMAR | 08/05/1960  | 8630661542  |
+      | faureretruba-9695@yopmail.com | Test@123 | sanjeev Tanniru | 25 May, 1988 | Male   | Married       | Graduate               | Salaried       | 20-25 Lakhs  | 9326459356   | faureretruba-9695@yopmail.com | S / O Ashok Balayya Tanniru  57 - 1 / 21  Mata Ramabai  Ambedkar Nagar  Jijamata  Nagar  Dr E Moses Road  Worli SO  Mumbai  Maharashtra  400018 | Mumbai |          | Maharashtra   | 400018  | XXXXXX991J |             |             |             |
 
-  @smoke
+  @Sanity @Regression
   Scenario: Verify functionality of cross icon
     Given the user is on Appreciate App's Dashboard
     And User navigates to the Profile details screen
     And User Clicks on close button
     Then It should close the profile details pop-up
 
-  @smoke
+  @Sanity @Regression
   Scenario: User logs out from the mini-module
     Given the user is on Appreciate App's Dashboard
     And User clicks on Profile icon
     Then User logs out and should see the sign in page
 
-  @smoke
+  @Sanity @Regression
   Scenario: Verify if user is able to update the annual income
     Given the user is on Appreciate App's Dashboard
     And User navigates to the Profile details screen
@@ -316,15 +316,50 @@ Feature: MiniModule
     And the User enters the amount
     Then User should see error message must be displayed "Insufficient buying power balance"
 
-#  @Sanity @Regression
-#  Scenario: Validate Day Trade Settings in MiniModule
-#    Given the User is on MiniModule page
-#    And the User Clicks on Settings & Preferences
-#    And User Select Day Trade Settings
-#    And User Clicks on Day Trading
-#    And User Clicks on Pattern Day
-#    Then User should see all the Trade setting descriptions
+  @Sanity @Regression
+  Scenario: Validate Day Trade Settings in MiniModule
+    Given the User is on MiniModule page
+    And the User Clicks on Settings & Preferences
+    And User Select Day Trade Settings
+    And User Clicks on Day Trading
+    And User Clicks on Pattern Day
+    Then User should see all the Trade setting descriptions
 
+
+  @Stage @Regression
+  Scenario: Verify Enable PDT in MiniModule
+    Given the User is on the MiniModule page
+    And the User Clicks on Settings & Preferences
+    And User Select Day Trade Settings
+    And User Clicks on Enable Pattern Day Trading
+    Then User should see a toast message saying PDT Enabled
+
+  @Stage @Regression
+  Scenario: Verify Disable PDT in MiniModule
+    Given the User is on the MiniModule page
+    And the User Clicks on Settings & Preferences
+    And User Select Day Trade Settings
+    And User Clicks on Disable Pattern Day Trading
+    Then User should see a toast message saying PDT Disabled
+
+
+  @Sanity @Regression
+  Scenario: Validate Account Value Description in Day trade
+    Given the User is on MiniModule page
+    And the User Clicks on Settings & Preferences
+    And User Select Day Trade Settings
+    And User Clicks on View account value
+    Then User should see all description related to account value
+
+
+  @Sanity @Regression
+  Scenario: Verify Profile Upload in MiniModule
+    Given the User is on MiniModule page
+    And User navigates to the Profile screen
+    And User Select Choose From Device
+    And User Select Gallery Option
+    And User Select Photo From Device
+    Then the User Profile Photo should be Updated Successfully
 
 
 

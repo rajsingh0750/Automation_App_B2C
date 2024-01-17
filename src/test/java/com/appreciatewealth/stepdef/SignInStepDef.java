@@ -172,6 +172,8 @@ public class SignInStepDef {
 
     }
 
+
+
     // End of Scenario: Verify if user is able to reset the password
 }
 

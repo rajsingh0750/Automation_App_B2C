@@ -465,6 +465,54 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(id ="tvEditTextError")
     WebElement ErrorMessage;
 
+    @AndroidFindBy(xpath ="//*[@text='Day Trade Settings']")
+    WebElement DayTradeSettings;
+
+    @AndroidFindBy(id ="img_day_trading")
+    WebElement DayTrading;
+
+    @AndroidFindBy(id ="img_pattern_day_trading")
+    WebElement PatternDayTrading;
+
+    @AndroidFindBy(id ="img_enable_pattern_day_trading")
+    WebElement EnableTrading;
+
+    @AndroidFindBy(id ="switch_enable")
+    WebElement SwitchEnable;
+
+    @AndroidFindBy(id ="button_enable")
+    WebElement ButtonEnable;
+
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.Toast[1]")
+    WebElement PDTToastMessage;
+
+    @AndroidFindBy(id ="switch_disable")
+    WebElement SwitchDisable;
+
+    @AndroidFindBy(id ="tv_view_account")
+    WebElement ViewAccountValue;
+
+    @AndroidFindBy(id ="txv_title_order_type_market")
+    WebElement YourAccountValue;
+
+    @AndroidFindBy(id ="profile_image_iv")
+    WebElement ProfileImage;
+
+    @AndroidFindBy(xpath ="//*[@text='Choose From Device']")
+    WebElement PhotoDevice;
+
+    @AndroidFindBy(xpath ="//*[@text='Gallery']")
+    WebElement Gallery;
+
+    @AndroidFindBy(xpath ="//*[@text='Screenshots']")
+    WebElement ScreenShorts;
+
+    @AndroidFindBy(xpath ="//android.view.View[@content-desc=\"Photo taken at 28-Nov-2023 9:42:10 pm.\"]")
+    WebElement PhoneImage;
+
+    @AndroidFindBy(id ="save_button")
+    WebElement PhotoSave;
+
     public void Login() throws IOException, InterruptedException {
         signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
@@ -1330,7 +1378,79 @@ public class MiniModulePage extends BasePage {
         Thread.sleep(5000);
         WithDrawButton.click();
     }
+    public void ClickDayTradeSettings() throws InterruptedException {
+        Thread.sleep(5000);
+        DayTradeSettings.click();
+    }
 
+    public void ClickDayTrading() throws InterruptedException {
+        Thread.sleep(5000);
+        DayTrading.click();
+    }
+
+    public void ClickPatternDayTrading() throws InterruptedException {
+        Thread.sleep(5000);
+        PatternDayTrading.click();
+    }
+
+    public void ClickEnableTrading() throws InterruptedException {
+        Thread.sleep(5000);
+        EnableTrading.click();
+    }
+    public void SelectEnablePattern() throws InterruptedException {
+        Thread.sleep(5000);
+        SwitchEnable.click();
+    }
+    public void SelectEnablePDT() throws InterruptedException {
+        Thread.sleep(5000);
+        ButtonEnable.click();
+    }
+    public void ValidateToastMessage() throws InterruptedException {
+        Thread.sleep(10000);
+        PDTToastMessage.isDisplayed();
+    }
+    public void SelectDisablePattern() throws InterruptedException {
+        Thread.sleep(5000);
+        SwitchDisable.click();
+    }
+
+    public void ClickAccountValue() throws InterruptedException {
+        Thread.sleep(5000);
+        ViewAccountValue.click();
+    }
+
+    public void ValidateAccountText() throws InterruptedException {
+        Thread.sleep(5000);
+        YourAccountValue.click();
+    }
+
+    public void ClickProfilePhoto() throws InterruptedException {
+        Thread.sleep(5000);
+        ProfileImage.click();
+    }
+
+    public void ClickChooseDevice() throws InterruptedException {
+        Thread.sleep(5000);
+        PhotoDevice.click();
+    }
+
+    public void ClickGallery() throws InterruptedException {
+        Thread.sleep(5000);
+        Gallery.click();
+    }
+    public void ChoosePhoto() throws InterruptedException {
+        Thread.sleep(5000);
+        ScreenShorts.click();
+    }
+    public void ClickImage() throws InterruptedException {
+        Thread.sleep(5000);
+        PhoneImage.click();
+    }
+
+    public void ClickSave() throws InterruptedException {
+        Thread.sleep(5000);
+        PhotoSave.click();
+    }
 }
 
 
