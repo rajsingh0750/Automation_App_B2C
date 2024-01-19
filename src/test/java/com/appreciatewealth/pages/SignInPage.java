@@ -114,6 +114,7 @@ public class SignInPage extends BasePage {
     @AndroidFindBy (xpath = "//*[@text='okay']")
     private WebElement okayButton;
     public SignInPage(){
+
         super();
     }
 
@@ -177,7 +178,7 @@ public class SignInPage extends BasePage {
         Thread.sleep(8000);
         TapEmail.click();
         //TextBox.sendKeys("faureretruba-9695@yopmail.com");
-        TextBox.sendKeys(ConfigLoader.getInstance().getProperty("StageEmail"));
+        TextBox.sendKeys(ConfigLoader.getInstance().getProperty("ProdEmail"));
         SendOTP.click();
         // Thread.sleep(3000);
         //Password.sendKeys("Test@123");
