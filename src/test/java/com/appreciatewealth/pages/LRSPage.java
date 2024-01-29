@@ -304,7 +304,7 @@ public class LRSPage extends BasePage {
     }
 
     public void TransferFromYesBank() throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(8000);
         Thread.sleep(21000);
         //Thread.sleep(5000);
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
@@ -346,7 +346,7 @@ public class LRSPage extends BasePage {
     }
 
     public void SelectCheckBoxes() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         int numberOfScrolls = 6; // Adjust the number of scrolls as needed
 
         for (int i = 0; i < numberOfScrolls; i++) {
@@ -392,16 +392,16 @@ public class LRSPage extends BasePage {
     }
 
     public void SubmitCustomerIDandPassword() throws InterruptedException {
-        Thread.sleep(15000);
+        Thread.sleep(20000);
         // LoginClick.click();
         LoginIdEnter.sendKeys("varsha92");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
-        Thread.sleep(15000);
+        Thread.sleep(20000);
         PasswordClick.click();
         EnterPassword.sendKeys("Rogger@321");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
         ClickAuthorize.click();
-        Thread.sleep(15000);
+        Thread.sleep(20000);
 
     }
 
@@ -461,7 +461,7 @@ public class LRSPage extends BasePage {
 
     public void ClickOnPlusIcon() throws InterruptedException {
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"start SIP\").instance(0))"));
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         PlusIcon.click();
     }
 
