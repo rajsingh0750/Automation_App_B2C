@@ -1254,7 +1254,7 @@ public class MiniModulePage extends BasePage {
     }
 
     public void EnterEmailID(String Email) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         AddEmail.sendKeys(Email);
     }
 
