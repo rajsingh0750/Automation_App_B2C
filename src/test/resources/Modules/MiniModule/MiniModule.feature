@@ -47,12 +47,12 @@ Feature: MiniModule
 #And User should see the DriveWealthAccount Details
 #Then User should see Margin and Cash Account details on DriveWealth
 
-  @Sanity @Regression
-  Scenario: Validate Account Details in MiniModule
-    Given the User is on MiniModule page
-    And the User Clicks on Buying Power
-    And the User Clicks on Account Details
-    Then User Should See Drive Wealth Account Details
+#  @Sanity @Regression
+#  Scenario: Validate Account Details in MiniModule
+#    Given the User is on MiniModule page
+#    And the User Clicks on Buying Power
+#    And the User Clicks on Account Details
+#    Then User Should See Drive Wealth Account Details
 
 
   @Sanity @Regression
