@@ -5,6 +5,7 @@ import com.appreciatewealth.pages.TradesPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 import java.io.IOException;
 
@@ -221,7 +222,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the maximum quantity limit")
     public void userEntersTheMaximumQuantityLimit() throws InterruptedException {
-        new TradesPage().EnterQuantity("500000");
+        new TradesPage().EnterQuantity("1");
     }
 
 
@@ -449,7 +450,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the trade amount")
     public void userEntersTheTradeAmount() throws InterruptedException {
-        new TradesPage().EnterTradeAmount("10");
+        new TradesPage().EnterTradeAmount("1");
     }
 
 
@@ -509,5 +510,84 @@ public class TradesSteps extends BasePage{
     @And("User enters min trade amount")
     public void userEntersMinTradeAmount() throws InterruptedException {
         new TradesPage().EnterTradeAmount("1");
+    }
+
+    @When("User clicks on View Details CTA under Cashback Invites")
+    public void userClicksOnViewDetailsCTAUnderCashbackInvites() throws InterruptedException {
+        new TradesPage().ClickOnViewDetails();
+
+    }
+
+    @Then("User should see Invites you sent, Invites you received and close button")
+    public void userShouldSeeInvitesYouSentInvitesYouReceivedAndCloseButton() throws InterruptedException {
+        new TradesPage().ValidateCashbackScreen();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @When("The user clicks on the view all CTA")
+    public void theUserClicksOnTheViewAllCTA() throws InterruptedException {
+        new TradesPage().ClickOnViewAllNews();
+    }
+
+    @Then("The user should see the list of news cards")
+    public void theUserShouldSeeTheListOfNewsCards() throws InterruptedException {
+        new TradesPage().ValidateNewsSection();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @When("User scrolls right in the news section")
+    public void userScrollsRightInTheNewsSection() throws InterruptedException {
+        new TradesPage().SwipeRightNewsSection();
+    }
+
+    @And("User clicks on News Card")
+    public void userClicksOnNewsCard() {
+        new TradesPage().ClickOnNewsCard();
+    }
+
+    @Then("It should open the news details screen")
+    public void itShouldOpenTheNewsDetailsScreen() throws InterruptedException {
+        new TradesPage().ValidateNewsDetails();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+
+    @When("the user clicks on the view all CTA in Research")
+    public void theUserClicksOnTheViewAllCTAInResearch() throws InterruptedException {
+        new TradesPage().ClickOnResearch();
+    }
+
+    @Then("the user should see the list of Research & Perspectives card's")
+    public void theUserShouldSeeTheListOfResearchPerspectivesCardS() throws InterruptedException {
+        new TradesPage().ValidateResearchList();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+
+    @When("User scrolls right in the Research section")
+    public void userScrollsRightInTheResearchSection() throws InterruptedException {
+        new TradesPage().SwipeRightResearchSection();
+    }
+
+
+    @And("User clicks on Research Card")
+    public void userClicksOnResearchCard() {
+        new TradesPage().ClickOnResearchCard();
+    }
+
+
+    @Then("It should open the Research details screen")
+    public void itShouldOpenTheResearchDetailsScreen() throws InterruptedException {
+        new TradesPage().ValidateResearchDetails();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
     }
 }

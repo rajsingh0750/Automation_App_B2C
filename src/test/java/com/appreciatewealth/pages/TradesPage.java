@@ -2,14 +2,18 @@ package com.appreciatewealth.pages;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 
+import javax.annotation.concurrent.Immutable;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.Duration;
@@ -30,6 +34,18 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='₹0.00']")
     WebElement EnterAmount;
 
+    @AndroidFindBy(xpath = "//*[contains(@text,'Netflix removes')]")
+    WebElement NewsCard;
+
+    @AndroidFindBy(xpath = "//*[contains(@text,'4 investing hurdles')]")
+    WebElement ResearchCard;
+
+    @AndroidFindBy(xpath = "//*[contains(@text,'4 investing hurdles beginners face and how to get past them')]")
+    WebElement ResearchDetails;
+
+    @AndroidFindBy(xpath = "//*[contains(@text,'Netflix removes indian film with')]")
+    WebElement NewsDetails;
+
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
     WebElement EnterSellAmount;
     @AndroidFindBy(xpath = "//*[@text='review order']")
@@ -40,7 +56,7 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='place order']")
     WebElement PlaceOrderButton;
-    @AndroidFindBy(xpath = "//*[@text='1']")
+    @AndroidFindBy(xpath = "//*[@text='₹28,00,000']")
     WebElement ValidateEnteredAmount;
 
     @AndroidFindBy(xpath = "//*[@text='Order Placed']")
@@ -96,6 +112,26 @@ public class TradesPage extends BasePage {
     WebElement TopPicksTab;
     @AndroidFindBy(xpath = "//*[@text='buy now']")
     WebElement BuyNowTopPicks;
+
+    @AndroidFindBy(xpath = "//*[@text='News']")
+    WebElement NewsLabel;
+
+    @AndroidFindBy(xpath = "//*[@text='Search news']")
+    WebElement SearchNews;
+
+    @AndroidFindBy(id = "txvViewAllNews")
+    WebElement ViewAllNews;
+
+
+    @AndroidFindBy(id = "txvViewAllResearch")
+    WebElement ViewAllResearch;
+
+    @AndroidFindBy(id = "txvNewsTitle")
+    WebElement NewsList;
+
+
+    @AndroidFindBy(xpath = "//*[@text='Research & perspectives']")
+    WebElement ResearchList;
 
     @AndroidFindBy(xpath = "//*[@text='0.0']")
     WebElement SelectOrderType;
@@ -173,6 +209,20 @@ public class TradesPage extends BasePage {
     WebElement ValidateCustomExpiryDate;
     @AndroidFindBy(xpath = "//*[@text='OK']")
     WebElement ClickOK;
+
+    @AndroidFindBy(xpath = "//*[@text='view details']")
+    WebElement ViewDetailsCTA;
+
+    @AndroidFindBy(xpath = "//*[@text='Cashback invites']")
+    WebElement CashbackInviteLabel;
+
+    @AndroidFindBy(xpath = "//*[@text='Invites you received']")
+    WebElement InvitesReceivedLabel;
+
+    @AndroidFindBy(xpath = "//*[@text='Invites you sent']")
+    WebElement InvitesSentLabel;
+
+
     @AndroidFindBy(id= "txvOrderTypeValue")
     WebElement ValidateOrderType;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView")
@@ -180,6 +230,9 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='sell']")
     WebElement SellButton;
+
+    @AndroidFindBy(id = "imgClose")
+    WebElement CloseCashbackPopup;
 
     @AndroidFindBy(xpath = "//*[@text='Sell in Rupees']")
     WebElement SellTypeDropdown;
@@ -343,7 +396,7 @@ public class TradesPage extends BasePage {
         signInPage.Signin();
         Thread.sleep(8000);
         clickonViewDashboard.click();
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         TradeButton.click();
 
     }
@@ -678,7 +731,7 @@ public class TradesPage extends BasePage {
     }
 
     public void ValidateEnteredAmount() throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(5000);
         ValidateEnteredAmount.isDisplayed();
     }
 
@@ -766,25 +819,23 @@ public class TradesPage extends BasePage {
 
     public void EnterSellAmount(String Amount) throws InterruptedException {
         Thread.sleep(6000);
-        EnterQuantity.click();
-        EnterQuantity.sendKeys(Amount);
+        EnterAmount.click();
+        EnterAmount.sendKeys(Amount);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
 
     public void ClickOnSell() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         SellButton.click();
     }
     public void SelectSellType() throws InterruptedException {
         Thread.sleep(4000);
-        SellTypeDropdown.click();
-        Thread.sleep(2000);
-        ConfirmOrderType.click();
+        EnterAmount.click();
     }
 
     public void ValidateSellOrderType(String OrderType) throws InterruptedException {
-        Thread.sleep(6000);
+        Thread.sleep(8000);
         String ActualType = ValidateSellOrder.getText();
         Assert.assertEquals(ActualType,OrderType);
 
@@ -832,7 +883,7 @@ public class TradesPage extends BasePage {
         //System.out.println("holding after Sell "+CurrentHoldingsAfterSell);
         double ActualHoldings = Double.parseDouble(CurrentHoldingsAfterSell);
         System.out.println("holding after Sell "+ActualHoldings);
-        double PostSellHoldings = Double.parseDouble(CurrentHoldings) - 1;
+        double PostSellHoldings = Double.parseDouble(CurrentHoldings)-1;
         Assert.assertEquals(ActualHoldings,PostSellHoldings);
 
     }
@@ -965,7 +1016,7 @@ public class TradesPage extends BasePage {
         Thread.sleep(5000);
         double Amount = Double.parseDouble(getCurrentAmountBeforeSell.replaceAll("[₹,]", ""));
         System.out.println("Amount Before Sell "+Amount);
-        double value = 1013.26;
+        double value = 1000;
         double FinalAmount = Amount-value;
         System.out.println("Post Sell Amount "+FinalAmount);
         double ActualAmount = Double.parseDouble(getCurrentAmountAfterSell.replaceAll("[₹,]", ""));
@@ -1106,6 +1157,98 @@ public class TradesPage extends BasePage {
         Thread.sleep(3000);
         Continue.click();
     }
+
+    public void ClickOnViewDetails() throws InterruptedException {
+        Thread.sleep(3000);
+        ViewDetailsCTA.click();
+    }
+
+    public void ValidateCashbackScreen() throws InterruptedException {
+        Thread.sleep(3000);
+        InvitesReceivedLabel.isDisplayed();
+        InvitesSentLabel.isDisplayed();
+        CloseCashbackPopup.isDisplayed();
+        CloseCashbackPopup.click();
+        Thread.sleep(5000);
+    }
+
+    public void ClickOnViewAllNews() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"News\").instance(0))"));
+        Thread.sleep(5000);
+        NewsLabel.isDisplayed();
+
+    }
+
+    public void ValidateNewsSection() throws InterruptedException {
+        ViewAllNews.click();
+        Thread.sleep(5000);
+        SearchNews.isDisplayed();
+        List<WebElement> Newslist = driver.findElements(By.id("txvNewsTitle"));
+        int NewsListSize = Newslist.size();
+        if(NewsListSize==0){
+            System.out.println("News list is empty--> Size: "+NewsListSize);
+        }else {
+            System.out.println("News is present-> Size: "+NewsListSize);
+        }
+        Thread.sleep(4000);
+    }
+
+    public void SwipeRightNewsSection() throws InterruptedException {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"News\").instance(0))"));
+        Thread.sleep(8000);
+        WebElement element = driver.findElement(AppiumBy.xpath("//*[contains(@text,'UPDATE 4-Walt Disney makes its case for')]"));
+        driver.executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId"  ,((RemoteWebElement)element).getId(),
+                "direction","left",
+                "percent",1
+        ));
+
+    }
+
+    public void ClickOnNewsCard(){
+        NewsCard.click();
+    }
+    public void ValidateNewsDetails() throws InterruptedException {
+        Thread.sleep(3000);
+        NewsCard.isDisplayed();
+    }
+
+
+    public void ClickOnResearch() throws InterruptedException {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"News\").instance(0))"));
+        Thread.sleep(5000);
+        ViewAllResearch.click();
+    }
+
+    public void ValidateResearchList() throws InterruptedException {
+        Thread.sleep(5000);
+        ResearchList.isDisplayed();
+    }
+
+    public void SwipeRightResearchSection() throws InterruptedException {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"News\").instance(0))"));
+        Thread.sleep(8000);
+        WebElement element = driver.findElement(AppiumBy.xpath("//*[contains(@text,'When starting my investing journey')]"));
+        driver.executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId"  ,((RemoteWebElement)element).getId(),
+                "direction","left",
+                "percent",1
+        ));
+
+
+
+    }
+
+    public void ClickOnResearchCard(){
+        ResearchCard.click();
+    }
+
+    public void ValidateResearchDetails() throws InterruptedException {
+        Thread.sleep(3000);
+        ResearchDetails.isDisplayed();
+    }
+
 
 
 }
