@@ -288,7 +288,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[4]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[2]")
     private WebElement EstimatedPrice;
 
-    @AndroidFindBy(id ="com.appreciatewealth.android.uat:id/txvBuyingPowerValue")
+    @AndroidFindBy(id ="txvBuyingPowerValue")
     private WebElement GetBuyingPower;
 
 
