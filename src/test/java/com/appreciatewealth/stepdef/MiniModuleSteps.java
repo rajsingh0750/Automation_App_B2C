@@ -18,7 +18,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+     signInPage.DynamicSignIn("");
      new MiniModulePage().NavigateToMiniModule();
 
     }
