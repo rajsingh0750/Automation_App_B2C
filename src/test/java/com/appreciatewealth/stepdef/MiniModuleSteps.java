@@ -18,7 +18,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varsha.thandav@prreciate.com");
+     signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
      new MiniModulePage().NavigateToMiniModule();
 
     }
@@ -432,7 +432,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the user is on Goals Dashboard for latest transaction")
     public void theUserIsOnGoalsDashboardForLatestTransaction() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@prreciate.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
@@ -666,7 +666,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page for passcode")
     public void theUserIsOnMiniModulePageForPasscode() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@prreciate.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         //signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
 
@@ -701,7 +701,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("the User Confirm the new passcode")
     public void theUserConfirmTheNewPasscode() throws InterruptedException, IOException {
         new MiniModulePage().SetPasscode();
-        signInPage.DynamicSignIn("varsha.thandav@prreciate.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
         basePage.Logout();
 
@@ -946,7 +946,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on the MiniModule page")
     public void theUserIsOnTheMiniModulePage() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@prreciate.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
     }
 
