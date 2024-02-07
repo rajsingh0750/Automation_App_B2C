@@ -23,10 +23,6 @@ public class GoalsSteps extends BasePage {
 
     }
 
-
-
-
-
     @Given("the user is on Goals Dashboard")
     public void theUserIsOnGoalsDashboard() throws IOException, InterruptedException {
         new GoalsPage().NavigatetoGoals();
@@ -716,7 +712,7 @@ public class GoalsSteps extends BasePage {
 
     @Given("the user is on the Goals Dashboard")
     public void theUserIsOnTheGoalsDashboard() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
@@ -784,7 +780,7 @@ public class GoalsSteps extends BasePage {
 
     @Given("the User is on Goals Dashboard for monthly goal pause")
     public void theUserIsOnGoalsDashboardForMonthlyGoalPause() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
         
