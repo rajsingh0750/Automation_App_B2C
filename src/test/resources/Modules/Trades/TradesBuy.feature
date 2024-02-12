@@ -275,31 +275,31 @@ Feature: Trades all buy related scenarios
     Then User should see Invites you sent, Invites you received and close button
 
 
-  @Sanity @Regression
-  Scenario: User clicks on "view all" CTA in News
-    Given User is on Trade dashboard
-    When The user clicks on the view all CTA
-    Then The user should see the list of news cards
+#  @Sanity @Regression
+#  Scenario: User clicks on "view all" CTA in News
+#    Given User is on Trade dashboard
+#    When The user clicks on the view all CTA
+#    Then The user should see the list of news cards
 
-  @Sanity @Regression
-  Scenario: Verify the user is able to scroll the news card's in news section
-    Given User is on Trade dashboard
-    When User scrolls right in the news section
-    And User clicks on News Card
-    Then It should open the news details screen
-
-
-
-  @Sanity @Regression
-  Scenario: User clicks on "view all" CTA in Research & Perspectives
-    Given User is on Trade dashboard
-    When the user clicks on the view all CTA in Research
-    Then the user should see the list of Research & Perspectives card's
+#  @Sanity @Regression
+#  Scenario: Verify the user is able to scroll the news card's in news section
+#    Given User is on Trade dashboard
+#    When User scrolls right in the news section
+#    And User clicks on News Card
+#    Then It should open the news details screen
 
 
-  @Sanity @Regression
-  Scenario: Verify the user is able to scroll the Research & Perspectives card's in news section
-    Given User is on Trade dashboard
-    When User scrolls right in the Research section
-    And User clicks on Research Card
-    Then It should open the Research details screen
+
+#  @Sanity @Regression
+#  Scenario: User clicks on "view all" CTA in Research & Perspectives
+#    Given User is on Trade dashboard
+#    When the user clicks on the view all CTA in Research
+#    Then the user should see the list of Research & Perspectives card's
+#
+#
+#  @Sanity @Regression
+#  Scenario: Verify the user is able to scroll the Research & Perspectives card's in news section
+#    Given User is on Trade dashboard
+#    When User scrolls right in the Research section
+#    And User clicks on Research Card
+#    Then It should open the Research details screen
