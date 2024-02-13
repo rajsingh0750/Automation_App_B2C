@@ -1057,7 +1057,7 @@ public class TradesPage extends BasePage {
                 .trim());
         System.out.println("Buying Power before buy: "+BuyingPower);
 
-        double BuyingPowerPostBuy = BuyingPower-1;
+        double BuyingPowerPostBuy = BuyingPower-6;
 
         double BuyingPower2 = Double.parseDouble(GetBuyingPowerAfterBuy.replace("₹", "")
                 .replace(" M", "")

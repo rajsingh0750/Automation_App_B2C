@@ -18,7 +18,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+     signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
      new MiniModulePage().NavigateToMiniModule();
 
     }
@@ -432,7 +432,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the user is on Goals Dashboard for latest transaction")
     public void theUserIsOnGoalsDashboardForLatestTransaction() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
@@ -946,7 +946,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on the MiniModule page")
     public void theUserIsOnTheMiniModulePage() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         new MiniModulePage().NavigateToMiniModule();
     }
 
