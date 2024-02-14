@@ -807,7 +807,7 @@ public class GoalsPage extends BasePage {
     }
 
     public void CalculateCurrentValueGoals() {
-        String OverallReturn = CurrentValueOnDashboard.getText();
+       String OverallReturn = CurrentValueOnDashboard.getText();
         String OverallReturnwithoutCurrency = OverallReturn.replaceAll("[₹,]", "");
         double doublecurrentreturn = Double.parseDouble(OverallReturnwithoutCurrency);
 
