@@ -119,7 +119,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='UPLOAD YOUR BANK E-STATEMENTS']")
     WebElement UploadEstatementButton;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.GridView/androidx.cardview.widget.CardView[7]/androidx.cardview.widget.CardView/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.ImageView[1]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.GridView/androidx.cardview.widget.CardView[8]/androidx.cardview.widget.CardView/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.ImageView")
     WebElement SelectStatementFromDrive;
 
     @AndroidFindBy(xpath = "//*[@text='Or click here to finish']")
@@ -134,7 +134,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Please enter amount to proceed']")
     WebElement BlankAmount;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.GridView/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.TextView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.ScrollView/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.GridView/androidx.cardview.widget.CardView[10]/androidx.cardview.widget.CardView/android.widget.RelativeLayout/android.widget.FrameLayout[1]")
     WebElement BankStatement12plusMonths;
 
     @AndroidFindBy(xpath = "//*[@class='android.widget.EditText']")
@@ -189,6 +189,9 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath="//*[@text='Invalid Identifiers -  Mobile Number / Customer ID ']")
     WebElement ErrorNumberAndCustomer;
 
+    @AndroidFindBy(xpath="//*[@text='Invalid Identifiers -  Mobile Number / PAN ']")
+    WebElement ErrorNumberAndPAN;
+
     @AndroidFindBy(id = "tvDescriptionReadMore")
     WebElement ClickReadMore;
 
@@ -197,6 +200,26 @@ public class LRSPage extends BasePage {
 
     @AndroidFindBy(id="btnOkay")
     WebElement Okay;
+
+    @AndroidFindBy(id="txvTc")
+    WebElement TransferTerms;
+
+    @AndroidFindBy(id="common_header")
+    WebElement LRSTerms;
+
+    @AndroidFindBy(xpath="//*[@text='0']")
+    WebElement EnterDepositZero;
+
+
+    @AndroidFindBy(xpath="//*[@text='.']")
+    WebElement EnterDepositDecimal;
+
+    @AndroidFindBy(xpath="//*[@text='Please enter valid PAN number.']")
+    WebElement ErrorPANText;
+
+    @AndroidFindBy(id="bt_okay_confirmation")
+    WebElement ButtonOk;
+
 
     SignInPage signInPage;
 
@@ -274,13 +297,17 @@ public class LRSPage extends BasePage {
     }
 
     public void CheckBlankAmountMessage(){
+
         BlankAmount.isDisplayed();
     }
 
     public void SelectAxisBank() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
+        SelectBank.click();
+        Thread.sleep(5000);
         SelectAxis.click();
-        SelectandContinue.click();
+        //Thread.sleep(5000);
+        //SelectandContinue.click();
     }
 
     public void SelectStatementPlus12Months() throws InterruptedException {
@@ -293,7 +320,7 @@ public class LRSPage extends BasePage {
         Thread.sleep(5000);
         BankStatement12plusMonths.click();
         Thread.sleep(10000);
-        EnterBankStatementPasscode.sendKeys("SHUB894852019");
+        EnterBankStatementPasscode.sendKeys("VARS861552949");
         Thread.sleep(20000);
         SubmitClick.click();
         Thread.sleep(20000);
@@ -429,7 +456,7 @@ public class LRSPage extends BasePage {
     }
 
     public void ValidateDepositAmount() throws IOException, InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(12000);
         DepositAmount.isDisplayed();
     }
 
@@ -485,9 +512,19 @@ public class LRSPage extends BasePage {
         TransactionError.isDisplayed();
     }
 
+    public void ValidateErrorTransactionPAN(String p) throws InterruptedException {
+        Thread.sleep(5000);
+        TransactionError.isDisplayed();
+    }
+
     public void ValidateMessage() throws InterruptedException {
         Thread.sleep(5000);
         ErrorNumberAndCustomer.isDisplayed();
+    }
+
+    public void ValidateErrorMessage() throws InterruptedException {
+        Thread.sleep(5000);
+        ErrorNumberAndPAN.isDisplayed();
     }
 
     public void ReviewReadMore() throws InterruptedException {
@@ -503,5 +540,48 @@ public class LRSPage extends BasePage {
         Thread.sleep(5000);
         Okay.click();
     }
+
+    public void SelectTransfer() throws InterruptedException {
+        Thread.sleep(5000);
+        TransferTerms.click();
+    }
+
+    public void ValidateLRSTerms() throws InterruptedException {
+        Thread.sleep(5000);
+        LRSTerms.isDisplayed();
+    }
+
+    public void EnterAllowedAmount() throws InterruptedException {
+        Thread.sleep(5000);
+        EnterDepositZero.click();
+
+    }
+    public void EnterAllowedAmountZero() throws InterruptedException {
+        Thread.sleep(5000);
+        EnterDepositDecimal.click();
+    }
+
+    public void EnterInvalidPAN() throws InterruptedException {
+        Thread.sleep(30000);
+        PAN.click();
+        EnterPan.sendKeys("THG456JN7J");
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+
+    }
+
+    public void ValidateErrorText(String P) throws InterruptedException {
+        Thread.sleep(5000);
+        ErrorPANText.isDisplayed();
+    }
+
+    public void SelectButtonOkay() throws InterruptedException {
+        Thread.sleep(5000);
+        ButtonOk.click();
+
+    }
+
+
+
+
 
 }

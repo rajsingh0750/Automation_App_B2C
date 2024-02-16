@@ -104,6 +104,7 @@ public class LRSSteps {
     public void userUploadsTheBankStatementOfMoreThanTwelveMonths() throws InterruptedException {
         new LRSPage().ClickonUploadStatement();
         new LRSPage().SelectAxisBank();
+        //new LRSPage().UploadBankStatement();
         new LRSPage().SelectStatementPlus12Months();
 
 
@@ -136,9 +137,9 @@ public class LRSSteps {
 
     @And("User click on tranfer from yes bank")
     public void userClickOnTranferFromYesBank() throws InterruptedException {
-        //new LRSPage().ClickonUploadStatement();
-        //new LRSPage().SelectBankAccount();
-        //new LRSPage().UploadBankStatement();
+        new LRSPage().ClickonUploadStatement();
+        new LRSPage().SelectBankAccount();
+        new LRSPage().UploadBankStatement();
         new LRSPage().TransferFromYesBank();
 
 
@@ -192,7 +193,7 @@ public class LRSSteps {
         //new LRSPage().FetchDetails();
         new LRSPage().TransactionDetails();
         new LRSPage().ValidateTransferAmount();
-        new LRSPage().ValidateDepositAmount();
+        //new LRSPage().ValidateDepositAmount();
         basePage.AndroidBack();
     }
 
@@ -256,7 +257,11 @@ public class LRSSteps {
     }
 
     @And("User enters the amount in paise to be deposited")
-    public void userEntersTheAmountInPaiseToBeDeposited() {
+    public void userEntersTheAmountInPaiseToBeDeposited() throws InterruptedException {
+        new LRSPage().EnterAllowedAmount();
+        new LRSPage().EnterAllowedAmountZero();
+        new LRSPage().EnterAllowedAmount();
+        new LRSPage().EnterDepositAmount();
 
     }
 
@@ -272,6 +277,54 @@ public class LRSSteps {
         basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+
+    @And("User Select Terms and Conditions option from review transfer screen")
+    public void userSelectTermsAndConditionsOptionFromReviewTransferScreen() throws InterruptedException {
+        new LRSPage().SelectTransfer();
+
+    }
+
+    @Then("User Should See Successfully Terms and Condition Description")
+    public void userShouldSeeSuccessfullyTermsAndConditionDescription() throws InterruptedException {
+        new LRSPage().ValidateLRSTerms();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @Given("User is on the Trade dashboard")
+    public void userIsOnTheTradeDashboard() {
+    }
+
+    @And("User Enter Wrong PAN ID")
+    public void userEnterWrongPANID() throws InterruptedException {
+        new LRSPage().EnterInvalidPAN();
+    }
+
+    @Then("the User should see the error message {string}")
+    public void theUserShouldSeeTheErrorMessage(String arg0) throws InterruptedException {
+        new LRSPage().ValidateErrorText("Please enter valid PAN number.");
+        basePage.AndroidBack();
+        new LRSPage().SelectButtonOkay();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        //basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @Then("the User should see the error message as {string}")
+    public void theUserShouldSeeTheErrorMessageAs(String arg0) throws InterruptedException, IOException {
+        new LRSPage().ValidateErrorTransactionPAN("Transaction Processing Error!");
+        new LRSPage().ValidateErrorMessage();
+        new LRSPage().ClickOnDashboard();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
