@@ -229,6 +229,31 @@ Feature: LRS
 
 
 
+  @Sanity @Regression @Prod
+  Scenario: Validate FAQs in Upload Your Bank Statement
+    Given User is on Trade dashboard
+    And User clicks on Add Funds
+    And User clicks on Add Money to Buying Power button
+    And User enters the amount to be deposited
+    And User clicks on continue button
+    And User click on the tranfer from yes bank
+    And User Selects Read FAQs
+    Then User should see the FAQs Descriptions
+
+#  @Sanity @Regression @Prod
+#  Scenario: Validate Others in Bank listing
+#    Given User is on Trade dashboard
+#    And User clicks on Add Funds
+#    And User clicks on Add Money to Buying Power button
+#    And User enters the amount to be deposited
+#    And User clicks on continue button
+#    And User click on the tranfer from yes bank
+#    And User Select a Bank
+#    And User Select Others
+#    And User Selects Read FAQs
+#    Then User should see the FAQs Descriptions
+
+
 
 
 

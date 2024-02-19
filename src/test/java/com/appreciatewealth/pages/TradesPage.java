@@ -105,7 +105,7 @@ public class TradesPage extends BasePage {
     WebElement StoreCurrentValueOnDashboard;
 
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'Transaction Limit')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'Low funds! Add funds from YES Bank to trade')]")
     WebElement LowinBuyPowerErrorMessage;
 
     @AndroidFindBy(xpath = "//*[@text='Top picks']")
@@ -417,7 +417,7 @@ public class TradesPage extends BasePage {
         EnterAmount.sendKeys(amount);
         // Thread.sleep(5000);
 
-        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        //driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
         Thread.sleep(5000);
     }
 
@@ -664,7 +664,7 @@ public class TradesPage extends BasePage {
     }
 
     public void CalculateProfitandLossPercentage() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"add funds\"))"));
         boolean canScrollMore = true;
         while (canScrollMore) {
@@ -674,7 +674,7 @@ public class TradesPage extends BasePage {
                     "direction", "down",
                     "percent", 1.0
             ));
-            Thread.sleep(5000);
+            Thread.sleep(8000);
             String OverallReturn = StoreCurrentValueOnDashboard.getText();
             String OverallReturnwithoutCurrency = OverallReturn.replaceAll("[₹,]", "");
             double doubleoverallreturn = Double.parseDouble(OverallReturnwithoutCurrency);

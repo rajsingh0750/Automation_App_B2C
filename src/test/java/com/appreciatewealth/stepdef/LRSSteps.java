@@ -328,4 +328,31 @@ public class LRSSteps {
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
+
+    @And("User click on the tranfer from yes bank")
+    public void userClickOnTheTranferFromYesBank() throws InterruptedException {
+        new LRSPage().ClickonUploadStatement();
+    }
+
+    @And("User Selects Read FAQs")
+    public void userSelectsReadFAQs() throws IOException, InterruptedException {
+        new LRSPage().SelectFAQs();
+        
+    }
+
+    @Then("User should see the FAQs Descriptions")
+    public void userShouldSeeTheFAQsDescriptions() throws InterruptedException {
+        new LRSPage().ValidateFAQSDescription();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+
+    }
+
+
+
 }

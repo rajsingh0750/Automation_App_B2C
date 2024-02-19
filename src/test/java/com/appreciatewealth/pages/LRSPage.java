@@ -220,6 +220,25 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(id="bt_okay_confirmation")
     WebElement ButtonOk;
 
+    @AndroidFindBy(id="txvHaveQuestions")
+    WebElement BankFAQs;
+
+    @AndroidFindBy(id="txvTitle")
+    WebElement FAQsDescription;
+
+
+    @AndroidFindBy(id="userId")
+    WebElement HDFCUserID;
+
+    @AndroidFindBy(id="password")
+    WebElement HDFCPassword;
+
+    @AndroidFindBy(xpath="//*[@text='Next']")
+    WebElement HDFCNext;
+
+
+
+
 
     SignInPage signInPage;
 
@@ -579,6 +598,20 @@ public class LRSPage extends BasePage {
         ButtonOk.click();
 
     }
+
+
+    public void SelectFAQs() throws InterruptedException {
+        Thread.sleep(8000);
+        BankFAQs.click();
+
+    }
+
+    public void ValidateFAQSDescription() throws InterruptedException {
+        Thread.sleep(5000);
+        FAQsDescription.isDisplayed();
+    }
+
+
 
 
 
