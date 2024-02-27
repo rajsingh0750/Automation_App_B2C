@@ -4,7 +4,7 @@ Feature: Trades all buy related scenarios
 #    Given the user is on home dashboard
 #    Then the user should be prompted with "Buying power" sticky to add funds for buying power from YES Bank
 
-  @Sanity @Regression
+  @Sanity @Regression @Prod
   Scenario: User with sufficient buying power should be able to buy stocks in Rupees
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
@@ -12,7 +12,7 @@ Feature: Trades all buy related scenarios
     And User clicks on place order
     Then the order should be placed successfully
 
-  @Sanity @Regression
+  @Sanity @Regression @Prod
   Scenario: User should see Market Live label if the current time in IST is between 7:30 PM to 2:30 AM
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock

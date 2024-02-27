@@ -417,7 +417,7 @@ public class TradesPage extends BasePage {
         EnterAmount.sendKeys(amount);
         // Thread.sleep(5000);
 
-        //driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
         Thread.sleep(5000);
     }
 
@@ -433,12 +433,12 @@ public class TradesPage extends BasePage {
     }
 
     public void ClickPlaceOrderButton() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         PlaceOrderButton.click();
     }
 
     public void ValidateIfOrderPlaced() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         ValidateOrderPlaced.isDisplayed();
 
     }
