@@ -33,7 +33,7 @@ public class DashboardPage extends BasePage {
         Thread.sleep(8000);
         signInPage.Signin();
         Thread.sleep(8000);
-        clickonViewDashboard.click();
+        //clickonViewDashboard.click();
 
     }
     public void ClickOnGoToDashboard() throws InterruptedException {
