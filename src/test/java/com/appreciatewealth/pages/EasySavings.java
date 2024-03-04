@@ -118,7 +118,7 @@ public class EasySavings extends BasePage {
     }
 
     public void clickOnRefer() throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(5000);
         ReferLink.click();
     }
 

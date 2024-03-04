@@ -16,7 +16,7 @@ public class EasySavingsSteps {
     @Given("the user is on Dashboard")
     public void theUserIsOnDashboard() throws InterruptedException {
         signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
-        dashboardPage.ClickOnGoToDashboard();
+        //dashboardPage.ClickOnGoToDashboard();
 
     }
 
@@ -110,7 +110,7 @@ public class EasySavingsSteps {
     @Given("the user is on the Dashboard")
     public void theUserIsOnTheDashboard() throws IOException, InterruptedException {
         new SignInPage().DynamicSignIn("varsha.thandav@ppreciate.com");
-        dashboardPage.ClickOnGoToDashboard();
+        //dashboardPage.ClickOnGoToDashboard();
 
     }
 
