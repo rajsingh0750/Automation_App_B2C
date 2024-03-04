@@ -395,8 +395,8 @@ public class TradesPage extends BasePage {
         Thread.sleep(5000);
         signInPage.Signin();
         Thread.sleep(5000);
-        clickonViewDashboard.click();
-        Thread.sleep(10000);
+        //clickonViewDashboard.click();
+        //Thread.sleep(10000);
         TradeButton.click();
 
     }
