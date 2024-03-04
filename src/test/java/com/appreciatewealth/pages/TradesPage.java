@@ -394,7 +394,7 @@ public class TradesPage extends BasePage {
     public void NavigatetoTradeDashboard() throws InterruptedException, IOException {
         Thread.sleep(5000);
         signInPage.Signin();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         //clickonViewDashboard.click();
         //Thread.sleep(10000);
         TradeButton.click();

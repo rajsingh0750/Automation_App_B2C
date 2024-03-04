@@ -1,6 +1,6 @@
-[Android_Realme C53 INFO ] 2024-03-04 14:54:14.749 ServerManager:21 - starting appium server
-[Android_Realme C53 INFO ] 2024-03-04 14:54:16.087 ServerManager:30 - Appium server started
-[Android_Realme C53 INFO ] 2024-03-04 14:54:16.087 DriverManager:29 - initializing Appium driver
-[Android_Realme C53 INFO ] 2024-03-04 14:54:16.124 CapabilitiesManager:20 - getting capabilities
-[Android_Realme C53 INFO ] 2024-03-04 14:54:16.125 CapabilitiesManager:28 - Reading Android Properties
-[Android_Realme C53 INFO ] 2024-03-04 14:54:23.384 DriverManager:41 - Driver is initialized
+[Android_Realme C53 INFO ] 2024-03-04 16:29:38.773 ServerManager:21 - starting appium server
+[Android_Realme C53 INFO ] 2024-03-04 16:29:40.103 ServerManager:30 - Appium server started
+[Android_Realme C53 INFO ] 2024-03-04 16:29:40.103 DriverManager:29 - initializing Appium driver
+[Android_Realme C53 INFO ] 2024-03-04 16:29:40.135 CapabilitiesManager:20 - getting capabilities
+[Android_Realme C53 INFO ] 2024-03-04 16:29:40.136 CapabilitiesManager:28 - Reading Android Properties
+[Android_Realme C53 INFO ] 2024-03-04 16:29:46.129 DriverManager:41 - Driver is initialized
