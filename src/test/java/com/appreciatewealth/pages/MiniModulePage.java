@@ -30,7 +30,7 @@ public class MiniModulePage extends BasePage {
 
     public void NavigateToMiniModule() throws InterruptedException, IOException {
         Thread.sleep(5000);
-        dashboardPage.ClickOnGoToDashboard();
+        //dashboardPage.ClickOnGoToDashboard();
         Thread.sleep(4000);
         basePage.ClickProfileSettings();
     }
