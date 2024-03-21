@@ -206,9 +206,9 @@ public class TradesSteps extends BasePage{
 
     }
 
-    @Then("User should be prompted with error message Minimum Transaction Amount Should be 0.84 INR.")
+    @Then("User should be prompted with error message Minimum Transaction Amount Should be 0.85 INR.")
     public void userShouldbePromptedWithErrorMessage() throws InterruptedException {
-        new TradesPage().ValidateMinimumTransactionMsg("Minimum Transaction Amount Should be 0.84 INR.");
+        new TradesPage().ValidateMinimumTransactionMsg("Minimum Transaction Amount Should be 0.85 INR.");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();

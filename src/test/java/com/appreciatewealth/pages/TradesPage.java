@@ -156,7 +156,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Yes']")
     WebElement ConfirmRemovefromWatchlist;
 
-    @AndroidFindBy(xpath = "//*[@text='Minimum Transaction Amount Should be 0.83 INR.']")
+    @AndroidFindBy(xpath = "//*[@text='Minimum Transaction Amount Should be 0.85 INR.']")
     WebElement MinimumTransactionErrorMsg;
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Transaction Limit:')]")
