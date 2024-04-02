@@ -1,7 +1,7 @@
-[${ctx:ROUTINGKEY} INFO ] 2024-03-28 15:39:13.171 ServerManager:21 - starting appium server
-[${ctx:ROUTINGKEY} INFO ] 2024-03-28 15:39:14.867 ServerManager:30 - Appium server started
-[${ctx:ROUTINGKEY} INFO ] 2024-03-28 15:39:14.867 DriverManager:29 - initializing Appium driver
-[${ctx:ROUTINGKEY} INFO ] 2024-03-28 15:39:14.934 PropertyManager:17 - loading config properties
-[${ctx:ROUTINGKEY} INFO ] 2024-03-28 15:39:14.935 CapabilitiesManager:20 - getting capabilities
-[${ctx:ROUTINGKEY} INFO ] 2024-03-28 15:39:14.936 CapabilitiesManager:28 - Reading Android Properties
-[${ctx:ROUTINGKEY} INFO ] 2024-03-28 15:39:21.712 DriverManager:41 - Driver is initialized
+[${ctx:ROUTINGKEY} INFO ] 2024-04-05 12:36:52.509 ServerManager:21 - starting appium server
+[${ctx:ROUTINGKEY} INFO ] 2024-04-05 12:36:54.209 ServerManager:30 - Appium server started
+[${ctx:ROUTINGKEY} INFO ] 2024-04-05 12:36:54.209 DriverManager:29 - initializing Appium driver
+[${ctx:ROUTINGKEY} INFO ] 2024-04-05 12:36:54.272 PropertyManager:17 - loading config properties
+[${ctx:ROUTINGKEY} INFO ] 2024-04-05 12:36:54.273 CapabilitiesManager:20 - getting capabilities
+[${ctx:ROUTINGKEY} INFO ] 2024-04-05 12:36:54.274 CapabilitiesManager:28 - Reading Android Properties
+[${ctx:ROUTINGKEY} INFO ] 2024-04-05 12:37:01.585 DriverManager:41 - Driver is initialized
