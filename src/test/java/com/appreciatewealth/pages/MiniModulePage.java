@@ -159,7 +159,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Please enter valid email']")
     private WebElement erroremail;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.TextView[3]")
+    @AndroidFindBy(xpath = "//*[@text='Please tell us what you think']")
     private WebElement errorcomment;
 
     @AndroidFindBy(xpath = "//*[@text='refer now']")
@@ -365,7 +365,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(id ="note_tv")
     WebElement ProfileSubmit;
 
-    @AndroidFindBy(id ="cvBuyingPower")
+    @AndroidFindBy(id ="txvUsWalletLabel")
     WebElement BuyingPower;
 
     @AndroidFindBy(id ="txvAccountDetails")
@@ -387,10 +387,10 @@ public class MiniModulePage extends BasePage {
     WebElement ThinkingHiring;
 
 
-    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[1]")
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[1]")
     WebElement AddEmail;
 
-    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[2]")
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[2]")
     WebElement AddFeedback;
 
     @AndroidFindBy(id ="tvTitleRecentTickets")
@@ -753,7 +753,7 @@ public class MiniModulePage extends BasePage {
                     "direction", "down",
                     "percent", 1.0
             ));
-            driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.Button")).click();
+            driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.Button")).click();
         }
     }
 
@@ -764,15 +764,15 @@ public class MiniModulePage extends BasePage {
     }
 
     public void ValidateCommentError(String CommentError) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String CommentMsg = errorcomment.getText();
         Assert.assertEquals(CommentError, CommentMsg);
     }
 
     public void ScrollCSRClose() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"CSR\").instance(0))"));
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         Close.click();
     }
 
@@ -1254,7 +1254,7 @@ public class MiniModulePage extends BasePage {
     }
 
     public void EnterEmailID(String Email) throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(5000);
         AddEmail.sendKeys(Email);
     }
 
