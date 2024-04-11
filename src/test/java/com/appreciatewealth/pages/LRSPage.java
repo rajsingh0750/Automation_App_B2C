@@ -444,7 +444,7 @@ public class LRSPage extends BasePage {
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
         Thread.sleep(10000);
         PasswordClick.click();
-        EnterPassword.sendKeys("Rogger@321");
+        EnterPassword.sendKeys("Rogger@1992");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
         ClickAuthorize.click();
         Thread.sleep(10000);

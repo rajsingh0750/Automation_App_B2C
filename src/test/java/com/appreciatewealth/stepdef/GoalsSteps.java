@@ -781,7 +781,7 @@ public class GoalsSteps extends BasePage {
     @Given("the User is on Goals Dashboard for monthly goal pause")
     public void theUserIsOnGoalsDashboardForMonthlyGoalPause() throws InterruptedException, IOException {
         signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
-        dashboardPage.ClickOnGoToDashboard();
+        //dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
         
     }
