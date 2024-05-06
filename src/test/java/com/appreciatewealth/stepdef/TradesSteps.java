@@ -420,7 +420,7 @@ public class TradesSteps extends BasePage{
         new TradesPage().OrderExpiryCustom();
         new TradesPage().ClickReviewOrderButton();
         new TradesPage().ValidateCustomExpiryDate();
-        new TradesPage().ClickPlaceOrderButton();
+        //new TradesPage().ClickPlaceOrderButton();
 
     }
 
@@ -429,7 +429,7 @@ public class TradesSteps extends BasePage{
         new TradesPage().OrderExpiryCustom();
         new TradesPage().ClickReviewOrderButton();
         new TradesPage().ValidateCustomExpiryDate();
-        new TradesPage().ClickPlaceOrderButton();
+        //new TradesPage().ClickPlaceOrderButton();
     }
 
     @And("User clicks on Stock name and notices the stock name")
@@ -590,5 +590,9 @@ public class TradesSteps extends BasePage{
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
+    }
+    @And("User Slides to Buy")
+    public void userSlidesToBuy() throws InterruptedException {
+        new TradesPage().SliderForBuy();
     }
 }

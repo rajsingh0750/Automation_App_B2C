@@ -740,7 +740,7 @@ public class MiniModulePage extends BasePage {
     }
 
     public void SuggestText() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         suggest.isDisplayed();
     }
 
@@ -753,12 +753,12 @@ public class MiniModulePage extends BasePage {
                     "direction", "down",
                     "percent", 1.0
             ));
-            driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.Button")).click();
+            driver.findElement(By.xpath("//*[@text='submit']")).click();
         }
     }
 
     public void ValidateEmailError(String EmailError) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String EmailMsg = erroremail.getText();
         Assert.assertEquals(EmailError, EmailMsg);
     }

@@ -146,28 +146,41 @@ public class BasePage {
         // System.out.println(text);
 
     }
-    public static String FormattedDateWithAddedDays(){
+    public static String FormattedDateWithAddedDays() {
         Date currentDate = new Date();
 
         // Create a Calendar instance and set it to the current date
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(currentDate);
 
-        // Add 10 years to the date
+        // Add 90 days to the date
         calendar.add(Calendar.DAY_OF_YEAR, 90);
 
         // Get the updated date
         Date updatedDate = calendar.getTime();
 
+        // Check if the updated date falls on a weekend
+        calendar.setTime(updatedDate);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        if (dayOfWeek == Calendar.SATURDAY) {
+            // If Saturday, add 2 days to make it Monday
+            calendar.add(Calendar.DAY_OF_YEAR, 2);
+        } else if (dayOfWeek == Calendar.SUNDAY) {
+            // If Sunday, add 1 day to make it Monday
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
+        }
+
+        // Get the final adjusted date
+        updatedDate = calendar.getTime();
+
         // Create a SimpleDateFormat with the desired format pattern
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
 
-        // Format the updated date and return it as a string
-
+        // Format the adjusted date and return it as a string
         return dateFormat.format(updatedDate);
-
-
     }
+
+
     public static String GetCurrentDate(){
         Date currentDate = new Date();
 

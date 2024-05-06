@@ -18,7 +18,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+     signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
      new MiniModulePage().NavigateToMiniModule();
 
     }
@@ -273,7 +273,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User Should see error message must be displayed")
     public void userShouldSeeErrorMessageMustBeDisplayed() throws InterruptedException {
-        new MiniModulePage().ScrollCSRClose();
+        //new MiniModulePage().ScrollCSRClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 

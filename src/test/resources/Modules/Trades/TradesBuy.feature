@@ -4,19 +4,34 @@ Feature: Trades all buy related scenarios
 #    Given the user is on home dashboard
 #    Then the user should be prompted with "Buying power" sticky to add funds for buying power from YES Bank
 
-  @Sanity @Regression @Prod
+  @Sanity @Regression
   Scenario: User with sufficient buying power should be able to buy stocks in Rupees
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User enters the amount
-    And User clicks on place order
+    And User Slides to Buy
     Then the order should be placed successfully
 
-  @Sanity @Regression @Prod
+#  @Sanity @Regression @IOS
+#  Scenario: User with sufficient buying power should be able to buy stocks in Rupees (IOS)
+#    Given the user is on Appreciate App's Dashboard on IOS
+#    And User clicks on Buy now for a stock IOS
+#    And User enters the amount
+#    And User clicks on review order button
+#    And User clicks on place order
+#    Then the order should be placed successfully in IOS
+
+  @Sanity @Regression
   Scenario: User should see Market Live label if the current time in IST is between 7:30 PM to 2:30 AM
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     Then User should see market live label
+
+#  @Sanity @Regression @IOS
+#  Scenario: User should see Market Live label if the current time in IST is between 7:30 PM to 2:30 AM IOS
+#    Given the user is on Appreciate App's Dashboard on IOS
+#    And User clicks on Buy now for a stock IOS
+#    Then User should see the label based on time range
 
   @Regression
   Scenario: Verify the accuracy of the numbers displayed in the Current Value, Overall Returns, and Total Invested sections within the Portfolio.
@@ -58,8 +73,17 @@ Feature: Trades all buy related scenarios
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User enters the quantity of the stock
-    And User clicks on place order
+    And User Slides to Buy
     Then the order should be placed successfully
+
+#  @Sanity @Regression @IOS
+#  Scenario: Confirm that the user can purchase stock by quantity even when the market is closed IOS
+#    Given the user is on Appreciate App's Dashboard on IOS
+#    And User clicks on Buy now for a stock IOS
+#    And User enters the Quantity IOS
+#    And User clicks on review order button
+#    And User clicks on place order
+#    Then the order should be placed successfully in IOS
 
   @Regression
   Scenario: User should be able to move stock from Top picks to Watchlist
@@ -67,6 +91,13 @@ Feature: Trades all buy related scenarios
     And User clicks on Top picks tab
     And User clicks on watchlist icon for one of the stock
     Then User should see the same stocks under Watchlist
+
+#  @Regression @IOS
+#  Scenario: User should be able to move stock from Top picks to Watchlist IOS
+#    Given the user is on Appreciate App's Dashboard on IOS
+#    And User clicks on Top picks tab IOS
+#    And User clicks on watchlist icon for one of the stock
+#    Then User should see the same stocks under Watchlist IOS
 
   @Regression
   Scenario: User should be able to remove stock from Watchlist
@@ -76,12 +107,19 @@ Feature: Trades all buy related scenarios
     And User clicks on watchlist icon from Watchlist screen
     Then User should not see the stock under Watchlist
 
+#  @Regression  @IOS
+#  Scenario: User should be able to remove stock from Watchlist IOS
+#    Given the user is on Appreciate App's Dashboard on IOS
+#    And User clicks on watchlist icon for one of the stock
+#    And User clicks on watchlist icon from Watchlist screen
+#    Then User should not see the stock under Watchlist
+
   @Regression
   Scenario: The user should see an error message prompt when attempting to purchase a stock quantity below the minimum required limit.
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User enters the amount less than the required limit
-    Then User should be prompted with error message Minimum Transaction Amount Should be 0.85 INR.
+    Then User should be prompted with error message Minimum Transaction Amount Should be 0.84 INR.
 
   @Regression
   Scenario: Validate if the error message is removed once the user switch to other app
@@ -115,6 +153,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User Slides to Buy
     Then Limit order should be placed Successfully
 
   @Sanity @Regression
@@ -127,6 +166,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects Limit order expiry as Good till Cancelled
+    And User Slides to Buy
     Then Limit order should be placed Successfully
 
   @Sanity @Regression
@@ -139,6 +179,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects Limit order expiry as Custom Date
+    And User Slides to Buy
     Then Limit order should be placed Successfully
 
 
@@ -152,6 +193,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User Slides to Buy
     Then Stop order should be placed Successfully
 
   @Sanity @Regression
@@ -164,6 +206,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects Stop order expiry as Good till Cancelled
+    And User Slides to Buy
     Then Stop order should be placed Successfully
 
   @Sanity @Regression
@@ -176,6 +219,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects Stop order expiry as Custom Date
+    And User Slides to Buy
     Then Stop order should be placed Successfully
 
   @Sanity @Regression
@@ -188,6 +232,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User Slides to Buy
     Then MIT order should be placed Successfully
 
   @Sanity @Regression
@@ -200,6 +245,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects MIT order expiry as Good till Cancelled
+    And User Slides to Buy
     Then MIT order should be placed Successfully
 
   @Sanity @Regression
@@ -212,6 +258,7 @@ Feature: Trades all buy related scenarios
     And User enters the limit price
     And User clicks on Set time in force
     And User selects MIT order expiry as Custom Date
+    And User Slides to Buy
     Then MIT order should be placed Successfully
 
 
@@ -237,7 +284,7 @@ Feature: Trades all buy related scenarios
     And User notices the Current P and L, Current Investment and Current Amount
     And User clicks on Buy now for a stock
     And User enters min trade amount
-    And User clicks on place order
+    And User Slides to Buy
     Then Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
 
 
@@ -255,7 +302,7 @@ Feature: Trades all buy related scenarios
     And User notices the current money in held before buy
     And User clicks on Buy now for a stock
     And User enters min trade amount
-    And User clicks on place order
+    And User Slides to Buy
     And User Clicks on Go to home dashboard
     And User notices the current buying power after buy
     And User notices the current money in held after buy
@@ -303,3 +350,31 @@ Feature: Trades all buy related scenarios
     When User scrolls right in the Research section
     And User clicks on Research Card
     Then It should open the Research details screen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

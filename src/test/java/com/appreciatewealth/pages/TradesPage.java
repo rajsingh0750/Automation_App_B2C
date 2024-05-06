@@ -10,6 +10,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 
@@ -1247,6 +1249,30 @@ public class TradesPage extends BasePage {
     public void ValidateResearchDetails() throws InterruptedException {
         Thread.sleep(3000);
         ResearchDetails.isDisplayed();
+    }
+    public void SliderForBuy() throws InterruptedException {
+        Thread.sleep(6000);
+        int startY = 1419; // Y-coordinate remains the same
+        int startX = 104;  // Adjust this value for the start position of the swipe
+        int endX = 654;   // Adjust this value for the end position of the swipe
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipeRight = new Sequence(finger, 1);
+
+        // Move to the starting position
+        swipeRight.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
+
+        // Press down to start the swipe
+        swipeRight.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+        // Move to the end position to simulate the swipe
+        swipeRight.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, startY));
+
+        // Release the button to complete the swipe
+        swipeRight.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        driver.perform(List.of(swipeRight));
+        Thread.sleep(3000);
     }
 
 
