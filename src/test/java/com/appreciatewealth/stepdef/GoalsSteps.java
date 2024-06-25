@@ -512,7 +512,7 @@ public class GoalsSteps extends BasePage {
 
     @Then("user sucessfully Creates monthly payment Retirement goals")
     public void userSucessfullyCreatesmonthlypaymentRetirementgoals() throws InterruptedException {
-       new BasePage().ClickProfileSettings();
+        new BasePage().ClickProfileSettings();
         basePage.Logout();
 
     }
@@ -542,7 +542,7 @@ public class GoalsSteps extends BasePage {
     @Then("user should see the Digital Gold details on Target portfolio")
     public void userShouldSeeTheDigitalGoldDetailsOnTargetPortfolio() throws InterruptedException {
         new GoalsPage().DigitalGoldDashboard();
-        
+
     }
 
     @And("user clicks on the CTA for proceed with investment in digital gold")
@@ -557,14 +557,14 @@ public class GoalsSteps extends BasePage {
     @And("user select pay now for one time investment")
     public void userSelectPayNowForOneTimeInvestment() throws InterruptedException {
         new GoalsPage().DigitalGoldPay();
-        
+
     }
 
     @When("user is on ontime payment block")
     public void userIsOnOntimePaymentBlock() throws InterruptedException {
         new GoalsPage().DigitalGoldonetimeblock();
-        
-        
+
+
     }
 
     @And("user clicks on continue button")
@@ -575,7 +575,7 @@ public class GoalsSteps extends BasePage {
     @And("user see the status as paid")
     public void userSeeTheStatusAsPaid() throws InterruptedException {
         new GoalsPage().DigitalGoldStatus();
-        
+
     }
 
     @Then("the digital gold goal should be placed successfully")
@@ -685,7 +685,7 @@ public class GoalsSteps extends BasePage {
     @When("user is in Review Goal Page")
     public void userIsInReviewGoalPage() throws InterruptedException {
         new GoalsPage().GoalRetireReview();
-        
+
     }
 
 
@@ -712,7 +712,7 @@ public class GoalsSteps extends BasePage {
 
     @Given("the user is on the Goals Dashboard")
     public void theUserIsOnTheGoalsDashboard() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
@@ -754,20 +754,20 @@ public class GoalsSteps extends BasePage {
     public void userClickOnDraftGoals() throws InterruptedException {
         new GoalsPage().SelectDraft();
 
-        
+
     }
 
     @And("User Select Goals in draft status")
     public void userSelectGoalsInDraftStatus() throws InterruptedException {
         new GoalsPage().CreateGoalFromDraft();
-        
+
     }
 
     @And("user clicks on the CTA for setup a goal from draft page")
     public void userClicksOnTheCTAForSetupAGoalFromDraftPage() throws InterruptedException {
         new GoalsPage().settgoal();
 
-        
+
     }
 
 
@@ -780,17 +780,17 @@ public class GoalsSteps extends BasePage {
 
     @Given("the User is on Goals Dashboard for monthly goal pause")
     public void theUserIsOnGoalsDashboardForMonthlyGoalPause() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         //dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
-        
+
     }
 
     @And("user selects mothly goals in Active List")
     public void userSelectsMothlyGoalsInActiveList() throws InterruptedException {
         new GoalsPage().SelectPauseGoal();
 
-        
+
     }
 
     @And("user clicks on Pause option")
@@ -798,7 +798,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().SelectThreeDots();
         new GoalsPage().SelectPause();
 
-        
+
     }
 
     @And("user selects pause SIP button")
@@ -810,13 +810,13 @@ public class GoalsSteps extends BasePage {
     @When("user selects go back to goals")
     public void userSelectsGoBackToGoals() throws InterruptedException {
         new GoalsPage().GoalHomePage();
-        
+
     }
 
     @And("user selects history")
     public void userSelectsHistory() throws InterruptedException {
         new GoalsPage().SelectHistory();
-        
+
     }
 
     @Then("user should see Pause status")
@@ -840,14 +840,14 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().ClickResumeOk();
         new GoalsPage().Close();
 
-        
+
     }
 
     @And("user click on the CTA for Skip")
     public void userClickOnTheCTAForSkip() throws InterruptedException {
         //new GoalsPage().Close();
         new GoalsPage().ClickResumeSkip();
-        
+
     }
 
     @Then("user should not see the Pause status goals in the list")
