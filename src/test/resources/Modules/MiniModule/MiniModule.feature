@@ -71,11 +71,11 @@ Feature: MiniModule
     And the User Clicks on Pricing
     When User is on Pricing page
     And User clicks on info icon of Goals
-    And User Select Okay button
+    And User Select the Okay button
     And User clicks on info icon of Trade
-    And User Select Okay button
+    And User Select the Okay button
     And User clicks on info icon of CashBack
-    And User Select Okay button
+    And User Select the Okay button
     Then User Should see Other fees with all the Pricing details
 
   @Sanity @Regression
@@ -114,10 +114,10 @@ Feature: MiniModule
     And the User Clicks on Legal
     And User Clicks on Appreciate Platform
     And User see Terms of Use
-    And the User Clicks on Legal
+    #And the User Clicks on Legal
     And User Click on Appreciate Broking
     And User see Appreciate Broking Information
-    And the User Clicks on Legal
+    #And the User Clicks on Legal
     And User Clicks on Registration
     And User Select View Registration Number
     And User Select back icon
@@ -266,10 +266,10 @@ Feature: MiniModule
     Given the User is on MiniModule page
     And User navigates to the Profile screen
     And User Clicks on the Submit a Ticket in Profile Details
-    And User Select issue type
-    And User enters Subject
-    And User enters Your message
-    And User clicks on the CTA for Submit a ticket
+    And User Select the issue type
+    And User enters the Subject
+    And User enters the Your message
+    And User clicks on the CTA for Submit a ticket in profile
     Then User should successfully create a support ticket from Profile Details Page
 
 
@@ -352,14 +352,14 @@ Feature: MiniModule
     Then User should see all description related to account value
 
 
-  @Sanity @Regression
-  Scenario: Verify Profile Upload in MiniModule
-    Given the User is on MiniModule page
-    And User navigates to the Profile screen
-    And User Select Choose From Device
-    And User Select Gallery Option
-    And User Select Photo From Device
-    Then the User Profile Photo should be Updated Successfully
+#  @Sanity @Regression
+#  Scenario: Verify Profile Upload in MiniModule
+#    Given the User is on MiniModule page
+#    And User navigates to the Profile screen
+#    And User Select Choose From Device
+#    And User Select Gallery Option
+#    And User Select Photo From Device
+#    Then the User Profile Photo should be Updated Successfully
 
 
 

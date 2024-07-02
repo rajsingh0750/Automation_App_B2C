@@ -275,7 +275,7 @@ public class TradesSteps extends BasePage{
     public void userSelectsOrderExpiryAsTillMarketIsClosed() throws InterruptedException {
         new TradesPage().OrderExpirytillMarketClose();
         new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ClickPlaceOrderButton();
+        //new TradesPage().ClickPlaceOrderButton();
     }
 
     @Then("Limit order should be placed Successfully")

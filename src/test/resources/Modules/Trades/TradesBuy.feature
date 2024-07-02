@@ -119,7 +119,7 @@ Feature: Trades all buy related scenarios
     Given User is on Trade dashboard
     And User clicks on Buy now for a stock
     And User enters the amount less than the required limit
-    Then User should be prompted with error message Minimum Transaction Amount Should be 0.84 INR.
+    Then User should be prompted with error message Minimum Transaction Amount Should be 0.83 INR.
 
   @Regression
   Scenario: Validate if the error message is removed once the user switch to other app

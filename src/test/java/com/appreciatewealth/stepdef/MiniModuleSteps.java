@@ -95,7 +95,8 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("User Should see Other fees with all the Pricing details")
     public void userShouldSeeOtherFeesWithAllThePricingDetails() throws InterruptedException {
         new MiniModulePage().OtherFeesDetails();
-        new MiniModulePage().OtherClose();
+        basePage.AndroidBack();
+        //new MiniModulePage().OtherClose();
         basePage.Logout();
     }
 
@@ -116,6 +117,7 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userSeeTermsOfUse() throws InterruptedException {
         new MiniModulePage().LegalTerms();
         new MiniModulePage().LegalClose();
+
     }
 
     @And("User Click on Appreciate Broking")
@@ -243,7 +245,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User Should see all Our Key Initiatives details")
     public void userShouldSeeAllOurKeyInitiativesDetails() throws InterruptedException {
-        new MiniModulePage().LegalClose();
+        //new MiniModulePage().LegalClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -336,6 +339,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User enters Subject")
     public void userEntersSubject() throws InterruptedException {
         new MiniModulePage().EnterSubject("Support ticket for testing Scripts");
+        //basePage.AndroidBack();
         
     }
 
@@ -427,14 +431,15 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User Should see all the details in About Us")
     public void userShouldSeeAllTheDetailsInAboutUs() throws InterruptedException {
-        new MiniModulePage().ClosePage();
+        //new MiniModulePage().ClosePage();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
     @Given("the user is on Goals Dashboard for latest transaction")
     public void theUserIsOnGoalsDashboardForLatestTransaction() throws InterruptedException, IOException {
         signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
-        dashboardPage.ClickOnGoToDashboard();
+        //dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
 
     }
@@ -488,12 +493,14 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Clicks on Cash Tab and see the latest data")
     public void userClicksOnCashTabAndSeeTheLatestData() throws InterruptedException {
         new MiniModulePage().MiniCash();
+       new MiniModulePage().GetCashGoalName();
 
     }
 
     @Then("User should see all the latest transaction in the list")
     public void userShouldSeeAllTheLatestTransactionInTheList() throws InterruptedException {
-        new MiniModulePage().MiniTransClose();
+        //new MiniModulePage().MiniTransClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -718,7 +725,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User should successfully create a support ticket from Profile Details Page")
     public void userShouldSuccessfullyCreateASupportTicketFromProfileDetailsPage() throws InterruptedException {
-        new MiniModulePage().MiniTransClose();
+        //new MiniModulePage().MiniTransClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -786,7 +794,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User Should Successfully create a feedback Note")
     public void userShouldSuccessfullyCreateAFeedbackNote() throws InterruptedException {
-        new MiniModulePage().ScrollCSRClose();
+        //new MiniModulePage().ScrollCSRClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -813,14 +822,16 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Select Monthly Statements")
     public void userSelectMonthlyStatements() throws InterruptedException {
         new MiniModulePage().ClickMonthlyStatements();
-        new MiniModulePage().ClickViewClose();
+        basePage.AndroidBack();
+        //new MiniModulePage().ClickViewClose();
 
     }
 
     @And("User Select Confirmations")
     public void userSelectConfirmations() throws InterruptedException {
         new MiniModulePage().ClickConfirmations();
-        new MiniModulePage().ClickViewClose();
+        basePage.AndroidBack();
+        //new MiniModulePage().ClickViewClose();
 
 
     }
@@ -828,13 +839,15 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Select Tax Documents")
     public void userSelectTaxDocuments() throws InterruptedException {
         new MiniModulePage().ClickTaxDocuments();
-        new MiniModulePage().ClickViewClose();
+        basePage.AndroidBack();
+        //new MiniModulePage().ClickViewClose();
         
     }
 
     @Then("User Should see Successfully all the documents in each option")
     public void userShouldSeeSuccessfullyAllTheDocumentsInEachOption() throws InterruptedException {
-        new MiniModulePage().ClickDocumentsClose();
+        //new MiniModulePage().ClickDocumentsClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -1025,4 +1038,29 @@ DashboardPage dashboardPage = new DashboardPage();
 
     }
 
+    @And("User Select the Okay button")
+    public void userSelectTheOkayButton() throws InterruptedException {
+        new MiniModulePage().ClickInfoOkay();
+    }
+
+    @And("User Select the issue type")
+    public void userSelectTheIssueType() throws InterruptedException {
+        new MiniModulePage().ClickProfileIssue();
+    }
+
+    @And("User enters the Subject")
+    public void userEntersTheSubject() throws InterruptedException {
+        new MiniModulePage().EnterProfileSubject("Ticket For Automation testing");
+
+    }
+
+    @And("User enters the Your message")
+    public void userEntersTheYourMessage() throws InterruptedException {
+        new MiniModulePage().EnterProfileMessage("Ticket For Automation testing");
+    }
+
+    @And("User clicks on the CTA for Submit a ticket in profile")
+    public void userClicksOnTheCTAForSubmitATicketInProfile() throws InterruptedException {
+        new MiniModulePage().ClickProfileTicketSubmit();
+    }
 }

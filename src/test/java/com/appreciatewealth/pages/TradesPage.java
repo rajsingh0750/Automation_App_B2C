@@ -76,13 +76,13 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='View investments']")
     WebElement ViewEnhancementButton;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[2]")
+    @AndroidFindBy(id = "txv_current_value")
     WebElement GetCurrentValue;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup[2]/android.widget.TextView[2]")
+    @AndroidFindBy(id = "txv_overall_returns_value")
     WebElement GetCurrentOverallReturns;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup[3]/android.widget.TextView[2]")
+    @AndroidFindBy(id = "txv_total_invested_value")
     WebElement GetTotalInvested;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup")
@@ -194,7 +194,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='₹0.00']")
     WebElement SetLimitPrice;
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'Good Till Next Market Day Close')]")
+    @AndroidFindBy(id = "layoutMainGoodTillNextMarketDay")
     WebElement ExpireTillMarketDayClose;
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Good till cancelled')]")
@@ -278,7 +278,7 @@ public class TradesPage extends BasePage {
     private WebElement ValidateSearchResults;
 
 
-    @AndroidFindBy(xpath ="//*[@text='Activity']")
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.RadioGroup/android.widget.RadioButton[4]")
     private WebElement ActivityTab;
 
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[2]")
@@ -306,7 +306,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='okay']")
     private WebElement ClickOkay;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.TextView[2]")
     private WebElement TradeAmountOnPreviewOrder;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.TextView[2]")
@@ -318,26 +318,26 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[4]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[2]")
     private WebElement TradeEstimatedTotalPreviewOrder;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView[2]")
+    @AndroidFindBy(id = "txv_quantity_value_label")
     private WebElement TradeQuantityOrderPlaced;
 
-    @AndroidFindBy(xpath = "//*[@text='₹9.32']")
+    @AndroidFindBy(xpath = "//*[@text='₹10.05']")
     private WebElement OrderAmountTransactions;
 
     @AndroidFindBy(xpath = "//*[@text='continue']")
     private WebElement Continue;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[6]")
     private WebElement TradeQuantityTransactions;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.FrameLayout/android.widget.TextView")
     private WebElement SuccessFullStatusTransactions;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.LinearLayout/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView[3]")
     private WebElement OrderTypeTransactions;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView")
     private WebElement EstimatedOrderQuantity;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.TextView[2]")
+    @AndroidFindBy(id = "txv_quantity_value_label")
     private WebElement EstimatedPriceOrderPlaced;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.TextView")
     private WebElement CraftedListItem;
@@ -396,7 +396,7 @@ public class TradesPage extends BasePage {
     public void NavigatetoTradeDashboard() throws InterruptedException, IOException {
         Thread.sleep(5000);
         signInPage.Signin();
-        Thread.sleep(8000);
+        Thread.sleep(5000);
         //clickonViewDashboard.click();
         //Thread.sleep(10000);
         TradeButton.click();
@@ -783,8 +783,8 @@ public class TradesPage extends BasePage {
         SetLimitPrice.sendKeys(LimitPrice);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
-    public void OrderExpirytillMarketClose(){
-
+    public void OrderExpirytillMarketClose() throws InterruptedException {
+        Thread.sleep(5000);
         ExpireTillMarketDayClose.click();
     }
 
@@ -999,8 +999,16 @@ public class TradesPage extends BasePage {
     }
 
     public void NavigateToActivityTab() throws InterruptedException {
-        Thread.sleep(4000);
-        ActivityTab.click();
+        Thread.sleep(8000);
+        //ActivityTab.click();
+            //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"News\").instance(0))"));
+            //Thread.sleep(8000);
+            WebElement element = driver.findElement(AppiumBy.xpath("//*[contains(@text,'Activity')]"));
+            driver.executeScript("mobile: swipeGesture", ImmutableMap.of(
+                    "elementId"  ,((RemoteWebElement)element).getId(),
+                    "direction","Right",
+                    "percent",1
+            ));
     }
     public static void GetCurrentAmountBeforeSell() throws InterruptedException {
         Thread.sleep(4000);
@@ -1085,14 +1093,14 @@ public class TradesPage extends BasePage {
 
 
     public String GetQuantityEstimateOnPreview() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         QuantityOnSellScreen = EstimatedOrderQuantity.getText();
         System.out.println("Estimated Quantity on Sells Screen "+QuantityOnSellScreen);
         return QuantityOnSellScreen;
     }
 
-    public void CheckOrderDetailsPreview() throws InterruptedException {
-        Thread.sleep(2000);
+    /*public void CheckOrderDetailsPreview() throws InterruptedException {
+        Thread.sleep(5000);
         TradeAmountOnPreview = TradeAmountOnPreviewOrder.getText();
         System.out.println("Trade amount on preview screen "+TradeAmountOnPreview);
         QuantityOnPreviewScreen = TradeQuantityPreviewOrder.getText();
@@ -1101,18 +1109,20 @@ public class TradesPage extends BasePage {
         Assert.assertEquals(QuantityOnPreviewScreen,QuantityOnSellScreen);
 
     }
-
+*/
     public void CheckOrderDetailsPlaceOrder() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
+        TradeAmountOnPreview = TradeAmountOnPreviewOrder.getText();
+        Assert.assertEquals(TradeAmountOnPreview,"₹10.05");
         QuantityOnPlaceOrderScreen = TradeQuantityOrderPlaced.getText();
         System.out.println("Trade quantity on order placed screen "+  QuantityOnPlaceOrderScreen);
         GetEstimatedCreditAmount =  EstimatedPriceOrderPlaced.getText();
         System.out.println("Estimated amount on placed order screen "+  GetEstimatedCreditAmount);
-        Assert.assertEquals(QuantityOnPlaceOrderScreen,QuantityOnPreviewScreen);
+        Assert.assertEquals(QuantityOnPlaceOrderScreen,GetEstimatedCreditAmount);
     }
 
     public void CheckOrderDetailsActivityTab() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         String  ActualMsg = SuccessFullStatusTransactions.getText();
         Assert.assertEquals(ActualMsg,"Successful");
         String ActualAmount = OrderAmountTransactions.getText();

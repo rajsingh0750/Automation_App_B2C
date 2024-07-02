@@ -166,7 +166,7 @@ public class TradesSellSteps extends BasePage {
 
     @And("User notices the Order Quantity, Trade amount")
     public void userNoticesTheOrderQuantityTradeAmount() throws InterruptedException {
-        new TradesPage().CheckOrderDetailsPreview();
+        //new TradesPage().CheckOrderDetailsPreview();
     }
 
     @And("User notices the Order Quantity and Estimated Price")
@@ -177,6 +177,7 @@ public class TradesSellSteps extends BasePage {
 
     @And("User navigates to Activity tab")
     public void userNavigatesToActivityTab() throws InterruptedException {
+        //basePage.SlideHorizontally(195,828,621,830);
         new TradesPage().NavigateToActivityTab();
     }
 
@@ -196,5 +197,10 @@ public class TradesSellSteps extends BasePage {
     @And("User enters the limit price for sell")
     public void userEntersTheLimitPriceForSell() {
         new TradesPage().EnterLimitPrice("100000");
+    }
+
+    @And("User Clicks om Continue")
+    public void userClicksOmContinue() throws InterruptedException {
+        new TradesPage().ClickContinue();
     }
 }

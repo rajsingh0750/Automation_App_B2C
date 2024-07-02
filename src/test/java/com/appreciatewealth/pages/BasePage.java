@@ -87,7 +87,7 @@ public class BasePage {
     public  void Logout() throws InterruptedException {
 
         //ProfileSettings.click();
-        Thread.sleep(6000);
+        Thread.sleep(7000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Logout\").instance(0))"));
         LogoutButton.click();
         //((AndroidDriver)driver).terminateApp("com.appreciatewealth.android.uat");
@@ -558,4 +558,25 @@ public class BasePage {
         t.press(point(startX, startY)).waitAction(waitOptions(ofMillis(millis))).moveTo(point(endX, endY)).release()
                 .perform();
     }*/
+
+    public void SlideHorizontally(int StartX, int StartY, int EndX, int EndY) throws InterruptedException {
+        Thread.sleep(6000);
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipeRight = new Sequence(finger, 1);
+
+        // Move to the starting position
+        swipeRight.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), StartX, StartY));
+
+        // Press down to start the swipe
+        swipeRight.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+        // Move to the end position to simulate the swipe
+        swipeRight.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), EndX, EndY));
+
+        // Release the button to complete the swipe
+        swipeRight.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        driver.perform(List.of(swipeRight));
+        Thread.sleep(3000);
+    }
 }

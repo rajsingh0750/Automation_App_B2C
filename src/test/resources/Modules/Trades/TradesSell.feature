@@ -6,7 +6,8 @@ Feature: Trades all Sell related scenarios
     And User clicks on Stock
     And User clicks on Sell
     And User enters the amount for sell
-    And User clicks on place order
+    And User Slides to Buy
+    #And User clicks on place order
     Then the sell order should be placed successfully
 
   @Sanity @Regression
@@ -15,7 +16,8 @@ Feature: Trades all Sell related scenarios
     And User clicks on Stock
     And User clicks on Sell
     And User enters the Quantity for sell
-    And User clicks on place order
+    And User Slides to Buy
+    #And User clicks on place order
     Then the sell order of quantity type should be placed successfully
 
   @Sanity @Regression
@@ -28,7 +30,9 @@ Feature: Trades all Sell related scenarios
     And User enters the Sell Quantity
     And User enters the limit price for sell
     And User clicks on Set time in force
+    And User Clicks om Continue
     And User selects order expiry as Till Market is closed
+    And User Slides to Buy
     Then Limit order in sell should be placed Successfully
 
 
@@ -43,6 +47,7 @@ Feature: Trades all Sell related scenarios
     And User enters the limit price for sell
     And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User Slides to Buy
     Then Stop order in sell should be placed Successfully
 
   @Sanity @Regression
@@ -56,6 +61,7 @@ Feature: Trades all Sell related scenarios
     And User enters the limit price for sell
     And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User Slides to Buy
     Then MIT order in sell should be placed Successfully
 
   @Sanity @Regression
@@ -64,7 +70,8 @@ Feature: Trades all Sell related scenarios
     And User checks the current holdings and clicks on Stock
     And User clicks on Sell
     And User enters the Quantity to sell
-    And User clicks on place order
+    And User Slides to Buy
+    #And User clicks on place order
    # And User Clicks on Go to home dashboard
     Then Quantity in Holdings should decrease and minus sign should display
 
@@ -76,7 +83,8 @@ Feature: Trades all Sell related scenarios
     And User selects order type as Sell in Rupees
     And User enters the amount for sell
     And User clicks on review order button
-    And User clicks on place order
+    #And User clicks on place order
+    And User Slides to Buy
     Then Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
 
   @Sanity
@@ -88,8 +96,9 @@ Feature: Trades all Sell related scenarios
     And User selects order type as Sell in Rupees
     And User enters the amount for sell order
     And User clicks on review order button
-    And User clicks on place order
-    And User Clicks on Go to home dashboard
+    #And User clicks on place order
+    #And User Clicks on Go to home dashboard
+    And User Slides to Buy
     And User clicks on Stock
     Then Current Amount on Activity should be decreased by equivalent to sold amount of the stock
 
@@ -101,9 +110,10 @@ Feature: Trades all Sell related scenarios
     And User clicks on Sell
     And User selects order type as Sell in Rupees
     And User enters the amount for sell and notices the estimated quantity as per the entered amount
-    And User clicks on review order button
-    And User notices the Order Quantity, Trade amount
-    And User clicks on place order
+    #And User clicks on review order button
+    #And User notices the Order Quantity, Trade amount
+    #And User clicks on place order
+    And User Slides to Buy
     And User notices the Order Quantity and Estimated Price
     And User Clicks on Go to home dashboard
     And User clicks on Stock
