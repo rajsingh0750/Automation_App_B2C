@@ -1,0 +1,175 @@
+[Android_POCO C65 INFO ] 2025-03-25 16:56:04.407 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 16:56:06.094 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 16:56:06.102 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 16:56:06.350 PropertyManager:17 - loading config properties
+[Android_POCO C65 INFO ] 2025-03-25 16:56:06.352 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 16:56:06.353 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 16:56:13.833 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 16:56:14.188 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 16:56:15.505 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 16:56:15.506 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 16:56:15.557 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 16:56:15.557 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 16:56:22.900 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:03:37.566 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:03:39.227 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:03:39.228 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:03:39.264 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:03:39.264 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:03:47.283 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:05:39.786 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:05:41.443 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:05:41.443 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:05:41.485 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:05:41.485 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:05:54.022 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:06:10.646 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:06:11.962 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:06:11.962 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:06:11.991 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:06:11.991 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:06:19.617 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:08:39.487 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:08:41.142 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:08:41.143 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:08:41.195 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:08:41.196 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:08:47.821 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:09:42.524 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:09:44.171 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:09:44.171 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:09:44.202 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:09:44.202 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:09:55.924 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:10:11.641 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:10:12.964 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:10:12.964 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:10:12.993 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:10:12.993 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:10:20.484 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:12:29.971 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:12:31.636 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:12:31.637 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:12:31.689 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:12:31.689 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:12:38.388 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:15:09.008 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:15:10.657 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:15:10.657 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:15:10.693 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:15:10.693 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:15:18.657 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:15:58.402 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:16:00.055 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:16:00.055 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:16:00.084 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:16:00.084 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:16:12.056 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:16:27.865 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:16:29.182 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:16:29.182 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:16:29.208 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:16:29.208 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:16:36.763 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:17:15.469 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:17:16.784 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:17:16.784 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:17:16.812 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:17:16.813 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:17:28.255 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:17:44.289 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:17:45.597 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:17:45.598 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:17:45.622 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:17:45.623 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:17:53.149 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:18:30.737 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:18:32.396 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:18:32.397 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:18:32.441 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:18:32.441 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:18:44.259 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:19:00.197 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:19:01.518 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:19:01.518 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:19:01.543 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:19:01.544 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:19:09.040 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:22:09.479 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:22:11.137 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:22:11.138 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:22:11.174 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:22:11.174 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:22:18.103 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:24:41.471 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:24:43.129 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:24:43.130 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:24:43.165 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:24:43.166 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:24:49.926 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:27:36.854 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:27:39.149 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:27:39.150 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:27:39.179 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:27:39.179 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:27:47.177 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:28:26.712 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:28:28.026 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:28:28.026 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:28:28.059 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:28:28.059 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:28:40.057 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:28:55.851 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:28:57.510 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:28:57.510 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:28:57.548 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:28:57.548 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:29:05.018 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:29:43.655 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:29:45.329 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:29:45.329 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:29:45.365 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:29:45.366 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:29:57.253 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:30:13.221 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:30:14.542 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:30:14.542 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:30:14.570 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:30:14.570 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:30:22.230 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:33:01.109 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:33:02.756 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:33:02.756 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:33:02.794 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:33:02.794 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:33:09.419 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:35:39.217 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:35:40.879 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:35:40.880 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:35:40.914 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:35:40.915 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:35:48.954 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:38:16.443 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:38:18.105 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:38:18.105 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:38:18.139 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:38:18.139 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:38:26.198 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:39:06.533 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:39:08.186 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:39:08.186 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:39:08.230 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:39:08.231 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:39:14.801 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:39:30.715 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:39:32.071 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:39:32.072 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:39:32.099 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:39:32.099 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:39:39.516 DriverManager:41 - Driver is initialized
+[Android_POCO C65 INFO ] 2025-03-25 17:40:05.096 ServerManager:21 - starting appium server
+[Android_POCO C65 INFO ] 2025-03-25 17:40:06.420 ServerManager:30 - Appium server started
+[Android_POCO C65 INFO ] 2025-03-25 17:40:06.420 DriverManager:29 - initializing Appium driver
+[Android_POCO C65 INFO ] 2025-03-25 17:40:06.458 CapabilitiesManager:20 - getting capabilities
+[Android_POCO C65 INFO ] 2025-03-25 17:40:06.458 CapabilitiesManager:28 - Reading Android Properties
+[Android_POCO C65 INFO ] 2025-03-25 17:40:12.752 DriverManager:41 - Driver is initialized

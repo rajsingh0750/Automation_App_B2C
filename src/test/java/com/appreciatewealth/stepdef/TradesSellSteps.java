@@ -118,6 +118,9 @@ public class TradesSellSteps extends BasePage {
     @And("User Clicks on Go to home dashboard")
     public void userClicksOnGoToHomeDashboard() throws InterruptedException {
         new TradesPage().GoToTradeDashboard();
+       // basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
     }
 
     @Then("Quantity in Holdings should decrease and minus sign should display")

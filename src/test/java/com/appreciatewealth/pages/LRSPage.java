@@ -7,10 +7,14 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
 
 public class LRSPage extends BasePage {
     BasePage basePage = new BasePage();
@@ -32,22 +36,22 @@ public class LRSPage extends BasePage {
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.widget.EditText")
     WebElement EnterNetOTP;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.view.View")
+    @AndroidFindBy(id = "checkbox1")
     WebElement CheckBox1;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View")
+    @AndroidFindBy(id = "checkbox2")
     WebElement CheckBox2;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[6]/android.view.View/android.view.View")
+    @AndroidFindBy(id = "checkbox3")
     WebElement CheckBox3;
 
-    @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[7]/android.view.View/android.view.View")
+    @AndroidFindBy (id = "checkbox4")
     WebElement CheckBox4;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[8]/android.view.View/android.view.View")
+    @AndroidFindBy(id = "checkbox5")
     WebElement CheckBox5;
 
-    @AndroidFindBy(xpath = "//*[@text='Ok']")
+    @AndroidFindBy(id = "lnrSave")
     WebElement ClickOk;
 
     @AndroidFindBy(xpath = "//*[@text='AUTHORIZE']")
@@ -92,7 +96,7 @@ public class LRSPage extends BasePage {
 
     @AndroidFindBy  (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.TabWidget/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[4]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
     WebElement EnterCustomerID;
-    @AndroidFindBy(id = "one_btn")
+    @AndroidFindBy(id = "five_btn")
     WebElement EnterDepositAmount;
 
     @AndroidFindBy (id = "btnTransfer")
@@ -112,7 +116,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Confirm']")
     WebElement Confirm;
 
-    @AndroidFindBy(xpath = "//*[@text='Proceed']")
+    @AndroidFindBy(id = "lnrSave")
     WebElement Proceed;
     @AndroidFindBy(xpath = "//*[contains(@text,'You have successfully uploaded')]")
     WebElement SuccessStatementUploadMsg;
@@ -158,7 +162,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(id ="tvDepositAmountValue")
     WebElement DepositAmount;
 
-    @AndroidFindBy(id = "cvBuyingPower")
+    @AndroidFindBy(id = "imgNextBuyingPower")
     WebElement MoneyTransfer;
 
     @AndroidFindBy (xpath = "//*[@index='2' and @text='add funds']")
@@ -207,7 +211,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(id="common_header")
     WebElement LRSTerms;
 
-    @AndroidFindBy(xpath="//*[@text='0']")
+    @AndroidFindBy(xpath="//*[@text='1']")
     WebElement EnterDepositZero;
 
 
@@ -236,9 +240,35 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(xpath="//*[@text='Next']")
     WebElement HDFCNext;
 
+    @AndroidFindBy(id= "btnNext")
+    WebElement LRSNext;
+
+    @AndroidFindBy(id= "spinnerSourceOfFund")
+    WebElement SourceOfFunds;
 
 
+    @AndroidFindBy(xpath="//*[@text='Salary or wages']")
+    WebElement SalaryFunds;
 
+    @AndroidFindBy(id="checkboxAll")
+    WebElement AgreeCheckBox;
+
+    @AndroidFindBy(xpath="//*[@text='Confirm']")
+    WebElement ClickConfirm;
+
+
+    @AndroidFindBy(id="back")
+    WebElement LRSBack;
+
+    @AndroidFindBy(id="ivBack")
+    WebElement ReviewBack;
+
+
+    @AndroidFindBy(id="imgBack")
+    WebElement USWalletBack;
+
+    @AndroidFindBy(id="imgEditPdf")
+    WebElement StatementEdit;
 
     SignInPage signInPage;
 
@@ -350,8 +380,8 @@ public class LRSPage extends BasePage {
     }
 
     public void TransferFromYesBank() throws InterruptedException {
-        Thread.sleep(8000);
-        Thread.sleep(21000);
+        Thread.sleep(5000);
+        //Thread.sleep(21000);
         //Thread.sleep(5000);
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"transfer from YES a/c to buying power\").instance(0))"));
         TransferFromYesBank.click();
@@ -377,8 +407,10 @@ public class LRSPage extends BasePage {
     }
 
     public void ClickonProceed() throws InterruptedException {
+        Thread.sleep(5000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"OK\").instance(0))"));
         Proceed.click();
-        Thread.sleep(20000);
+        //Thread.sleep(20000);
 
     }
 
@@ -393,34 +425,45 @@ public class LRSPage extends BasePage {
 
     public void SelectCheckBoxes() throws InterruptedException {
         Thread.sleep(5000);
-        int numberOfScrolls = 6; // Adjust the number of scrolls as needed
+//        int numberOfScrolls = 6; // Adjust the number of scrolls as needed
+//
+//        for (int i = 0; i < numberOfScrolls; i++) {
+//            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
+//        }
 
-        for (int i = 0; i < numberOfScrolls; i++) {
-            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
-        }
 
         Thread.sleep(3000);
         CheckBox1.click();
         Thread.sleep(3000);
+        int numberOfScrolls = 4; // Adjust the number of scrolls as needed
+
+        for (int i = 0; i < numberOfScrolls; i++) {
+            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
+        }
         ClickOk.click();
         Thread.sleep(2000);
         CheckBox2.click();
         Thread.sleep(3000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"OK\").instance(0))"));
         ClickOk.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         CheckBox3.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"OK\").instance(0))"));
+        Thread.sleep(5000);
         ClickOk.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         CheckBox4.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"OK\").instance(0))"));
+        Thread.sleep(5000);
         ClickOk.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         CheckBox5.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         ClickOk.click();
-        Thread.sleep(2000);
-        NEXTButton.click();
+        //Thread.sleep(2000);
+        //NEXTButton.click();
 
     }
 
@@ -486,10 +529,10 @@ public class LRSPage extends BasePage {
         GoToDashboard.click();
     }
 
-        public void ValidateTransactionIsSuccessFull() throws InterruptedException {
-            Thread.sleep(5000);
+    public void ValidateTransactionIsSuccessFull() throws InterruptedException {
+        Thread.sleep(5000);
         CheckTransactionStatusMsg.isDisplayed();
-            Thread.sleep(5000);
+        Thread.sleep(5000);
         clickonViewDashboard.click();
 
     }
@@ -611,6 +654,102 @@ public class LRSPage extends BasePage {
         Thread.sleep(5000);
         FAQsDescription.isDisplayed();
     }
+
+    public void SelectNext() throws InterruptedException {
+        Thread.sleep(15000);
+        LRSNext.click();
+
+    }
+
+    public void SelectFunds() throws InterruptedException {
+        Thread.sleep(10000);
+        SourceOfFunds.click();
+
+    }
+
+    public void SelectSalaryFunds() throws InterruptedException {
+        Thread.sleep(5000);
+        SalaryFunds.click();
+
+    }
+
+    public void AddMPIN(int temp1, int temp2) throws InterruptedException {
+        Thread.sleep(5000);
+        int x =temp1;
+        int y = temp2;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+    }
+
+    public void SliderForMPIN() throws InterruptedException {
+        Thread.sleep(15000);
+        int startY = 1038; // Y-coordinate remains the same
+        int startX = 74;  // Adjust this value for the start position of the swipe
+        int endX = 653;   // Adjust this value for the end position of the swipe
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipeRight = new Sequence(finger, 1);
+
+        // Move to the starting position
+        swipeRight.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
+
+        // Press down to start the swipe
+        swipeRight.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+        // Move to the end position to simulate the swipe
+        swipeRight.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, startY));
+
+        // Release the button to complete the swipe
+        swipeRight.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        driver.perform(List.of(swipeRight));
+        Thread.sleep(3000);
+    }
+
+    public void SelectAgree() throws InterruptedException {
+        Thread.sleep(3000);
+        AgreeCheckBox.click();
+
+    }
+    public void SelectConfirm() throws InterruptedException {
+        Thread.sleep(3000);
+        ClickConfirm.click();
+
+    }
+
+    public void SelectLRSBack() throws InterruptedException {
+        Thread.sleep(3000);
+        LRSBack.click();
+
+
+    }
+
+    public void SelectReviewBack() throws InterruptedException {
+        Thread.sleep(3000);
+        ReviewBack.click();
+
+
+    }
+
+    public void SelectUSWalletBack() throws InterruptedException {
+        Thread.sleep(3000);
+        USWalletBack.click();
+
+
+    }
+
+    public void SelectStatementEdit() throws InterruptedException {
+        Thread.sleep(3000);
+        StatementEdit.click();
+
+
+    }
+
 
 
 

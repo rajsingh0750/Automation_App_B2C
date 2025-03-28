@@ -3,7 +3,10 @@ Feature: Trades all Sell related scenarios
   @Sanity @Regression
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Rupees
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User clicks on Sell
     And User enters the amount for sell
     And User Slides to Buy
@@ -13,7 +16,10 @@ Feature: Trades all Sell related scenarios
   @Sanity @Regression
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Quantity
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User clicks on Sell
     And User enters the Quantity for sell
     And User Slides to Buy
@@ -22,8 +28,12 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place Limit order in Sell
+
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User clicks on Sell
     And User clicks on Pro button
     And User selects order type as limit order
@@ -39,7 +49,10 @@ Feature: Trades all Sell related scenarios
   @Sanity @Regression
   Scenario: Validate if the user is able to place Stop order in Sell
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User clicks on Sell
     And User clicks on Pro button
     And User selects order type as Stop order
@@ -53,7 +66,10 @@ Feature: Trades all Sell related scenarios
   @Sanity @Regression
   Scenario: Validate if the user is able to place MIT order in Sell
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User clicks on Sell
     And User clicks on Pro button
     And User selects order type as MIT order
@@ -78,7 +94,10 @@ Feature: Trades all Sell related scenarios
   @Sanity @Regression
   Scenario: Once the user sells stock in market close then all data points like P&L, total invested and current value should remain as it is until the order is processed
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User clicks on Sell
     And User selects order type as Sell in Rupees
     And User enters the amount for sell
@@ -90,7 +109,10 @@ Feature: Trades all Sell related scenarios
   @Sanity
   Scenario: Check when stocks are sold during off market, then Amount held will be = Original Amount of Stock hold - Sold amount of stock
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User navigates to Activity tab and notice the Current Amount
     And User clicks on Sell
     And User selects order type as Sell in Rupees
@@ -106,7 +128,10 @@ Feature: Trades all Sell related scenarios
   @Sanity
   Scenario: Check Activity tab after sell, it should show the recent stock sold as a card item.
     Given User is on Trade dashboard
-    And User clicks on Stock
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    #And User clicks on Stock
+    And User click on the Stock
     And User clicks on Sell
     And User selects order type as Sell in Rupees
     And User enters the amount for sell and notices the estimated quantity as per the entered amount

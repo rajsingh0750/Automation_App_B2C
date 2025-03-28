@@ -214,6 +214,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().CheckLowintargetamount();
         new GoalsPage().cancelbutton();
         basePage.AndroidBack();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
     }
@@ -305,6 +306,7 @@ public class GoalsSteps extends BasePage {
     @Then("user should see the message {string}")
     public void userShouldSeeTheMessage(String Message) throws InterruptedException {
         new GoalsPage().ValidateIncrementMessage("Nice! you may get more returns!");
+        basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
@@ -582,6 +584,7 @@ public class GoalsSteps extends BasePage {
     public void theDigitalGoldGoalShouldBePlacedSuccessfully() throws InterruptedException {
         new GoalsPage().DigitalGoldSuccessfull();
         new GoalsPage().BackGoalspage();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -780,9 +783,11 @@ public class GoalsSteps extends BasePage {
 
     @Given("the User is on Goals Dashboard for monthly goal pause")
     public void theUserIsOnGoalsDashboardForMonthlyGoalPause() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+        signInPage.DynamicSignIn("faureretruba-9695@yopmail.com");
         //dashboardPage.ClickOnGoToDashboard();
-        new GoalsPage().SwitchtoGoal();
+        //new GoalsPage().SwitchtoGoal();
+
+        new GoalsPage().ClickViewAllGoal();
 
     }
 
@@ -822,6 +827,7 @@ public class GoalsSteps extends BasePage {
     @Then("user should see Pause status")
     public void userShouldSeePauseStatus() throws InterruptedException {
         new GoalsPage().ValidateGoalsPauseStatus();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -855,6 +861,12 @@ public class GoalsSteps extends BasePage {
         //new GoalsPage().ValidateHistoryTab();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
+    }
+
+    @And("user Select Goals from home dashboard")
+    public void userSelectGoalsFromHomeDashboard() throws InterruptedException {
+        new GoalsPage().ClickGoalsHome();
+
     }
 }
 

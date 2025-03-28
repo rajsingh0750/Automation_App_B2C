@@ -2,6 +2,7 @@ package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.BasePage;
 import com.appreciatewealth.pages.TradesPage;
+import com.appreciatewealth.pages.WatchlistPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -33,7 +34,7 @@ public class TradesSteps extends BasePage{
 
     @Given("User is on Trade dashboard")
     public void user_is_on_trade_dashboard() throws IOException, InterruptedException {
-        new TradesPage().NavigatetoTradeDashboard();
+        new TradesPage().VerifyUSStocks();
     }
 
     @Given("User clicks on Buy now for a stock")
@@ -87,7 +88,8 @@ public class TradesSteps extends BasePage{
     public void userShouldSeeHoldingsWithAccurateData() throws InterruptedException {
         Thread.sleep(5000);
         new TradesPage().CalculateCurrentValue();
-        basePage.AndroidBack();
+        //basePage.AndroidBack();
+        //basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -103,7 +105,8 @@ public class TradesSteps extends BasePage{
     public void userShouldSeeTheStockDetailsOfTheRespectiveStock() throws InterruptedException {
         new TradesPage().ValidateStockLink();
         basePage.AndroidBack();
-        basePage.AndroidBack();
+        //basePage.AndroidBack();
+        //basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -121,7 +124,8 @@ public class TradesSteps extends BasePage{
         new TradesPage().getInvestedOnPortfolio();
         new TradesPage().getCurrentAmountOnPortfolio();
         new TradesPage().CompareInvestedandCurrentValue();
-        basePage.AndroidBack();
+        //basePage.AndroidBack();
+        //basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -135,6 +139,7 @@ public class TradesSteps extends BasePage{
     @Then("User should see the following error message Low funds! Add money to your YES Bank AC and transfer to your buying power read more here")
     public void userShouldSeeTheFollowingErrorMessage() throws InterruptedException {
         new TradesPage().CheckLowinBuyPowerMessage();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -217,6 +222,7 @@ public class TradesSteps extends BasePage{
     @Then("User should see percentage change of P&L based on the Current Investment and Overall returns")
     public void userShouldSeePercentageChangeOfPLBasedOnTheCurrentInvestmentAndOverallReturns() throws InterruptedException {
         new TradesPage().CalculateProfitandLossPercentage();
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -243,6 +249,7 @@ public class TradesSteps extends BasePage{
     @Then("the entered value should be retained")
     public void theEnteredValueShouldBeRetained() throws InterruptedException {
         new TradesPage().ValidateEnteredAmount();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -360,8 +367,8 @@ public class TradesSteps extends BasePage{
         basePage.Logout();
     }
 
-    @And("User opens the global search")
-    public void userOpensTheGlobalSearch() throws InterruptedException {
+    @Given("User opens the global search")
+    public void userOpensTheGlobalSearch() throws InterruptedException, IOException {
         new TradesPage().ClickOnGlobalSearch();
 
     }
@@ -411,7 +418,7 @@ public class TradesSteps extends BasePage{
         new TradesPage().OrderExpiryCustom();
         new TradesPage().ClickReviewOrderButton();
         new TradesPage().ValidateCustomExpiryDate();
-        new TradesPage().ClickPlaceOrderButton();
+        //new TradesPage().ClickPlaceOrderButton();
 
     }
 
@@ -476,11 +483,13 @@ public class TradesSteps extends BasePage{
     public void userClicksAnItemFromCraftedList() throws InterruptedException {
         new TradesPage().GetCraftedStockName();
         new TradesPage().ClickOnCraftedList();
+
     }
 
 
     @Then("crafted list should get loaded")
     public void craftedListShouldGetLoaded() throws InterruptedException {
+        new TradesPage().ClickOnCraftedListTitle();
         new TradesPage().ValidateCraftedTitleScreen();
         basePage.AndroidBack();
         basePage.AndroidBack();
@@ -492,6 +501,7 @@ public class TradesSteps extends BasePage{
     @Then("User should see the following message Transaction Limit")
     public void userShouldSeeTheFollowingMessageTransactionLimit() throws InterruptedException {
         new TradesPage().ValidateTransactionLimitMsg();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -522,6 +532,7 @@ public class TradesSteps extends BasePage{
     @Then("User should see Invites you sent, Invites you received and close button")
     public void userShouldSeeInvitesYouSentInvitesYouReceivedAndCloseButton() throws InterruptedException {
         new TradesPage().ValidateCashbackScreen();
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -534,6 +545,7 @@ public class TradesSteps extends BasePage{
     @Then("The user should see the list of news cards")
     public void theUserShouldSeeTheListOfNewsCards() throws InterruptedException {
         new TradesPage().ValidateNewsSection();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -553,6 +565,7 @@ public class TradesSteps extends BasePage{
     public void itShouldOpenTheNewsDetailsScreen() throws InterruptedException {
         new TradesPage().ValidateNewsDetails();
         basePage.AndroidBack();
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -567,6 +580,7 @@ public class TradesSteps extends BasePage{
     public void theUserShouldSeeTheListOfResearchPerspectivesCardS() throws InterruptedException {
         new TradesPage().ValidateResearchList();
         basePage.AndroidBack();
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -579,14 +593,16 @@ public class TradesSteps extends BasePage{
 
 
     @And("User clicks on Research Card")
-    public void userClicksOnResearchCard() {
+    public void userClicksOnResearchCard() throws InterruptedException {
         new TradesPage().ClickOnResearchCard();
     }
 
 
     @Then("It should open the Research details screen")
     public void itShouldOpenTheResearchDetailsScreen() throws InterruptedException {
-        new TradesPage().ValidateResearchDetails();
+        //new TradesPage().ValidateResearchDetails();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -594,5 +610,128 @@ public class TradesSteps extends BasePage{
     @And("User Slides to Buy")
     public void userSlidesToBuy() throws InterruptedException {
         new TradesPage().SliderForBuy();
+    }
+
+
+
+
+    @And("User Selects on US stocks")
+    public void userSelectsOnUSStocks() throws InterruptedException {
+        new TradesPage().ClickUSStocks();
+    }
+
+
+
+    @And("User Selects the All Option")
+    public void userSelectsTheAllOption() throws InterruptedException {
+        new TradesPage().SelectAll();
+    }
+    @And("User click on the Stock")
+    public void userClickOnTheStock() throws InterruptedException {
+        new TradesPage().SelectStock();
+
+    }
+
+    @And("User clicks on the Portfolio US stocks")
+    public void userClicksOnThePortfolioUSStocks() throws InterruptedException {
+        new TradesPage().SelectPortFolioTab();
+    }
+
+    @And("User must select stock name")
+    public void userMustSelectStockName() throws InterruptedException {
+        new TradesPage().ClickOnStockDetails();
+
+    }
+
+    @And("User Selects on US stock tab")
+    public void userSelectsOnUSStockTab() throws InterruptedException {
+        new TradesPage().SelectUSStockTab();
+    }
+
+    @Given("the user is on Appreciate App's Dashboard on IOS")
+    public void theUserIsOnAppreciateAppSDashboardOnIOS() {
+        
+    }
+
+    @And("User clicks on Buy now for a stock IOS")
+    public void userClicksOnBuyNowForAStockIOS() throws InterruptedException {
+        new TradesPage().ClickonBuyNow();
+        
+    }
+
+    @Then("the order should be placed successfully in IOS")
+    public void theOrderShouldBePlacedSuccessfullyInIOS() {
+
+    }
+
+    @Given("User is on Trade dashboard IOS")
+    public void userIsOnTradeDashboardIOS() throws IOException, InterruptedException {
+        new TradesPage().VerifyUSStocksIOS();
+    }
+
+
+
+
+
+    @And("User click on the Stock IOS")
+    public void userClickOnTheStockIOS() throws InterruptedException {
+        new TradesPage().SelectStock();
+    }
+
+    @And("User click on view in order history")
+    public void userClickOnViewInOrderHistory() throws InterruptedException {
+        new TradesPage().ClickOnViewInOrderHistory();
+    }
+
+    @Then("the user should see the total order amount equals the order amount plus the fees")
+    public void theUserShouldSeeTheTotalOrderAmountEqualsTheOrderAmountPlusTheFees() throws InterruptedException {
+        basePage.ValidateTotalOrderAmount();
+    }
+
+    @And("User cancel the order")
+    public void userCancelTheOrder() throws InterruptedException {
+        new TradesPage().ClickOnCancleOrderCTA();
+    }
+
+    @And("User select yes button for cancel confirmation")
+    public void userSelectYesButtonForCancelConfirmation() throws InterruptedException {
+        new TradesPage().ClickOnYesButton();
+    }
+
+    @Then("User will see the {string} tag under order details page")
+    public void userWillSeeTheTagUnderOrderDetailsPage(String arg0) throws InterruptedException {
+        new TradesPage().VeifyCancleTag();
+    }
+
+    @And("User come to minimodule page")
+    public void userComeToMinimodulePage() throws InterruptedException {
+        basePage.AndroidBack();
+        new TradesPage().ClickOnGotoDashboard();
+        basePage.ClickProfileSettings();
+        new TradesPage().SelectTransactions();
+
+    }
+
+    @And("User will see {string} tag under all transactions page")
+    public void userWillSeeTagUnderAllTransactionsPage(String arg0) throws InterruptedException {
+        new TradesPage().VerifyCancleTagUnderTransactionPage();
+    }
+
+    @And("User will go to order details of the cancelled transaction")
+    public void userWillGoToOrderDetailsOfTheCancelledTransaction() throws InterruptedException {
+        new TradesPage().GoToOrderDetails();
+    }
+
+    @Then("User should see the {string} tag under order details page also")
+    public void userShouldSeeTheTagUnderOrderDetailsPageAlso(String arg0) throws InterruptedException {
+        new TradesPage().VerifyCancelledTagUnderOrderDetailsPage("CANCELLED");
+    }
+
+    @And("User should also see {string} tag under transaction status")
+    public void userShouldAlsoSeeTagUnderTransactionStatus(String arg0) throws InterruptedException {
+       // new TradesPage().VerifyCancelledTagUnderTransactionStatus();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
     }
 }

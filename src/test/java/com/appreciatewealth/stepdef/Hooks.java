@@ -4,7 +4,10 @@ import com.appreciatewealth.pages.BasePage;
 import com.appreciatewealth.utils.DriverManager;
 import com.appreciatewealth.utils.GlobalParams;
 import com.appreciatewealth.utils.ServerManager;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -56,6 +59,9 @@ public class Hooks extends BasePage {
 
     }
 
+
+
+
     @After
     public void quit(Scenario scenario) throws Exception {
         AndroidDriver driver = (AndroidDriver) DriverManager.getDriver();
@@ -67,7 +73,7 @@ public class Hooks extends BasePage {
                 scenario.attach(screenshot, "image/png", scenario.getName());
 
                 // Kill the app
-               basePage.KillAppRealMe(driver);
+                KillApp(driver);
                 driver.quit();
                 DriverManager.setDriver(null);
                 ServerManager serverManager = new ServerManager();

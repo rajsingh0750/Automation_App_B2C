@@ -227,10 +227,12 @@ Feature: Goals
     And user click on the CTA for next
     And the Retirement goal for monthly payment is successfully created
     And user click on the CTA take me back to goals
+    And user Select Goals from home dashboard
     And user selects mothly goals in Active List
     And user clicks on Pause option
     And user selects pause SIP button
     When user selects go back to goals
+    And user Select Goals from home dashboard
     And user selects history
     Then user should see Pause status
 
@@ -265,7 +267,7 @@ Feature: Goals
   @Sanity @Regression
   Scenario: Verify that monthly Goals can be Cancel
 
-    Given the User is on Goals Dashboard for monthly goal Cancel
+    Given the User is on Goals Dashboard
     And user select Retire goal type
     And user click on the CTA for monthly payment
     When user is on Optional payment page

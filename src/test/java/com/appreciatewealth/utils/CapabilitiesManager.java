@@ -37,7 +37,7 @@ public class CapabilitiesManager extends BasePage {
 
 
 
-                    caps.setCapability(MobileCapabilityType.APP,"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Apps/AppreciateProd.apk");
+                    caps.setCapability(MobileCapabilityType.APP,"/Users/raj/Downloads/AppreciateMobileAutomationNewUI_Investment_Final_Updated/src/test/resources/App/Prod/AppreciateProd.apk");
                     //caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
                     //caps.setCapability("systemPort", params.getSystemPort());
                     //caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
@@ -51,13 +51,17 @@ public class CapabilitiesManager extends BasePage {
                 case "iOS" -> {
                     caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, props.getProperty("iOSAutomationName"));
                     //String iOSAppUrl = getClass().getResource(props.getProperty("iOSAppLocation")).getFile();
-                    String iOSAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-                            + File.separator + "resources" + File.separator + "apps" + File.separator + "SwagLabsMobileApp.app";
-                    utils.log().info("appUrl is" + iOSAppUrl);
+
                     caps.setCapability("bundleId", props.getProperty("iOSBundleId"));
                     caps.setCapability("wdaLocalPort", params.getWdaLocalPort());
                     caps.setCapability("webkitDebugProxyPort", params.getWebkitDebugProxyPort());
-                    caps.setCapability("app", iOSAppUrl);
+                    caps.setCapability(MobileCapabilityType.NO_RESET,true);
+                    caps.setCapability(MobileCapabilityType.FULL_RESET,false);
+                    caps.setCapability(MobileCapabilityType.APP,"/Users/varshathandava/Downloads/AppreciateMobileAutomationNewUI/src/test/resources/App/IOS/Appreciate.ipa");
+                    caps.setCapability("unicodeKeyboard", false);
+                    caps.setCapability("resetKeyboard", false);
+                    caps.setCapability("xcodeOrgId","H8S73L58B7");
+                    caps.setCapability("xcodeSigningId","iPhone Developer");
                 }
             }
             return caps;

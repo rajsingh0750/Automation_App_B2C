@@ -1,6 +1,7 @@
 package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.*;
+import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,13 +14,13 @@ public class MiniModuleSteps extends BasePage {
     BasePage basePage = new BasePage();
     SignInPage signInPage = new SignInPage();
 
-DashboardPage dashboardPage = new DashboardPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
 
     @Given("the User is on MiniModule page")
-    public void the_user_is_on_mini_module_page() throws InterruptedException, IOException {
-     signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
-     new MiniModulePage().NavigateToMiniModule();
+    public void the_user_is_on_mini_module_page() throws Exception {
+        new SignInPage().DynamicSignIn("varshatmysuru1992@gmail.com");
+        new MiniModulePage().NavigateToMiniModule();
 
     }
     @And("the User Clicks on Accounts")
@@ -65,31 +66,32 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Pricing")
     public void theUserClicksOnPricing() throws InterruptedException, IOException {
         new MiniModulePage().PricingPage();
-        
+
     }
 
     @When("User is on Pricing page")
     public void userIsOnPricingPage() throws InterruptedException {
         new MiniModulePage().PricingDetails();
-        
+
     }
 
     @And("User clicks on info icon of Goals")
     public void userClicksOnInfoIconOfGoals() throws InterruptedException {
         new MiniModulePage().GoalsinfoDetails();
-        
+
     }
+
 
     @And("User clicks on info icon of Trade")
     public void userClicksOnInfoIconOfTrade() throws InterruptedException {
         new MiniModulePage().TradeinfoDetails();
-        
+
     }
 
     @And("User clicks on info icon of CashBack")
     public void userClicksOnInfoIconOfCashBack() throws InterruptedException {
         new MiniModulePage().CashinfoDetails();
-        
+
     }
 
     @Then("User Should see Other fees with all the Pricing details")
@@ -116,25 +118,27 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User see Terms of Use")
     public void userSeeTermsOfUse() throws InterruptedException {
         new MiniModulePage().LegalTerms();
-        new MiniModulePage().LegalClose();
+        // new MiniModulePage().LegalClose();
+        basePage.AndroidBack();
 
     }
 
     @And("User Click on Appreciate Broking")
     public void userClickOnAppreciateBroking() throws InterruptedException {
         new MiniModulePage().BrokingDetails();
+        basePage.AndroidBack();
     }
 
     @And("User see Appreciate Broking Information")
     public void userSeeAppreciateBrokingInformation() throws InterruptedException {
         new MiniModulePage().LegalBroking();
-        new MiniModulePage().LegalClose();
+        // new MiniModulePage().LegalClose();
     }
 
     @And("User Clicks on Registration")
     public void userClicksOnRegistration() throws InterruptedException {
         new MiniModulePage().RegisterDetails();
-        new MiniModulePage().RegisterPage();
+        //new MiniModulePage().RegisterPage();
 
     }
 
@@ -153,7 +157,7 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @Then("User Should see all Terms and Condition in Legal details")
     public void userShouldSeeAllTermsAndConditionInLegalDetails() throws InterruptedException {
-        new MiniModulePage().LegalClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -161,26 +165,28 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userClicksOnDriveWealth() throws InterruptedException {
         new MiniModulePage().DriveClick();
 
-        
+
     }
 
     @And("User see Terms and Disclosure")
     public void userSeeTermsAndDisclosure() throws InterruptedException {
         new MiniModulePage().TermsClick();
-        new MiniModulePage().LegalClose();
+        basePage.AndroidBack();
+        // new MiniModulePage().LegalClose();
     }
 
     @And("User Clicks on Privacy Policy")
     public void userClicksOnPrivacyPolicy() throws InterruptedException {
         new MiniModulePage().PrivacyClick();
-        new MiniModulePage().LegalClose();
-        
+        basePage.AndroidBack();
+        // new MiniModulePage().LegalClose();
+
     }
 
     @And("User Clicks on W-BEN")
     public void userClicksOnWBEN() throws InterruptedException {
         new MiniModulePage().W8BENClick();
-        new MiniModulePage().LegalClose();
+        basePage.AndroidBack();
     }
 
     @Then("User Should see all Drive Wealth for Partner Terms and Condition in Legal details")
@@ -192,20 +198,20 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Clicks on YES Bank")
     public void userClicksOnYESBank() throws InterruptedException {
         new MiniModulePage().ClickYesBank();
-        
+
     }
 
 
     @And("User see Do you want to download PDF file?")
     public void userSeeDoYouWantToDownloadPDFFile() throws InterruptedException {
         new MiniModulePage().fileblock();
-        
+
     }
 
     @And("User Clicks on Download")
     public void userClicksOnDownload() throws InterruptedException {
         new MiniModulePage().DownloadClick();
-        
+
     }
 
     @And("User see the following Toast message Downloading File")
@@ -214,7 +220,7 @@ DashboardPage dashboardPage = new DashboardPage();
     }
     @Then("User Download the file successfully")
     public void userDownloadTheFileSuccessfully() throws InterruptedException {
-        new MiniModulePage().LegalClose();
+        basePage.AndroidBack();
         basePage.Logout();
     }
 
@@ -222,25 +228,25 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on CSR")
     public void theUserClicksOnCSR() throws InterruptedException {
         new MiniModulePage().ClickCSR();
-        
+
     }
 
     @And("User see Invest like a Woman in CSR")
     public void userSeeInvestLikeAWomanInCSR() throws InterruptedException {
         new MiniModulePage().CSRInvestWoman();
-        
+
     }
 
     @And("User see shoots in CSR")
     public void userSeeShootsInCSR() throws InterruptedException {
         new MiniModulePage().CSRShoots();
-        
+
     }
 
     @And("User see Investing for everyone in CSR")
     public void userSeeInvestingForEveryoneInCSR() throws InterruptedException {
         new MiniModulePage().CSRInvestEveryone();
-        
+
     }
 
     @Then("User Should see all Our Key Initiatives details")
@@ -254,19 +260,19 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User see Send us your suggestions")
     public void userSeeSendUsYourSuggestions() throws InterruptedException {
         new MiniModulePage().SuggestText();
-        
+
     }
 
     @And("User Select Submit")
     public void userSelectSubmit() throws InterruptedException {
         new MiniModulePage().SubmitButton();
-        
+
     }
 
     @And("User see the following message on email {string}")
     public void userSeeTheFollowingMessageOnEmail(String EmailError) throws InterruptedException {
         new MiniModulePage().ValidateEmailError("Please enter valid email");
-        
+
     }
 
     @And("User see the following message on suggestion {string}")
@@ -284,31 +290,31 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on refer now")
     public void theUserClicksOnReferNow() throws InterruptedException {
         new MiniModulePage().ClickReferNow();
-        
+
     }
 
     @When("user is on Rewards and Incentives page")
     public void userIsOmRewardsAndIncentivesPage() throws InterruptedException {
         new MiniModulePage().ValidateRewardsPage();
-        
+
     }
 
     @And("User is on Refer a friend page")
     public void userIsOnReferAFriendPage() throws InterruptedException {
         new MiniModulePage().ValidateReferFriendPage();
-        
+
     }
 
     @And("User Clicks on Rewards")
     public void userClicksOnRewards() throws InterruptedException {
         new MiniModulePage().ClickRewards();
-        
+
     }
 
     @And("User Clicks on Coupons")
     public void userClicksOnCoupons() throws InterruptedException {
         new MiniModulePage().ClickCoupons();
-        
+
     }
 
     @Then("User Should see successfully Rewards and Incentives")
@@ -320,39 +326,39 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Support")
     public void theUserClicksOnSupport() throws InterruptedException {
         new MiniModulePage().SupportPage();
-        
+
     }
 
     @And("User Clicks on Submit a Ticket")
     public void userClicksOnSubmitATicket() throws InterruptedException {
         new MiniModulePage().ClickTicket();
-        
+
     }
 
     @And("User Select issue type")
     public void userSelectIssueType() throws InterruptedException {
         new MiniModulePage().SelectIssue();
 
-        
+
     }
 
     @And("User enters Subject")
     public void userEntersSubject() throws InterruptedException {
         new MiniModulePage().EnterSubject("Support ticket for testing Scripts");
         //basePage.AndroidBack();
-        
+
     }
 
     @And("User enters Your message")
     public void userEntersYourMessage() throws InterruptedException {
         new MiniModulePage().EnterMessage("Support message for testing Scripts");
-        
+
     }
 
     @And("User clicks on the CTA for Submit a ticket")
     public void userClicksOnTheCTAForSubmitATicket() throws InterruptedException {
         new MiniModulePage().ClickSubmit();
-        
+
     }
 
     @Then("User should successfully create a support ticket")
@@ -365,33 +371,33 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Change Language")
     public void theUserClicksOnChangeLanguage() throws InterruptedException {
         new MiniModulePage().ClickChangeLanguage();
-        
+
     }
 
     @And("User Clicks on Hindi language")
     public void userClicksOnHindiLanguage() throws InterruptedException {
         new MiniModulePage().ClickHindi();
-        
+
     }
 
     @And("User Select Continue")
     public void userSelectContinue() throws InterruptedException {
         new MiniModulePage().Continuebutton();
-        
+
     }
 
     @When("User is on Passcode page")
     public void userIsOnPasscodePage() throws InterruptedException {
         Thread.sleep(8000);
         new SignInPage().EnterPasscode();
-        
+
     }
 
     @And("User Clicks on CTA of Profile")
     public void userClicksOnCTAOfProfile() throws IOException, InterruptedException {
         Thread.sleep(3000);
         basePage.ClickProfileSettings();
-        
+
     }
 
 
@@ -414,19 +420,19 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on About Us")
     public void theUserClicksOnAboutUs() throws InterruptedException {
         new MiniModulePage().AboutUsPage();
-        
+
     }
 
     @And("User see Our Mission Banner")
     public void userSeeOurMissionBanner() throws InterruptedException {
         new MiniModulePage().ValidateAboutUsPage();
-        
+
     }
 
     @And("User see Our Vision and Values")
     public void userSeeOurVisionAndValues() throws InterruptedException {
         new MiniModulePage().ValidateVisionValues();
-        
+
     }
 
     @Then("User Should see all the details in About Us")
@@ -437,7 +443,7 @@ DashboardPage dashboardPage = new DashboardPage();
     }
 
     @Given("the user is on Goals Dashboard for latest transaction")
-    public void theUserIsOnGoalsDashboardForLatestTransaction() throws InterruptedException, IOException {
+    public void theUserIsOnGoalsDashboardForLatestTransaction() throws Exception {
         signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         //dashboardPage.ClickOnGoToDashboard();
         new GoalsPage().SwitchtoGoal();
@@ -449,7 +455,7 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userAddsNameOfTheLatestGoal() throws InterruptedException {
         new GoalsPage().EnterRandomGoalName();
 
-        
+
     }
 
     @And("user select Target Date for latest goal")
@@ -469,7 +475,7 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userClicksOnPayNowAndContinue() throws InterruptedException {
         new MiniModulePage().MiniGoalPay();
         new MiniModulePage().MiniGoalContinue();
-        
+
     }
 
     @And("the user Clicks MiniModule page")
@@ -480,20 +486,20 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Transactions")
     public void theUserClicksOnTransactions() throws InterruptedException {
         new MiniModulePage().MiniTransactions();
-        
+
     }
 
     @And("User is on Goals Tab and see the latest goal created")
     public void userIsOnGoalsTabAndSeeTheLatestGoalCreated() throws InterruptedException {
         new MiniModulePage().MiniGoal();
         new MiniModulePage().GetGoalNameFromTransaction();
-        
+
     }
 
     @And("User Clicks on Cash Tab and see the latest data")
     public void userClicksOnCashTabAndSeeTheLatestData() throws InterruptedException {
         new MiniModulePage().MiniCash();
-       new MiniModulePage().GetCashGoalName();
+        new MiniModulePage().GetCashGoalName();
 
     }
 
@@ -554,13 +560,13 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Portfolio")
     public void theUserClicksOnPortfolio() throws InterruptedException {
         new MiniModulePage().MiniPortfolio();
-        
+
     }
 
     @And("User see Your portfolio")
     public void userSeeYourPortfolio() throws InterruptedException {
         new MiniModulePage().MiniYourPortfolio();
-        
+
     }
 
     @Then("User Should see Trade and Goals portfolio")
@@ -589,7 +595,7 @@ DashboardPage dashboardPage = new DashboardPage();
     }
 
     @When("User enters {string}")
-    public void userEntersAnd(String email) throws InterruptedException {
+    public void userEntersAnd(String email) throws Exception {
         new SignInPage().DynamicSignIn(email);
 
     }
@@ -647,7 +653,8 @@ DashboardPage dashboardPage = new DashboardPage();
 
     @And("User clicks on Profile icon")
     public void userClicksOnProfileIcon() throws InterruptedException {
-        new MiniModulePage().ClickOnProfileFromDashboard();
+        //new MiniModulePage().ClickOnProfileFromDashboard();
+        basePage.ClickProfileSettings();
 
 
     }
@@ -667,14 +674,14 @@ DashboardPage dashboardPage = new DashboardPage();
     @Then("Annual Income should be updated under profile details")
     public void annualIncomeShouldBeUpdatedUnderProfileDetails() throws InterruptedException {
         new MiniModulePage().ValidateUpdatedIncome();
-        //basePage.AndroidBack();
+        basePage.AndroidBack();
         basePage.Logout();
 
     }
 
     @Given("the User is on MiniModule page for passcode")
-    public void theUserIsOnMiniModulePageForPasscode() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
+    public void theUserIsOnMiniModulePageForPasscode() throws Exception {
+        new SignInPage().DynamicSignIn("varshatmysuru1992@gmail.com");
         //signInPage.OTPDynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
 
@@ -707,7 +714,7 @@ DashboardPage dashboardPage = new DashboardPage();
     }
 
     @Then("the User Confirm the new passcode")
-    public void theUserConfirmTheNewPasscode() throws InterruptedException, IOException {
+    public void theUserConfirmTheNewPasscode() throws Exception {
         new MiniModulePage().SetPasscode();
         signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
@@ -720,7 +727,7 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userClicksOnTheSubmitATicketInProfileDetails() throws InterruptedException {
         new MiniModulePage().ClickProfileSubmit();
 
-        
+
     }
 
     @Then("User should successfully create a support ticket from Profile Details Page")
@@ -738,13 +745,13 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Buying Power")
     public void theUserClicksOnBuyingPower() throws InterruptedException {
         new MiniModulePage().ClickBuyingPower();
-        
+
     }
 
     @And("the User Clicks on Account Details")
     public void theUserClicksOnAccountDetails() throws InterruptedException {
         new MiniModulePage().ClickAccountDetails();
-        
+
     }
 
     @Then("User Should See Drive Wealth Account Details")
@@ -764,13 +771,13 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Request Advisory Services")
     public void theUserClicksOnRequestAdvisoryServices() throws InterruptedException {
         new MiniModulePage().ClickRequestAdvisory();
-        
+
     }
 
     @And("User Selects Thinking of Hiring")
     public void userSelectsThinkingOfHiring() throws InterruptedException {
         new MiniModulePage().ValidateHiring();
-        
+
     }
 
     @Then("User should see all the options in Add-on Services")
@@ -783,13 +790,13 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Enter Valid EmailId")
     public void userEnterValidEmailId() throws InterruptedException {
         new MiniModulePage().EnterEmailID("varsha.thandav@ppreciate.com");
-        
+
     }
 
     @And("User Adds Feedback")
     public void userAddsFeedback() throws InterruptedException {
         new MiniModulePage().EnterFeedback("Adding Automation feedback");
-        
+
     }
 
     @Then("User Should Successfully create a feedback Note")
@@ -802,7 +809,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Recent Tickets")
     public void theUserClicksOnRecentTickets() throws InterruptedException {
         new MiniModulePage().ClickRecentTickets();
-        
+
     }
 
     @Then("User Should see all the Recent Tickets details")
@@ -816,7 +823,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Clicks on the Documents")
     public void userClicksOnTheDocuments() throws InterruptedException {
         new MiniModulePage().ClickDocuments();
-        
+
     }
 
     @And("User Select Monthly Statements")
@@ -841,7 +848,7 @@ DashboardPage dashboardPage = new DashboardPage();
         new MiniModulePage().ClickTaxDocuments();
         basePage.AndroidBack();
         //new MiniModulePage().ClickViewClose();
-        
+
     }
 
     @Then("User Should see Successfully all the documents in each option")
@@ -854,25 +861,25 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Clicks FAQs")
     public void userClicksFAQs() throws InterruptedException {
         new MiniModulePage().ClickFAQs();
-        
+
     }
 
     @And("User Select Product FAQs")
     public void userSelectProductFAQs() throws InterruptedException {
         new MiniModulePage().ValidateProductFAQs();
-        
+
     }
 
     @And("User Select Partner FAQs")
     public void userSelectPartnerFAQs() throws InterruptedException {
         new MiniModulePage().ValidatePartnerFAQs();
-        
+
     }
 
     @And("User Select Company FAQs")
     public void userSelectCompanyFAQs() throws InterruptedException {
         new MiniModulePage().ValidateCompanyFAQs();
-        
+
     }
 
     @Then("FAQs pages Should load Successfully")
@@ -909,7 +916,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("the User Clicks on Withdraw")
     public void theUserClicksOnWithdraw() throws InterruptedException {
         new MiniModulePage().ClickWithdraw();
-        
+
     }
 
     @And("the User enters the amount")
@@ -932,21 +939,21 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Select Day Trade Settings")
     public void userSelectDayTradeSettings() throws InterruptedException {
         new MiniModulePage().ClickDayTradeSettings();
-        
+
     }
 
     @And("User Clicks on Day Trading")
     public void userClicksOnDayTrading() throws InterruptedException {
         new MiniModulePage().ClickDayTrading();
         new MiniModulePage().ClickDistributClose();
-        
+
     }
 
     @And("User Clicks on Pattern Day")
     public void userClicksOnPatternDay() throws InterruptedException {
         new MiniModulePage().ClickPatternDayTrading();
         new MiniModulePage().ClickDistributClose();
-        
+
     }
 
     @Then("User should see all the Trade setting descriptions")
@@ -959,7 +966,7 @@ DashboardPage dashboardPage = new DashboardPage();
     }
 
     @Given("the User is on the MiniModule page")
-    public void theUserIsOnTheMiniModulePage() throws InterruptedException, IOException {
+    public void theUserIsOnTheMiniModulePage() throws Exception {
         signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
     }
@@ -999,7 +1006,7 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userClicksOnViewAccountValue() throws InterruptedException {
         new MiniModulePage().ClickAccountValue();
 
-        
+
     }
 
     @Then("User should see all description related to account value")
@@ -1015,7 +1022,7 @@ DashboardPage dashboardPage = new DashboardPage();
     public void userSelectChooseFromDevice() throws InterruptedException {
         new MiniModulePage().ClickProfilePhoto();
         new MiniModulePage().ClickChooseDevice();
-        
+
     }
 
     @And("User Select Gallery Option")
@@ -1027,7 +1034,7 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User Select Photo From Device")
     public void userSelectPhotoFromDevice() throws InterruptedException {
         new MiniModulePage().ClickImage();
-        
+
     }
 
     @Then("the User Profile Photo should be Updated Successfully")
@@ -1062,5 +1069,103 @@ DashboardPage dashboardPage = new DashboardPage();
     @And("User clicks on the CTA for Submit a ticket in profile")
     public void userClicksOnTheCTAForSubmitATicketInProfile() throws InterruptedException {
         new MiniModulePage().ClickProfileTicketSubmit();
+    }
+
+    @When("User click on US Wallet")
+    public void userClickOnUSWallet() throws InterruptedException {
+        new MiniModulePage().SelectUSWalletOption();
+    }
+
+    @Then("User will verify the US Wallet Amount")
+    public void userWillVerifyTheUSWalletAmount() throws InterruptedException {
+        new MiniModulePage().VerifyUSWalletAmt();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("User clicks on info icon of AUM charges")
+    public void userClicksOnInfoIconOfAUMCharges() throws InterruptedException {
+        new MiniModulePage(). SelectAUMchargesUnderGoals();
+    }
+
+    @And("User clicks on info icon of Transaction Fee")
+    public void userClicksOnInfoIconOfTransactionFee() throws InterruptedException {
+        new MiniModulePage(). SelectTransactionFeeUnderTrae();
+    }
+
+
+    @Given("User enter wrong passcode")
+    public void userEnterWrongPasscode() throws InterruptedException {
+        signInPage. EnterWrongPasscode("raj.singh@ppreciate.com");
+    }
+
+    @Then("The passcode must be clear by default and user should be able to re-enter the passcode again")
+    public void thePasscodeMustBeClearByDefaultAndUserShouldBeAbleToReEnterThePasscodeAgain() throws InterruptedException {
+        new MiniModulePage(). EnterCorrectPasscode();
+    }
+
+    @And("User should see the home dashboard")
+    public void userShouldSeeTheHomeDashboard() throws InterruptedException {
+        new MiniModulePage(). VerifyHomeDashboard();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @And("User kills the app")
+    public void userKillsTheApp() throws InterruptedException {
+        basePage.KillApp((AndroidDriver) driver);
+    }
+
+    @And("User will relaunch the app")
+    public void userWillRelaunchTheApp() {
+        launchApp();
+    }
+
+    @Then("User will see the Sign in page")
+    public void userWillSeeTheSignInPage() throws InterruptedException {
+        new MiniModulePage(). VerifySignInPage();
+    }
+
+    @Then("User should see Yes Bank Page")
+    public void userShouldSeeYesBankPage() throws InterruptedException {
+        new MiniModulePage(). VerifyYesBankPage();
+    }
+
+    @And("User come back to minimodule page")
+    public void userComeBackToMinimodulePage() throws InterruptedException {
+        new MiniModulePage(). GoBackToMiniModulePage();
+    }
+
+    @And("User come back to minimodule page and do logout")
+    public void userComeBackToMinimodulePageAndDoLogout() throws InterruptedException {
+        new MiniModulePage(). GoBackToMiniModulePage();
+        basePage.Logout();
+    }
+
+    @And("User click on investment builder")
+    public void userClickOnInvestmentBuilder() throws InterruptedException {
+        new MiniModulePage(). ClickOnInvestmentBuilder();
+    }
+
+    @Then("User should see update investment builder page")
+    public void userShouldSeeUpdateInvestmentBuilderPage() throws InterruptedException {
+        new MiniModulePage(). VerifyUpdateInvestmentBuilderPage();
+    }
+
+    @And("User update the typically invest section")
+    public void userUpdateTheTypicallyInvestSection() throws InterruptedException {
+        new MiniModulePage(). UpdateTypicallyInvest();
+    }
+
+    @When("User come back from update investment builder page")
+    public void userComeBackFromUpdateInvestmentBuilderPage() throws InterruptedException {
+        new MiniModulePage(). SelectBackArrowAtUpdateInvestmentBuilderPage();
+    }
+
+    @Then("User should see setting and preferences page")
+    public void userShouldSeeSettingAndPreferencesPage() throws InterruptedException {
+        new MiniModulePage(). VerifySettingAndPreferencesPage();
+        basePage.Logout();
+
     }
 }

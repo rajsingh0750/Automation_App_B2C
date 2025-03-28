@@ -3,12 +3,12 @@
 <suite name="Suite" parallel="tests">
 	<test name="Pixel5">
 		<parameter name="platformName" value="Android" />
-		<parameter name="udid" value="0K537311312168E1" />
-		<parameter name="deviceName" value="Realme C53" />
+		<parameter name="udid" value="DQE6O78HZP9HPF5H" />
+		<parameter name="deviceName" value="POCO C65" />
 		<parameter name="systemPort" value="10000" />
 		<parameter name="chromeDriverPort" value="11000" />
 		<classes>
-			<class name="com.appreciatewealth.runners.RealmeTestNGRunnerTest"/>
+			<class name="com.appreciatewealth.runners.PocoTestNGRunnerTest"/>
 		</classes>
 	</test>
 </suite> <!-- Suite -->

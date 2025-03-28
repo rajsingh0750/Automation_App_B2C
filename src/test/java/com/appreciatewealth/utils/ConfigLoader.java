@@ -12,8 +12,8 @@ public class ConfigLoader {
     private ConfigLoader(){
         String env = System.getProperty("env", String.valueOf(EnvType.PROD));
         switch (EnvType.valueOf(env)){
-            case PROD -> properties = PropertyUtils.propertyLoader("/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/config.properties");
-           case STAGE -> properties = PropertyUtils.propertyLoader("/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/config.properties");
+            case PROD -> properties = PropertyUtils.propertyLoader("/Users/raj/Downloads/AppreciateMobileAutomationNewUI_Investment_Final_Updated/src/test/resources/config.properties");
+           case STAGE -> properties = PropertyUtils.propertyLoader("/Users/raj/Downloads/AppreciateMobileAutomationNewUI_Investment_Final_Updated/src/test/resources/config.properties");
             default -> throw new IllegalStateException("INVALID ENV: " + env);
         }
     }

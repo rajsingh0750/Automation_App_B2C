@@ -10,6 +10,7 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,21 +43,39 @@ public class BasePage {
     public static String otp;
     PropertyManager props = new PropertyManager();
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ImageView\n" + "\t")
+    @AndroidFindBy(accessibility = "Profile\n" +
+            "Tab 5 of 5")
+    //@iOSXCUITFindBy(accessibility = "Profile Tab 4 of 4 ")
+
     WebElement ProfileSettings;
 
+    //@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Log out\"]")
     @AndroidFindBy(xpath = "//*[@text='Logout']")
     WebElement LogoutButton;
 
-    @AndroidFindBy(id ="//*[@text='Clear all']")
+    @AndroidFindBy(xpath = "//*[@text='लॉग आउट']")
+    WebElement HindiLogoutButton;
+
+    @AndroidFindBy(id = "//*[@text='Clear all']")
     WebElement CloseRecentApp;
+
+
+    @AndroidFindBy(id = "com.appreciatewealth.android:id/tvOrderAmountValue")
+    WebElement OrderAmount;
+
+
+    @AndroidFindBy(id = "com.appreciatewealth.android:id/tvFeesValue")
+    WebElement PlatformFees;
+
+    @AndroidFindBy(id = "com.appreciatewealth.android:id/tvTotalOrderAmountValue")
+    WebElement Total_Order_Amount;
 
 
     public static AppiumDriver driver;
 
     TestUtils utils = new TestUtils();
 
-    public BasePage(){
+    public BasePage() {
         this.driver = new DriverManager().getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
     }
@@ -70,7 +90,7 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(e));
     }
 
-    public static void ClearCache(int choice){
+    public static void ClearCache(int choice) {
       /*  if (choice == 1) {
             caps.setCapability(MobileCapabilityType.NO_RESET, false);
             caps.setCapability(MobileCapabilityType.FULL_RESET, true);
@@ -81,39 +101,86 @@ public class BasePage {
         }*/
 
 
-
     }
 
-    public  void Logout() throws InterruptedException {
+
+    public void Logout() throws InterruptedException {
 
         //ProfileSettings.click();
-        Thread.sleep(7000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Logout\").instance(0))"));
+        Thread.sleep(5000);
+        int numberOfScrolls = 1; // Adjust the number of scrolls as needed
+
+        for (int i = 0; i < numberOfScrolls; i++) {
+            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
+        }
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Log out\").instance(0))"));
+        //Thread.sleep(3000);
         LogoutButton.click();
         //((AndroidDriver)driver).terminateApp("com.appreciatewealth.android.uat");
-        Thread.sleep(6000);
+        //Thread.sleep(6000);
     }
-    public static void KillApp(AndroidDriver driver) throws InterruptedException {
-        Thread.sleep(2000);
-        //driver.pressKey(new KeyEvent(AndroidKey.HOME));
-        //driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+
+    public void HindiLogout() throws InterruptedException {
+
+        //ProfileSettings.click();
+        Thread.sleep(5000);
+        int numberOfScrolls = 1; // Adjust the number of scrolls as needed
+
+        for (int i = 0; i < numberOfScrolls; i++) {
+            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
+        }
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Log out\").instance(0))"));
         //Thread.sleep(3000);
-        //CloseRecentApp.click();
-      /*driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+        HindiLogoutButton.click();
+        //((AndroidDriver)driver).terminateApp("com.appreciatewealth.android.uat");
+        //Thread.sleep(6000);
+    }
+
+    public static void KillApp(AndroidDriver driver) throws InterruptedException {
+        driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
         Thread.sleep(2000);
         boolean canScrollMore = true;
         while (canScrollMore) {
             canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 1130,
+                    "left", 100, "top", 100, "width", 600, "height", 680,
 //                "elementId", ((RemoteWebElement) element).getId(),
                     "direction", "down",
                     "percent", 1.0
             ));
-        }*/
-
+        }
+        boolean canScrollMore2 = true;
+        while (canScrollMore2) {
+            canScrollMore2 = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 600, "height", 680,
+//                "elementId", ((RemoteWebElement) element).getId(),
+                    "direction", "down",
+                    "percent", 1.0
+            ));
+        }
     }
 
-    public   void  KillAppRealMe(AndroidDriver driver) throws InterruptedException {
+
+//    public static void KillApp(AndroidDriver driver) throws InterruptedException {
+//        Thread.sleep(2000);
+//        //driver.pressKey(new KeyEvent(AndroidKey.HOME));
+//        //driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+//        //Thread.sleep(3000);
+//        //CloseRecentApp.click();
+//      /*driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+//        Thread.sleep(2000);
+//        boolean canScrollMore = true;
+//        while (canScrollMore) {
+//            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+//                    "left", 100, "top", 100, "width", 600, "height", 1130,
+////                "elementId", ((RemoteWebElement) element).getId(),
+//                    "direction", "down",
+//                    "percent", 1.0
+//            ));
+//        }*/
+//
+//    }
+
+    public void KillAppRealMe(AndroidDriver driver) throws InterruptedException {
         Thread.sleep(3000);
         driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
         Thread.sleep(4000);
@@ -134,7 +201,7 @@ public class BasePage {
         driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
         ));*/
-        int x =415;
+        int x = 415;
         int y = 225;
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence tap = new Sequence(finger, 1);
@@ -146,6 +213,7 @@ public class BasePage {
         // System.out.println(text);
 
     }
+
     public static String FormattedDateWithAddedDays() {
         Date currentDate = new Date();
 
@@ -181,7 +249,7 @@ public class BasePage {
     }
 
 
-    public static String GetCurrentDate(){
+    public static String GetCurrentDate() {
         Date currentDate = new Date();
 
         // Create a Calendar instance and set it to the current date
@@ -231,8 +299,6 @@ public class BasePage {
         ((AndroidDriver) driver).activateApp(ConfigLoader.getInstance().getProperty("androidAppPackage"));
 
 
-
-
         return otp;
     }
 
@@ -271,6 +337,7 @@ public class BasePage {
         // System.out.println(text);
 
     }
+
     public static String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder randomString = new StringBuilder();
@@ -287,9 +354,10 @@ public class BasePage {
 
 
     public void ClickProfileSettings() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(8000);
         ProfileSettings.click();
     }
+
     public void AndroidBack() throws InterruptedException {
         Thread.sleep(5000);
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
@@ -362,7 +430,7 @@ public class BasePage {
 
     public String getText(WebElement e, String msg) {
         String txt;
-        switch(new GlobalParams().getPlatformName()){
+        switch (new GlobalParams().getPlatformName()) {
             case "Android":
                 txt = getAttribute(e, "text");
                 break;
@@ -378,7 +446,7 @@ public class BasePage {
 
     public String getText(By e, String msg) {
         String txt;
-        switch(new GlobalParams().getPlatformName()){
+        switch (new GlobalParams().getPlatformName()) {
             case "Android":
                 txt = getAttribute(e, "text");
                 break;
@@ -393,7 +461,7 @@ public class BasePage {
     }
 
     public void closeApp() {
-        switch(new GlobalParams().getPlatformName()){
+        switch (new GlobalParams().getPlatformName()) {
             case "Android":
                 ((InteractsWithApps) driver).terminateApp(driver.getCapabilities().
                         getCapability("appPackage").toString());
@@ -405,7 +473,7 @@ public class BasePage {
     }
 
     public void launchApp() {
-        switch(new GlobalParams().getPlatformName()){
+        switch (new GlobalParams().getPlatformName()) {
             case "Android":
                 ((InteractsWithApps) driver).activateApp(driver.getCapabilities().
                         getCapability("appPackage").toString());
@@ -419,7 +487,7 @@ public class BasePage {
     public WebElement andScrollToElementUsingUiScrollable(String childLocAttr, String childLocValue) {
         return driver.findElement(AppiumBy.androidUIAutomator(
                 "new UiScrollable(new UiSelector()" + ".scrollable(true)).scrollIntoView("
-                        + "new UiSelector()."+ childLocAttr +"(\"" + childLocValue + "\"));"));
+                        + "new UiSelector()." + childLocAttr + "(\"" + childLocValue + "\"));"));
     }
 
     public WebElement iOSScrollToElementUsingMobileScroll(WebElement e) {
@@ -436,7 +504,7 @@ public class BasePage {
     }
 
     public By iOSScrollToElementUsingMobileScrollParent(WebElement parentE, String predicateString) {
-        RemoteWebElement parent = (RemoteWebElement)parentE;
+        RemoteWebElement parent = (RemoteWebElement) parentE;
         String parentID = parent.getId();
         HashMap<String, String> scrollObject = new HashMap<String, String>();
         scrollObject.put("element", parentID);
@@ -449,7 +517,6 @@ public class BasePage {
         System.out.println("Mobilelement is " + m);
         return m;
     }
-
 /*    public MobileElement scrollToElement(MobileElement element, String direction) throws Exception {
         Dimension size = driver.manage().window().getSize();
         int startX = (int) (size.width * 0.5);
@@ -578,5 +645,36 @@ public class BasePage {
 
         driver.perform(List.of(swipeRight));
         Thread.sleep(3000);
+    }
+
+    public void LogoutIos() throws InterruptedException {
+        Thread.sleep(1000);
+        WebElement element = driver.findElement(AppiumBy.accessibilityId("Log out"));
+        Map<String, Object> params = new HashMap<>();
+        params.put("direction", "down");
+        driver.executeScript("mobile:scroll", params);
+        params.put("element", ((RemoteWebElement) element).getId());
+        Thread.sleep(3000);
+        element.click();
+    }
+
+    public void ValidateTotalOrderAmount() throws InterruptedException {
+        Thread.sleep(4000);
+        String order_amt = OrderAmount.getText().replaceAll("₹", "").trim();
+        String Fees = PlatformFees.getText().replaceAll("₹", "").trim();
+
+        String total_order_amt = Total_Order_Amount.getText().replaceAll("₹", "").trim();
+
+        double orderAmountValue = Double.parseDouble(order_amt);
+        double feesValue = Double.parseDouble(Fees);
+        double totalOrderAmtValue = Double.parseDouble(total_order_amt);
+
+
+        double totalAmount = orderAmountValue + feesValue;
+
+        Assert.assertEquals(totalAmount,totalOrderAmtValue );
+
+        System.out.println("Total Order Amount: " + total_order_amt);
+
     }
 }

@@ -6,10 +6,14 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
 
 import static com.appreciatewealth.pages.GoalsPage.finalName;
 
@@ -91,30 +95,33 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Legal')]")
     private WebElement MiniLegal;
+
     @AndroidFindBy(xpath = "//*[@text='Appreciate Terms and Conditions']")
     private WebElement Termspage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.webkit.WebView/android.webkit.WebView/android.view.View")
+    @AndroidFindBy(xpath = "//android.view.View[@text=\"Appreciate Platform\"]")
     private WebElement platform;
 
     @AndroidFindBy(xpath = "//*[@text='Terms of Use']")
     private WebElement platformpage;
 
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.webkit.WebView/android.webkit.WebView/android.view.View")
+    @AndroidFindBy(xpath = "//android.view.View[@text=\"Appreciate Broking\"]")
     private WebElement Broking;
 
     @AndroidFindBy(xpath = "//*[@text='Appreciate Broking IFSC Private Limited Terms & Conditions']")
     private WebElement brokingpage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.webkit.WebView/android.webkit.WebView/android.view.View")
+    @AndroidFindBy(xpath = "//android.view.View[@text=\"Registrations\"]")
     private WebElement Register;
+
     @AndroidFindBy(xpath = "//*[@index='0' and @text='Appreciate Broking IFSC Private Limited']")
     private WebElement RegisterPage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.widget.Button[1]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'view registration numbers')]")
     private WebElement ViewRegisterNumber1;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.widget.Button[2]")
+
+    @AndroidFindBy(xpath = "//*[contains(@text,'view registration numbers')]")
     private WebElement ViewRegisterNumber2;
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"legal\"]")
@@ -133,7 +140,7 @@ public class MiniModulePage extends BasePage {
     private WebElement PrivacyPolicy;
 
 
-    @AndroidFindBy(xpath = "//*[@text='W-8BEN']")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"W-8BEN\"]")
     private WebElement W8BEN;
 
     @AndroidFindBy(xpath = "//*[@text='YES Bank']")
@@ -142,7 +149,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Do you want to download PDF file?']")
     private WebElement popupblock;
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Download\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Download\"]")
     private WebElement Download;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.Toast[1]")
@@ -159,7 +166,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Investing for everyone']")
     private WebElement Everyone;
 
-    @AndroidFindBy(xpath = "//*[@text='Send us your suggestions']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Send us your suggestions\"]")
     private WebElement suggest;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.Button")
@@ -167,6 +174,9 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='Please enter valid email']")
     private WebElement erroremail;
+
+    @AndroidFindBy(xpath = "//*[@text='submit']")
+    private WebElement Submitbtn;
 
     @AndroidFindBy(xpath = "//*[@text='Please tell us what you think']")
     private WebElement errorcomment;
@@ -198,20 +208,20 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='General questions']")
     private WebElement ProfileIssueType;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText")
+    @AndroidFindBy(xpath = "//android.widget.EditText")
     private WebElement EditSubject;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\" Subject\"]/android.widget.EditText")
     private WebElement TapSubject;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText")
     private WebElement SubjectTicketProfile;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[2]")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\" Your message\"]/android.widget.EditText")
     private WebElement EditMessage;
 
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[2]")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\" Your message\"]/android.widget.EditText")
     private WebElement TapMessage;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.EditText")
@@ -222,6 +232,11 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(id = "buttonSubmit")
     private WebElement ProfileTicketSubmit;
+
+
+    @AndroidFindBy(id = "//android.widget.LinearLayout[@resource-id=\"com.appreciatewealth.android.uat:id/llUsWallet\"]")
+    private WebElement USWalletOption;
+
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ImageView")
     private WebElement SupportBack;
@@ -284,6 +299,7 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='डैशबोर्ड']")
     private WebElement HomeDashboard;
+
     @AndroidFindBy(xpath = "//*[@text='Portfolio']")
     private WebElement Portfolio;
 
@@ -295,6 +311,7 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='बदलाव']")
     private WebElement HindiChange;
+
 
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
@@ -312,7 +329,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Add-On Services']")
     private WebElement AddOnService;
 
-    @AndroidFindBy (xpath = "//*[@text='Profile']")
+    @AndroidFindBy (xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android.uat:id/txvTitle\" and @text=\"Profile\"]")
     WebElement ProfileDetails;
 
     @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView[4]")
@@ -363,7 +380,8 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy (id = "com.appreciatewealth.android.uat:id/nominee_phone_number_tv")
     WebElement GetNomineePhoneNumber;
-    @AndroidFindBy(xpath =  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
+
+    @AndroidFindBy(id = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
     WebElement ClickOnClose;
 
     @AndroidFindBy(xpath ="//*[@text='Profile']")
@@ -415,10 +433,10 @@ public class MiniModulePage extends BasePage {
     WebElement ThinkingHiring;
 
 
-    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[1]")
+    @AndroidFindBy(xpath ="//android.view.View[@resource-id=\"feedback-form\"]/android.view.View/android.widget.EditText[1]")
     WebElement AddEmail;
 
-    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.widget.EditText[2]")
+    @AndroidFindBy(xpath ="//android.view.View[@resource-id=\"feedback-form\"]/android.view.View/android.widget.EditText[2]")
     WebElement AddFeedback;
 
     @AndroidFindBy(accessibility ="Recent Tickets")
@@ -544,7 +562,81 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(accessibility ="okay")
     WebElement InfoOkay;
 
-    public void Login() throws IOException, InterruptedException {
+
+    @AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.appreciatewealth.android.uat:id/txvcashInUS\"]")
+    WebElement CashinUS;
+
+    @AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.appreciatewealth.android.uat:id/txvcashInTransit\"]")
+    WebElement Cashintransit;
+
+    @AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.appreciatewealth.android.uat:id/txvAmountHeld\"]")
+    WebElement Amtheld;
+
+    @AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.appreciatewealth.android.uat:id/txvBuyingPowerBal\"]")
+    WebElement Uswallet;
+
+
+
+    @AndroidFindBy(accessibility ="calculated with rolling 30-day period")
+    WebElement AUMchargesDetail;
+
+
+    @AndroidFindBy(xpath ="//android.view.View[@content-desc=\"No transaction fee for the fifth buy transaction every month\n" +
+            "\n" +
+            "0.05% of transaction value or ₹5 whichever is higher. Minimum holding value to sell is ₹5 (implied)\"]")
+    WebElement TransactionFeeDetail;
+
+
+    @AndroidFindBy(accessibility ="Our Offerings")
+    WebElement OurOfferings;
+
+
+    @AndroidFindBy(xpath = "//*[@text='Sign in to Appreciate']")
+    WebElement SigninPage;
+
+
+    @AndroidFindBy(xpath = "//*[@text='Investment Builder']")
+    WebElement InvestmentBuilder;
+
+    @AndroidFindBy(xpath = "//*[@text='Update Investment Builder']")
+    WebElement InvestmentBuilderPage;
+
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/tvUpdate\"])[1]")
+    WebElement UpdateOneCTA;
+
+
+    @AndroidFindBy(xpath = "//*[@text='Bonds']")
+    WebElement Bonds;
+
+    @AndroidFindBy(xpath = "//*[@text='update']")
+    WebElement UpdateCTA;
+
+
+    @AndroidFindBy(id = "imgBack")
+    WebElement BackArrowAtUpdateInvestmentBuilderPage;
+
+
+    @AndroidFindBy(xpath = "//*[@text='Settings & Preferences']")
+    WebElement SettingAndPreferencesPage;
+
+
+    @AndroidFindBy(id = "details_close_iv")
+    WebElement CrossIcon;
+
+
+    @AndroidFindBy(xpath = "//*[@text='YES Bank Balance']")
+    WebElement YesBankBalanceHeading;
+
+    @AndroidFindBy(id = "imgBack")
+    WebElement BackArrow;
+
+
+
+
+
+
+    public void Login() throws Exception {
         signInPage.DynamicSignIn("varshatmysuru1992@gmail.com");
         dashboardPage.ClickOnGoToDashboard();
         Thread.sleep(5000);
@@ -597,9 +689,9 @@ public class MiniModulePage extends BasePage {
     }
 
     public void PricingPage() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Pricing\").instance(0))"));
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         MiniPricing.click();
 
 
@@ -696,7 +788,18 @@ public class MiniModulePage extends BasePage {
 
     public void LegalRegister2() throws InterruptedException {
         Thread.sleep(5000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        Thread.sleep(3000);
         ViewRegisterNumber2.click();
+        boolean canScrollMore2 = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 500,
+                "direction", "down",
+                "percent", 1.0
+        ));
     }
 
     public void LegalBack() throws InterruptedException {
@@ -752,9 +855,9 @@ public class MiniModulePage extends BasePage {
     }
 
     public void ClickCSR() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"CSR\").instance(0))"));
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         CSR.click();
     }
 
@@ -789,14 +892,21 @@ public class MiniModulePage extends BasePage {
 //                    "direction", "down",
 //                    "percent", 1.0
 //            ));
-        int numberOfScrolls = 1; // Adjust the number of scrolls as needed
 
-        for (int i = 0; i < numberOfScrolls; i++) {
-            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
-        }
-        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"submit \").instance(0))"));
-            driver.findElement(By.xpath("//*[@text='submit']")).click();
-
+//        int numberOfScrolls = 1; // Adjust the number of scrolls as needed
+//
+//        for (int i = 0; i < numberOfScrolls; i++) {
+//            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
+//        }
+//        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"submit \").instance(0))"));
+//            driver.findElement(By.xpath("//*[@text='submit']")).click();
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        Thread.sleep(2000);
+        Submitbtn.click();
     }
 
     public void ValidateEmailError(String EmailError) throws InterruptedException {
@@ -863,15 +973,16 @@ public class MiniModulePage extends BasePage {
     }
 
     public void EnterSubject(String SubjectName) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         TapSubject.click();
+        Thread.sleep(2000);
         EditSubject.sendKeys(SubjectName);
 
     }
 
     public void EnterMessage(String SubjectMessage) throws InterruptedException {
         Thread.sleep(5000);
-        int numberOfScrolls = 3; // Adjust the number of scrolls as needed
+        int numberOfScrolls = 1; // Adjust the number of scrolls as needed
         for (int i = 0; i < numberOfScrolls; i++) {
             driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
         }
@@ -895,6 +1006,12 @@ public class MiniModulePage extends BasePage {
     }
 
     public void ClickChangeLanguage() throws InterruptedException {
+        Thread.sleep(3000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
         Thread.sleep(3000);
         Language.click();
 
@@ -1057,8 +1174,12 @@ public class MiniModulePage extends BasePage {
 
     public void MiniAddOnServices() throws InterruptedException {
         Thread.sleep(3000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Add-On Services\").instance(0))"));
-        Thread.sleep(3000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 800,
+                "direction", "down",
+                "percent", 0.1
+        ));
+        Thread.sleep(2000);
         AddOnService.click();
 
 
@@ -1159,7 +1280,15 @@ public class MiniModulePage extends BasePage {
     }
     public void CloseProfileScreen() throws InterruptedException {
         Thread.sleep(4000);
-        ClickOnClose.click();
+        // ClickOnClose.click();
+        int x =649;
+        int y = 122;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
     }
 
     public void ValidateProfileScreen() throws InterruptedException {
@@ -1184,13 +1313,28 @@ public class MiniModulePage extends BasePage {
         Thread.sleep(5000);
         UpdateAnnualIncomeToTwentyFive.click();
         UpdateAnnualIncome.click();
-        Thread.sleep(5000);
-        ClickOnClose.click();
+        Thread.sleep(4000);
+        //ClickOnClose.click();
+        int x =649;
+        int y = 122;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
 
     }
 
     public void ClickSettings() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(4000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 800,
+                "direction", "down",
+                "percent", 0.1
+        ));
+        Thread.sleep(2000);
         SettingPasscode.click();
     }
 
@@ -1301,17 +1445,32 @@ public class MiniModulePage extends BasePage {
 
     public void ValidateHiring() throws InterruptedException {
         Thread.sleep(5000);
-       ThinkingHiring.click();
+        ThinkingHiring.click();
     }
 
     public void EnterEmailID(String Email) throws InterruptedException {
         Thread.sleep(5000);
+
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        AddEmail.click();
         AddEmail.sendKeys(Email);
+        Thread.sleep(2000);
+        boolean canScrollMore2 = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 600,
+                "direction", "down",
+                "percent", 1.0
+        ));
     }
 
     public void EnterFeedback(String Feedback) throws InterruptedException {
         Thread.sleep(5000);
-       AddFeedback.sendKeys(Feedback);
+        AddFeedback.click();
+        AddFeedback.sendKeys(Feedback);
+        Thread.sleep(2000);
     }
 
 
@@ -1331,6 +1490,12 @@ public class MiniModulePage extends BasePage {
 
     public void ClickDocuments() throws InterruptedException {
         Thread.sleep(5000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        Thread.sleep(3000);
         Documents.click();
     }
 
@@ -1356,7 +1521,7 @@ public class MiniModulePage extends BasePage {
 
     public void ClickDocumentsClose() throws InterruptedException {
         Thread.sleep(8000);
-       DocumentsClose.click();
+        DocumentsClose.click();
     }
     public void ClickFAQs() throws InterruptedException {
         Thread.sleep(5000);
@@ -1373,7 +1538,7 @@ public class MiniModulePage extends BasePage {
     }
     public void ValidateCompanyFAQs() throws InterruptedException {
         Thread.sleep(5000);
-       CompanyFAQs.click();
+        CompanyFAQs.click();
     }
 
     public void ClickBuyingInfo() throws InterruptedException {
@@ -1529,6 +1694,153 @@ public class MiniModulePage extends BasePage {
         ProfileTicketSubmit.click();
     }
 
+    public void SelectUSWalletOption() throws InterruptedException {
+        Thread.sleep(5000);
+        // USWalletOption.click();
+        int x =273;
+        int y = 967;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+    }
+
+    public void VerifyUSWalletAmt() throws InterruptedException {
+        Thread.sleep(5000);
+
+        String cashInUS = CashinUS.getText().replaceAll("[₹,]", "").trim();
+        String cashInTransit = Cashintransit.getText().replaceAll("[₹,]", "").trim();
+        String AmtHeld = Amtheld.getText().replaceAll("[₹,]", "").trim();
+        String USWallet = Uswallet.getText().replaceAll("[₹,]", "").trim();
+
+        double cashInUSValue = Double.parseDouble(cashInUS);
+        double cashInTransitValue = Double.parseDouble(cashInTransit);
+        double amtHeldValue = Double.parseDouble(AmtHeld);
+        double USWalletValue= Double.parseDouble(USWallet);
+
+// Calculate US Wallet
+        double calculatedUSWallet = cashInUSValue + cashInTransitValue - amtHeldValue;
+
+        String formattedResult = String.format("%.2f", calculatedUSWallet);
+        double finalUSWallet = Double.parseDouble(formattedResult);
+        System.out.println("Calculated US Wallet: " + finalUSWallet);
+        // Assert.assertEquals(USWalletValue, finalUSWallet);
+
+
+    }
+
+    public void SelectAUMchargesUnderGoals() throws InterruptedException {
+        Thread.sleep(4000);
+        int x =400;
+        int y = 446;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+        Thread.sleep(2000);
+        AUMchargesDetail.isDisplayed();
+
+    }
+
+    public void SelectTransactionFeeUnderTrae() throws InterruptedException {
+        Thread.sleep(4000);
+        int x =348;
+        int y = 805;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+        Thread.sleep(2000);
+        TransactionFeeDetail.isDisplayed();
+    }
+
+
+    public void EnterCorrectPasscode() throws InterruptedException {
+        Thread.sleep(4000);
+        WebElement element = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"1\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId()
+        ));
+
+        WebElement element2 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"2\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element2).getId()
+        ));
+
+        WebElement element3 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"3\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element3).getId()
+        ));
+
+        WebElement element4 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"4\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element4).getId()
+        ));
+        Thread.sleep(3000);
+    }
+
+    public void VerifyHomeDashboard() throws InterruptedException {
+        Thread.sleep(3000);
+        OurOfferings.isDisplayed();
+    }
+
+    public void VerifySignInPage() throws InterruptedException {
+        Thread.sleep(4000);
+        SigninPage.isDisplayed();
+    }
+
+    public void ClickOnInvestmentBuilder() throws InterruptedException {
+        Thread.sleep(3000);
+        InvestmentBuilder.click();
+    }
+
+    public void VerifyUpdateInvestmentBuilderPage() throws InterruptedException {
+        Thread.sleep(3000);
+        InvestmentBuilderPage.isDisplayed();
+    }
+
+    public void UpdateTypicallyInvest() throws InterruptedException {
+        Thread.sleep(3000);
+        UpdateOneCTA.click();
+        Thread.sleep(3000);
+        Bonds.click();
+        UpdateCTA.click();
+
+    }
+
+    public void SelectBackArrowAtUpdateInvestmentBuilderPage() throws InterruptedException {
+        Thread.sleep(3000);
+        BackArrowAtUpdateInvestmentBuilderPage.click();
+    }
+
+    public void VerifySettingAndPreferencesPage() throws InterruptedException {
+        Thread.sleep(3000);
+        SettingAndPreferencesPage.isDisplayed();
+        Thread.sleep(2000);
+        CrossIcon.click();
+
+    }
+
+    public void VerifyYesBankPage() throws InterruptedException {
+        Thread.sleep(3000);
+        YesBankBalanceHeading.isDisplayed();
+        Transaction.isDisplayed();
+    }
+
+    public void GoBackToMiniModulePage() throws InterruptedException {
+        Thread.sleep(3000);
+        BackArrow.click();
+    }
 }
 
 

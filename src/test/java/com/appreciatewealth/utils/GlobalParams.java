@@ -72,8 +72,12 @@ public class GlobalParams {
     public void initializeGlobalParams(){
         GlobalParams params = new GlobalParams();
         params.setPlatformName(System.getProperty("platformName", "Android"));
-        params.setUDID(System.getProperty("udid", "0K537311312168E1"));
-        params.setDeviceName(System.getProperty("deviceName", "Realme C53"));
+        params.setUDID(System.getProperty("udid", "DQE6O78HZP9HPF5H"));
+        params.setDeviceName(System.getProperty("deviceName", "POCO C65"));
+       // params.setPlatformName(System.getProperty("platformName", "iOS"));
+       // params.setUDID(System.getProperty("udid", "00008030-001605CE3CD2802E"));
+      //  params.setDeviceName(System.getProperty("deviceName", "iphone 11"));
+
 
 
         switch (params.getPlatformName()) {

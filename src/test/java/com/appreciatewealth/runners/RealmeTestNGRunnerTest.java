@@ -5,9 +5,9 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         plugin = {"pretty","html:target/Reports/report.html"},
-        features = {"/Users/varshathandava/Downloads/AppreciateMobileAutomation 2/src/test/resources/Modules/MiniModule/MiniModule.feature"},
+        features = {"/Users/varshathandava/Downloads/AppreciateMobileAutomationNewUI/src/test/resources/Modules/Trades/TradesSell.feature"},
         glue = {"com.appreciatewealth.stepdef"}
-        //tags = "@Prod"
+        //tags = "@Trade"
 
 )
 public class RealmeTestNGRunnerTest extends RunnerBaseTest {

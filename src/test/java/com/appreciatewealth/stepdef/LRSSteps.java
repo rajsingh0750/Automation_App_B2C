@@ -238,18 +238,18 @@ public class LRSSteps {
     @And("User Enter the Phone Number")
     public void userEnterThePhoneNumber() throws InterruptedException {
         new LRSPage().EnterPhoneNumber();
-        
+
     }
 
     @And("User Enter Wrong Customer ID")
     public void userEnterWrongCustomerID() throws InterruptedException {
         new LRSPage().EnterWrongYesBankCustomerID();
-        
+
     }
 
     @Then("the User should see error message {string}")
     public void theUserShouldSeeErrorMessage(String arg0) throws InterruptedException, IOException {
-    new LRSPage().ValidateErrorTransaction("Transaction Processing Error!");
+        new LRSPage().ValidateErrorTransaction("Transaction Processing Error!");
         new LRSPage().ValidateMessage();
         new LRSPage().ClickOnDashboard();
         basePage.ClickProfileSettings();
@@ -291,11 +291,16 @@ public class LRSSteps {
     @Then("User Should See Successfully Terms and Condition Description")
     public void userShouldSeeSuccessfullyTermsAndConditionDescription() throws InterruptedException {
         new LRSPage().ValidateLRSTerms();
-        basePage.AndroidBack();
-        basePage.AndroidBack();
-        basePage.AndroidBack();
-        basePage.AndroidBack();
-        basePage.ClickProfileSettings();
+        new LRSPage().SelectLRSBack();
+        new LRSPage().SelectReviewBack();
+        new LRSPage().SelectReviewBack();
+        new LRSPage().SelectUSWalletBack();
+        //new LRSPage().SelectLRSBack();
+        //basePage.AndroidBack();
+        //basePage.AndroidBack();
+       // basePage.AndroidBack();
+       // basePage.AndroidBack();
+       // basePage.ClickProfileSettings();
         basePage.Logout();
     }
 
@@ -337,7 +342,7 @@ public class LRSSteps {
     @And("User Selects Read FAQs")
     public void userSelectsReadFAQs() throws IOException, InterruptedException {
         new LRSPage().SelectFAQs();
-        
+
     }
 
     @Then("User should see the FAQs Descriptions")
@@ -353,6 +358,54 @@ public class LRSSteps {
 
     }
 
+
+    @And("User Selects Next Button")
+    public void userSelectsNextButton() throws InterruptedException {
+        new LRSPage().SelectNext();
+    }
+
+    @And("User Selects Source of funds")
+    public void userSelectsSourceOfFunds() throws InterruptedException {
+        new LRSPage().SelectFunds();
+
+    }
+
+    @And("User Clicks on Funds Drop Down")
+    public void userClicksOnFundsDropDown() throws InterruptedException {
+        new LRSPage().SelectSalaryFunds();
+
+    }
+
+    @And("User Adds MPIN")
+    public void userAddsMPIN() throws InterruptedException {
+        new LRSPage().AddMPIN(597,1361);
+        new LRSPage().AddMPIN(597,1361);
+        new LRSPage().AddMPIN(597,1361);
+        new LRSPage().AddMPIN(597,1361);
+        new LRSPage().AddMPIN(597,1361);
+        new LRSPage().AddMPIN(597,1361);
+        new LRSPage().SliderForMPIN();
+    }
+
+    @And("User Select Agree CheckBox")
+    public void userSelectAgreeCheckBox() throws InterruptedException {
+        new LRSPage().SelectAgree();
+    }
+
+    @And("User Clicks On Confirm")
+    public void userClicksOnConfirm() throws InterruptedException {
+        new LRSPage().SelectConfirm();
+    }
+
+    @And("User Select Profile")
+    public void userSelectProfile() throws InterruptedException {
+        basePage.ClickProfileSettings();
+    }
+
+    @And("User Select Edit Upload statement")
+    public void userSelectEditUploadStatement() throws InterruptedException {
+        new LRSPage().SelectStatementEdit();
+    }
 
 
 }
