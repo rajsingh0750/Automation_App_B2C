@@ -1,0 +1,356 @@
+2024-12-12 11:03:07:594 [Appium] Welcome to Appium v2.13.1 (REV ad356d365837a691a52dfec32b3fb5f282f3aefc)
+2024-12-12 11:03:07:595 [Appium] Non-default server args:
+2024-12-12 11:03:07:596 [Appium] { port: 28965, sessionOverride: true }
+2024-12-12 11:03:07:596 [Appium] The autodetected Appium home path: /Users/varshathandava/.appium
+2024-12-12 11:03:07:596 [Appium] Attempting to load driver xcuitest...
+2024-12-12 11:03:07:597 [Appium] Attempting to load driver uiautomator2...
+2024-12-12 11:03:07:599 [Appium] Requiring driver at /Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/build/index.js
+2024-12-12 11:03:07:602 [Appium] Requiring driver at /Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/build/index.js
+2024-12-12 11:03:08:072 [Appium] AndroidUiautomator2Driver has been successfully loaded in 0.475s
+2024-12-12 11:03:09:043 [Appium] XCUITestDriver has been successfully loaded in 1.446s
+2024-12-12 11:03:09:054 [Appium] Appium REST http interface listener started on http://0.0.0.0:28965
+2024-12-12 11:03:09:055 [Appium] You can provide the following URLs in your client code to connect to this server:
+	http://127.0.0.1:28965/ (only accessible from the same host)
+	http://192.168.29.167:28965/
+2024-12-12 11:03:09:055 [Appium] Available drivers:
+2024-12-12 11:03:09:055 [Appium]   - xcuitest@7.33.0 (automationName 'XCUITest')
+2024-12-12 11:03:09:055 [Appium]   - uiautomator2@3.9.3 (automationName 'UiAutomator2')
+2024-12-12 11:03:09:055 [Appium] No plugins have been installed. Use the "appium plugin" command to install the one(s) you want to use.
+2024-12-12 11:03:09:200 [HTTP] --> GET /status {}
+2024-12-12 11:03:09:201 [AppiumDriver@0c0f] Calling AppiumDriver.getStatus() with args: []
+2024-12-12 11:03:09:202 [AppiumDriver@0c0f] Responding to client with driver.getStatus() result: {"ready":true,"message":"The server is ready to accept new connections","build":{"version":"2.13.1","git-sha":"ad356d365837a691a52dfec32b3fb5f282f3aefc","built":"2024-12-09 09:11:29 +0000"}}
+2024-12-12 11:03:09:205 [HTTP] <-- GET /status 200 3 ms - 200 
+2024-12-12 11:03:09:211 [HTTP] --> GET /status {}
+2024-12-12 11:03:09:211 [AppiumDriver@0c0f] Calling AppiumDriver.getStatus() with args: []
+2024-12-12 11:03:09:211 [AppiumDriver@0c0f] Responding to client with driver.getStatus() result: {"ready":true,"message":"The server is ready to accept new connections","build":{"version":"2.13.1","git-sha":"ad356d365837a691a52dfec32b3fb5f282f3aefc","built":"2024-12-09 09:11:29 +0000"}}
+2024-12-12 11:03:09:211 [HTTP] <-- GET /status 200 1 ms - 200 
+2024-12-12 11:03:09:681 [HTTP] Request idempotency key: 89f29fe0-3de2-40ab-b596-41850473de3f
+2024-12-12 11:03:09:688 [HTTP] --> POST /session {"capabilities":{"firstMatch":[{}],"alwaysMatch":{"appium:app":"/Users/varshathandava/Downloads/AppreciateMobileAutomationNewUI/src/test/resources/App/IOS/Appreciate.ipa","appium:automationName":"XCUITest","appium:bundleId":"com.appreciatewealth.ios","appium:deviceName":"iphone 11","appium:fullReset":false,"appium:noReset":true,"appium:resetKeyboard":false,"appium:udid":"00008030-001605CE3CD2802E","appium:unicodeKeyboard":false,"appium:wdaLocalPort":"10001","appium:webkitDebugProxyPort":"11001","appium:xcodeOrgId":"H8S73L58B7","appium:xcodeSigningId":"iPhone Developer","platformName":"IOS"}}}
+2024-12-12 11:03:09:688 [AppiumDriver@0c0f] Calling AppiumDriver.createSession() with args: [null,null,{"firstMatch":[{}],"alwaysMatch":{"appium:app":"/Users/varshathandava/Downloads/AppreciateMobileAutomationNewUI/src/test/resources/App/IOS/Appreciate.ipa","appium:automationName":"XCUITest","appium:bundleId":"com.appreciatewealth.ios","appium:deviceName":"iphone 11","appium:fullReset":false,"appium:noReset":true,"appium:resetKeyboard":false,"appium:udid":"00008030-001605CE3CD2802E","appium:unicodeKeyboard":false,"appium:wdaLocalPort":"10001","appium:webkitDebugProxyPort":"11001","appium:xcodeOrgId":"H8S73L58B7","appium:xcodeSigningId":"iPhone Developer","platformName":"IOS"}}]
+2024-12-12 11:03:09:688 [AppiumDriver@0c0f] Event 'newSessionRequested' logged at 1734001389688 (16:33:09 GMT+0530 (India Standard Time))
+2024-12-12 11:03:09:691 [Appium] Attempting to find matching driver for automationName 'XCUITest' and platformName 'IOS'
+2024-12-12 11:03:09:691 [Appium] The 'xcuitest' driver was installed and matched caps.
+2024-12-12 11:03:09:691 [Appium] Will require it at /Users/varshathandava/.appium/node_modules/appium-xcuitest-driver
+2024-12-12 11:03:09:692 [Appium] Requiring driver at /Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/build/index.js
+2024-12-12 11:03:09:692 [AppiumDriver@0c0f] Appium v2.13.1 creating new XCUITestDriver (v7.33.0) session
+2024-12-12 11:03:09:692 [AppiumDriver@0c0f] Checking BaseDriver versions for Appium and XCUITestDriver
+2024-12-12 11:03:09:692 [AppiumDriver@0c0f] Appium's BaseDriver version is 9.13.1
+2024-12-12 11:03:09:692 [AppiumDriver@0c0f] XCUITestDriver's BaseDriver version is 9.13.1
+2024-12-12 11:03:09:692 [AppiumDriver@0c0f] There are no active sessions for cleanup
+2024-12-12 11:03:09:694 [XCUITestDriver@9542] 
+2024-12-12 11:03:09:694 [XCUITestDriver@9542] Creating session with W3C capabilities: {
+  "alwaysMatch": {
+    "platformName": "IOS",
+    "appium:app": "/Users/varshathandava/Downloads/AppreciateMobileAutomationNewUI/src/test/resources/App/IOS/Appreciate.ipa",
+    "appium:automationName": "XCUITest",
+    "appium:bundleId": "com.appreciatewealth.ios",
+    "appium:deviceName": "iphone 11",
+    "appium:fullReset": false,
+    "appium:noReset": true,
+    "appium:resetKeyboard": false,
+    "appium:udid": "00008030-001605CE3CD2802E",
+    "appium:unicodeKeyboard": false,
+    "appium:wdaLocalPort": "10001",
+    "appium:webkitDebugProxyPort": "11001",
+    "appium:xcodeOrgId": "H8S73L58B7",
+    "appium:xcodeSigningId": "iPhone Developer"
+  },
+  "firstMatch": [
+    {}
+  ]
+}
+2024-12-12 11:03:09:696 [BaseDriver] Number capability passed in as string. Functionality may be compromised.
+2024-12-12 11:03:09:698 [XCUITestDriver@9542] Capability 'wdaLocalPort' changed from string ('10001') to integer (10001). This may cause unexpected behavior
+2024-12-12 11:03:09:699 [XCUITestDriver@9542] The following provided capabilities were not recognized by this driver:
+2024-12-12 11:03:09:699 [XCUITestDriver@9542]   resetKeyboard
+2024-12-12 11:03:09:699 [XCUITestDriver@9542]   unicodeKeyboard
+2024-12-12 11:03:09:699 [XCUITestDriver@9542]   webkitDebugProxyPort
+2024-12-12 11:03:09:699 [XCUITestDriver@9542] 'platformVersion' capability ('undefined') is not a valid version number. Consider fixing it or be ready to experience an inconsistent driver behavior.
+2024-12-12 11:03:09:699 [eb28d7dd][XCUITestDriver@9542] Session created with session id: eb28d7dd-e330-4503-a606-04aa0344cf4b
+2024-12-12 11:03:09:708 [eb28d7dd][XCUITest] Current user: 'varshathandava'
+2024-12-12 11:03:09:718 [eb28d7dd][XCUITestDriver@9542] Available real devices: 00008030-001605CE3CD2802E
+2024-12-12 11:03:09:718 [eb28d7dd][XCUITestDriver@9542] Creating iDevice object with udid '00008030-001605CE3CD2802E'
+2024-12-12 11:03:09:718 [eb28d7dd][XCUITestDriver@9542] Determining device to run tests on: udid: '00008030-001605CE3CD2802E', real device: true
+2024-12-12 11:03:09:777 [eb28d7dd][XCUITestDriver@9542] No platformVersion specified. Using device version: '18.2'
+2024-12-12 11:03:09:790 [eb28d7dd][XCUITestDriver@9542] Event 'xcodeDetailsRetrieved' logged at 1734001389790 (16:33:09 GMT+0530 (India Standard Time))
+2024-12-12 11:03:09:792 [eb28d7dd][BaseDriver] Using local app '/Users/varshathandava/Downloads/AppreciateMobileAutomationNewUI/src/test/resources/App/IOS/Appreciate.ipa'
+2024-12-12 11:03:09:894 [eb28d7dd][XCUITestDriver@9542] Caching the manifest 'Payload/Appreciate.app/Info.plist' for com.appreciatewealth.ios app from the compressed source using the key '1863283261'
+2024-12-12 11:03:09:896 [eb28d7dd][XCUITestDriver@9542] Event 'appConfigured' logged at 1734001389896 (16:33:09 GMT+0530 (India Standard Time))
+2024-12-12 11:03:09:896 [eb28d7dd][XCUITest] Checking whether app '/Users/varshathandava/Downloads/AppreciateMobileAutomationNewUI/src/test/resources/App/IOS/Appreciate.ipa' is actually present on file system
+2024-12-12 11:03:09:896 [eb28d7dd][XCUITest] App is present
+2024-12-12 11:03:09:896 [eb28d7dd][XCUITestDriver@9542] Event 'resetStarted' logged at 1734001389896 (16:33:09 GMT+0530 (India Standard Time))
+2024-12-12 11:03:09:897 [eb28d7dd][XCUITestDriver@9542] Reset: fullReset not set. Leaving as is
+2024-12-12 11:03:09:897 [eb28d7dd][XCUITestDriver@9542] Event 'resetComplete' logged at 1734001389897 (16:33:09 GMT+0530 (India Standard Time))
+2024-12-12 11:03:09:897 [eb28d7dd][XCUITestDriver@9542] Using WDA path: '/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent'
+2024-12-12 11:03:09:897 [eb28d7dd][XCUITestDriver@9542] Using WDA agent: '/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgent.xcodeproj'
+2024-12-12 11:03:09:905 [eb28d7dd][XCUITestDriver@9542] The pyidevice tool is not present in PATH. Skipping crash logs collection for real devices.
+2024-12-12 11:03:10:026 [eb28d7dd][XCUITestDriver@9542] Event 'logCaptureStarted' logged at 1734001390026 (16:33:10 GMT+0530 (India Standard Time))
+2024-12-12 11:03:10:026 [eb28d7dd][XCUITestDriver@9542] Setting up real device
+2024-12-12 11:03:10:026 [eb28d7dd][XCUITestDriver@9542] Verifying application platform
+2024-12-12 11:03:10:070 [eb28d7dd][XCUITestDriver@9542] CFBundleSupportedPlatforms: ["iPhoneOS"]
+2024-12-12 11:03:10:235 [eb28d7dd][XCUITestDriver@9542] App 'com.appreciatewealth.ios' is already installed
+2024-12-12 11:03:10:235 [eb28d7dd][XCUITestDriver@9542] noReset is requested. The app will not be be (re)installed
+2024-12-12 11:03:10:270 [eb28d7dd][XCUITestDriver@9542] No obsolete cached processes from previous WDA sessions listening on port 10001 have been found
+2024-12-12 11:03:10:270 [eb28d7dd][DevCon Factory] Requesting connection for device 00008030-001605CE3CD2802E on local port 10001, device port 10001
+2024-12-12 11:03:10:270 [eb28d7dd][DevCon Factory] Cached connections count: 0
+2024-12-12 11:03:10:272 [eb28d7dd][DevCon Factory] Successfully requested the connection for 00008030-001605CE3CD2802E:10001
+2024-12-12 11:03:12:940 [eb28d7dd][XCUITestDriver@9542] Parsed BUILD_DIR configuration value: '/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/build'
+2024-12-12 11:03:12:940 [eb28d7dd][XCUITestDriver@9542] Got derived data root: '/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules'
+2024-12-12 11:03:12:940 [eb28d7dd][XCUITestDriver@9542] Starting WebDriverAgent initialization with the synchronization key '/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules'
+2024-12-12 11:03:12:943 [eb28d7dd][WD Proxy] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:12:943 [eb28d7dd][WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:12:954 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:12:990 [eb28d7dd][WD Proxy] socket hang up
+2024-12-12 11:03:12:991 [eb28d7dd][XCUITestDriver@9542] WDA is not listening at 'http://127.0.0.1:10001/'. Original error:: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: socket hang up
+2024-12-12 11:03:12:991 [eb28d7dd][XCUITestDriver@9542] WDA is currently not running. There is nothing to cache
+2024-12-12 11:03:12:991 [eb28d7dd][XCUITestDriver@9542] Trying to start WebDriverAgent 1 times with 10000ms interval
+2024-12-12 11:03:12:991 [eb28d7dd][XCUITestDriver@9542] These values can be customized by changing wdaStartupRetries/wdaStartupRetryInterval capabilities
+2024-12-12 11:03:12:991 [eb28d7dd][XCUITestDriver@9542] Event 'wdaStartAttempted' logged at 1734001392991 (16:33:12 GMT+0530 (India Standard Time))
+2024-12-12 11:03:12:991 [eb28d7dd][XCUITestDriver@9542] Launching WebDriverAgent on the device
+2024-12-12 11:03:12:995 [eb28d7dd][XCUITestDriver@9542] There is no need to perform the project cleanup. A fresh install has been detected
+2024-12-12 11:03:12:996 [eb28d7dd][WebDriverAgent] Killing running processes 'xcodebuild.*00008030-001605CE3CD2802E' for the device 00008030-001605CE3CD2802E...
+2024-12-12 11:03:13:016 [eb28d7dd][WebDriverAgent] 'pgrep -if xcodebuild.*00008030-001605CE3CD2802E' didn't detect any matching processes. Return code: 1
+2024-12-12 11:03:13:017 [eb28d7dd][XCUITestDriver@9542] Beginning test with command 'xcodebuild build-for-testing test-without-building -project /Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -derivedDataPath /Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules -destination id=00008030-001605CE3CD2802E IPHONEOS_DEPLOYMENT_TARGET=18.2 DEVELOPMENT_TEAM=H8S73L58B7 CODE_SIGN_IDENTITY=iPhone Developer GCC_TREAT_WARNINGS_AS_ERRORS=0 COMPILER_INDEX_STORE_ENABLE=NO' in directory '/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent'
+2024-12-12 11:03:13:017 [eb28d7dd][XCUITestDriver@9542] Output from xcodebuild will only be logged if any errors are present there. To change this, use 'showXcodeLog' desired capability
+2024-12-12 11:03:13:515 [eb28d7dd][XCUITestDriver@9542] Waiting up to 60000ms for WebDriverAgent to start
+2024-12-12 11:03:13:515 [eb28d7dd][XCUITestDriver@9542] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:13:515 [eb28d7dd][XCUITestDriver@9542] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:13:519 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:13:523 [eb28d7dd][XCUITestDriver@9542] socket hang up
+2024-12-12 11:03:14:526 [eb28d7dd][XCUITestDriver@9542] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:14:526 [eb28d7dd][XCUITestDriver@9542] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:14:532 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:14:534 [eb28d7dd][XCUITestDriver@9542] socket hang up
+2024-12-12 11:03:15:536 [eb28d7dd][XCUITestDriver@9542] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:15:536 [eb28d7dd][XCUITestDriver@9542] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:15:544 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:15:546 [eb28d7dd][XCUITestDriver@9542] socket hang up
+2024-12-12 11:03:16:549 [eb28d7dd][XCUITestDriver@9542] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:16:550 [eb28d7dd][XCUITestDriver@9542] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:16:567 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:16:573 [eb28d7dd][XCUITestDriver@9542] socket hang up
+2024-12-12 11:03:17:575 [eb28d7dd][XCUITestDriver@9542] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:17:575 [eb28d7dd][XCUITestDriver@9542] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:17:586 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:17:589 [eb28d7dd][XCUITestDriver@9542] socket hang up
+2024-12-12 11:03:18:590 [eb28d7dd][XCUITestDriver@9542] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:18:591 [eb28d7dd][XCUITestDriver@9542] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:18:595 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:18:596 [eb28d7dd][XCUITestDriver@9542] socket hang up
+2024-12-12 11:03:19:597 [eb28d7dd][XCUITestDriver@9542] Matched '/status' to command name 'getStatus'
+2024-12-12 11:03:19:597 [eb28d7dd][XCUITestDriver@9542] Proxying [GET /status] to [GET http://127.0.0.1:10001/status] with no body
+2024-12-12 11:03:19:610 [eb28d7dd][iProxy@00008030:10001] Connection was refused to port 10001
+2024-12-12 11:03:19:612 [eb28d7dd][XCUITestDriver@9542] socket hang up
+2024-12-12 11:03:19:784 [eb28d7dd][Xcode] xcodebuild exited with code '70' and signal 'null'
+2024-12-12 11:03:19:785 [eb28d7dd][XCUITestDriver@9542] Event 'wdaStartFailed' logged at 1734001399784 (16:33:19 GMT+0530 (India Standard Time))
+2024-12-12 11:03:19:788 [eb28d7dd][XCUITestDriver@9542] Error: xcodebuild failed with code 70. This usually indicates an issue with the local Xcode setup or WebDriverAgent project configuration or the driver-to-platform version mismatch. Consider setting 'showXcodeLog' capability to true in order to check the Appium server log for build-related error messages.
+    at SubProcess.<anonymous> (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/lib/xcodebuild.js:384:25)
+    at Object.onceWrapper (node:events:628:26)
+    at SubProcess.emit (node:events:513:28)
+    at ChildProcess.<anonymous> (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/node_modules/teen_process/lib/subprocess.js:201:14)
+    at ChildProcess.emit (node:events:513:28)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    at Process.callbackTrampoline (node:internal/async_hooks:130:17)
+2024-12-12 11:03:19:788 [eb28d7dd][XCUITestDriver@9542] Unable to launch WebDriverAgent. Original error: xcodebuild failed with code 70. This usually indicates an issue with the local Xcode setup or WebDriverAgent project configuration or the driver-to-platform version mismatch. Consider setting 'showXcodeLog' capability to true in order to check the Appium server log for build-related error messages.. Make sure you follow the tutorial at https://appium.github.io/appium-xcuitest-driver/latest/preparation/real-device-config/
+2024-12-12 11:03:19:788 [eb28d7dd][XCUITestDriver@9542] Quitting and uninstalling WebDriverAgent
+2024-12-12 11:03:19:788 [eb28d7dd][XCUITestDriver@9542] Shutting down sub-processes
+2024-12-12 11:03:19:951 [eb28d7dd][XCUITestDriver@9542] Uninstalling WDAs: 'com.Appreciate09.WebDriverAgentRunner.xctrunner'
+2024-12-12 11:03:20:365 [eb28d7dd][XCUITestDriver@9542] {}
+2024-12-12 11:03:20:366 [eb28d7dd][DevCon Factory] Releasing connections for 00008030-001605CE3CD2802E device on any port number
+2024-12-12 11:03:20:366 [eb28d7dd][DevCon Factory] Found cached connections to release: ["00008030-001605CE3CD2802E:10001"]
+2024-12-12 11:03:20:366 [eb28d7dd][DevCon Factory] Releasing the listener for '00008030-001605CE3CD2802E:10001'
+2024-12-12 11:03:20:366 [eb28d7dd][iProxy@00008030:10001] Closing the connection
+2024-12-12 11:03:20:367 [eb28d7dd][DevCon Factory] Cached connections count: 0
+2024-12-12 11:03:20:367 [eb28d7dd][XCUITestDriver@9542] Not clearing log files. Use `clearSystemFiles` capability to turn on.
+2024-12-12 11:03:20:368 [eb28d7dd][iProxy@00008030:10001] The connection has been closed
+2024-12-12 11:03:20:368 [eb28d7dd][AppiumDriver@0c0f] Event 'newSessionStarted' logged at 1734001400368 (16:33:20 GMT+0530 (India Standard Time))
+2024-12-12 11:03:20:370 [eb28d7dd][AppiumDriver@0c0f] Encountered internal error running command: Error: Unable to launch WebDriverAgent. Original error: xcodebuild failed with code 70. This usually indicates an issue with the local Xcode setup or WebDriverAgent project configuration or the driver-to-platform version mismatch. Consider setting 'showXcodeLog' capability to true in order to check the Appium server log for build-related error messages.. Make sure you follow the tutorial at https://appium.github.io/appium-xcuitest-driver/latest/preparation/real-device-config/
+    at quitAndUninstall (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/lib/driver.js:800:15)
+    at /Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/lib/driver.js:870:13
+    at wrapped (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/asyncbox/lib/asyncbox.js:93:13)
+    at retry (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/asyncbox/lib/asyncbox.js:66:13)
+    at retryInterval (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/asyncbox/lib/asyncbox.js:103:10)
+    at /Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/lib/driver.js:835:7
+2024-12-12 11:03:20:380 [eb28d7dd][HTTP] <-- POST /session 500 10692 ms - 1638 
+2024-12-12 11:03:20:509 [Appium] Received SIGTERM - shutting down
+2024-12-12 11:03:20:510 [AppiumDriver@0c0f] There are no active sessions for cleanup
+2024-12-12 11:03:20:519 uncaughtException: write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:964:11)
+    at Socket._write (node:net:976:8)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:87:23)
+    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:525:35)
+    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:279:12)
+    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:262:11)
+    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:228:10)
+    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:132:32)
+    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:314:12)
+    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:166:10)
+    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:155:83)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at DerivedLogger.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.<computed> [as info] (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/create-logger.js:81:14)
+    at Log.<anonymous> (/opt/homebrew/lib/node_modules/appium/lib/logsink.js:88:65)
+    at Log.emit (node:events:513:28)
+    at Log.log (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/logger/lib/log.ts:258:10)
+    at Log.info (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/logger/lib/log.ts:179:10)
+    at Object.wrappedLogger.<computed> [as info] (/opt/homebrew/lib/node_modules/appium/node_modules/@appium/support/lib/logging.js:72:22)
+    at process.onSignal (/opt/homebrew/lib/node_modules/appium/lib/main.js:447:14)
+    at Object.onceWrapper (node:events:628:26)
+    at process.emit (node:events:525:35)
+    at process.emit (/opt/homebrew/lib/node_modules/appium/node_modules/source-map-support/source-map-support.js:516:21)
+2024-12-12 11:03:20:520 uncaughtException: write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:964:11)
+    at Socket._write (node:net:976:8)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:59:25)
+    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:525:35)
+    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:279:12)
+    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:262:11)
+    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:228:10)
+    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:132:32)
+    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:314:12)
+    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:166:10)
+    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:155:83)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at DerivedLogger.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:216:12)
+    at ExceptionHandler._uncaughtException (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/exception-handler.js:220:17)
+    at process.emit (node:events:513:28)
+    at process.emit (/opt/homebrew/lib/node_modules/appium/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/opt/homebrew/lib/node_modules/appium/node_modules/lockfile/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/node_modules/source-map-support/source-map-support.js:516:21)
+2024-12-12 11:03:20:520 uncaughtException: write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:964:11)
+    at Socket._write (node:net:976:8)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:59:25)
+    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:525:35)
+    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:279:12)
+    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:262:11)
+    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:228:10)
+    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:132:32)
+    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:314:12)
+    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:166:10)
+    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:155:83)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at DerivedLogger.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:216:12)
+    at ExceptionHandler._uncaughtException (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/exception-handler.js:220:17)
+    at process.emit (node:events:513:28)
+    at process.emit (/opt/homebrew/lib/node_modules/appium/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/opt/homebrew/lib/node_modules/appium/node_modules/lockfile/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/node_modules/source-map-support/source-map-support.js:516:21)
+2024-12-12 11:03:20:521 uncaughtException: write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:964:11)
+    at Socket._write (node:net:976:8)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:59:25)
+    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:525:35)
+    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:279:12)
+    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:262:11)
+    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:228:10)
+    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:132:32)
+    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:314:12)
+    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:166:10)
+    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:155:83)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at DerivedLogger.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:216:12)
+    at ExceptionHandler._uncaughtException (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/exception-handler.js:220:17)
+    at process.emit (node:events:513:28)
+    at process.emit (/opt/homebrew/lib/node_modules/appium/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/opt/homebrew/lib/node_modules/appium/node_modules/lockfile/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/node_modules/source-map-support/source-map-support.js:516:21)
+2024-12-12 11:03:20:525 uncaughtException: write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:964:11)
+    at Socket._write (node:net:976:8)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/transports/console.js:59:25)
+    at Console._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/modern.js:103:17)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at Console.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.ondata (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:525:35)
+    at addChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:279:12)
+    at readableAddChunk (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:262:11)
+    at DerivedLogger.Readable.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:228:10)
+    at DerivedLogger.Transform.push (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:132:32)
+    at DerivedLogger._transform (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:314:12)
+    at DerivedLogger.Transform._read (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:166:10)
+    at DerivedLogger.Transform._write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_transform.js:155:83)
+    at doWrite (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+    at writeOrBuffer (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:381:5)
+    at DerivedLogger.Writable.write (/opt/homebrew/lib/node_modules/appium/node_modules/winston/node_modules/readable-stream/lib/_stream_writable.js:302:11)
+    at DerivedLogger.log (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/logger.js:216:12)
+    at ExceptionHandler._uncaughtException (/opt/homebrew/lib/node_modules/appium/node_modules/winston/lib/winston/exception-handler.js:220:17)
+    at process.emit (node:events:513:28)
+    at process.emit (/opt/homebrew/lib/node_modules/appium/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/opt/homebrew/lib/node_modules/appium/node_modules/lockfile/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-uiautomator2-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/source-map-support/source-map-support.js:516:21)
+    at processEmit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/signal-exit/index.js:199:34)
+    at process.emit (/Users/varshathandava/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/node_modules/source-map-support/source-map-support.js:516:21)
