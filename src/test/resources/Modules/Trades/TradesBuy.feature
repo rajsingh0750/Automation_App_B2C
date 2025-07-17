@@ -239,7 +239,7 @@ Feature: Trades all buy related scenarios
     And User enters the Pro type order Quantity
     And User enters the limit price
     And User selects order expiry as Till Market is closed
-    And User selects order expiry as Till Market is closed
+#    And User selects order expiry as Till Market is closed
     And User Clicks On Confirm
     And User Slides to Buy
     Then MIT order should be placed Successfully
