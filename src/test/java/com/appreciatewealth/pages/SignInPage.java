@@ -40,9 +40,17 @@ public class SignInPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "123456")
     private WebElement SendOTP;
 
+    @AndroidFindBy (id = "buttonSignIn")
+    private WebElement HindiSendOTP;
+
     @AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button")
     @iOSXCUITFindBy(accessibility = "confirm")
     private WebElement confirmOTP;
+
+
+    @AndroidFindBy (id = "com.appreciatewealth.android.uat:id/buttonConfirm")
+    private WebElement HindiconfirmOTP;
+
 
     @AndroidFindBy (id = "com.appreciatewealth.android.uat:id/ivPasscode1")
     private WebElement Passcode1;
@@ -118,8 +126,19 @@ public class SignInPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Email")
     private WebElement TapEmail;
 
+
+    @AndroidFindBy (xpath = "//*[@text='ईमेल']")
+    private WebElement HindiTapEmail;
+
+
     @AndroidFindBy (xpath = "//*[@text='okay']")
     private WebElement okayButton;
+
+
+
+    @AndroidFindBy (xpath = "//android.widget.Button[@resource-id=\"com.appreciatewealth.android.uat:id/buttonOkay\"]")
+    private WebElement OkayButton;
+
     public SignInPage(){
 
         super();
@@ -307,6 +326,7 @@ public class SignInPage extends BasePage {
         Thread.sleep(2000);
         confirmOTP.click();
         Thread.sleep(12000);
+        Thread.sleep(4000);
         //AllowOTPfromClipboard();
 
 //        Biometric_Cancle();
@@ -345,17 +365,163 @@ public class SignInPage extends BasePage {
     }
 
 
+//    public void DynamicSignIn(String email) throws InterruptedException {
+//        Thread.sleep(5000);
+//        TapEmail.click();
+//        TextBox.sendKeys(email);
+//        SendOTP.click();
+//        // Thread.sleep(3000);
+//        //Password.sendKeys(password);
+//        // SendOTP.click();
+//        Thread.sleep(4000);
+//        EnterOTP.sendKeys("904123");
+//        confirmOTP.click();
+//        Thread.sleep(8000);
+//        //AllowOTPfromClipboard();
+//        boolean b = ((AndroidDriver) driver).isKeyboardShown();
+//        System.out.println("Keyboard Shown "+b);
+//        Thread.sleep(6000);
+//
+//        WebElement element = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element).getId()
+//        ));
+//
+//        WebElement element2 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element2).getId()
+//        ));
+//
+//        WebElement element3 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element3).getId()
+//        ));
+//
+//        WebElement element4 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element4).getId()
+//        ));
+//
+//    }
+
     public void DynamicSignIn(String email) throws InterruptedException {
         Thread.sleep(5000);
         TapEmail.click();
         TextBox.sendKeys(email);
         SendOTP.click();
+        Thread.sleep(4000);
+
+        try {
+            if (confirmOTP.isDisplayed()) {
+                EnterOTP.sendKeys("904123");
+                confirmOTP.click();
+                Thread.sleep(8000);
+                boolean b = ((AndroidDriver) driver).isKeyboardShown();
+                System.out.println("Keyboard Shown " + b);
+            }
+        } catch (Exception e) {
+            System.out.println("confirmOTP not displayed. Waiting for 5 minutes...");
+            Thread.sleep(300000); // 5 minutes
+
+            // Click on Okay button
+           // WebElement okayButton = driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.appreciatewealth.android.uat:id/buttonOkay']"));
+            OkayButton.click();
+
+            Thread.sleep(3000);
+            // Retry OTP process
+            SendOTP.click();
+            Thread.sleep(4000);
+            EnterOTP.sendKeys("904123");
+            confirmOTP.click();
+            Thread.sleep(8000);
+            boolean b = ((AndroidDriver) driver).isKeyboardShown();
+            System.out.println("Keyboard Shown " + b);
+        }
+
+        Thread.sleep(6000);
+
+        WebElement element = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"1\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId()
+        ));
+
+        WebElement element2 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"2\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element2).getId()
+        ));
+
+        WebElement element3 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"3\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element3).getId()
+        ));
+
+        WebElement element4 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"4\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element4).getId()
+        ));
+
+    }
+
+
+
+    public void HindiDynamicSignIn(String email) throws InterruptedException {
+        Thread.sleep(5000);
+        HindiTapEmail.click();
+        TextBox.sendKeys(email);
+        HindiSendOTP.click();
         // Thread.sleep(3000);
         //Password.sendKeys(password);
         // SendOTP.click();
         Thread.sleep(3000);
+        Thread.sleep(120000);
+
+
+//        EnterOTP.sendKeys("904123");
+//        HindiconfirmOTP.click();
+//        Thread.sleep(8000);
+//        //AllowOTPfromClipboard();
+//        boolean b = ((AndroidDriver) driver).isKeyboardShown();
+//        System.out.println("Keyboard Shown "+b);
+//        Thread.sleep(6000);
+//
+//        WebElement element = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element).getId()
+//        ));
+//
+//        WebElement element2 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element2).getId()
+//        ));
+//
+//        WebElement element3 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element3).getId()
+//        ));
+//
+//        WebElement element4 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
+//
+//        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) element4).getId()
+//        ));
+
+    }
+
+    public void LoginInHindi() throws InterruptedException {
+        Thread.sleep(3000);
         EnterOTP.sendKeys("904123");
-        confirmOTP.click();
+        HindiconfirmOTP.click();
         Thread.sleep(8000);
         //AllowOTPfromClipboard();
         boolean b = ((AndroidDriver) driver).isKeyboardShown();
@@ -385,8 +551,10 @@ public class SignInPage extends BasePage {
         driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element4).getId()
         ));
-
     }
+
+
+
     public void ValidateErrorMessage(String message){
         String ActualMessage  = SigninErrorMessage.getText();
         Assert.assertEquals(message,ActualMessage);

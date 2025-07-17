@@ -89,3 +89,24 @@ Feature: Language change
     And User will click on profile at home dashboard
     And User click on US wallet
     Then User will verify all the details of US wallet in hindi
+
+
+
+
+
+  @Sanity
+  Scenario: Verify resend otp in hindi
+    Given the User is on MiniModule page
+    And User select change language option
+    And User select hindi section
+    And User click on continue CTA
+    And User click on sign out CTA
+    When User wait for resend otp
+    Then User will verify the resend otp text in hindi
+    And User will login
+
+
+    #after this scenario for again login everything will be in hindi language
+
+
+

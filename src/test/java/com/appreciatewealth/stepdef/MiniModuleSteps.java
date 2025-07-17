@@ -19,7 +19,7 @@ public class MiniModuleSteps extends BasePage {
 
     @Given("the User is on MiniModule page")
     public void the_user_is_on_mini_module_page() throws Exception {
-        new SignInPage().DynamicSignIn("varshatmysuru1992@gmail.com");
+        new SignInPage().DynamicSignIn_Prod("raj.singh@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
 
     }
@@ -638,6 +638,7 @@ public class MiniModuleSteps extends BasePage {
     public void userNavigatesToTheProfileDetailsScreen() throws InterruptedException {
         new MiniModulePage().ClickOnProfileFromDashboard();
         new MiniModulePage().ClickOnProfile();
+
     }
     @And("User Clicks on close button")
     public void userClicksOnCloseButton() throws InterruptedException {
@@ -765,7 +766,8 @@ public class MiniModuleSteps extends BasePage {
     @And("the User Clicks on Distributor or Agent Details")
     public void theUserClicksOnDistributorOrAgentDetails() throws InterruptedException {
         new MiniModulePage().ClickDistributorAgent();
-        new MiniModulePage().ClickDistributClose();
+        //new MiniModulePage().ClickDistributClose();
+        basePage.AndroidBack();
     }
 
     @And("the User Clicks on Request Advisory Services")
@@ -782,6 +784,7 @@ public class MiniModuleSteps extends BasePage {
 
     @Then("User should see all the options in Add-on Services")
     public void userShouldSeeAllTheOptionsInAddOnServices() throws InterruptedException {
+        new MiniModulePage(). VerifyThinkingOfHiringDetail();
         basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.Logout();
@@ -1167,5 +1170,480 @@ public class MiniModuleSteps extends BasePage {
         new MiniModulePage(). VerifySettingAndPreferencesPage();
         basePage.Logout();
 
+    }
+
+    @When("User click on the banner of what is pattern day trading")
+    public void userClickOnTheBannerOfWhatIsPatternDayTrading() throws InterruptedException {
+        new MiniModulePage(). ClickOnWhatIsPatternDayTrading();
+    }
+
+    @Then("User should see the all details of pattern day trading")
+    public void userShouldSeeTheAllDetailsOfPatternDayTrading() throws InterruptedException {
+        new MiniModulePage(). VerifyDetailsOfWhatIsPatternDayTrading();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @Then("User should see Refer and earn page with all CTAs")
+    public void userShouldSeeReferAndEarnPageWithAllCTAs() throws InterruptedException {
+        new MiniModulePage(). VerifyReferNowPage();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @Then("User should see all the details of Benefits section under investment advisory")
+    public void userShouldSeeAllTheDetailsOfBenefitsSectionUnderInvestmentAdvisory() throws InterruptedException {
+        new MiniModulePage(). VerifyBenefitAdvisoryDetail();
+    }
+
+    @And("User Select Request advisory services")
+    public void userSelectRequestAdvisoryServices() throws InterruptedException {
+        new MiniModulePage(). SelectAdvisoryServices();
+    }
+
+    @Then("User should be able to submit the Request advisory services request")
+    public void userShouldBeAbleToSubmitTheRequestAdvisoryServicesRequest() throws InterruptedException {
+        new MiniModulePage(). VerifyRequest();
+    }
+
+    @Then("User should see all the sections of minimodule are visible")
+    public void userShouldSeeAllTheSectionsOfMinimoduleAreVisible() throws InterruptedException {
+        new MiniModulePage(). VerifyAllMiniModuleSections();
+       // basePage.Logout();
+    }
+
+    @And("User click on US Wallet under minimodule")
+    public void userClickOnUSWalletUnderMinimodule() throws InterruptedException {
+        new MiniModulePage(). ClickOnUSWallet();
+    }
+
+    @Then("User should see all the details of US wallet")
+    public void userShouldSeeAllTheDetailsOfUSWallet() throws InterruptedException {
+        MiniModulePage miniModulePage = new MiniModulePage();
+
+        try {
+            miniModulePage.VerifyAllUSWalletDetails();
+        } catch (Exception e) {
+            System.out.println("VerifyAllUSWalletDetails failed: " + e.getMessage());
+        }
+
+        try {
+            miniModulePage.VerifyAccountDetails();
+        } catch (Exception e) {
+            System.out.println("VerifyAccountDetails failed: " + e.getMessage());
+        }
+
+        try {
+            miniModulePage.VerifyWithdrawalFunctionality();
+        } catch (Exception e) {
+            System.out.println("VerifyWithdrawalFunctionality failed: " + e.getMessage());
+        }
+
+        try {
+            miniModulePage.VerifyWithdrawalAmount();
+        } catch (Exception e) {
+            System.out.println("VerifyWithdrawalAmount failed: " + e.getMessage());
+        }
+
+        try {
+            miniModulePage.VerifyIncorrectWithdrawalAmount();
+        } catch (Exception e) {
+            System.out.println("VerifyIncorrectWithdrawalAmount failed: " + e.getMessage());
+        }
+
+        try {
+            miniModulePage.VerifyCorrectWithdrawalAmount();
+        } catch (Exception e) {
+            System.out.println("VerifyCorrectWithdrawalAmount failed: " + e.getMessage());
+        }
+
+        try {
+            miniModulePage.VerifyWithdrawalRequestAccepted();
+        } catch (Exception e) {
+            System.out.println("VerifyWithdrawalRequestAccepted failed: " + e.getMessage());
+        }
+
+        try {
+            miniModulePage.VerifySubmitTicketAtWithdrawalRequestAcceptedPage();
+        } catch (Exception e) {
+            System.out.println("VerifySubmitTicketAtWithdrawalRequestAcceptedPage failed: " + e.getMessage());
+        }
+
+        try {
+            basePage.ClickProfileSettings();
+        } catch (Exception e) {
+            System.out.println("ClickProfileSettings failed: " + e.getMessage());
+        }
+
+        try {
+            basePage.Logout();
+        } catch (Exception e) {
+            System.out.println("Logout failed: " + e.getMessage());
+        }
+    }
+
+
+    @And("User click on Personal Details under minimodule")
+    public void userClickOnPersonalDetailsUnderMinimodule() throws InterruptedException {
+        new MiniModulePage(). ClickOnPersonalDetails();
+    }
+
+    @Then("User should see all the details of Personal Details")
+    public void userShouldSeeAllTheDetailsOfPersonalDetails() throws InterruptedException {
+        new MiniModulePage(). VerifyAllPersonalDetails();
+      //  new MiniModulePage(). VerifySubmitASupportTicketForNomineeDetails();
+       // new MiniModulePage(). VerifySubmitASupportTicketForPersonalDetails();
+        basePage.AndroidBack();
+//        new MiniModulePage(). ClickOnBankAccounts();
+//        new MiniModulePage(). VerifyUSStocksBankAccounts();
+//        new MiniModulePage(). VerifyMFBankAccounts();
+//        basePage.AndroidBack();
+//        Thread.sleep(3000);
+//        new MiniModulePage(). ClickOnOrders();
+//        new MiniModulePage(). VerifyAllTabsUnderAllTransactionsPage();
+//        basePage.AndroidBack();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
+
+    }
+
+    @And("User click on Bank Accounts under minimodule")
+    public void userClickOnBankAccountsUnderMinimodule() throws InterruptedException {
+        new MiniModulePage(). ClickOnBankAccounts();
+    }
+
+    @Then("User should see all the details of Bank Accounts")
+    public void userShouldSeeAllTheDetailsOfBankAccounts() throws InterruptedException {
+        new MiniModulePage(). VerifyUSStocksBankAccounts();
+        new MiniModulePage(). VerifyMFBankAccounts();
+        basePage.AndroidBack();
+
+    }
+
+    @And("User click on Orders under minimodule")
+    public void userClickOnOrdersUnderMinimodule() throws InterruptedException {
+        new MiniModulePage(). ClickOnOrders();
+    }
+
+    @Then("User should see all tabs under All Transactions page")
+    public void userShouldSeeAllTabsUnderAllTransactionsPage() throws InterruptedException {
+        new MiniModulePage(). VerifyAllTabsUnderAllTransactionsPage();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("User click on Settings and Preferences")
+    public void userClickOnSettingsAndPreferences() throws InterruptedException {
+        new MiniModulePage(). ClickOnSettingsAndPreferences();
+    }
+
+    @Then("User should see all details of Settings and Preferences")
+    public void userShouldSeeAllDetailsOfSettingsAndPreferences() throws InterruptedException {
+        new MiniModulePage(). VerifyAllTabsOfSettingsAndPreferences();
+        new MiniModulePage(). VerifyChangePasscodeFunctionality();
+        new MiniModulePage(). SetANewPasscode();
+        new MiniModulePage(). ConfirmNewPasscode();
+        new MiniModulePage(). VerifyNewPasscodeSet();
+        new SignInPage().DynamicSignIn_Prod("raj.singh@ppreciate.com");
+        basePage.ClickProfileSettings();
+        new MiniModulePage(). ClickOnSettingsAndPreferences();
+        new MiniModulePage(). VerifyInvestmentBuilder();
+        new MiniModulePage(). UpdateInvestmentBuilder();
+        basePage.AndroidBack();
+        new MiniModulePage(). VerifyDayTradingSettings();
+        basePage.AndroidBack();
+        new MiniModulePage(). VerifyDeactivateAccounts();
+
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("User click on Support section")
+    public void userClickOnSupportSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnSupport();
+    }
+
+    @Then("User will verify all the functionality of support section")
+    public void userWillVerifyAllTheFunctionalityOfSupportSection() throws InterruptedException {
+        new MiniModulePage(). VerifyFAQSection();
+        new MiniModulePage(). VerifyRecentTickets();
+        //new MiniModulePage(). VerifySubmitASupportTicketForNomineeDetails();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
+
+    }
+
+    @And("User click on Pricing section")
+    public void userClickOnPricingSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnPricing();
+    }
+
+    @Then("User will verify all the details of Pricing section")
+    public void userWillVerifyAllTheDetailsOfPricingSection() throws InterruptedException {
+        new MiniModulePage(). VerifyAllDetailsOFGoalsSection();
+        new MiniModulePage(). VerifyAllDetailsOFTradeSection();
+
+        new MiniModulePage(). VerifyExitLoad();
+        new MiniModulePage(). VerifyLTCGAndSTCGTax();
+//        new MiniModulePage(). VerifySTCGTax();
+        new MiniModulePage(). VerifyOtherFeesSection();
+
+        try {
+            basePage.ClickUsingCoordinate(75, 114);
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            basePage.AndroidBack();
+            // Optionally, log the exception or rethrow if needed
+            System.out.println("ClickUsingCoordinate failed: " + e.getMessage());
+            Thread.sleep(3000);
+        }
+        basePage.Logout();
+    }
+
+    @And("User click on Add on Services")
+    public void userClickOnAddOnServices() throws InterruptedException {
+        new MiniModulePage(). ClickOnAddOnServices();
+    }
+
+    @Then("User will verify all details of Add on Services")
+    public void userWillVerifyAllDetailsOfAddOnServices() throws InterruptedException {
+        new MiniModulePage(). VerifyDistributorAndAgentDetails();
+        new MiniModulePage(). VerifyRequestAdvisoryServices();
+        new MiniModulePage(). VerifyRequestAdvisoryServicesFunction();
+        basePage.AndroidBack();
+
+        new MiniModulePage(). VerifyRequestOtherServices();
+        basePage.AndroidBack();
+//        basePage.AndroidBack();
+//        basePage.Logout();
+
+
+    }
+
+    @And("User click on About Us")
+    public void userClickOnAboutUs() throws InterruptedException {
+        new MiniModulePage(). ClickOnAboutUs();
+    }
+
+    @Then("User will verify all details related to about us page")
+    public void userWillVerifyAllDetailsRelatedToAboutUsPage() throws InterruptedException {
+        new MiniModulePage(). VerifyAboutUSPage();
+        basePage.AndroidBack();
+        basePage.Logout();
+    }
+
+    @And("User click on CSR")
+    public void userClickOnCSR() throws InterruptedException {
+        new MiniModulePage(). ClickOnCSR();
+    }
+
+    @Then("User will verify all details about CSR page")
+    public void userWillVerifyAllDetailsAboutCSRPage() throws InterruptedException {
+        new MiniModulePage(). VerifyCSRInitiatives();
+        new MiniModulePage(). VerifySuggestionFunctionalityErrorMsg();
+     //   new MiniModulePage(). VerifySuggestionFunctionality();
+        // having issue with email and msg keyboard
+        basePage.AndroidBack();
+        basePage.Logout();
+
+
+    }
+
+    @And("User click on Legal")
+    public void userClickOnLegal() throws InterruptedException {
+        new MiniModulePage(). ClickOnLegal();
+    }
+
+    @Then("User will verify all details for Legal section")
+    public void userWillVerifyAllDetailsForLegalSection() throws InterruptedException {
+        new MiniModulePage(). VerifyAllLegalPageOptions();
+        new MiniModulePage(). VerifyAppreciatePlatformDetails();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+       new MiniModulePage(). VerifyAppreciateBrokingDetails();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). VerifyRegistrationDetails();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). VerifyIFSCExchangeDisclosureDetails();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). VerifyCommissionDisclosureStatementDetails();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). ClickOnDriveWeath();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). VerifyTermAndDiscloreUnderDriveWealth();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). VerifyPrivacyAndPolicyDriveWealth();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). VerifyW8BenUnderDriveWealth();
+        basePage.AndroidBack();
+        new MiniModulePage(). ClickOnLegal();
+        new MiniModulePage(). VerifyYesBankFunctionality();
+
+        basePage.AndroidBack();
+        basePage.Logout();
+
+    }
+
+    @And("User click on Submit a support ticket")
+    public void userClickOnSubmitASupportTicket() throws InterruptedException {
+        new MiniModulePage(). ClickOnSubmitASupportTicket();
+    }
+
+    @Then("User should be able to create a support ticket")
+    public void userShouldBeAbleToCreateASupportTicket() throws InterruptedException {
+        new MiniModulePage(). VerifySubmitASupportTicketForPersonalDetails();
+    }
+
+    @And("User selects Recent tickets")
+    public void userSelectsRecentTickets() {
+    }
+
+    @And("User click on Submit a support ticket for nominee details")
+    public void userClickOnSubmitASupportTicketForNomineeDetails() throws InterruptedException {
+        new MiniModulePage(). GotoSubmitASupportTicketForNominee();
+        new MiniModulePage(). ClickOnSubmitASupportTicket();
+    }
+
+    @Then("User should be able to create a support ticket under nominee")
+    public void userShouldBeAbleToCreateASupportTicketUnderNominee() throws InterruptedException {
+        new MiniModulePage(). VerifySubmitASupportTicketForPersonalDetails();
+        basePage.AndroidBack();
+
+    }
+
+    @And("User click on Submit a ticket for US stocks under Bank Accounts section")
+    public void userClickOnSubmitATicketForUSStocksUnderBankAccountsSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnSubmitATicketForUSStocksUnderBankAccountsSection();
+    }
+
+    @Then("User should be able to create a Ticket for US Stocks")
+    public void userShouldBeAbleToCreateATicketForUSStocks() throws InterruptedException {
+        new MiniModulePage(). VerifyCreateATicketForUSStocks();
+    }
+
+    @And("User click on Mutual funds under Bank accounts")
+    public void userClickOnMutualFundsUnderBankAccounts() throws InterruptedException {
+        new MiniModulePage(). ClickOnMFUnderBankAccounts();
+    }
+
+    @And("User click on Submit a ticket for MF under Bank Accounts section")
+    public void userClickOnSubmitATicketForMFUnderBankAccountsSection() throws InterruptedException {
+        new MiniModulePage(). VerifySubmitATicketForMFUnderBankAccountsSection();
+        basePage.AndroidBack();
+
+    }
+
+    @And("User click on Refer and Earn section")
+    public void userClickOnReferAndEarnSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnReferAndEarnSection();
+    }
+
+    @And("User should see the Refer page along with sharing options")
+    public void userShouldSeeTheReferPageAlongWithSharingOptions() throws InterruptedException {
+        new MiniModulePage(). VerifyReferNowPage();
+        basePage.AndroidBack();
+    }
+
+    @Then("User should be able to see the minimodule page")
+    public void userShouldBeAbleToSeeTheMinimodulePage() throws InterruptedException {
+        new MiniModulePage(). ValidateMinimodulePage();
+
+    }
+
+
+    @And("the user navigates to the About Us section")
+    public void theUserNavigatesToTheAboutUsSection() throws InterruptedException {
+        new MiniModulePage(). NavigateToAboutUsSection();
+    }
+
+    @Then("the user should see the {string} page along with the Legal and CSR sections")
+    public void theUserShouldSeeThePageAlongWithTheLegalAndCSRSections(String arg0) throws InterruptedException {
+        new MiniModulePage(). ValidateAboutUsPage();
+    }
+
+    @When("the user clicks the Know More button")
+    public void theUserClicksTheKnowMoreButton() throws InterruptedException {
+        new MiniModulePage(). ClickOnKnowMoreBtn();
+    }
+
+    @Then("the user should be redirected to the About Appreciate page")
+    public void theUserShouldBeRedirectedToTheAboutAppreciatePage() throws InterruptedException {
+        new MiniModulePage(). ValidateAboutAppreciatePage();
+    }
+
+    @And("the user clicks on the Legal section")
+    public void theUserClicksOnTheLegalSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnLegalSection();
+    }
+
+    @Then("the user should see the Legal page details")
+    public void theUserShouldSeeTheLegalPageDetails() throws InterruptedException {
+        new MiniModulePage(). VerifyLegalPage();
+        basePage.AndroidBack();
+    }
+
+    @And("the user clicks on the CSR section")
+    public void theUserClicksOnTheCSRSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnCSRSection();
+    }
+
+    @Then("the user should see the CSR Mission page along with the Suggestions & Feedback functionality")
+    public void theUserShouldSeeTheCSRMissionPageAlongWithTheSuggestionsFeedbackFunctionality() throws InterruptedException {
+        new MiniModulePage(). ClickOnCSRSection();
+    }
+
+    @And("the user navigates to the Other Services section")
+    public void theUserNavigatesToTheOtherServicesSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnOtherServices();
+    }
+
+    @And("the user clicks on the View All Accounts CTA")
+    public void theUserClicksOnTheViewAllAccountsCTA() throws InterruptedException {
+        new MiniModulePage(). ClickOnViewAllAccountsCTA();
+    }
+
+    @Then("the user should be redirected to the Accounts page which displays both US Stocks and Mutual Funds sections")
+    public void theUserShouldBeRedirectedToTheAccountsPageWhichDisplaysBothUSStocksAndMutualFundsSections() throws InterruptedException {
+        new MiniModulePage(). ValidateAccountsPage();
+    }
+
+    @When("the user clicks the Submit a Ticket button under the US Stocks section")
+    public void theUserClicksTheSubmitATicketButtonUnderTheUSStocksSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnSubmitATicketForUSStocks();
+    }
+
+    @Then("the user should be able to submit a ticket for the US Stocks section")
+    public void theUserShouldBeAbleToSubmitATicketForTheUSStocksSection() throws InterruptedException {
+        new MiniModulePage(). ValidateSubmitATicketFunctionalityForUSStocks();
+    }
+
+    @When("the user clicks on the Mutual Funds section")
+    public void theUserClicksOnTheMutualFundsSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnMFUnderBankAccounts();
+    }
+
+    @Then("the user should see the added accounts for Mutual Funds")
+    public void theUserShouldSeeTheAddedAccountsForMutualFunds() throws InterruptedException {
+        new MiniModulePage(). ValidateAddedAccountsForMF();
+    }
+
+    @When("the user clicks the Submit a Ticket button under the Mutual Funds section")
+    public void theUserClicksTheSubmitATicketButtonUnderTheMutualFundsSection() throws InterruptedException {
+        new MiniModulePage(). ClickOnSubmitATicketForMutualFunds();
+    }
+
+    @Then("the user should be able to submit a ticket under the Mutual Funds section")
+    public void theUserShouldBeAbleToSubmitATicketUnderTheMutualFundsSection() {
+        new MiniModulePage(). ValidateSubmitAicketFunctionalityForMF();
     }
 }

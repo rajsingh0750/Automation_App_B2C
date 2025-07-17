@@ -2,12 +2,20 @@ package com.appreciatewealth.stepdef;
 
 import com.appreciatewealth.pages.BasePage;
 import com.appreciatewealth.pages.LanguageChangePage;
+import com.appreciatewealth.pages.SignInPage;
+import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class LanguageChangeSteps extends BasePage {
     BasePage basePage = new BasePage();
+
+    private SignInPage signInPage;
+
+    public LanguageChangeSteps() {
+        this.signInPage = new SignInPage();
+    }
 
     @Given("User select change language option")
     public void user_select_change_language_option() throws InterruptedException {
@@ -122,6 +130,29 @@ public class LanguageChangeSteps extends BasePage {
         basePage.AndroidBack();
         basePage.HindiLogout();
 
+
+    }
+
+    @And("User click on sign out CTA")
+    public void userClickOnSignOutCTA() throws InterruptedException {
+        ClickSignOut(driver);
+    }
+
+    @And("User wait for resend otp")
+    public void userWaitForResendOtp() throws InterruptedException {
+        signInPage.HindiDynamicSignIn("varshatmysuru1992@gmail.com");
+    }
+
+    @Then("User will verify the resend otp text in hindi")
+    public void userWillVerifyTheResendOtpTextInHindi() throws InterruptedException {
+        new  LanguageChangePage().VerifyResendOTPText();
+    }
+
+    @And("User will login")
+    public void userWillLogin() throws InterruptedException {
+        signInPage.LoginInHindi();
+        basePage.ClickProfileSettings();
+        basePage.HindiLogout();
 
     }
 }

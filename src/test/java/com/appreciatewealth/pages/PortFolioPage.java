@@ -1,0 +1,322 @@
+package com.appreciatewealth.pages;
+
+import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.Duration;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class PortFolioPage extends BasePage{
+    BasePage basePage = new BasePage();
+    SignInPage signInPage = new SignInPage();
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Portfolio\n" +
+            "Tab 2 of 5\"]")
+    private WebElement PortFolioTab;
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[2]")
+    WebElement InvestedAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[3]")
+    WebElement CurrentAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[1]")
+    WebElement ReturnAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
+    WebElement ReturnPercentage;
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[3]")
+    WebElement USStocksInvestedAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[4]")
+    WebElement USStocksCurrentAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[2]")
+    WebElement USStocksReturnAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
+    WebElement USStocksReturnPercentage;
+
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[2]")
+    WebElement GoalsTabInvestedAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[3]")
+    WebElement GoalsTabCurrentAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[1]")
+    WebElement GoalsTabReturnAmount;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
+    WebElement GoalsTabReturnPercentage;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"US Stocks\n" +
+            "Tab 2 of 4\"]")
+    WebElement USStock;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Goals\n" +
+            "Tab 3 of 4\"]")
+    WebElement Goals;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Mutual Funds\n" +
+            "Tab 4 of 4\"]")
+    WebElement MF;
+
+
+
+
+
+
+    public void ClickOnPortFolioTab() throws InterruptedException {
+        Thread.sleep(3000);
+        PortFolioTab.click();
+
+    }
+
+
+
+    public void VerifyAllTabCalculation() throws InterruptedException {
+        Thread.sleep(6000);
+
+        // 1. Get values from UI
+        String investAmtStr = InvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = CurrentAmount.getAttribute("content-desc");
+        String returnPercStr = ReturnPercentage.getAttribute("content-desc");
+        String returnAmtStr = ReturnAmount.getAttribute("content-desc");
+
+        // 2. Log UI values
+        System.out.println("Invested amount is " + investAmtStr);
+        System.out.println("Current amount is " + currentAmtStr);
+        System.out.println("Overall return percentage " + returnPercStr);
+        System.out.println("Overall Total return " + returnAmtStr);
+
+        // 3. Clean and convert to double with 2 decimal rounding
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnAmount = new BigDecimal(returnAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        // 4. Profit or Loss check
+        if (currentAmount > investedAmount) {
+            System.out.println("📈 User is in profit.");
+        } else if (currentAmount < investedAmount) {
+            System.out.println("📉 User is in loss.");
+        } else {
+            System.out.println("⚖️  No profit, no loss.");
+        }
+
+        // 5. Expected Calculations
+        double expectedReturnAmount = (returnPercentage / 100.0) * investedAmount;
+        double expectedCurrentAmount = investedAmount + expectedReturnAmount;
+
+        // 6. Round for comparison
+        expectedReturnAmount = Math.round(expectedReturnAmount * 100.0) / 100.0;
+        expectedCurrentAmount = Math.round(expectedCurrentAmount * 100.0) / 100.0;
+        returnAmount = Math.round(returnAmount * 100.0) / 100.0;
+        currentAmount = Math.round(currentAmount * 100.0) / 100.0;
+
+        // 7. Validate Return Amount
+        if (expectedReturnAmount == returnAmount) {
+            System.out.println("✅ Return amount calculation is correct.");
+        } else {
+            System.out.println("❌ Return amount mismatch. Expected: " + expectedReturnAmount + " | Actual: " + returnAmount);
+        }
+
+        // 8. Validate Current Amount
+        if (expectedCurrentAmount == currentAmount) {
+            System.out.println("✅ Current amount calculation is correct.");
+        } else {
+            System.out.println("❌ Current amount mismatch. Expected: " + expectedCurrentAmount + " | Actual: " + currentAmount);
+        }
+    }
+
+
+
+    public void VerifyUSStocksTabCalculation() throws InterruptedException {
+        Thread.sleep(6000);
+
+        // Get values from UI
+        String investAmtStr = USStocksInvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = USStocksCurrentAmount.getAttribute("content-desc");
+        String returnPercStr = USStocksReturnPercentage.getAttribute("content-desc");
+        String returnAmtStr = USStocksReturnAmount.getAttribute("content-desc");
+
+        System.out.println("Invested amount is " + investAmtStr);
+        System.out.println("Current amount is " + currentAmtStr);
+        System.out.println("Overall return percentage " + returnPercStr);
+        System.out.println("Overall Total return " + returnAmtStr);
+
+        // Parse and round values
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnAmount = new BigDecimal(returnAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        // Print whether profit or loss
+        if (currentAmount > investedAmount) {
+            System.out.println("📈 User is in profit");
+        } else if (currentAmount < investedAmount) {
+            System.out.println("📉 User is in loss");
+        } else {
+            System.out.println("⚖️  No profit, no loss");
+        }
+
+        // ✅ Recalculate values and validate
+        double expectedReturnAmount = (returnPercentage / 100.0) * investedAmount;
+        double expectedCurrentAmount = investedAmount + expectedReturnAmount;
+
+        // Round all calculated values for comparison
+        expectedReturnAmount = Math.round(expectedReturnAmount * 100.0) / 100.0;
+        expectedCurrentAmount = Math.round(expectedCurrentAmount * 100.0) / 100.0;
+        returnAmount = Math.round(returnAmount * 100.0) / 100.0;
+        currentAmount = Math.round(currentAmount * 100.0) / 100.0;
+
+        // Validation: return amount
+        if (expectedReturnAmount == returnAmount) {
+            System.out.println("✅ Return amount calculation is correct.");
+        } else {
+            System.out.println("❌ Return amount mismatch. Expected: " + expectedReturnAmount + " | Actual: " + returnAmount);
+        }
+
+        // Validation: current amount
+        if (expectedCurrentAmount == currentAmount) {
+            System.out.println("✅ Current amount calculation is correct.");
+        } else {
+            System.out.println("❌ Current amount mismatch. Expected: " + expectedCurrentAmount + " | Actual: " + currentAmount);
+        }
+    }
+
+
+
+    public void VerifyGoalsTabCalculation() throws InterruptedException {
+        Thread.sleep(6000);
+
+        // 1. Get values from UI
+        String investAmtStr = GoalsTabInvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = GoalsTabCurrentAmount.getAttribute("content-desc");
+        String returnPercStr = GoalsTabReturnPercentage.getAttribute("content-desc");
+        String returnAmtStr = GoalsTabReturnAmount.getAttribute("content-desc");
+
+        // 2. Log UI values
+        System.out.println("Invested amount is " + investAmtStr);
+        System.out.println("Current amount is " + currentAmtStr);
+        System.out.println("Overall return percentage " + returnPercStr);
+        System.out.println("Overall Total return " + returnAmtStr);
+
+        // 3. Clean and convert to double with 2 decimal rounding
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnAmount = new BigDecimal(returnAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        // 4. Profit or Loss check
+        if (currentAmount > investedAmount) {
+            System.out.println("📈 User is in profit.");
+        } else if (currentAmount < investedAmount) {
+            System.out.println("📉 User is in loss.");
+        } else {
+            System.out.println("⚖️  No profit, no loss.");
+        }
+
+        // 5. Expected Calculations
+        double expectedReturnAmount = (returnPercentage / 100.0) * investedAmount;
+        double expectedCurrentAmount = investedAmount + expectedReturnAmount;
+
+        // 6. Round for comparison
+        expectedReturnAmount = Math.round(expectedReturnAmount * 100.0) / 100.0;
+        expectedCurrentAmount = Math.round(expectedCurrentAmount * 100.0) / 100.0;
+        returnAmount = Math.round(returnAmount * 100.0) / 100.0;
+        currentAmount = Math.round(currentAmount * 100.0) / 100.0;
+
+        // 7. Validate Return Amount
+        if (expectedReturnAmount == returnAmount) {
+            System.out.println("✅ Return amount calculation is correct.");
+        } else {
+            System.out.println("❌ Return amount mismatch. Expected: " + expectedReturnAmount + " | Actual: " + returnAmount);
+        }
+
+        // 8. Validate Current Amount
+        if (expectedCurrentAmount == currentAmount) {
+            System.out.println("✅ Current amount calculation is correct.");
+        } else {
+            System.out.println("❌ Current amount mismatch. Expected: " + expectedCurrentAmount + " | Actual: " + currentAmount);
+        }
+    }
+
+
+
+    public void VerifyMFTabCalculation() throws InterruptedException {
+        Thread.sleep(6000);
+    }
+
+    public void SelectUSStockSection() throws InterruptedException {
+        Thread.sleep(3000);
+        USStock.click();
+    }
+
+    public void SelectGoalsSection() throws InterruptedException {
+        Thread.sleep(3000);
+        Goals.click();
+    }
+
+    public void SelectMFSection() throws InterruptedException {
+        Thread.sleep(3000);
+        MF.click();
+    }
+}

@@ -36,3 +36,39 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Mobile App Files ###
+*.apk
+*.ipa
+*.aab
+*.apks
+
+### Log Files ###
+*.log
+Application.log
+Server.log
+
+### Test Reports and Screenshots ###
+test-output/
+screenshots/
+reports/
+extent-reports/
+
+### Temporary Files ###
+*.tmp
+*.temp
+*.swp
+*.swo
+
+### Large Binary Files ###
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+### Node Modules (if any) ###
+node_modules/
+
+### IDE Specific ###
+.idea/
+*.iml

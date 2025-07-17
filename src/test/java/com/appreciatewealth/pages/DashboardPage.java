@@ -6,15 +6,20 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -103,6 +108,12 @@ public class DashboardPage extends BasePage {
 
     private WebElement SearchStock;
 
+
+
+    @AndroidFindBy(xpath = "//android.widget.EditText")
+    private WebElement SendStockName;
+
+
 //    @AndroidFindBy(xpath = " //android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView")
 //    private WebElement NewsSearch;
 
@@ -113,6 +124,13 @@ public class DashboardPage extends BasePage {
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Recently viewed\"]")
     private WebElement RecentlyviewedPage;
+
+    @AndroidFindBy(accessibility = "Recently viewed")
+    private WebElement RecentlyViewedSection;
+
+
+    @AndroidFindBy(accessibility = "Top Picks")
+    private WebElement TopPicks;
 
 
     @AndroidFindBy(accessibility = "Scrim")
@@ -130,14 +148,35 @@ public class DashboardPage extends BasePage {
     private WebElement NewsTab;
 
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Apple announces $99 million new clean energy fund in China\n" +
-            "24 Mar, 2025 06:51 AM\"]")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"ANAERGIA INC: VIA UNIT, AWARDED PUBLIC TENDER BY ASA LIVORNO WITH TOTAL INVESTMENT IN PROJECT OF ABOUT C$25 MLN\n" +
+            "2 Jul, 2025 11:55 AM\"]")
     private WebElement StockNews;
 
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"US Stocks\n" +
             "Tab 1 of 4\"]")
     private WebElement UsStocks;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Mutual funds\n" +
+            "Tab 2 of 4\"]")
+    private WebElement MutualFunds;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"News\n" +
+            "Tab 3 of 4\"]")
+    private WebElement News;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Research\n" +
+            "Tab 4 of 4\"]")
+    private WebElement ReasearchTab;
+
+
+    @AndroidFindBy(accessibility = "Choose from a crafted list")
+    private WebElement CraftedListSection;
+
+
+
+    @AndroidFindBy(accessibility = "Search")
+    private WebElement SearchPage;
 
 
     @AndroidFindBy(accessibility = "Filter")
@@ -155,9 +194,10 @@ public class DashboardPage extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView")
     WebElement EnterStockName;
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Research\n" +
-            "Tab 4 of 4\"]")
-    private WebElement ReasearchTab;
+    @AndroidFindBy(xpath = "//android.widget.EditText")
+    WebElement EnterTheStockName;
+
+
 
 
 
@@ -191,9 +231,65 @@ public class DashboardPage extends BasePage {
     @AndroidFindBy(accessibility = "US Year High Today")
     WebElement USYearHighToday;
 
+    @AndroidFindBy(accessibility = "US Year Low Today")
+    WebElement USYearLowToday;
+
 
     @AndroidFindBy(accessibility = "Stocks and ETFs making 52 week high today.")
     WebElement USYearHighTodayHeading;
+
+
+    @AndroidFindBy(accessibility = "Stocks and ETFs making 52 week low today.")
+    WebElement USYearLowTodayHeading;
+
+
+    @AndroidFindBy(accessibility = "Buy")
+    WebElement BuyCTA;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Mutual funds\n" +
+            "Tab 2 of 4\"]")
+    WebElement MFTab;
+
+
+    @AndroidFindBy(accessibility = "\uE16A")
+    WebElement ClearCrossIcon;
+
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView")
+    WebElement MFSearchTab;
+
+
+    @AndroidFindBy(xpath = "//android.widget.EditText")
+    WebElement EnterFund;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Nippon India Growth Fund - (G)\n" +
+            "Mid Cap Fund\"]")
+    WebElement NipponIndiaMF;
+
+
+    @AndroidFindBy(accessibility = "Returns")
+    WebElement ReturnsTab;
+
+
+
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.ImageView[2]")
+    WebElement ClearMFSearchBar;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Tesla')]")
+    WebElement TeslaNews;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Research\n" +
+            "Tab 4 of 4\"]")
+    WebElement ResearchTab;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Apple')]")
+    WebElement AppleResearch;
 
 
 
@@ -236,8 +332,21 @@ public class DashboardPage extends BasePage {
     WebElement ETF;
 
 
-    @AndroidFindBy(accessibility = "View all")
+    @AndroidFindBy(xpath = "(//android.view.View[@content-desc=\"View all\"])[1]")
     WebElement ViewAllbtn;
+
+    @AndroidFindBy(accessibility = "View all")
+    WebElement TopPicksViewAllbtn;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, ' items')]")
+    WebElement TopPicksStocksCount;
+
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'AAPL') and contains(@content-desc, 'EQUITY')]")
+    WebElement AppleStock;
+
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"TSLA\n" +
             "Tesla, Inc.\n" +
@@ -309,6 +418,30 @@ public class DashboardPage extends BasePage {
             "S&P 500 ETF Trust SPDR\n" +
             "ETF\"]")
     WebElement SpyStock;
+
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[contains(@text, 'Watchlist')]")
+    private WebElement ByDefaultWatchlist;
+
+
+
+    @AndroidFindBy(accessibility = "EQUITY")
+    WebElement Equity;
+
+
+    @AndroidFindBy(accessibility = "Filter(1)")
+    WebElement SecondTimeFilter;
+
+
+    @AndroidFindBy(accessibility = "Clear all")
+    WebElement ClearAllCTA;
+
+
+    @AndroidFindBy(accessibility = "Industry")
+    WebElement IndustrySection;
+
+    @AndroidFindBy(accessibility = "All")
+    WebElement AllOption;
 
 
     public void NavigatetoDashboard() throws IOException, InterruptedException {
@@ -493,11 +626,15 @@ public class DashboardPage extends BasePage {
         NotificationBack.click();
 
     }
+
     public void EnterStockName(String msg) throws InterruptedException {
         Thread.sleep(3000);
         SearchStock.click();
-        SearchStock.sendKeys(msg);
-        driver.executeScript("mobile: pressKey", ImmutableMap.of("keycode", 66));
+        Thread.sleep(2000);
+        SendStockName.sendKeys(msg);
+        System.out.println("Entering stock name: " + msg);
+       // Thread.sleep(2000);
+        //driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
     public void CountStocks() throws InterruptedException {
@@ -565,7 +702,8 @@ public class DashboardPage extends BasePage {
 
     public void SelectFilterCTA() throws InterruptedException {
         Thread.sleep(4000);
-        AppliedFilter.click();
+        //AppliedFilter.click();
+        FilterPage.click();
     }
 
     public void VerifyFilterCTA() throws InterruptedException {
@@ -577,7 +715,7 @@ public class DashboardPage extends BasePage {
     public void EnterStockNameUnderNewsTab(String msg) throws InterruptedException {
         Thread.sleep(5000);
         EnterStockName.click();
-        EnterStockName.sendKeys(msg);
+        EnterTheStockName.sendKeys(msg);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
 
 
@@ -590,7 +728,9 @@ public class DashboardPage extends BasePage {
     }
 
     public void VerifyCountOfTopGainersStocks() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
+        USTopGainers.click();
+        Thread.sleep(4000);
         TopGainersHeading.isDisplayed();
         String accessibilityId = TopGainersStocksCount.getAttribute("content-desc");
 
@@ -613,7 +753,9 @@ public class DashboardPage extends BasePage {
     }
 
     public void VerifyCountOfTopLosersStocks() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
+        USTopLosers.click();
+        Thread.sleep(4000);
         TopLosersHeading.isDisplayed();
         String accessibilityId = TopGainersStocksCount.getAttribute("content-desc");
 
@@ -636,7 +778,9 @@ public class DashboardPage extends BasePage {
     }
 
     public void VerifyCountOfUSYearHighTodayStocks() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
+        USYearHighToday.click();
+        Thread.sleep(4000);
         USYearHighTodayHeading.isDisplayed();
         String accessibilityId = TopGainersStocksCount.getAttribute("content-desc");
 
@@ -849,6 +993,279 @@ public class DashboardPage extends BasePage {
         Thread.sleep(3000);
         SpyStock.click();
     }
+
+    public void VerifyAllVisibleSection() throws InterruptedException {
+        Thread.sleep(5000);
+        SearchPage.isDisplayed();
+        UsStocks.isDisplayed();
+        MutualFunds.isDisplayed();
+        News.isDisplayed();
+        ReasearchTab.isDisplayed();
+        CraftedListSection.isDisplayed();
+        RecentlyViewedSection.isDisplayed();
+        ViewAllbtn.isDisplayed();
+
+
+    }
+
+    public void VerifyCountOfUSYearLowTodayStocks() throws InterruptedException {
+        Thread.sleep(3000);
+        USYearLowToday.click();
+        Thread.sleep(4000);
+        USYearLowTodayHeading.isDisplayed();
+        String accessibilityId = TopGainersStocksCount.getAttribute("content-desc");
+
+        String regex = "(\\d+) items";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(accessibilityId);
+
+        if (matcher.find()) {
+            String number = matcher.group(1);
+            System.out.println("The numeric value is: " + number);
+        } else {
+            System.out.println("No items found");
+        }
+    }
+
+    public void VerifyRecentlyViewedSection() throws InterruptedException {
+        Thread.sleep(3000);
+        // clicking on stock under recently viewed
+        int x =367;
+        int y = 1055;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        Thread.sleep(5000);
+        BuyCTA.isDisplayed();
+
+
+    }
+
+    public void VerifyRecentlyViewedFromViewAllButton() throws InterruptedException {
+        Thread.sleep(3000);
+        ViewAllbtn.click();
+
+        Thread.sleep(3000);
+        RecentlyviewedPage.isDisplayed();
+
+        // clicking on stock using coordinate not getting xpath
+        int x =387;
+        int y = 1360;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        Thread.sleep(3000);
+        BuyCTA.isDisplayed();
+
+    }
+
+    public void ClickOnTopPicksStock() throws InterruptedException {
+        Thread.sleep(3000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 800,
+                "direction", "down",
+                "percent", 0.1
+        ));
+        Thread.sleep(3000);
+
+        // clicking on top picks stocks
+
+        int x =345;
+        int y = 1241;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        Thread.sleep(5000);
+        BuyCTA.isDisplayed();
+
+    }
+
+    public void VerifyTopPicksFromViewAllButton() throws InterruptedException {
+        Thread.sleep(3000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 800,
+                "direction", "down",
+                "percent", 0.1
+        ));
+        Thread.sleep(3000);
+        TopPicksViewAllbtn.click();
+        Thread.sleep(3000);
+        String accessibilityId = TopPicksStocksCount.getAttribute("content-desc");
+
+        String regex = "(\\d+) items";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(accessibilityId);
+
+        if (matcher.find()) {
+            String number = matcher.group(1);
+            System.out.println("The numeric value of top picks stocks are: " + number);
+        } else {
+            System.out.println("No numeric value found before 'items'.");
+        }
+
+    }
+
+    public void ClickOnAppleStock() throws InterruptedException {
+        Thread.sleep(4000);
+        AppleStock.click();
+    }
+
+    public void VerifyStockDetailsPage() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // waits up to 10 seconds
+        wait.until(ExpectedConditions.visibilityOf(BuyCTA));
+
+        // Optional: Add a check to confirm visibility
+        if (BuyCTA.isDisplayed()) {
+            System.out.println("BuyCTA is visible.");
+        } else {
+            System.out.println("BuyCTA is NOT visible.");
+        }
+    }
+
+    public void ClickOnMFTab() throws InterruptedException {
+        Thread.sleep(3000);
+        MFTab.click();
+    }
+
+    public void ClearUSStockSearch() throws InterruptedException {
+        Thread.sleep(3000);
+        ClearCrossIcon.click();
+    }
+
+    public void EnterMFName(String nipponIndiaGrowthFund) throws InterruptedException {
+        Thread.sleep(3000);
+        MFSearchTab.click();
+        Thread.sleep(2000);
+        EnterFund.sendKeys(nipponIndiaGrowthFund);
+    }
+
+    public void ClickOnNipponMFFundName() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(NipponIndiaMF));
+
+        NipponIndiaMF.click();
+
+    }
+
+    public void ValidateMFDetailsPage() throws InterruptedException {
+        Thread.sleep(4000);
+        ReturnsTab.isDisplayed();
+    }
+
+    public void ClearMFSearchBar() throws InterruptedException {
+        Thread.sleep(3000);
+        ClearMFSearchBar.click();
+    }
+
+    public void NavigatedToTheNewsDetailsPage() {
+        try {
+            Thread.sleep(3000);
+
+            // Tap on the specified coordinates
+            int x = 363;
+            int y = 507;
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            driver.perform(List.of(tap));
+
+            Thread.sleep(3000);
+
+            // Validate if Tesla news is displayed
+            if (TeslaNews.isDisplayed()) {
+                System.out.println("Tesla news is displayed successfully.");
+            } else {
+                System.out.println("Tesla news element is not visible. News may not be loading correctly.");
+            }
+
+        } catch (NoSuchElementException e) {
+            System.out.println("Tesla news element not found. News may not be loading or displayed.");
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred while navigating to the News Details Page: " + e.getMessage());
+        }
+    }
+
+    public void NavigatedToTheResearchDetailsPage() {
+        try {
+            Thread.sleep(3000);
+
+            // Tap on the specified coordinates
+            int x = 363;
+            int y = 507;
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            driver.perform(List.of(tap));
+
+            Thread.sleep(8000);
+
+            // Validate if Tesla news is displayed
+            if (AppleResearch.isDisplayed()) {
+                System.out.println("Tesla news is displayed successfully.");
+            } else {
+                System.out.println("Tesla news element is not visible. News may not be loading correctly.");
+            }
+
+        } catch (NoSuchElementException e) {
+            System.out.println("Tesla news element not found. News may not be loading or displayed.");
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred while navigating to the News Details Page: " + e.getMessage());
+        }
+    }
+
+    public void ClickOnResearchTab() throws InterruptedException {
+        Thread.sleep(3000);
+        ResearchTab.click();
+    }
+
+    public void SelectEquityOption() throws InterruptedException {
+        Thread.sleep(3000);
+        Equity.click();
+    }
+
+    public void SecondTimeFilterClick() throws InterruptedException {
+        Thread.sleep(3000);
+        SecondTimeFilter.click();
+    }
+
+    public void ClearAppliedFilter() throws InterruptedException {
+        Thread.sleep(3000);
+        ClearAllCTA.click();
+    }
+
+    public void ClickOnIndustrySection() throws InterruptedException {
+        Thread.sleep(3000);
+        IndustrySection.click();
+    }
+
+    public void SelectOneOptionFromIndustrySection() throws InterruptedException {
+        Thread.sleep(3000);
+        AllOption.click();
+    }
+
+    public void VerifySearchPage() throws InterruptedException {
+        Thread.sleep(3000);
+        SearchPage.isDisplayed();
+    }
+
+
+
 
 //    public void VerifyDailyReturn() throws InterruptedException {
 //        Thread.sleep(4000);

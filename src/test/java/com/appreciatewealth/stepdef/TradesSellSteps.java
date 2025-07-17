@@ -52,7 +52,7 @@ public class TradesSellSteps extends BasePage {
 
     @And("User enters the Quantity for sell")
     public void userEntersTheQuantityForSell() throws InterruptedException {
-        new TradesPage().EnterSellAmount("0.8");
+        new TradesPage().EnterQuantitySell("0.1");
 
 
     }
@@ -144,7 +144,7 @@ public class TradesSellSteps extends BasePage {
 
     @And("User enters the amount for sell order")
     public void userEntersTheAmountForSellOrder() throws InterruptedException {
-        new TradesPage().EnterSellAmount("1000");
+        new TradesPage().EnterSellAmount("10");
     }
 
 
@@ -198,12 +198,17 @@ public class TradesSellSteps extends BasePage {
     }
 
     @And("User enters the limit price for sell")
-    public void userEntersTheLimitPriceForSell() {
-        new TradesPage().EnterLimitPrice("100000");
+    public void userEntersTheLimitPriceForSell() throws InterruptedException {
+        new TradesPage().EnterLimitPrice("1000");
     }
 
     @And("User Clicks om Continue")
     public void userClicksOmContinue() throws InterruptedException {
         new TradesPage().ClickContinue();
+    }
+
+    @And("User Slides to Sell")
+    public void userSlidesToSell() throws InterruptedException {
+        new TradesPage().SliderForBuy();
     }
 }

@@ -149,13 +149,13 @@ public class DashboardSteps extends BasePage {
 
     @When("User search the stocks under US Stocks")
     public void user_search_the_stocks_under_us_stocks() throws InterruptedException {
-        new DashboardPage().EnterStockName("Amazon");
-    }
-    @When("User search the stocks under US Stocks IOS")
-    public void userSearchTheStocksUnderUSStocksIOS() throws InterruptedException {
         new DashboardPage().EnterStockName("UAVS");
-
     }
+//    @When("User search the stocks under US Stocks IOS")
+//    public void userSearchTheStocksUnderUSStocksIOS() throws InterruptedException {
+//        new DashboardPage().EnterStockName("UAVS");
+//
+//    }
 
     @Then("User will see the count of stocks")
     public void user_will_see_the_count_of_stocks() throws InterruptedException {
@@ -319,11 +319,11 @@ public class DashboardSteps extends BasePage {
         new DashboardPage().SelectFilterCTA();
         new DashboardPage().SelectETF();
         new WatchlistPage().SelectapplyButton();
-        new DashboardPage().SelectFilterCTA();
+  //     new DashboardPage().SelectFilterCTA();
         //new DashboardPage().SelectEquity();
-        new WatchlistPage().SelectapplyButton();
+//        new WatchlistPage().SelectapplyButton();
         new DashboardPage().ClearSearchBar();
-//        new DashboardPage().EnterStockName("vapo");
+        new DashboardPage().EnterStockName("Amazon");
 //        new WatchlistPage().SelectapplyButton();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -391,6 +391,134 @@ public class DashboardSteps extends BasePage {
     @Then("User will verify the content of research Research tab")
     public void userWillVerifyTheContentOfResearchResearchTab() throws InterruptedException {
         new DashboardPage().VerifyResearchContent();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @Then("User should see all tabs along with recently viewed top picks and crafted list details")
+    public void userShouldSeeAllTabsAlongWithRecentlyViewedTopPicksAndCraftedListDetails() throws InterruptedException {
+        new DashboardPage().VerifyAllVisibleSection();
+//        new DashboardPage().VerifyCountOfTopGainersStocks();
+//        basePage.AndroidBack();
+//        new DashboardPage().VerifyCountOfTopLosersStocks();
+//        basePage.AndroidBack();
+//        new DashboardPage().VerifyCountOfUSYearLowTodayStocks();
+//        basePage.AndroidBack();
+        new DashboardPage().VerifyCountOfUSYearHighTodayStocks();
+        basePage.AndroidBack();
+        new DashboardPage().VerifyRecentlyViewedSection();
+        basePage.AndroidBack();
+        new DashboardPage().VerifyRecentlyViewedFromViewAllButton();
+        basePage.AndroidBack();
+        basePage.ClickOnCrossIcon();
+        new DashboardPage().ClickOnTopPicksStock();
+        basePage.AndroidBack();
+        new DashboardPage().VerifyTopPicksFromViewAllButton();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+
+    }
+
+    @When("the user enters a stock name in the {string} search bar")
+    public void theUserEntersAStockNameInTheSearchBar(String arg0) throws InterruptedException {
+        new DashboardPage().EnterStockName("Apple");
+    }
+
+    @And("User click on the apple stock")
+    public void userClickOnTheAppleStock() throws InterruptedException {
+        new DashboardPage().ClickOnAppleStock();
+    }
+
+    @Then("the user should be navigated to the Stock Details page")
+    public void theUserShouldBeNavigatedToTheStockDetailsPage() throws InterruptedException {
+        new DashboardPage().VerifyStockDetailsPage();
+        basePage.AndroidBack();
+    }
+
+    @And("the user selects the {string} tab")
+    public void theUserSelectsTheTab(String arg0) throws InterruptedException {
+        new DashboardPage().ClickOnMFTab();
+    }
+
+    @And("User clears the US Stocks search bar")
+    public void userClearsTheUSStocksSearchBar() throws InterruptedException {
+        new DashboardPage().ClearUSStockSearch();
+    }
+
+    @When("the user enters a mutual fund name in the {string} search bar")
+    public void theUserEntersAMutualFundNameInTheSearchBar(String arg0) throws InterruptedException {
+        new DashboardPage().EnterMFName("Nippon india growth fund");
+    }
+
+    @And("User click on the Fund name")
+    public void userClickOnTheFundName() throws InterruptedException {
+        new DashboardPage().ClickOnNipponMFFundName();
+    }
+
+    @Then("the user should be navigated to the Mutual Fund Details page")
+    public void theUserShouldBeNavigatedToTheMutualFundDetailsPage() throws InterruptedException {
+        new DashboardPage().ValidateMFDetailsPage();
+        basePage.AndroidBack();
+    }
+
+    @And("User clears the MF search bar")
+    public void userClearsTheMFSearchBar() throws InterruptedException {
+        new DashboardPage().ClearMFSearchBar();
+    }
+
+    @When("the user enters a search term in the {string} search bar")
+    public void theUserEntersASearchTermInTheSearchBar(String arg0) throws InterruptedException {
+        new DashboardPage().EnterMFName("Tesla");
+    }
+
+    @Then("the user should be navigated to the News Details page")
+    public void theUserShouldBeNavigatedToTheNewsDetailsPage() throws InterruptedException {
+        new DashboardPage().NavigatedToTheNewsDetailsPage();
+        basePage.AndroidBack();
+    }
+
+    @When("the user enter a search term in the {string} search bar")
+    public void theUserEnterASearchTermInTheSearchBar(String arg0) throws InterruptedException {
+        new DashboardPage().EnterMFName("Apple");
+    }
+
+    @Then("the user should be navigated to the Research Details page")
+    public void theUserShouldBeNavigatedToTheResearchDetailsPage() throws InterruptedException {
+        new DashboardPage().NavigatedToTheResearchDetailsPage();
+        basePage.AndroidBack();
+    }
+
+
+    @And("User Select the Research Tab")
+    public void userSelectTheResearchTab() throws InterruptedException {
+        new DashboardPage().ClickOnResearchTab();
+    }
+
+    @And("User Select Equity option")
+    public void userSelectEquityOption() throws InterruptedException {
+        new DashboardPage().SelectEquityOption();
+    }
+
+    @And("User again click on filter CTA")
+    public void userAgainClickOnFilterCTA() throws InterruptedException {
+        new DashboardPage().SecondTimeFilterClick();
+    }
+
+    @And("User clears the applied filter")
+    public void userClearsTheAppliedFilter() throws InterruptedException {
+        new DashboardPage().ClearAppliedFilter();
+    }
+
+    @And("User Select one of the available option under Industry section")
+    public void userSelectOneOfTheAvailableOptionUnderIndustrySection() throws InterruptedException {
+        new DashboardPage().ClickOnIndustrySection();
+        new DashboardPage().SelectOneOptionFromIndustrySection();
+    }
+
+    @And("User should be able to see the dashboard search page")
+    public void userShouldBeAbleToSeeTheDashboardSearchPage() throws InterruptedException {
+        new DashboardPage().VerifySearchPage();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }

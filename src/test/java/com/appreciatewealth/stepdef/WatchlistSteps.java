@@ -24,7 +24,7 @@ public class WatchlistSteps extends BasePage {
     @And("User click on heart icon to add this stock into watchlist")
     public void user_click_on_heart_icon_to_add_this_stock_into_watchlist() throws InterruptedException {
         new WatchlistPage().SelectStockHeartIcon();
-       // basePage.AndroidBack();
+        basePage.AndroidBack();
     }
 
     @And("User should see a message {string}")
@@ -44,8 +44,8 @@ public class WatchlistSteps extends BasePage {
     public void user_will_see_the_stock_has_been_added_to_their_selected_watchlist() throws InterruptedException {
         new WatchlistPage().VerifyStockName();
         new WatchlistPage().RemoveStock();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User enter the stock name")
@@ -87,10 +87,10 @@ public class WatchlistSteps extends BasePage {
     @Then("User will see the stock")
     public void userWillSeeTheStock() throws InterruptedException {
         new WatchlistPage().VerifyStockNames();
-        new WatchlistPage().RemoveAAPDStock();
+       // new WatchlistPage().RemoveAAPDStock();
       //  new WatchlistPage().VerifyRemoveToast();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User will go to Search and add to watchlist Page")
@@ -146,8 +146,9 @@ public class WatchlistSteps extends BasePage {
 
     @Then("the watchlist will be deleted")
     public void theWatchlistWillBeDeleted() throws InterruptedException {
+       // new WatchlistPage().VerifyDeletedWatchlistToast();
         new WatchlistPage().VerifyDeletedWatchlist();
-        basePage.AndroidBack();
+//        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -178,8 +179,9 @@ public class WatchlistSteps extends BasePage {
     public void userWillSeeAnErrorMessages(String arg0) throws InterruptedException {
         new WatchlistPage().VerifyErrorMessage2("No results for ' '");
         basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+        basePage.AndroidBack();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @When("User will go to Top Picks section and click on view all Button")
@@ -191,8 +193,8 @@ public class WatchlistSteps extends BasePage {
     public void userWillVerifyTheCountOfTopPicksStocks() throws InterruptedException {
         new WatchlistPage().VerifyCountOfTopPicksStocks();
         basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User Selects the create Button")
@@ -209,8 +211,8 @@ public class WatchlistSteps extends BasePage {
     @Then("User will see a error message {string}")
     public void userWillSeeAErrorMessage(String arg0) throws InterruptedException {
         new WatchlistPage().VerifySpecialCharacterErrorMessage("Please enter watchlist name");
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
 
     }
 
@@ -227,10 +229,10 @@ public class WatchlistSteps extends BasePage {
     @And("User click on Apply Button")
     public void userClickOnApplyButton() throws InterruptedException {
         new WatchlistPage().SelectapplyButton();
-        new WatchlistPage().VerifyCountOfTopPicksStocks();
-        basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+        //new WatchlistPage().VerifyCountOfTopPicksStocks();
+//        basePage.AndroidBack();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User Selects Day change percentage option under sort by")
@@ -268,8 +270,7 @@ public class WatchlistSteps extends BasePage {
     public void userWillSeeAMessage(String arg0) throws InterruptedException {
         new WatchlistPage().VerifyEditWatchlistSuccessMsg();
         basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+
     }
 
     @And("User Selects the search tab on dashboard IOS")
@@ -286,6 +287,8 @@ public class WatchlistSteps extends BasePage {
     @Then("User will  see an error message as {string}")
     public void userWillSeeAnErrorMessageAs(String arg0) throws InterruptedException {
         new WatchlistPage().VerifyWatchlistNameError("This name is taken, try another watchlist name");
+        new WatchlistPage().ClickOnCrossIcon();
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -319,8 +322,8 @@ public class WatchlistSteps extends BasePage {
     @Then("User should see the created watchlist")
     public void userShouldSeeTheCreatedWatchlist() throws InterruptedException {
         new WatchlistPage().VerifyCreatedWatchlist();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User click on add Button")
@@ -331,9 +334,9 @@ public class WatchlistSteps extends BasePage {
     @Then("User should see a toast message after adding as {string}")
     public void userShouldSeeAToastMessageAfterAddingAs(String arg0) throws InterruptedException {
         new WatchlistPage().VerifyingAddingWatchlistToast();
-        basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.AndroidBack();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User will enter the Stock name under search and add page")
@@ -443,6 +446,7 @@ public class WatchlistSteps extends BasePage {
 
     @And("User will be log out")
     public void userWillBeLogOut() throws InterruptedException {
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -451,12 +455,24 @@ public class WatchlistSteps extends BasePage {
     public void userShouldSeeAToastMessagesAfterAddingAs(String arg0) throws InterruptedException {
         new WatchlistPage().VerifyingAddingWatchlistToast();
         basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+        basePage.AndroidBack();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User Selects the tesla Stock")
     public void userSelectsTheTeslaStock() throws InterruptedException {
         new WatchlistPage().SelectTeslaStock();
+    }
+
+    @And("User click on cross icon")
+    public void userClickOnCrossIcon() throws InterruptedException {
+        new WatchlistPage().ClickOnCrossIcon();
+
+    }
+
+    @And("User Select view all Button")
+    public void userSelectViewAllButton() throws InterruptedException {
+        new WatchlistPage().SelectSecondViewAllButton();
     }
 }

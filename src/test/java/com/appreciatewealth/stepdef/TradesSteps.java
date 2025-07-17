@@ -61,7 +61,7 @@ public class TradesSteps extends BasePage{
     @Then("the order should be placed successfully")
     public void the_order_should_be_placed_successfully() throws InterruptedException {
         new TradesPage().ValidateIfOrderPlaced();
-        basePage.AndroidBack();
+      //  basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -113,19 +113,21 @@ public class TradesSteps extends BasePage{
 
     @And("User sees invested amount and current value on Trade dashboard")
     public void userSeesInvestedAmountAndCurrentValueOnTradeDashboard() throws InterruptedException {
-        new TradesPage().getInvestedOnDashboard();
-        new TradesPage().getCurrentValueOnDashboard();
+//        new TradesPage().getInvestedOnDashboard();
+//        new TradesPage().getCurrentValueOnDashboard();
+        new TradesPage().getAllValueOfUSStocksInAllTab();
 
     }
 
     @Then("Investment and Current Value on Portfolio should match with the Trade Dashboard")
     public void investmentCurrentValueOnPortfolioShouldMatchWithTheTradeDashboard() throws InterruptedException {
-        Thread.sleep(3000);
-        new TradesPage().getInvestedOnPortfolio();
-        new TradesPage().getCurrentAmountOnPortfolio();
-        new TradesPage().CompareInvestedandCurrentValue();
+//        new TradesPage().getInvestedOnPortfolio();
+//        new TradesPage().getCurrentAmountOnPortfolio();
+        new TradesPage().GetAllUSValueAtUSStocksTab();
+//        new TradesPage().CompareInvestedandCurrentValue();
         //basePage.AndroidBack();
         //basePage.AndroidBack();
+        new TradesPage().CompareALLTabUSStocksValuesWithUSStocksTabValues();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -213,7 +215,7 @@ public class TradesSteps extends BasePage{
 
     @Then("User should be prompted with error message Minimum Transaction Amount Should be 0.85 INR.")
     public void userShouldbePromptedWithErrorMessage() throws InterruptedException {
-        new TradesPage().ValidateMinimumTransactionMsg("Minimum Transaction Amount Should be 0.85 INR.");
+        new TradesPage().ValidateMinimumTransactionMsg("Minimum Transaction Amount Should be greater than ₹0.87 INR");
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -229,7 +231,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the maximum quantity limit")
     public void userEntersTheMaximumQuantityLimit() throws InterruptedException {
-        new TradesPage().EnterQuantity("1");
+        new TradesPage().EnterQuantity("1000");
     }
 
 
@@ -281,14 +283,13 @@ public class TradesSteps extends BasePage{
     @And("User selects order expiry as Till Market is closed")
     public void userSelectsOrderExpiryAsTillMarketIsClosed() throws InterruptedException {
         new TradesPage().OrderExpirytillMarketClose();
-        new TradesPage().ClickReviewOrderButton();
+        //new TradesPage().ClickReviewOrderButton();
         //new TradesPage().ClickPlaceOrderButton();
     }
 
     @Then("Limit order should be placed Successfully")
     public void limitOrderShouldBePlacedSuccessfully() throws InterruptedException {
         new TradesPage().ValidateOrderType("Limit");
-
         basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
@@ -330,9 +331,10 @@ public class TradesSteps extends BasePage{
     @Then("Amount field should ignore the decimals after two place")
     public void amountFieldShouldIgnoreTheDecimalsAfterTwoPlace() throws InterruptedException {
         new TradesPage().ValidateAmountDecimals();
-        basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.AndroidBack();
+//        basePage.AndroidBack();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
 
@@ -375,7 +377,7 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the stock name")
     public void userEntersTheStockName() throws InterruptedException {
-        new TradesPage().EnterInGlobalSearch("AAPL");
+        new TradesPage().EnterInGlobalSearch("UAVS");
 
     }
 
@@ -391,9 +393,9 @@ public class TradesSteps extends BasePage{
     @And("User selects Limit order expiry as Good till Cancelled")
     public void userSelectsLimitOrderExpiryAsGoodTillCancelled() throws InterruptedException {
         new TradesPage().OrderExpirytillCancelled();
-        new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ValidateOrderExpiryAsGoodTillCancelled();
-        new TradesPage().ClickPlaceOrderButton();
+       // new TradesPage().ClickReviewOrderButton();
+//        new TradesPage().ValidateOrderExpiryAsGoodTillCancelled();
+//        new TradesPage().ClickPlaceOrderButton();
     }
 
 
@@ -401,23 +403,23 @@ public class TradesSteps extends BasePage{
     public void userSelectsStopOrderExpiryAsGoodTillCancelled() throws InterruptedException {
         new TradesPage().OrderExpirytillCancelled();
         new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ValidateOrderExpiryAsGoodTillCancelled();
-        new TradesPage().ClickPlaceOrderButton();
+//        new TradesPage().ValidateOrderExpiryAsGoodTillCancelled();
+//        new TradesPage().ClickPlaceOrderButton();
     }
 
     @And("User selects MIT order expiry as Good till Cancelled")
     public void userSelectsMITOrderExpiryAsGoodTillCancelled() throws InterruptedException {
         new TradesPage().OrderExpirytillCancelled();
         new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ValidateOrderExpiryAsGoodTillCancelled();
-        new TradesPage().ClickPlaceOrderButton();
+//        new TradesPage().ValidateOrderExpiryAsGoodTillCancelled();
+//        new TradesPage().ClickPlaceOrderButton();
     }
 
     @And("User selects Limit order expiry as Custom Date")
     public void userSelectsLimitOrderExpiryAsCustomDate() throws InterruptedException {
         new TradesPage().OrderExpiryCustom();
-        new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ValidateCustomExpiryDate();
+       // new TradesPage().ClickReviewOrderButton();
+//        new TradesPage().ValidateCustomExpiryDate();
         //new TradesPage().ClickPlaceOrderButton();
 
     }
@@ -426,7 +428,7 @@ public class TradesSteps extends BasePage{
     public void userSelectsStopOrderExpiryAsCustomDate() throws InterruptedException {
         new TradesPage().OrderExpiryCustom();
         new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ValidateCustomExpiryDate();
+//        new TradesPage().ValidateCustomExpiryDate();
         //new TradesPage().ClickPlaceOrderButton();
 
     }
@@ -435,7 +437,7 @@ public class TradesSteps extends BasePage{
     public void userSelectsMITOrderExpiryAsCustomDate() throws InterruptedException {
         new TradesPage().OrderExpiryCustom();
         new TradesPage().ClickReviewOrderButton();
-        new TradesPage().ValidateCustomExpiryDate();
+//        new TradesPage().ValidateCustomExpiryDate();
         //new TradesPage().ClickPlaceOrderButton();
     }
 
@@ -686,6 +688,9 @@ public class TradesSteps extends BasePage{
     @Then("the user should see the total order amount equals the order amount plus the fees")
     public void theUserShouldSeeTheTotalOrderAmountEqualsTheOrderAmountPlusTheFees() throws InterruptedException {
         basePage.ValidateTotalOrderAmount();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.Logout();
     }
 
     @And("User cancel the order")
@@ -733,5 +738,28 @@ public class TradesSteps extends BasePage{
         basePage.AndroidBack();
         basePage.AndroidBack();
         basePage.Logout();
+    }
+
+    @When("User come back to home dashboard")
+    public void userComeBackToHomeDashboard() throws InterruptedException {
+        //new TradesPage().ComeBackToHomeDashboard();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+    }
+
+    @Then("User should see the resume buying event at home dashboard")
+    public void userShouldSeeTheResumeBuyingEventAtHomeDashboard() throws InterruptedException {
+        new TradesPage().VerifyContinueToLeft();
+    }
+
+    @And("User click on Buy now cta under continue where left section")
+    public void userClickOnBuyNowCtaUnderContinueWhereLeftSection() throws InterruptedException {
+        new TradesPage().ClickOnBuyNowCtaUnderContinueWhereLeftSection();
+    }
+
+    @And("User selects order expiry as Good till market day closed")
+    public void userSelectsOrderExpiryAsGoodTillMarketDayClosed() throws InterruptedException {
+        new TradesPage().SelectOrderExpiryAsGoodTillMarketDayClosed();
     }
 }

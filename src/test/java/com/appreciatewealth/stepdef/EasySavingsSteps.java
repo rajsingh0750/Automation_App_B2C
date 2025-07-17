@@ -109,9 +109,10 @@ public class EasySavingsSteps {
 
     @Given("the user is on the Dashboard")
     public void theUserIsOnTheDashboard() throws IOException, InterruptedException {
-        //new SignInPage().DynamicSignIn("varshatmysuru1992@gmail.com");
+        new SignInPage().DynamicSignIn("faureretruba-9695@yopmail.com");
+        Thread.sleep(10000);
         //dashboardPage.ClickOnGoToDashboard();
-        signInPage.DynamicSignIn_Prod("raj.singh@ppreciate.com");
+        //signInPage.DynamicSignIn_Prod("raj.singh@ppreciate.com");
 
     }
 
@@ -187,6 +188,7 @@ public class EasySavingsSteps {
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
+
 
 
 }

@@ -21,7 +21,7 @@ public class TaxReportPage extends BasePage{
             "Tab 5 of 5\"]")
     WebElement ProfileTab;
 
-    @AndroidFindBy(xpath = "//*[@text='Reports']")
+    @AndroidFindBy(accessibility = "Reports")
     WebElement ReportsTab;
 
 

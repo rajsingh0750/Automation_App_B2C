@@ -50,7 +50,7 @@ public class BasePage {
     WebElement ProfileSettings;
 
     //@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Log out\"]")
-    @AndroidFindBy(xpath = "//*[@text='Logout']")
+    @AndroidFindBy(accessibility = "Logout")
     WebElement LogoutButton;
 
     @AndroidFindBy(xpath = "//*[@text='लॉग आउट']")
@@ -60,15 +60,18 @@ public class BasePage {
     WebElement CloseRecentApp;
 
 
-    @AndroidFindBy(id = "com.appreciatewealth.android:id/tvOrderAmountValue")
+    @AndroidFindBy(xpath = "(//android.view.View[starts-with(@content-desc, '₹')])[1]")
     WebElement OrderAmount;
 
-
-    @AndroidFindBy(id = "com.appreciatewealth.android:id/tvFeesValue")
+    @AndroidFindBy(xpath = "(//android.view.View[starts-with(@content-desc, '₹')])[2]")
     WebElement PlatformFees;
 
-    @AndroidFindBy(id = "com.appreciatewealth.android:id/tvTotalOrderAmountValue")
+    @AndroidFindBy(xpath = "(//android.view.View[starts-with(@content-desc, '₹')])[3]")
     WebElement Total_Order_Amount;
+
+
+    @AndroidFindBy(accessibility = "Scrim")
+    WebElement CrossIcon;
 
 
     public static AppiumDriver driver;
@@ -104,6 +107,17 @@ public class BasePage {
     }
 
 
+    public void ClickUsingCoordinate(int x , int y ) throws InterruptedException {
+        Thread.sleep(3000);
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+    }
+
+
     public void Logout() throws InterruptedException {
 
         //ProfileSettings.click();
@@ -114,10 +128,15 @@ public class BasePage {
             driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
         }
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Log out\").instance(0))"));
-        //Thread.sleep(3000);
+        Thread.sleep(3000);
         LogoutButton.click();
         //((AndroidDriver)driver).terminateApp("com.appreciatewealth.android.uat");
         //Thread.sleep(6000);
+
+        Thread.sleep(4000);
+
+        LogoutButton.click();
+
     }
 
     public void HindiLogout() throws InterruptedException {
@@ -194,15 +213,15 @@ public class BasePage {
     }
 
     public static void ClickSignOut(AppiumDriver driver) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
     /*WebElement element= driver.findElement(AppiumBy.xpath("//*[contains(@text,'sign out')]"));
        // WebElement element4 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
 
         driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
         ));*/
-        int x = 415;
-        int y = 225;
+        int x = 542;
+        int y = 234;
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence tap = new Sequence(finger, 1);
         tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
@@ -361,6 +380,7 @@ public class BasePage {
     public void AndroidBack() throws InterruptedException {
         Thread.sleep(5000);
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+
     }
 
     public void clear(WebElement e) {
@@ -660,10 +680,11 @@ public class BasePage {
 
     public void ValidateTotalOrderAmount() throws InterruptedException {
         Thread.sleep(4000);
-        String order_amt = OrderAmount.getText().replaceAll("₹", "").trim();
-        String Fees = PlatformFees.getText().replaceAll("₹", "").trim();
 
-        String total_order_amt = Total_Order_Amount.getText().replaceAll("₹", "").trim();
+        String order_amt = OrderAmount.getAttribute("content-desc").replaceAll("₹", "").trim();
+        String Fees = PlatformFees.getAttribute("content-desc").replaceAll("₹", "").trim();
+        String total_order_amt = Total_Order_Amount.getAttribute("content-desc").replaceAll("₹", "").trim();
+
 
         double orderAmountValue = Double.parseDouble(order_amt);
         double feesValue = Double.parseDouble(Fees);
@@ -676,5 +697,10 @@ public class BasePage {
 
         System.out.println("Total Order Amount: " + total_order_amt);
 
+    }
+
+    public void ClickOnCrossIcon() throws InterruptedException {
+        Thread.sleep(3000);
+        CrossIcon.click();
     }
 }

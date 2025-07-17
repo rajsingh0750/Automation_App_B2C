@@ -43,13 +43,16 @@ public class GoalsSteps extends BasePage {
     @Then("the user should be redirected to the goal to calculate target goal amount")
     public void the_user_should_be_redirected_to_the_goal_to_calculate_target_goal_amount() throws InterruptedException {
         new GoalsPage().SelectGoalType();
-        new GoalsPage().EnterAmount("20000");
-        new GoalsPage().ValidateCurrentAge("30");
+
+        new GoalsPage().ValidateCurrentAge("31");
         new GoalsPage().ValidateRetirementAge("65");
+        new GoalsPage().EnterAmount("20000");
+
         new GoalsPage().ClickonSeeTargetAmount();
         Thread.sleep(3000);
         new GoalsPage().ValidateStartGoalButton();
         new GoalsPage().Close();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
@@ -100,7 +103,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().ValidateRetirementby();
         new GoalsPage().ValidateExpenseswithinflation("₹64,144 / month");
         new GoalsPage().ValidateTotalamount("₹2,15,52,384");
-        new GoalsPage().ValidateToretire("To retire by Dec 2043, you need");
+        new GoalsPage().ValidateToretire("To retire by Nov 2045, you need");
         new GoalsPage().Close();
         basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
@@ -188,6 +191,7 @@ public class GoalsSteps extends BasePage {
     public void theGoalShouldBePlacedSuccessfully() throws InterruptedException {
         new GoalsPage().Successfullinvestment();
         new GoalsPage().BackGoalspage();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -252,6 +256,7 @@ public class GoalsSteps extends BasePage {
     @Then("Goal should be saved as draft")
     public void goalShouldBeSavedAsDraft() throws InterruptedException {
         new GoalsPage().Draft();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -260,7 +265,8 @@ public class GoalsSteps extends BasePage {
 
 
     @And("User sees invested amount and current value on Goal dashboard")
-    public void userSeesInvestedAmountAndCurrentValueOnGoalDashboard() {
+    public void userSeesInvestedAmountAndCurrentValueOnGoalDashboard() throws InterruptedException {
+        Thread.sleep(4000);
         System.out.println("User should see total amount");
 
     }
@@ -269,6 +275,7 @@ public class GoalsSteps extends BasePage {
     @Then("the P&L amount should be based on the invested amount and current value")
     public void thePLAmountShouldBeBasedOnTheInvestedAmountAndCurrentValue() throws InterruptedException {
         new GoalsPage().CalculateCurrentValueGoals();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -279,6 +286,7 @@ public class GoalsSteps extends BasePage {
     @Then("User should see percentage change of P&L based on the Invested and Current Savings")
     public void userShouldSeePercentageChangeOfPLBasedOnTheInvestedAndCurrentSavings() throws InterruptedException {
         new GoalsPage().CalculateProfitAndLossGoalsPercentage();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -328,6 +336,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().ValidateDecrementMessage("Target amount has decreased!");
         basePage.AndroidBack();
         basePage.AndroidBack();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -350,6 +359,7 @@ public class GoalsSteps extends BasePage {
     public void userShouldBePromptedWithErrorMessage(String AgeErrorMessage) throws InterruptedException {
         new GoalsPage().ValidateAgeErrorMessage("Enter current age 18 and above");
         new GoalsPage().Close();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
@@ -380,6 +390,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().settgoal();
         new GoalsPage().Successfullinvestment();
         new GoalsPage().BackGoalspage();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -414,6 +425,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().settgoal();
         new GoalsPage().Successfullinvestment();
         new GoalsPage().BackGoalspage();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -514,6 +526,7 @@ public class GoalsSteps extends BasePage {
 
     @Then("user sucessfully Creates monthly payment Retirement goals")
     public void userSucessfullyCreatesmonthlypaymentRetirementgoals() throws InterruptedException {
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -584,7 +597,6 @@ public class GoalsSteps extends BasePage {
     public void theDigitalGoldGoalShouldBePlacedSuccessfully() throws InterruptedException {
         new GoalsPage().DigitalGoldSuccessfull();
         new GoalsPage().BackGoalspage();
-        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -604,8 +616,9 @@ public class GoalsSteps extends BasePage {
 
     @Then("User Should see the following message in digital gold {string}")
     public void userShouldSeeTheFollowingMessageInDigitalGold(String DigitalMessage) throws InterruptedException {
-        new GoalsPage().ValidateDigitalMessage("Minimum monthly payment amount is ₹150 Please increase target amount to at least ₹4,318 to continue setting up this goal");
+        new GoalsPage().ValidateDigitalMessage("Minimum monthly payment amount is ₹150 Please increase target amount to at least ₹2,214 to continue setting up this goal");
         new GoalsPage().digitalminimumclose();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
@@ -644,6 +657,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().Paymentnext();
         new GoalsPage().Successfullinvestment();
         new GoalsPage().BackGoalspage();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
     }
@@ -663,6 +677,7 @@ public class GoalsSteps extends BasePage {
     public void userShouldSeeTheFollowingMessageInDigitalGoldForLargeAmount(String DigitalLargeMessage) throws InterruptedException {
         new GoalsPage().ValidateDigitallargeMessage("Target amount too large for selected Target date. Either decrease Target amount or increase Target date to continue.");
         new GoalsPage().digitalminimumclose();
+        basePage.AndroidBack();
         basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
@@ -707,6 +722,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().ClickEditBack();
         basePage.AndroidBack();
         new GoalsPage().ClickNoOptions();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
 
@@ -748,6 +764,7 @@ public class GoalsSteps extends BasePage {
         new GoalsPage().ClickEditBack();
         basePage.AndroidBack();
         new GoalsPage().ClickNoOptions();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
     }
@@ -777,17 +794,16 @@ public class GoalsSteps extends BasePage {
 
     @Then("User should successfully create goals from draft")
     public void userShouldSuccessfullyCreateGoalsFromDraft() throws InterruptedException {
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
     }
 
     @Given("the User is on Goals Dashboard for monthly goal pause")
     public void theUserIsOnGoalsDashboardForMonthlyGoalPause() throws InterruptedException, IOException {
-        signInPage.DynamicSignIn("faureretruba-9695@yopmail.com");
+        signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         //dashboardPage.ClickOnGoToDashboard();
-        //new GoalsPage().SwitchtoGoal();
-
-        new GoalsPage().ClickViewAllGoal();
+        new GoalsPage().SwitchtoGoal();
 
     }
 
@@ -858,15 +874,15 @@ public class GoalsSteps extends BasePage {
 
     @Then("user should not see the Pause status goals in the list")
     public void userShouldNotSeeThePauseStatusGoalsInTheList() throws InterruptedException {
-        //new GoalsPage().ValidateHistoryTab();
+        new GoalsPage().ValidateHistoryTab();
+        basePage.AndroidBack();
         new BasePage().ClickProfileSettings();
         basePage.Logout();
     }
 
-    @And("user Select Goals from home dashboard")
-    public void userSelectGoalsFromHomeDashboard() throws InterruptedException {
-        new GoalsPage().ClickGoalsHome();
-
+    @Given("the user is on Goals Calculator Page")
+    public void theUserIsOnGoalsCalculatorPage() throws IOException, InterruptedException {
+        new GoalsPage().GotoGoalCalculatorPage();
     }
 }
 

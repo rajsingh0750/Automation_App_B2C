@@ -7,29 +7,17 @@ Feature: Trades all buy related scenarios
   @Sanity @Regression @Android @Trade
   Scenario: User with sufficient buying power should be able to buy stocks in Rupees
     Given User is on Trade dashboard
-    #And User Selects Skip button
-    #And User Selects on US stocks
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
-    #And User clicks on Stock
     And User click on the Stock
     And User clicks on Buy now for a stock
     And User enters the amount
     And User Slides to Buy
     Then the order should be placed successfully
 
-#  @Sanity @Regression @IOS
-#  Scenario: User with sufficient buying power should be able to buy stocks in Rupees (IOS)
-#    Given User is on Trade dashboard IOS
-#    And User Selects the search tab on dashboard IOS
-#    When User search the stocks under US Stocks IOS
-#    And User click on the Stock IOS
-#    And User clicks on Buy now for a stock IOS
-#    And User enters the amount
-#    #And User clicks on review order button
-#    #And User clicks on place order
-#    And User Slides to Buy
-#    Then the order should be placed successfully in IOS
+    #PROD DONE
+
+
 
 #  @Sanity @Regression
 #  Scenario: User should see Market Live label if the current time in IST is between 7:30 PM to 2:30 AM
@@ -41,61 +29,44 @@ Feature: Trades all buy related scenarios
 #    And User clicks on Buy now for a stock
 #    Then User should see market live label
 
-#  @Sanity @Regression @IOS
-#  Scenario: User should see Market Live label if the current time in IST is between 7:30 PM to 2:30 AM IOS
-#    Given the user is on Appreciate App's Dashboard on IOS
-#    And User clicks on Buy now for a stock IOS
-#    Then User should see the label based on time range
 
-  @Regression
-  Scenario: Verify the accuracy of the numbers displayed in the Current Value, Overall Returns, and Total Invested sections within the Portfolio.
-    Given User is on Trade dashboard
-    And User Selects the All Option
-    #And User clicks on View Enhancements
-    Then User should see Holdings with accurate data
 
-  @Sanity @Regression
-  Scenario: Verify whether clicking on a stock name from the Portfolio screen successfully navigates the user to the Stock Details screen.
-    Given User is on Trade dashboard
-    #And User clicks on View Enhancements
-    And User Selects on US stocks
-    And User must select stock name
-#    And User clicks on the Portfolio US stocks
-    #And User clicks on Stock name and notices the stock name
-    Then User should see the stock details of the respective stock
 
   @Sanity @Regression @Trade
   Scenario: Confirm that the Current Value and Invested Amount displayed on the Trade Dashboard align with the corresponding values on the Portfolio screen.
     Given User is on Trade dashboard
     And User Selects the All Option
     And User sees invested amount and current value on Trade dashboard
-    #And User clicks on View Enhancements
     And User Selects on US stock tab
     Then Investment and Current Value on Portfolio should match with the Trade Dashboard
 
-#  @Sanity @Regression
-#  Scenario: Verify the presence of an error message when attempting to purchase stocks exceeding the available buying power.
-#    Given User is on Trade dashboard
-#    And User Selects the search tab on dashboard
-#    When User search the stocks under US Stocks
-#    #And User clicks on Stock
-#    And User click on the Stock
-#    #And User Selects on US stocks
-#    And User clicks on Buy now for a stock
-#    And User enters the maximum quantity limit
-#    Then User should see the following error message Low funds! Add money to your YES Bank AC and transfer to your buying power read more here
+
+    #PROD DONE   move above scenario in portfolio
+
+
+  @Sanity @Regression
+  Scenario: Verify the presence of an error message when attempting to purchase stocks exceeding the available buying power.
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User enters the maximum quantity limit
+    Then User should see the following error message Low funds! Add money to your YES Bank AC and transfer to your buying power read more here
+
+    #PROD DONE
+
 
   @Sanity @Regression
   Scenario: Verify the presence of an error message when usd value crosses the limit of 2,50,000.
     Given User is on Trade dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
-    #And User clicks on Stock
     And User click on the Stock
-    #And User Selects on US stocks
     And User clicks on Buy now for a stock
     And User enters the maximum quantity limit
     Then User should see the following message Transaction Limit
+
 
 
   @Sanity @Regression @Trade
@@ -103,86 +74,40 @@ Feature: Trades all buy related scenarios
     Given User is on Trade dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
-    #And User clicks on Stock
     And User click on the Stock
-    #And User Selects on US stocks
     And User clicks on Buy now for a stock
     And User enters the quantity of the stock
     And User Slides to Buy
     Then the order should be placed successfully
 
-#  @Sanity @Regression @IOS
-#  Scenario: Confirm that the user can purchase stock by quantity even when the market is closed IOS
-#    Given the user is on Appreciate App's Dashboard on IOS
-#    And User clicks on Buy now for a stock IOS
-#    And User enters the Quantity IOS
-#    And User clicks on review order button
-#    And User clicks on place order
-#    Then the order should be placed successfully in IOS
+    #PROD DONE
 
-#  @Regression
-#  Scenario: User should be able to move stock from Top picks to Watchlist
-#    Given User opens the global search
-#    And User clicks on Top picks tab
-#    And User clicks on watchlist icon for one of the stock
-#    Then User should see the same stocks under Watchlist
 
-#  @Regression @IOS
-#  Scenario: User should be able to move stock from Top picks to Watchlist IOS
-#    Given the user is on Appreciate App's Dashboard on IOS
-#    And User clicks on Top picks tab IOS
-#    And User clicks on watchlist icon for one of the stock
-#    Then User should see the same stocks under Watchlist IOS
 
-#  @Regression
-#  Scenario: User should be able to remove stock from Watchlist
-#    Given User is on Trade dashboard
-#    And User clicks on Top picks tab
-#    And User clicks on watchlist icon for one of the stock
-#    And User clicks on watchlist icon from Watchlist screen
-#    Then User should not see the stock under Watchlist
+  @Regression
+  Scenario: The user should see an error message prompt when attempting to purchase a stock quantity below the minimum required limit.
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User clicks on Buy now for a stock
+    And User enters the amount less than the required limit
+    Then User should be prompted with error message Minimum Transaction Amount Should be 0.85 INR.
 
-#  @Regression  @IOS
-#  Scenario: User should be able to remove stock from Watchlist IOS
-#    Given the user is on Appreciate App's Dashboard on IOS
-#    And User clicks on watchlist icon for one of the stock
-#    And User clicks on watchlist icon from Watchlist screen
-#    Then User should not see the stock under Watchlist
 
-#  @Regression
-#  Scenario: The user should see an error message prompt when attempting to purchase a stock quantity below the minimum required limit.
-#    Given User is on Trade dashboard
-#    And User Selects the search tab on dashboard
-#    When User search the stocks under US Stocks
-#    And User clicks on Buy now for a stock
-#    And User enters the amount less than the required limit
-#    Then User should be prompted with error message Minimum Transaction Amount Should be 0.85 INR.
-#
-#  @Regression
-#  Scenario: Validate if the error message is removed once the user switch to other app
-#    Given User is on Trade dashboard
-#    And User Selects the search tab on dashboard
-#    When User search the stocks under US Stocks
-#    And User clicks on Buy now for a stock
-#    And User enters the amount less than the required limit
-#      #And User should be prompted with error message "Minimum Transaction Amount Should be 0.84 INR."
-#    And User minimizes the app and again switch to Appreciate app
-#    Then the error message should be removed
-#
-#  @Regression
-#  Scenario: Validate if the percentage change shown under Portfolio is correct for Total P&L
-#    Given User is on Trade dashboard
-#    Then User should see percentage change of P&L based on the Current Investment and Overall returns
+    #PROD DONE
 
-#  @Regression
-#  Scenario: Validate if the entered amount/quantity in trade is retained once the user switch to other app
-#    Given User is on Trade dashboard
-#    And User Selects the search tab on dashboard
-#    When User search the stocks under US Stocks
-#    And User clicks on Buy now for a stock
-#    And User enters the amount
-#    And User minimizes the app and again switch to Appreciate app
-#    Then the entered value should be retained
+
+  @Regression
+  Scenario: Validate if the entered amount/quantity in trade is retained once the user switch to other app
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User clicks on Buy now for a stock
+    And User enters the amount
+    And User minimizes the app and again switch to Appreciate app
+    Then the entered value should be retained
+
+    #PROD DONE
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place Limit order with order expiry as Till Market Closed
@@ -195,10 +120,13 @@ Feature: Trades all buy related scenarios
     And User selects order type as limit order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User selects order expiry as Good till market day closed
+    And User Clicks On Confirm
     And User Slides to Buy
     Then Limit order should be placed Successfully
+
+    #LIMIT & FRIDAY
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place Limit order with order expiry as Good till Cancelled
@@ -211,10 +139,14 @@ Feature: Trades all buy related scenarios
     And User selects order type as limit order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
+    And User selects order expiry as Till Market is closed
     And User selects Limit order expiry as Good till Cancelled
+    And User Clicks On Confirm
     And User Slides to Buy
     Then Limit order should be placed Successfully
+
+     #LIMIT & God till cancelled
+
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place Limit order with order expiry as Custom Date
@@ -227,10 +159,13 @@ Feature: Trades all buy related scenarios
     And User selects order type as limit order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
+    And User selects order expiry as Till Market is closed
     And User selects Limit order expiry as Custom Date
+    And User Clicks On Confirm
     And User Slides to Buy
     Then Limit order should be placed Successfully
+
+      #LIMIT & Calender
 
 
   @Sanity @Regression @Trade
@@ -244,10 +179,14 @@ Feature: Trades all buy related scenarios
     And User selects order type as Stop order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User selects Limit order expiry as Good till Cancelled
+    And User Clicks On Confirm
     And User Slides to Buy
     Then Stop order should be placed Successfully
+
+     #STOP & FRIDAY
+
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place Stop order with order expiry as Good till Cancelled
@@ -260,10 +199,14 @@ Feature: Trades all buy related scenarios
     And User selects order type as Stop order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
+    And User selects order expiry as Till Market is closed
     And User selects Stop order expiry as Good till Cancelled
+    And User Clicks On Confirm
     And User Slides to Buy
     Then Stop order should be placed Successfully
+
+
+    #STOP & God till cancelled
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place Stop order with order expiry as Custom Date
@@ -276,10 +219,13 @@ Feature: Trades all buy related scenarios
     And User selects order type as Stop order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
+    And User selects order expiry as Till Market is closed
     And User selects Stop order expiry as Custom Date
+    And User Clicks On Confirm
     And User Slides to Buy
     Then Stop order should be placed Successfully
+
+    #STOP & Calender
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place MIT order with order expiry as till Market Closed
@@ -292,10 +238,14 @@ Feature: Trades all buy related scenarios
     And User selects order type as MIT order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
     And User selects order expiry as Till Market is closed
+    And User selects order expiry as Till Market is closed
+    And User Clicks On Confirm
     And User Slides to Buy
     Then MIT order should be placed Successfully
+
+    #MIT & FRIDAY
+
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place MIT order with order expiry as Good till Cancelled
@@ -308,10 +258,14 @@ Feature: Trades all buy related scenarios
     And User selects order type as MIT order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
+    And User selects order expiry as Till Market is closed
     And User selects MIT order expiry as Good till Cancelled
+    And User Clicks On Confirm
     And User Slides to Buy
     Then MIT order should be placed Successfully
+
+     #MIT & God till cancelled
+
 
   @Sanity @Regression @Trade
   Scenario: Validate if the user is able to place MIT order with order expiry as Custom Date
@@ -324,53 +278,30 @@ Feature: Trades all buy related scenarios
     And User selects order type as MIT order
     And User enters the Pro type order Quantity
     And User enters the limit price
-    And User clicks on Set time in force
+    And User selects order expiry as Till Market is closed
     And User selects MIT order expiry as Custom Date
+    And User Clicks On Confirm
     And User Slides to Buy
     Then MIT order should be placed Successfully
 
+       #MIT & Calender
+
+
 
   @Sanity @Regression
-  Scenario: Validate while buying stock user is allowed to enter amount at most two decimal place only
+  Scenario: Once the user buys stock in market close then all data points like P&L, total invested and current value should remain as it is until the order is processed
     Given User is on Trade dashboard
+    And User notices the Current P and L, Current Investment and Current Amount
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
     And User click on the Stock
     And User clicks on Buy now for a stock
-    And User enters the amount in three or more decimal place
-    Then Amount field should ignore the decimals after two place
+    And User enters min trade amount
+    And User Slides to Buy
+    Then Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
 
+#xpath issue
 
-#  @Sanity @Regression
-#  Scenario: Validate while buying stock user is allowed to enter Quantity at most eight decimal place only
-#    Given User is on Trade dashboard
-#    And User Selects the search tab on dashboard
-#    When User search the stocks under US Stocks
-#    And User click on the Stock
-#    And User clicks on Buy now for a stock
-#    And User selects the order type as Quantity
-#    And User enters the quantity in nine or more decimal place
-#    Then Amount field should ignore the decimals after eight place
-#
-#  @Sanity @Regression
-#  Scenario: Once the user buys stock in market close then all data points like P&L, total invested and current value should remain as it is until the order is processed
-#    Given User is on Trade dashboard
-#    And User notices the Current P and L, Current Investment and Current Amount
-#    And User Selects the search tab on dashboard
-#    When User search the stocks under US Stocks
-#    And User click on the Stock
-#    And User clicks on Buy now for a stock
-#    And User enters min trade amount
-#    And User Slides to Buy
-#    Then Current P and L, Current Investment and Current Amount should not change when the order is placed in Market close
-#
-#
-#  @Sanity @Regression
-#  Scenario: Verify if the user enters the text in global search then relevant stocks are appearing on screen
-#    Given User is on Trade dashboard
-#    And User opens the global search
-#    And User enters the stock name
-#    Then User should see the relevant Search results
 #
 #  @Sanity @Regression
 #  Scenario: Check when stocks are purchased during Off Market hours then, the order amount will be deducted from the Buying Power and added up to "Amount Hold".
@@ -388,55 +319,26 @@ Feature: Trades all buy related scenarios
 #    And User notices the current money in held after buy
 #    Then the order amount should be be deducted from the Buying Power and added up to Amount Hold
 #
-#  @Sanity @Regression
-#  Scenario: Check crafted list should get loaded
-#    Given User opens the global search
-#    #And User opens the global search
-#    And User clicks an item from crafted list
-#    Then crafted list should get loaded
-#
-#  @Sanity @Regression
-#  Scenario: User clicks on "view details" CTA in Cashback Invite
-#    Given User is on Trade dashboard
-#    When User clicks on View Details CTA under Cashback Invites
-#    Then User should see Invites you sent, Invites you received and close button
-#
-#
-#  @Sanity @Regression
-#  Scenario: User clicks on "view all" CTA in News
-#    Given User is on Trade dashboard
-#    When The user clicks on the view all CTA
-#    Then The user should see the list of news cards
-#
-#  @Sanity @Regression
-#  Scenario: Verify the user is able to scroll the news card's in news section
-#    Given User is on Trade dashboard
-#    When User scrolls right in the news section
-#    And User clicks on News Card
-#    Then It should open the news details screen
-#
-#
-#
-#  @Sanity @Regression
-#  Scenario: User clicks on "view all" CTA in Research & Perspectives
-#    Given User is on Trade dashboard
-#    When the user clicks on the view all CTA in Research
-#    Then the user should see the list of Research & Perspectives card's
-#
-#
-#  @Sanity @Regression
-#  Scenario: Verify the user is able to scroll the Research & Perspectives card's in news section
-#    Given User is on Trade dashboard
-#    When User scrolls right in the Research section
-#    #And User clicks on Research Card
-#    Then It should open the Research details screen
-
-
-
 
 
   @Sanity @Regression
-  Scenario: Validate on order details page total order amount will equal to Order amount + fees
+  Scenario: Validate on order details page total order amount will equal to Order amount + fees and user is allowed to enter amount at most two decimal place only
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User enters the amount in three or more decimal place
+    Then Amount field should ignore the decimals after two place
+    And User Slides to Buy
+    And User click on view in order history
+    Then the user should see the total order amount equals the order amount plus the fees
+
+    #PROD DONE 30 JUN
+
+
+  @Sanity @Regression
+  Scenario: Validate if user cancel the order it should get reflected at minimodule and order details page
     Given User is on Trade dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
@@ -445,36 +347,38 @@ Feature: Trades all buy related scenarios
     And User enters the amount
     And User Slides to Buy
     And User click on view in order history
-    Then the user should see the total order amount equals the order amount plus the fees
-
-    #Done
-
-  @Sanity @Regression
-  Scenario: Validate if user cancel the order it should get reflected at minimodule and order details page
-#    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User enters the amount
-    And User Slides to Buy
-    And User click on view in order history
     And User cancel the order
-    And User select yes button for cancel confirmation
-    Then User will see the "CANCELLATION IN PROCESS" tag under order details page
-    And User come to minimodule page
-    And User will see "Cancelled" tag under all transactions page
-    And User will go to order details of the cancelled transaction
-    Then User should see the "Cancelled" tag under order details page also
-    And User should also see "Cancelled" tag under transaction status
+    Then User will see the "CANCELLATION SUBMITTED" tag under order details page
+#    And User come to minimodule page
+#    And User will see "Cancelled" tag under all transactions page
+#    And User will go to order details of the cancelled transaction
+#    Then User should see the "Cancelled" tag under order details page also
+#    And User should also see "Cancelled" tag under transaction status
 
     #for transaction status due to some backend logic , some times it will load , sometimes it's not
     #i.e why  i commented that line.
 
+  #PROD DONE 30 JUN :- From user come to minimodule page all lines have different UI in  latest build for minimodule page
 
 
 
 
+  Scenario: Validate if user stop the buy journey and come to dashboard
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    When User come back to home dashboard
+    Then User should see the resume buying event at home dashboard
+    And User click on Buy now cta under continue where left section
+    And User clicks on Buy now for a stock
+    And User enters the amount
+    And User Slides to Buy
+    Then the order should be placed successfully
+
+
+   #PROD DONE 30 JUN
 
 
 

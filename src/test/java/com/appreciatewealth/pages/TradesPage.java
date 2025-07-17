@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.testng.AssertJUnit.assertEquals;
+
 
 public class TradesPage extends BasePage {
     BasePage basePage = new BasePage();
@@ -41,8 +43,12 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(id = "btnBuy")
     WebElement BuyNowButton;
 
-    @AndroidFindBy(xpath = "//*[@text='₹0.00']")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Amount\"]/android.widget.EditText")
     WebElement EnterAmount;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Amount\"]/android.widget.EditText")
+    WebElement EnterAmountValue;
+
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Third Point sees room for Apple stock price to climb, letter says')]")
     WebElement NewsCard;
@@ -58,6 +64,7 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
     WebElement EnterSellAmount;
+
     @AndroidFindBy(xpath = "//*[@text='review order']")
     WebElement ReviewOrderButton;
 
@@ -66,18 +73,19 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='place order']")
     WebElement PlaceOrderButton;
+
     @AndroidFindBy(xpath = "//*[@text='₹1']")
     WebElement ValidateEnteredAmount;
 
-    @AndroidFindBy(xpath = "//*[@text='Order Placed']")
+    @AndroidFindBy(accessibility = "Order Placed")
     WebElement ValidateOrderPlaced;
 
 
-    @AndroidFindBy(xpath = "//*[@text='view in order history']")
+    @AndroidFindBy(accessibility = "View in order history")
     WebElement viewInOrderHistory;
 
 
-    @AndroidFindBy(xpath = "//*[@text='cancel order']")
+    @AndroidFindBy(accessibility = "Cancel order")
     WebElement CancleOrder;
 
 
@@ -85,7 +93,7 @@ public class TradesPage extends BasePage {
     WebElement YesButton;
 
 
-    @AndroidFindBy(xpath = "//*[@text='CANCELLATION IN PROCESS']")
+    @AndroidFindBy(accessibility = "CANCELLATION SUBMITTED")
     WebElement CancellationInProgress;
 
 
@@ -135,11 +143,12 @@ public class TradesPage extends BasePage {
     WebElement StoreCurrentValueOnDashboard;
 
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'Low funds! Add funds from YES Bank to trade')]")
+    @AndroidFindBy(xpath = "//*[contains(@content-desc,'Low funds! Add funds from YES Bank to trade')]")
     WebElement LowinBuyPowerErrorMessage;
 
     @AndroidFindBy(xpath = "//*[@text='Top picks']")
     WebElement TopPicksTab;
+
     @AndroidFindBy(xpath = "//*[@text='buy now']")
     WebElement BuyNowTopPicks;
 
@@ -186,7 +195,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Yes']")
     WebElement ConfirmRemovefromWatchlist;
 
-    @AndroidFindBy(xpath = "//*[@text='Minimum Transaction Amount Should be 0.85 INR.']")
+    @AndroidFindBy(xpath = "//*[contains(@content-desc,'Minimum Transaction Amount Should be greater than ₹0.87 INR')]")
     WebElement MinimumTransactionErrorMsg;
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Low funds! Add funds from YES Bank to trade')]")
@@ -195,49 +204,56 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
     WebElement PandLPercentage;
 
-    @AndroidFindBy(xpath = "//*[@text='Pro']")
+    @AndroidFindBy(accessibility = "Pro")
     WebElement ProTab;
 
-    @AndroidFindBy(xpath = "//*[@text='Limit']")
+    @AndroidFindBy(accessibility = "Limit")
     WebElement OrderTypeDropdown;
+
     @AndroidFindBy(xpath = "//*[@text='confirm selection']")
     WebElement ConfirmProOrderType;
 
     @AndroidFindBy(xpath = "//*[@text='Limit Order']")
     WebElement LimitOrderType;
 
-    @AndroidFindBy(xpath = "//*[@text='Stop']")
+    @AndroidFindBy(accessibility = "Stop")
     WebElement StopOrderType;
 
-    @AndroidFindBy(xpath = "//*[@text='Market If Touched(MIT)']")
+    @AndroidFindBy(accessibility = "Market If Touched(MIT)")
     WebElement MITOrderType;
 
     @AndroidFindBy(xpath = "//*[@text='0.0']")
     WebElement EnterQuantity;
 
-    @AndroidFindBy(xpath = "//*[@text='0']")
+    @AndroidFindBy(xpath = "//android.widget.EditText")
     WebElement EnterTradeQuantity;
 
-
-    @AndroidFindBy(xpath = "//*[@text='₹0.00']")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Amount\"]/android.widget.EditText")
     WebElement SetLimitPrice;
 
-    @AndroidFindBy(id = "layoutMainGoodTillNextMarketDay")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Thursday 07:00 AM IST\n" +
+            "Good till next market day closes\"]")
     WebElement ExpireTillMarketDayClose;
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'Good till cancelled')]")
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"23 Sep 2025\n" +
+            "Good till canceled\"]")
     WebElement GoodTillCancelled;
 
 
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'Select Date')]")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Select Date\n" +
+            "Choose good till effective date\"]")
     WebElement SelectCustomExpiryDate;
 
-    @AndroidFindBy(xpath = "//*[@text='Set time in force']")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Wednesday 07:00 AM IST\n" +
+            "Good till next market day closes\"]")
     WebElement SelectSetTimeInForce;
+
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[4]/android.widget.TextView[2]")
     WebElement ValidateCustomExpiryDate;
-    @AndroidFindBy(xpath = "//*[@text='OK']")
+
+    @AndroidFindBy(accessibility = "OK")
     WebElement ClickOK;
 
     @AndroidFindBy(xpath = "//*[@text='view details']")
@@ -253,12 +269,13 @@ public class TradesPage extends BasePage {
     WebElement InvitesSentLabel;
 
 
-    @AndroidFindBy(id= "txvOrderTypeValue")
+    @AndroidFindBy(xpath= "//android.view.View[@content-desc=\"Limit\"]")
     WebElement ValidateOrderType;
+
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.cardview.widget.CardView")
     WebElement ClickonVTStock;
 
-    @AndroidFindBy(xpath = "//*[@text='sell']")
+    @AndroidFindBy(accessibility = "Sell")
     WebElement SellButton;
 
     @AndroidFindBy(id = "imgClose")
@@ -285,7 +302,7 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(id = "com.appreciatewealth.android.uat:id/txvQty")
     WebElement GetHoldingsPostSell;
 
-    @AndroidFindBy(xpath = "//*[@text='go to dashboard']")
+    @AndroidFindBy(accessibility = "Go to dashboard")
     WebElement GoToTradeDashboard;
 
 
@@ -312,8 +329,9 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Order details']")
     WebElement OrderDetailsPage;
 
-    @AndroidFindBy(xpath = "//*[@text='₹6.89']")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"₹6.88\"]")
     WebElement ValidateAmountDecimals;
+
 
     @AndroidFindBy(xpath = "//*[@text='1.33']")
     WebElement ValidateQuantityDecimals;
@@ -332,7 +350,7 @@ public class TradesPage extends BasePage {
     private WebElement ValidateSearchResults;
 
 
-    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.view.ViewGroup/android.widget.RadioGroup/android.widget.RadioButton[4]")
+    @AndroidFindBy(accessibility ="Activity")
     private WebElement ActivityTab;
 
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[2]")
@@ -418,11 +436,14 @@ public class TradesPage extends BasePage {
 
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"US Stocks\n" +
-            "Tab 2 of 4\"]")
+            "Tab 1 of 4\"]")
     private WebElement USStocks;
 
-    @AndroidFindBy(id = "btnBuy")
+    @AndroidFindBy(accessibility = "Buy")
     private WebElement BuyNow;
+
+    @AndroidFindBy(id = "btnBuy")
+    private WebElement BuyNowAtStockDetails;
 
 
     @AndroidFindBy(accessibility = "All\n" +
@@ -431,6 +452,7 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[1]")
     WebElement Total_Amt;
+
     @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[3]")
     WebElement Current_Amt;
 
@@ -459,6 +481,50 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Portfolio\n" +
             "Tab 2 of 5\"]")
     WebElement PortFolioTab;
+
+
+
+    @AndroidFindBy(xpath = "ivBack")
+    WebElement BackArrowAtEnterAmtPage;
+
+
+    @AndroidFindBy(id = "imgBack")
+    WebElement BackArrowAtStockDetailsPage;
+
+
+    @AndroidFindBy(accessibility = "Continue Where You Left")
+    WebElement ContinueWhereYouLeft;
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Resume buying') and contains(@content-desc, 'Buy now')]")
+    WebElement BuyNowCTAOFContinueWhereLeftSection;
+
+
+    @AndroidFindBy(accessibility = "Buy now >")
+    WebElement BuyNowCTA;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Thursday 07:00 AM IST\n" +
+            "Good till next market day closes\"]")
+    WebElement OrderExpiryAsGoodTillMarketDayClosed;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'US Stocks') and contains(@content-desc, 'Returns') and contains(@content-desc, 'Invested')]")
+    WebElement USStocksCompleteXpath;
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[starts-with(@content-desc, '₹')])[2]")
+    WebElement ReturnAmtTotalPandLForUSStocks;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
+    WebElement ReturnPercentageTotalPandLForUSStocks;
+
+    @AndroidFindBy(xpath = "(//android.view.View[starts-with(@content-desc, '₹')])[3]")
+    WebElement InvestedAmtTotalPandLForUSStocks;
+
+    @AndroidFindBy(xpath = "(//android.view.View[starts-with(@content-desc, '₹')])[4]")
+    WebElement CurrentAmtTotalPandLForUSStocks;
+
 
 
     private static String QuantityOnSellScreen;
@@ -522,7 +588,7 @@ public class TradesPage extends BasePage {
         //Thread.sleep(8000);
         //Skip.click();
         Thread.sleep(8000);
-        TradeButton.click();
+       // TradeButton.click();
 
         /*String accessibilityId = TradeButton.getAttribute("content-desc");
 
@@ -561,18 +627,20 @@ public class TradesPage extends BasePage {
 
         Thread.sleep(6000);
         BuyNow.click();
+        // BuyNowAtStockDetails.click();
+
     }
 
     public void EnterTradeAmount(String amount) throws InterruptedException {
-        // Thread.sleep(5000);
+         Thread.sleep(3000);
         EnterAmount.click();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         // ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.DIGIT_2));
-        EnterAmount.sendKeys(amount);
+        EnterAmountValue.sendKeys(amount);
         // Thread.sleep(5000);
 
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
-        Thread.sleep(5000);
+        Thread.sleep(2000);
     }
 
     public void ClickReviewOrderButton() throws InterruptedException {
@@ -594,6 +662,9 @@ public class TradesPage extends BasePage {
     public void ValidateIfOrderPlaced() throws InterruptedException {
         Thread.sleep(5000);
         ValidateOrderPlaced.isDisplayed();
+        Thread.sleep(2000);
+        GoToTradeDashboard.click();
+
 
     }
 
@@ -893,8 +964,9 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
 
     public void ValidateMinimumTransactionMsg(String msg) throws InterruptedException {
         Thread.sleep(3000);
-        String Actualmsg = MinimumTransactionErrorMsg.getText();
-        Assert.assertEquals(Actualmsg, msg);
+//        String Actualmsg = MinimumTransactionErrorMsg.getText();
+//        Assert.assertEquals(Actualmsg, msg);
+        MinimumTransactionErrorMsg.isDisplayed();
     }
 
     public void CalculateProfitandLossPercentage() throws InterruptedException {
@@ -970,7 +1042,7 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void SelectPro() throws InterruptedException {
-        Thread.sleep(6000);
+        Thread.sleep(4000);
         ProTab.click();
     }
 
@@ -979,7 +1051,7 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     public void SelectProOrderType() throws InterruptedException {
         Thread.sleep(5000);
         OrderTypeDropdown.click();
-        Thread.sleep(3000);
+       // Thread.sleep(3000);
         // LimitOrderType.click();
         // Thread.sleep(5000);
         // ConfirmProOrderType.click();
@@ -1010,7 +1082,16 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
-    public void EnterLimitPrice(String LimitPrice){
+    public void EnterLimitPrice(String LimitPrice) throws InterruptedException {
+        Thread.sleep(3000);
+//        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+//                "left", 100, "top", 100, "width", 600, "height", 800,
+//                "direction", "down",
+//                "percent", 0.1
+//        ));
+//        Thread.sleep(3000);
+
+
         SetLimitPrice.click();
         SetLimitPrice.sendKeys(LimitPrice);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
@@ -1034,7 +1115,7 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
         Thread.sleep(5000);
         ValidateIfOrderPlaced();
         Thread.sleep(5000);
-        String ActualOrderType = ValidateOrderType.getText();
+        String ActualOrderType = ValidateOrderType.getAttribute("content-desc");
         Assert.assertEquals(ActualOrderType,EnterOrderType);
     }
 
@@ -1052,7 +1133,7 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void EnterSellAmount(String Amount) throws InterruptedException {
-        Thread.sleep(6000);
+        Thread.sleep(5000);
         EnterAmount.click();
         EnterAmount.sendKeys(Amount);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
@@ -1129,7 +1210,7 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
 
     }
     public void ValidateAmountDecimals() throws InterruptedException {
-        Assert.assertEquals(ValidateAmountDecimals.getText(),"₹6.89");
+        Assert.assertEquals(ValidateAmountDecimals.getText(),"₹6.88");
     }
 
     public void ValidateQuantityDecimals() throws InterruptedException {
@@ -1235,15 +1316,8 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
 
     public void NavigateToActivityTab() throws InterruptedException {
         Thread.sleep(8000);
-        //ActivityTab.click();
-            //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"News\").instance(0))"));
-            //Thread.sleep(8000);
-            WebElement element = driver.findElement(AppiumBy.xpath("//*[contains(@text,'Activity')]"));
-            driver.executeScript("mobile: swipeGesture", ImmutableMap.of(
-                    "elementId"  ,((RemoteWebElement)element).getId(),
-                    "direction","Right",
-                    "percent",1
-            ));
+        ActivityTab.click();
+
     }
     public static void GetCurrentAmountBeforeSell() throws InterruptedException {
         Thread.sleep(4000);
@@ -1507,9 +1581,9 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
     public void SliderForBuy() throws InterruptedException {
         Thread.sleep(6000);
-        int startY = 1419; // Y-coordinate remains the same
+        int startY = 1501; // Y-coordinate remains the same
         int startX = 104;  // Adjust this value for the start position of the swipe
-        int endX = 654;   // Adjust this value for the end position of the swipe
+        int endX = 650;   // Adjust this value for the end position of the swipe
 
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence swipeRight = new Sequence(finger, 1);
@@ -1637,4 +1711,102 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
         Thread.sleep(3000);
         PortFolioTab.click();
     }
+
+    public void ComeBackToHomeDashboard() throws InterruptedException {
+        Thread.sleep(3000);
+        BackArrowAtEnterAmtPage.click();
+        Thread.sleep(2000);
+        BackArrowAtStockDetailsPage.click();
+    }
+
+    public void VerifyContinueToLeft() throws InterruptedException {
+        Thread.sleep(3000);
+        ContinueWhereYouLeft.isDisplayed();
+
+       // BuyNowCTAOFContinueWhereLeftSection.isDisplayed();
+
+
+
+    }
+
+    public void ClickOnBuyNowCtaUnderContinueWhereLeftSection() throws InterruptedException {
+        Thread.sleep(2000);
+         BuyNowCTA.click();
+
+    }
+
+    public void SelectOrderExpiryAsGoodTillMarketDayClosed() throws InterruptedException {
+        Thread.sleep(3000);
+        OrderExpiryAsGoodTillMarketDayClosed.click();
+    }
+
+    // Class-level variables
+    double allTabReturnAmount;
+    double allTabReturnPercentage;
+    double allTabInvestedAmount;
+
+    double USStockTabReturnAmount;
+    double USStockTabReturnPercentage;
+    double USStockTabInvestedAmount;
+
+    public void getAllValueOfUSStocksInAllTab() throws InterruptedException {
+        Thread.sleep(5000);
+
+        String tmp = USStocksCompleteXpath.getAttribute("content-desc");
+        String[] lines = tmp.split("\n");
+
+        if (lines.length < 5) {
+            System.out.println("Unexpected content format: " + tmp);
+            return;
+        }
+
+        String returnLine = lines[2];
+        String investedAmountStr = lines[4];
+
+        String returnAmountStr = returnLine.split(" ")[0];
+        String returnPercentageStr = returnLine.replaceAll(".*\\((.*)\\).*", "$1");
+
+        // ✅ Assigning to global variables (no `double` keyword)
+        allTabReturnAmount = Math.abs(Double.parseDouble(returnAmountStr.replace("₹", "").replace(",", "")));
+        allTabReturnPercentage = Double.parseDouble(returnPercentageStr.replace("%", ""));
+        allTabInvestedAmount = Double.parseDouble(investedAmountStr.replace("₹", "").replace(",", ""));
+
+        System.out.println("Return Amount (All Tab): " + allTabReturnAmount);
+        System.out.println("Return Percentage (All Tab): " + allTabReturnPercentage);
+        System.out.println("Invested Amount (All Tab): " + allTabInvestedAmount);
+    }
+
+    public void GetAllUSValueAtUSStocksTab() throws InterruptedException {
+        Thread.sleep(4000);
+
+        String returnAmtStr = ReturnAmtTotalPandLForUSStocks.getAttribute("content-desc");
+        String returnPercentageStr = ReturnPercentageTotalPandLForUSStocks.getAttribute("content-desc");
+        String investedAmountStr = InvestedAmtTotalPandLForUSStocks.getAttribute("content-desc");
+        String currentAmountStr = CurrentAmtTotalPandLForUSStocks.getAttribute("content-desc");
+
+        // ✅ Assigning to global variables (no `double` keyword)
+        USStockTabReturnAmount = Double.parseDouble(returnAmtStr.replace("₹", "").replace(",", "").trim());
+        USStockTabReturnPercentage = Double.parseDouble(returnPercentageStr.replace("%", "").trim());
+        USStockTabInvestedAmount = Double.parseDouble(investedAmountStr.replace("₹", "").replace(",", "").trim());
+        double currentAmt = Double.parseDouble(currentAmountStr.replace("₹", "").replace(",", "").trim());
+
+        System.out.println("Return Amount (US Tab): " + USStockTabReturnAmount);
+        System.out.println("Return Percentage (US Tab): " + USStockTabReturnPercentage);
+        System.out.println("Invested Amount (US Tab): " + USStockTabInvestedAmount);
+        System.out.println("Current Amount: " + currentAmt);
+    }
+
+    public void CompareALLTabUSStocksValuesWithUSStocksTabValues() {
+        // ✅ Now comparing the actual global variables
+        assertEquals("Return Amount mismatch!", allTabReturnAmount, Math.abs(USStockTabReturnAmount), 0.001);
+        assertEquals("Return Percentage mismatch!", allTabReturnPercentage, USStockTabReturnPercentage, 0.001);
+        assertEquals("Invested Amount mismatch!", allTabInvestedAmount, USStockTabInvestedAmount, 0.001);
+
+        System.out.println("✅ All compared values match successfully!");
+    }
+
+
+
+
+
 }

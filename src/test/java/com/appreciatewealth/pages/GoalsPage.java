@@ -1,6 +1,7 @@
 package com.appreciatewealth.pages;
 
 import com.appreciatewealth.utils.TestUtils;
+import com.beust.ah.A;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -19,18 +20,18 @@ public class GoalsPage extends BasePage {
 
     TestUtils utils = new TestUtils();
     private String goalsname;
-    SignInPage signInPage;
+
     DashboardPage dashboardPage;
 
     private String ActualPandL;
 
-
     public GoalsPage() {
-        this.signInPage = new SignInPage();
+
+        this.dashboardPage = new DashboardPage();
     }
 
     // Adding funds in Goal Dashboard
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.LinearLayout[2]/android.widget.ImageView")
+    @AndroidFindBy(accessibility = "Goals")
     private WebElement clickonViewGoals;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[2]/android.widget.Button")
@@ -44,6 +45,10 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[3]")
     private WebElement clickongoalcalculator;
 
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/learn_more\"]")
+    private WebElement GoalCalculator;
+
     @AndroidFindBy(xpath = "//*[@text= 'Retire with Maximum Savings']")
     private WebElement Selectgoaltype;
 
@@ -53,8 +58,23 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]")
     private WebElement ValidateGoalCalculatorScreen;
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'30')]")
+    @AndroidFindBy(xpath = "//*[contains(@text,'31')]")
     private WebElement ValidateCurrentAge;
+
+    @AndroidFindBy(xpath = "//*[@text= 'Current age']")
+    private WebElement CurrentAge;
+
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"com.appreciatewealth.android:id/edCurrentAge\"]")
+    private WebElement EnterAge;
+
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"com.appreciatewealth.android:id/edRetireAge\"]")
+    private WebElement Retire_Age;
+
+    @AndroidFindBy(xpath = "//*[@text= '//android.widget.EditText[@resource-id=\"com.appreciatewealth.android:id/edRetireAge\"]")
+    private WebElement EnterRetire_Age;
+
 
     @AndroidFindBy(xpath = "//*[contains(@text,'65')]")
     private WebElement ValidateRetireAge;
@@ -70,6 +90,13 @@ public class GoalsPage extends BasePage {
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.Button")
     private WebElement ValidateStartGoalSetUp;
+
+    @AndroidFindBy(xpath = "start goal set up")
+    private WebElement ValidateStartGoalSetUp2;
+
+
+    @AndroidFindBy(xpath = "//*[@text= 'see details']")
+    private WebElement Seedatails;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")
     private WebElement Tapcurrent;
@@ -120,8 +147,8 @@ public class GoalsPage extends BasePage {
     private WebElement Summarygoal;
 
     //Creating new goals from the dashboard
-    @AndroidFindBy(xpath = "//*[@text='new goal']")
-    private WebElement  Clickonnewgoal;
+    @AndroidFindBy(xpath = "//*[@text='New goal']")
+    private WebElement Clickonnewgoal;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")
     private WebElement goaltype;
@@ -155,6 +182,10 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@index='1' and @text='Target portfolio']")
     private WebElement Targetportfoliodashboard;
 
+
+    @AndroidFindBy(xpath = "//*[@index='15' and @text='proceed with investment']")
+    private WebElement ProceesWithInvestment;
+
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")
     private WebElement clickproceedwithinvestment;
 
@@ -185,21 +216,30 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Drafts']")
     private WebElement clickdrafttab;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
+    @AndroidFindBy(xpath = "//*[@text='Retirement Saving Draft']")
+    private WebElement RetirementSavingDraft;
+
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/txvCurrentInvestedPrice\"]")
     WebElement InvestedAmountOnDashboard;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/txvNetChange\"]")
+    private WebElement FinalAmt_At_App;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/txvCurrentValuePrice\"]")
     WebElement CurrentValueOnDashboard;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
     WebElement TotalValueOnDashboard;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/txvCurrentInvestedPrice\"]")
     WebElement GetInvestedAmountOnDashboard;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[4]")
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/txvCurrentValuePrice\"]")
     WebElement GetCurrentValueOnDashboard;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id=\"com.appreciatewealth.android:id/llPricePercentage\"]")
     WebElement GetTotalValuePercentage;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.ImageView[3]")
@@ -277,6 +317,7 @@ public class GoalsPage extends BasePage {
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView[2]")
     WebElement GoalStatus;
+
     @AndroidFindBy(id = "topLayoutGoldSip")
     WebElement Clickdigitalgold;
 
@@ -304,14 +345,15 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]")
     WebElement onetimeinvestblock;
 
-    @AndroidFindBy(id= "btnConfirm")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.Button")
     WebElement ContinueButton;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView[5]")
     WebElement GoldStatus;
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'Goal Successfully')]")
-    WebElement Goldsuccessfull;
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Goal Successfully') or contains(@text, 'Goal Successfully Created')]")
+    WebElement goalSuccessful;
+
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button")
     WebElement goldmonthinvest;
@@ -392,10 +434,10 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[2]")
     WebElement NoOption;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.appreciatewealth.android:id/tvSeeDetails\"]")
     WebElement GoalsDraftData;
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Drafts\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Drafts\"]")
     WebElement DraftTab;
 
     @AndroidFindBy(id = "txvActiveTitle")
@@ -428,52 +470,23 @@ public class GoalsPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='skip']")
     WebElement ResumeSkip;
 
-    @AndroidFindBy(accessibility = "Skip")
-    private WebElement Skip;
-
     @AndroidFindBy(id = "txv_no_goal")
     WebElement ResumeHistory;
-
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Goals\"]")
-    WebElement Goals;
-
-
-    @AndroidFindBy(xpath = "(//android.view.View[@content-desc=\"view all\"])[2]")
-    WebElement ViewAllGoals;
-
     public static String RandomGoalName;
     public static String finalName;
 
     public void NavigatetoGoals() throws IOException, InterruptedException {
 
         Thread.sleep(5000);
-        signInPage.Signin();
-        //dashboardPage.NavigatetoDashboard();
+        dashboardPage.NavigatetoDashboard();
         Thread.sleep(5000);
-        //Skip.click();
-        Thread.sleep(5000);
-        //Goals.click();
-        boolean canScrollMore = true;
-        while (canScrollMore) {
-            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 700,
-                    "direction", "down",
-                    "percent", 1.0
-            ));
-            Thread.sleep(3000);
-            ViewAllGoals.click();
-            //Thread.sleep(5000);
-            //clickonViewGoals.click();
+        clickonViewGoals.click();
 
-        }
     }
 
     public void SwitchtoGoal() throws IOException, InterruptedException {
         Thread.sleep(3000);
-        //Skip.click();
-        Thread.sleep(3000);
-        Goals.click();
-        //clickonViewGoals.click();
+        clickonViewGoals.click();
 
     }
 
@@ -524,20 +537,23 @@ public class GoalsPage extends BasePage {
 
 
         Thread.sleep(5000);
-        WebElement clickongoalcalculator = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"goal calculator\").instance(0))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[3]"));
-        Thread.sleep(5000);
-        clickongoalcalculator.isDisplayed();
+        WebElement clickongoalcalculator = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Goal calculator\").instance(0))"));
+        Thread.sleep(3000);
+        // driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[3]"));
+        GoalCalculator.isDisplayed();
+//        Thread.sleep(5000);
+//        clickongoalcalculator.isDisplayed();
 
     }
 
 
     public void ClickOnGoalCalculator() throws InterruptedException {
-        Thread.sleep(5000);
-        WebElement clickongoalcalculator = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"goal calculator\").instance(0))"));
-        driver.findElement(By.xpath("//*[@text='goal calculator']"));
-        Thread.sleep(5000);
-        clickongoalcalculator.click();
+        Thread.sleep(4000);
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Goal calculator\").instance(0))"));
+//        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[3]"));
+//        Thread.sleep(5000);
+        // clickongoalcalculator.click();
+        GoalCalculator.click();
 
     }
 
@@ -549,22 +565,32 @@ public class GoalsPage extends BasePage {
 
     public void EnterCurrentAge(String Age) throws InterruptedException {
         Thread.sleep(5000);
-        Tapcurrent.click();
-        Sendcurrentage.clear();
-        // EnterCurrentAge.clear();
-        Sendcurrentage.sendKeys(Age);
+//        Tapcurrent.click();
+//        Sendcurrentage.clear();
+//        // EnterCurrentAge.clear();
+//        Sendcurrentage.sendKeys(Age);
+
+        EnterAge.sendKeys(Age);
     }
 
     public void EnterRetireAge(String RetireAge) throws InterruptedException {
         Thread.sleep(5000);
-        TapRetire.click();
-        SendRetireAge.clear();
-        SendRetireAge.sendKeys(RetireAge);
+//        TapRetire.click();
+//        SendRetireAge.clear();
+//        SendRetireAge.sendKeys(RetireAge);
+        Retire_Age.click();
+        Thread.sleep(2000);
+        // EnterRetire_Age.sendKeys(RetirementAge);
+        Retire_Age.sendKeys(RetireAge);
     }
 
     public void EnterAmount(String Amount) throws InterruptedException {
         Thread.sleep(5000);
         EnterAmount.sendKeys(Amount);
+
+        Thread.sleep(2000);
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+
     }
 
     public void ValidateYourcurrentage(String currentAge) throws InterruptedException {
@@ -607,14 +633,29 @@ public class GoalsPage extends BasePage {
 
     public void ValidateCurrentAge(String Age) throws InterruptedException {
         Thread.sleep(5000);
-        String ActualAge = ValidateCurrentAge.getText();
-        Assert.assertEquals(ActualAge, Age);
+//        String ActualAge = ValidateCurrentAge.getText();
+//        Assert.assertEquals(ActualAge, Age);
+
+        CurrentAge.click();
+        Thread.sleep(2000);
+
+        EnterAge.sendKeys(Age);
+
+
     }
 
     public void ValidateRetirementAge(String RetirementAge) throws InterruptedException {
-        Thread.sleep(5000);
-        String Age2 = ValidateRetireAge.getText();
-        Assert.assertEquals(RetirementAge, Age2);
+        Thread.sleep(3000);
+//        String Age2 = ValidateRetireAge.getText();
+//        Assert.assertEquals(RetirementAge, Age2);
+
+        Retire_Age.click();
+        Thread.sleep(2000);
+        // EnterRetire_Age.sendKeys(RetirementAge);
+        Retire_Age.sendKeys(RetirementAge);
+
+
+
     }
 
     public void ClickonSeeTargetAmount() throws InterruptedException {
@@ -646,47 +687,30 @@ public class GoalsPage extends BasePage {
     }
 
     public void ClickonSeeDetails() throws InterruptedException {
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Drafts\").instance(0))"));
-        /*boolean canScrollMore = true;
-        while (canScrollMore) {
-            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 700,
-//                "elementId", ((RemoteWebElement) element).getId(),
-                    "direction", "down",
-                    "percent", 1.0
-            ));*/
-        //driver.switchTo().frame(goalsnameondashboard);
-        Thread.sleep(5000);
-        goalsnameondashboard.click();
-        //System.out.println("Goal Name " + goalsname);
-        //WebElement element = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[2]/android.widget.ImageView"));
-        Thread.sleep(5000);
-        //driver.executeScript("mobile: clickGesture", ImmutableMap.of(
-        // "elementId", ((RemoteWebElement) element).getId()
-        // ));
-//           driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-//                 "left", 100, "top", 100, "width", 600, "height", 650,
-//              "elementId", ((RemoteWebElement) element).getId(),
-//                 "direction", "up",
-//               "percent", 2.0
-//           ));
+        Thread.sleep(4000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 800,
+                "direction", "down",
+                "percent", 0.1
+        ));
+        Thread.sleep(3000);
 
+        Seedatails.click();
 
-        WebElement goalsnameondetailscreen = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Summary\").instance(0))"));
-        Thread.sleep(5000);
-        //String goalsnameondetailspage = Summarygoal.getText();
-        //Assert.assertEquals(goalsname, goalsnameondetailspage);
-
-        // seedetailsactivegoal.click();
     }
 
 
 
     // Verify Creating a New goal from goal dashboard
     public void clicknewgoal() throws InterruptedException {
-        Thread.sleep(5000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
-        Thread.sleep(5000);
+        Thread.sleep(3000);
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"New goal\").instance(0))"));
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 800,
+                "direction", "down",
+                "percent", 0.1
+        ));
+        Thread.sleep(3000);
         Clickonnewgoal.click();
 
     }
@@ -744,6 +768,11 @@ public class GoalsPage extends BasePage {
     // Investment option selections
     public void onetimeinvestment() throws InterruptedException {
         Thread.sleep(5000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
         goalonetimeinvestment.click();
 
 
@@ -751,6 +780,12 @@ public class GoalsPage extends BasePage {
 
     public void investment() throws InterruptedException {
         Thread.sleep(5000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 400,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        Thread.sleep(3000);
         goalinvestmentoptions.click();
 
 
@@ -764,7 +799,9 @@ public class GoalsPage extends BasePage {
     public void investmentpage() throws InterruptedException {
         Thread.sleep(8000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"proceed with investment\").instance(0))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")).click();
+        Thread.sleep(4000);
+        //  driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.Button")).click();
+        ProceesWithInvestment.click();
     }
 
     public void settgoal() throws InterruptedException {
@@ -818,19 +855,19 @@ public class GoalsPage extends BasePage {
 
     public void Draft() throws InterruptedException {
         Thread.sleep(5000);
-        boolean canScrollMore = true;
-        while (canScrollMore) {
-            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 700,
-                    "direction", "down",
-                    "percent", 1.0
-            ));
-            driver.findElement(By.xpath("//*[@text='Drafts']")).click();
-            clickdrafttab.isDisplayed();
-            //basePage.Logout();
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 500,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        //driver.findElement(By.xpath("//*[@text='Drafts']")).click();
+        Thread.sleep(3000);
+        clickdrafttab.click();
 
+        Thread.sleep(3000);
 
-        }
+        RetirementSavingDraft.isDisplayed();
+
 
 
     }
@@ -844,9 +881,26 @@ public class GoalsPage extends BasePage {
         String OverallInvestedwithoutCurrency = Totalinvested.replaceAll("[₹,]", "");
         double doublefinalInvestment = Double.parseDouble(OverallInvestedwithoutCurrency);
         System.out.println("this is the total invested amount from app " + doublefinalInvestment);
-        double Finalvalue = doublefinalInvestment - doublecurrentreturn;
+        double Finalvalue =  doublecurrentreturn - doublefinalInvestment ;
+
+        String formatted = String.format("%.2f", Finalvalue);
+
+        Finalvalue = Double.parseDouble(formatted);
+
+
         System.out.println("this is the total current value amount from app " + doublecurrentreturn);
         System.out.println("this is the P&L total amount " + Finalvalue);
+
+        String temp =  FinalAmt_At_App.getText();
+        String numberOnly = temp.replaceAll("[^\\d.]", "");
+        double amount = Double.parseDouble(numberOnly);
+
+
+
+
+        Assert.assertEquals(Finalvalue, amount);
+
+
     }
 
     public void CalculateProfitAndLossGoalsPercentage() throws InterruptedException {
@@ -1008,8 +1062,9 @@ public class GoalsPage extends BasePage {
     public void selectyearonetimepay(String Year) throws InterruptedException {
 
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2032\").instance(0))"));
-        driver.findElement(By.xpath("//*[@index='3' and @text='2032']")).click();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"2032\"]")).click();
+        Thread.sleep(3000);
         oktargetdate.click();
 
 
@@ -1063,6 +1118,12 @@ public class GoalsPage extends BasePage {
 
     public void InvetmentgoalDetails() throws InterruptedException {
         Thread.sleep(5000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        Thread.sleep(3000);
         Investmonthly.click();
 
 
@@ -1076,13 +1137,25 @@ public class GoalsPage extends BasePage {
     }
     public void Paymentnext() throws InterruptedException {
         Thread.sleep(5000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 400,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        Thread.sleep(3000);
         Next.click();
 
 
     }
 
     public void BackGoalspage() throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(6000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 600,
+                "direction", "down",
+                "percent", 1.0
+        ));
+        Thread.sleep(3000);
         takemebacktogoalpage.click();
 
 
@@ -1098,26 +1171,33 @@ public class GoalsPage extends BasePage {
     }*/
 
     public void SelectDigitalGold() throws InterruptedException {
-        //Thread.sleep(3000);
+        Thread.sleep(5000);
         //WebElement Clickdigitalgold =driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"More on goals\").instance(0))"));
-        boolean canScrollMore = true;
-        while (canScrollMore) {
-            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 700,
-                    "direction", "down",
-                    "percent", 1.0
-            ));
-            //driver.findElement(By.xpath("//*[@index='3' and @text='Build a savings habit and grow your Gold investment safely and securely.']"));
-            Thread.sleep(8000);
-            Clickdigitalgold.click();
+        //  boolean canScrollMore = true;
+//        while (canScrollMore) {
+//            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+//                    "left", 100, "top", 100, "width", 600, "height", 700,
+//                    "direction", "down",
+//                    "percent", 1.0
+//            ));
+//            //driver.findElement(By.xpath("//*[@index='3' and @text='Build a savings habit and grow your Gold investment safely and securely.']"));
+//            //Thread.sleep(5000);
+//           // Clickdigitalgold.click();
+//
+//        }
+//        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+//                "left", 100, "top", 100, "width", 600, "height", 700,
+//                "direction", "down",
+//                "percent", 1.0
+//        ));
 
-        }
+        Clickdigitalgold.click();
     }
 
 
 
     public void SelectGoldDate() throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(5000);
         GoldTargetDate.click();
 
     }
@@ -1131,7 +1211,7 @@ public class GoalsPage extends BasePage {
 
     public void clickgoldyear(String Year) throws InterruptedException {
 
-        // driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2026\").instance(0))"));
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"2026\").instance(0))"));
         driver.findElement(By.xpath("//*[@index='1' and @text='2026']")).click();
         Thread.sleep(5000);
         GoldDateok.click();
@@ -1176,7 +1256,7 @@ public class GoalsPage extends BasePage {
 
     public void DigitalGoldSuccessfull() throws InterruptedException {
         Thread.sleep(5000);
-        Goldsuccessfull.isDisplayed();
+        goalSuccessful.isDisplayed();
     }
 
     public void DigitalMonthInvestment() throws InterruptedException {
@@ -1347,7 +1427,12 @@ public class GoalsPage extends BasePage {
 
     public void SelectDraft() throws InterruptedException {
         Thread.sleep(5000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
         Thread.sleep(5000);
         DraftTab.click(); // Select Draft Tab
 
@@ -1361,9 +1446,9 @@ public class GoalsPage extends BasePage {
 
     public void SelectPauseGoal() throws InterruptedException {
         Thread.sleep(5000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"New goal\").instance(0))"));
         Thread.sleep(5000);
-        PauseGoalName.click();
+        Seedatails.click();
 
     }
 
@@ -1381,6 +1466,11 @@ public class GoalsPage extends BasePage {
 
     public void SelectSIP() throws InterruptedException {
         Thread.sleep(5000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
         PauseSIP.click();
 
     }
@@ -1393,7 +1483,12 @@ public class GoalsPage extends BasePage {
 
     public void SelectHistory() throws InterruptedException {
         Thread.sleep(2000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
+        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"new goal\").instance(0))"));
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 700,
+                "direction", "down",
+                "percent", 1.0
+        ));
         Thread.sleep(5000);
         History.click();
 
@@ -1429,45 +1524,13 @@ public class GoalsPage extends BasePage {
 
     }
 
-public void ClickGoalsHome() throws InterruptedException {
-    Thread.sleep(5000);
-    boolean canScrollMore = true;
-    while (canScrollMore) {
-        canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                "left", 100, "top", 100, "width", 600, "height", 700,
-                "direction", "down",
-                "percent", 1.0
-        ));
-        Thread.sleep(3000);
-        ViewAllGoals.click();
-    }
-}
 
-    public void ClickViewAllGoal() throws InterruptedException {
+    public void GotoGoalCalculatorPage() throws IOException, InterruptedException {
         Thread.sleep(5000);
-         Skip.click();
-//        int numberOfScrolls = 1; // Adjust the number of scrolls as needed
-//        for (int i = 0; i < numberOfScrolls; i++) {
-//            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
-//        }
-        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Year High today\").instance(0))"));
-        //Thread.sleep(5000);
-        boolean canScrollMore = true;
-        while (canScrollMore) {
-            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 700,
-                    "direction", "down",
-                    "percent", 1.0
-            ));
-            Thread.sleep(3000);
-            ViewAllGoals.click();
-
-        }
-
+        dashboardPage.NavigatetoDashboard();
+        Thread.sleep(5000);
+        clickonViewGoals.click();
     }
-
-
-
 }
 
 

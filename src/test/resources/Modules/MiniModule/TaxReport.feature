@@ -15,6 +15,7 @@ Feature: TaxReport
     Then User should see the date range along with capital gain note description
 
 
+
   @Sanity
   Scenario: Verify when reports are available under Dividend and interest
     Given the user is on the Dashboard

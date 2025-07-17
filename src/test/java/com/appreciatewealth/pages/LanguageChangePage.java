@@ -210,6 +210,10 @@ public class LanguageChangePage extends BasePage{
     private WebElement AvailableAmtInHindi;
 
 
+    @AndroidFindBy(xpath = "//*[@text='OTP पुनः भेजें।']")
+    private WebElement ResendOTPText;
+
+
 
     public void SelectChangeLanguage() throws InterruptedException {
         Thread.sleep(3000);
@@ -427,5 +431,10 @@ public class LanguageChangePage extends BasePage{
         WithdrawalDescriptionInEnglish.isDisplayed();  // hindi is not for this description
 
         AvailableAmtInHindi.isDisplayed();
+    }
+
+    public void VerifyResendOTPText() throws InterruptedException {
+        Thread.sleep(3000);
+        ResendOTPText.isDisplayed();
     }
 }

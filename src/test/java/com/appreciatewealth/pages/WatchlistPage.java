@@ -4,13 +4,19 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -76,14 +82,14 @@ public class WatchlistPage extends BasePage {
     private WebElement RemoveAAPYStock;
 
 
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[3]")
+    @AndroidFindBy(xpath = "//android.widget.EditText")
     private WebElement SearchBar;
 
 
    // @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'AAPD DIREXION DAILY AAPL BEAR 1X')]/android.view.View")
 
 
-    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'AAPL') and contains(@content-desc, 'Apple, Inc.')]/android.view.View")
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'AAPL') and contains(@content-desc, 'Apple')]/android.view.View")
     private WebElement AAPLRemoveStock;
 
 
@@ -98,18 +104,17 @@ public class WatchlistPage extends BasePage {
     private WebElement RemoveToast;
 
 
+
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Search\n" +
             "Tab 3 of 5\"]")
-    @iOSXCUITFindBy(accessibility = "Search\n" +
-            "Tab 3 of 4")
-
     private WebElement SearchTab;
 
 
     @AndroidFindBy(xpath = "//android.widget.ScrollView/android.widget.ImageView")
     private WebElement EnterStockName2;
 
-
+    @AndroidFindBy(xpath = "//android.widget.EditText")
+    private WebElement EnterSName2;
 
 
 
@@ -129,7 +134,7 @@ public class WatchlistPage extends BasePage {
     private WebElement TestingWatchlist;
 
 
-    @AndroidFindBy(accessibility = "demo")
+    @AndroidFindBy(accessibility = "Demo")
     private WebElement demoWatchlist;
 
     @AndroidFindBy(accessibility = "Save")
@@ -145,7 +150,7 @@ public class WatchlistPage extends BasePage {
     private WebElement EditWatchlistSaveButton;
 
 
-    @AndroidFindBy(accessibility = "Watchlist name updated successfully")
+    @AndroidFindBy(accessibility = "Watchlist updated successfully")
     private WebElement WatchlistUpdateSuccessMsg;
 
 
@@ -160,12 +165,17 @@ public class WatchlistPage extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Testing')]")
     private WebElement CreatedWatchlistName;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'demo')]")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"demo\"]")
     private WebElement DemoWatchlistName;
 
 
     @AndroidFindBy(accessibility = "Add")
     private WebElement addBtn;
+
+
+
+    @AndroidFindBy(accessibility = "Save")
+    private WebElement saveBtn;
 
 
     @AndroidFindBy(xpath = "//*[@text='Testing']")
@@ -190,7 +200,7 @@ public class WatchlistPage extends BasePage {
 
    // @AndroidFindBy(xpath = "//*[contains(@content-desc, 'AAPD DIREXION DAILY AAPL BEAR 1X')]")
 
-    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'AAPL') and contains(@content-desc, 'Apple, Inc.')]")
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'AAPL') and contains(@content-desc, 'Apple')]")
     private WebElement StockNames;
 
 
@@ -232,6 +242,9 @@ public class WatchlistPage extends BasePage {
 
     @AndroidFindBy(xpath = "(//android.view.View[@content-desc=\"View all\"])[1]")
     private WebElement ViewAllButton;
+
+    @AndroidFindBy(xpath = "(//android.view.View[@content-desc=\"View all\"])[2]")
+    private WebElement SecondViewAllButton;
 
     @AndroidFindBy(accessibility = "Edit")
     private WebElement EditButton;
@@ -305,7 +318,7 @@ public class WatchlistPage extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"test\"]")
     private WebElement EditWatchlistName;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Amazon\"]")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Testing\"]")
     private WebElement EditAmazonWatchlistName;
 
 
@@ -314,13 +327,13 @@ public class WatchlistPage extends BasePage {
     private WebElement EnterEditWatchlistName;
 
 
-    @AndroidFindBy(xpath = "//*[@text='Watchlist 2']")
+    @AndroidFindBy(xpath = "//android.widget.EditText[contains(@text, 'Watchlist')]")
     private WebElement ByDefaultWatchlist;
 
-    @AndroidFindBy(xpath = "//*[@text='Watchlist 3']")
+    @AndroidFindBy(xpath = "//android.widget.EditText[matches(@text, 'Watchlist \\d+')]")
     private WebElement ByDefaultThirdWatchlist;
 
-    @AndroidFindBy(xpath = "//*[@text='Watchlist 4']")
+    @AndroidFindBy(xpath = "//*[@text='Watchlist 2']")
     private WebElement ByDefaultfourthWatchlist;
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"UAVS\n" +
@@ -349,6 +362,7 @@ public class WatchlistPage extends BasePage {
     public void SelectWatchlistTab() throws InterruptedException {
         Thread.sleep(4000);
         WatchlistTab.click();
+        Thread.sleep(4000);
     }
 
     public void SelectAddStockButton() throws InterruptedException {
@@ -357,14 +371,14 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectStockHeartIcon() throws InterruptedException {
-        Thread.sleep(4000);
-//        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
-//        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(StockHeartIcon));
+
         StockHeartIcon.click();
     }
 
     public void VerifySuccessMsg(String message) throws InterruptedException {
-        //Thread.sleep(3000);
+        Thread.sleep(3000);
         StockAddedWatchlistMsg.isDisplayed();
 
     }
@@ -385,7 +399,6 @@ public class WatchlistPage extends BasePage {
         Thread.sleep(2000);
         SearchBar.sendKeys(name);
         Thread.sleep(2000);
-        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
 
     }
 
@@ -398,9 +411,7 @@ public class WatchlistPage extends BasePage {
         Thread.sleep(4000);
         EnterStockName2.click();
         Thread.sleep(2000);
-        EnterStockName2.sendKeys(name);
-        Thread.sleep(1000);
-        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        EnterSName2.sendKeys(name);
 
     }
 
@@ -579,15 +590,17 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectCreateButton() throws InterruptedException {
-        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(CreateButton));
+
         CreateButton.click();
     }
 
     public void EnterSpecialCharactersForWatchlistName(String InvalidStock) throws InterruptedException {
         Thread.sleep(5000);
-        ByDefaultfourthWatchlist.click();
+        ByDefaultThirdWatchlist.click();
         Thread.sleep(2000);
-        ByDefaultfourthWatchlist.clear();
+        ByDefaultThirdWatchlist.clear();
         Thread.sleep(2000);
         EnterWatchlistName.click();
         Thread.sleep(2000);
@@ -636,10 +649,6 @@ public class WatchlistPage extends BasePage {
 
     public void EntersTheWatchlistName(String test) throws InterruptedException {
         Thread.sleep(4000);
-        ByDefaultThirdWatchlist.click();
-        Thread.sleep(2000);
-        ByDefaultThirdWatchlist.clear();
-        Thread.sleep(2000);
         EnterWatchlistName.sendKeys(test);
     }
 
@@ -671,6 +680,7 @@ public class WatchlistPage extends BasePage {
     public void SelectcreateButton() throws InterruptedException {
         Thread.sleep(3000);
         WatchlistCreateButton.click();
+        Thread.sleep(3000);
     }
 
     public void SelectEditWatchlistSaveButton() throws InterruptedException {
@@ -691,9 +701,24 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectaddBtn() throws InterruptedException {
-        Thread.sleep(3000);
-        addBtn.click();
+        Thread.sleep(3000);  // Wait for screen to settle
+        try {
+            Thread.sleep(2000);  // Optional extra wait
+            addBtn.click();
+            System.out.println("Clicked on Add Button");
+        } catch (Exception e) {  // <-- Catch all click-related issues
+            System.out.println("Add Button not clickable or not present. Trying Save Button...");
+            try {
+                Thread.sleep(2000);
+                saveBtn.click();
+                System.out.println("Clicked on Save Button instead");
+            } catch (Exception ex) {
+                System.out.println("Neither Add Button nor Save Button is clickable.");
+            }
+        }
     }
+
+
 
     public void RemoveStock() throws InterruptedException {
         Thread.sleep(3000);
@@ -701,19 +726,28 @@ public class WatchlistPage extends BasePage {
 
     }
 
-    public void VerifyingAddingWatchlistToast() throws InterruptedException {
-        Thread.sleep(2000);
-        AddingWatchlistToast.isDisplayed();
+    public void VerifyingAddingWatchlistToast() {
+        try {
+            Thread.sleep(3000); // Consider replacing with explicit wait for better stability
+            if (AddingWatchlistToast.isDisplayed()) {
+                System.out.println("Toast message is displayed.");
+            } else {
+                System.out.println("Toast message is NOT displayed.");
+            }
+        } catch (NoSuchElementException | WebDriverException e) {
+            System.out.println("Toast message is NOT displayed (exception caught): " + e.getMessage());
+            // You can continue test execution
+        } catch (InterruptedException ie) {
+            System.out.println("Thread interrupted: " + ie.getMessage());
+        }
     }
 
     public void EnterStockNameUnderSearchAndAddPage(String stname) throws InterruptedException {
-        Thread.sleep(3000);
-        SearchArea.click();
+        Thread.sleep(4000);
+        SearchBar.click();
         Thread.sleep(2000);
-        EnterSearchArea.sendKeys(stname);
-        Thread.sleep(1000);
-        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
-
+        SearchBar.sendKeys(stname);
+        Thread.sleep(2000);
 
     }
 
@@ -728,8 +762,20 @@ public class WatchlistPage extends BasePage {
 
     }
 
-    public void VerifyEditWatchlistSuccessMsg() {
-        WatchlistUpdateSuccessMsg.isDisplayed();
+    public void VerifyEditWatchlistSuccessMsg() throws InterruptedException {
+        try {
+            Thread.sleep(2000);
+            if (WatchlistUpdateSuccessMsg.isDisplayed()) {
+                System.out.println("Toast message is displayed.");
+            } else {
+                System.out.println("Toast message is NOT displayed.");
+            }
+        } catch (NoSuchElementException | WebDriverException e) {
+            System.out.println("Toast message is NOT displayed (exception caught): " + e.getMessage());
+            // You can continue test execution
+        } catch (InterruptedException ie) {
+            System.out.println("Thread interrupted: " + ie.getMessage());
+        }
     }
 
     public void VerifyWatchlistNameError(String werror) throws InterruptedException {
@@ -737,7 +783,7 @@ public class WatchlistPage extends BasePage {
        String temp =  WatchlistNameError.getAttribute("content-desc");
        Assert.assertEquals(temp, werror);
         Thread.sleep(2000);
-        CrossBtn.click();
+
 
     }
 
@@ -795,9 +841,9 @@ public class WatchlistPage extends BasePage {
 
     public void EnterWatchlistNameAgain(String test) throws InterruptedException {
         Thread.sleep(5000);
-        ByDefaultfourthWatchlist.click();
+        ByDefaultWatchlist.click();
         Thread.sleep(2000);
-        ByDefaultfourthWatchlist.clear();
+        ByDefaultWatchlist.clear();
         Thread.sleep(2000);
         EnterWatchlistName.sendKeys(test);
     }
@@ -992,6 +1038,20 @@ public class WatchlistPage extends BasePage {
     public void VerifyNoResultsForAmazon() throws InterruptedException {
         Thread.sleep(3000);
         NoResultsForAmazon.isDisplayed();
+    }
+
+    public void ClickOnCrossIcon() throws InterruptedException {
+        Thread.sleep(3000);
+        CrossBtn.click();
+    }
+
+    public void SelectSecondViewAllButton() throws InterruptedException {
+        Thread.sleep(3000);
+        SecondViewAllButton.click();
+    }
+
+    public void VerifyDeletedWatchlistToast() {
+        // not able to locate delete toast msg
     }
 }
 

@@ -253,7 +253,7 @@ public class LRSPage extends BasePage {
     @AndroidFindBy(id="checkboxAll")
     WebElement AgreeCheckBox;
 
-    @AndroidFindBy(xpath="//*[@text='Confirm']")
+    @AndroidFindBy(accessibility="Confirm")
     WebElement ClickConfirm;
 
 
