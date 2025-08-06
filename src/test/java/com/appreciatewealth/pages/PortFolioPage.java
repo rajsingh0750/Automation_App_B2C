@@ -102,35 +102,24 @@ public class PortFolioPage extends BasePage{
         Thread.sleep(6000);
 
         // 1. Get values from UI
-        String investAmtStr = InvestedAmount.getAttribute("content-desc");
-        String currentAmtStr = CurrentAmount.getAttribute("content-desc");
-        String returnPercStr = ReturnPercentage.getAttribute("content-desc");
-        String returnAmtStr = ReturnAmount.getAttribute("content-desc");
+        String investAmtStr = InvestedAmount.getAttribute("content-desc");     // e.g., "₹5,000.00"
+        String currentAmtStr = CurrentAmount.getAttribute("content-desc");     // e.g., "₹4,800.00"
+        String returnPercStr = ReturnPercentage.getAttribute("content-desc");  // e.g., "-4.00%"
+        String returnAmtStr = ReturnAmount.getAttribute("content-desc");       // e.g., "-₹200.00"
 
         // 2. Log UI values
-        System.out.println("Invested amount is " + investAmtStr);
-        System.out.println("Current amount is " + currentAmtStr);
-        System.out.println("Overall return percentage " + returnPercStr);
-        System.out.println("Overall Total return " + returnAmtStr);
+        System.out.println("Invested amount: " + investAmtStr);
+        System.out.println("Current amount: " + currentAmtStr);
+        System.out.println("Overall return percentage: " + returnPercStr);
+        System.out.println("Total return amount: " + returnAmtStr);
 
-        // 3. Clean and convert to double with 2 decimal rounding
-        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
-                .setScale(2, RoundingMode.HALF_UP)
-                .doubleValue();
+        // 3. Clean and convert to numbers
+        double investedAmount = new BigDecimal(investAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double currentAmount = new BigDecimal(currentAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double returnAmount = new BigDecimal(returnAmtStr.replaceAll("[^0-9.-]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double returnPercentage = new BigDecimal(returnPercStr.replaceAll("[^0-9.-]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
 
-        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
-                .setScale(2, RoundingMode.HALF_UP)
-                .doubleValue();
-
-        double returnAmount = new BigDecimal(returnAmtStr.replace("₹", "").replace(",", "").trim())
-                .setScale(2, RoundingMode.HALF_UP)
-                .doubleValue();
-
-        double returnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
-                .setScale(2, RoundingMode.HALF_UP)
-                .doubleValue();
-
-        // 4. Profit or Loss check
+        // 4. Profit or Loss Check
         if (currentAmount > investedAmount) {
             System.out.println("📈 User is in profit.");
         } else if (currentAmount < investedAmount) {
@@ -139,11 +128,11 @@ public class PortFolioPage extends BasePage{
             System.out.println("⚖️  No profit, no loss.");
         }
 
-        // 5. Expected Calculations
+        // 5. Expected Return Amount and Current Amount
         double expectedReturnAmount = (returnPercentage / 100.0) * investedAmount;
         double expectedCurrentAmount = investedAmount + expectedReturnAmount;
 
-        // 6. Round for comparison
+        // 6. Round all to 2 decimals
         expectedReturnAmount = Math.round(expectedReturnAmount * 100.0) / 100.0;
         expectedCurrentAmount = Math.round(expectedCurrentAmount * 100.0) / 100.0;
         returnAmount = Math.round(returnAmount * 100.0) / 100.0;
@@ -163,6 +152,7 @@ public class PortFolioPage extends BasePage{
             System.out.println("❌ Current amount mismatch. Expected: " + expectedCurrentAmount + " | Actual: " + currentAmount);
         }
     }
+
 
 
 
@@ -303,7 +293,65 @@ public class PortFolioPage extends BasePage{
 
     public void VerifyMFTabCalculation() throws InterruptedException {
         Thread.sleep(6000);
+
+        try {
+            // 1. Get raw UI strings
+            String investAmtStr = InvestedAmount.getAttribute("content-desc");     // e.g., "₹9,100.00"
+            String currentAmtStr = CurrentAmount.getAttribute("content-desc");     // e.g., "₹9,350.80"
+            String returnPercStr = ReturnPercentage.getAttribute("content-desc");  // e.g., "2.76%"
+            String returnAmtStr = ReturnAmount.getAttribute("content-desc");       // e.g., "₹250.80" or "-₹250.80"
+
+            // 2. Log raw UI values
+            System.out.println("Invested amount: " + investAmtStr);
+            System.out.println("Current amount: " + currentAmtStr);
+            System.out.println("Return percentage: " + returnPercStr);
+            System.out.println("Return amount: " + returnAmtStr);
+
+            // 3. Clean and convert strings to BigDecimal
+            BigDecimal investedAmount = new BigDecimal(investAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP);
+            BigDecimal currentAmount = new BigDecimal(currentAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP);
+            BigDecimal returnAmount = new BigDecimal(returnAmtStr.replaceAll("[^0-9.\\-]", "")).setScale(2, RoundingMode.HALF_UP);
+            BigDecimal returnPercentage = new BigDecimal(returnPercStr.replaceAll("[^0-9.\\-]", "")).setScale(2, RoundingMode.HALF_UP);
+
+            // 4. Determine profit/loss
+            int comparison = currentAmount.compareTo(investedAmount);
+            BigDecimal expectedCurrentAmount;
+
+            if (comparison > 0) {
+                // Profit case
+                expectedCurrentAmount = investedAmount.add(returnAmount).setScale(2, RoundingMode.HALF_UP);
+                System.out.println("📈 User is in profit of ₹" + returnAmount);
+
+                Assert.assertEquals(currentAmount, expectedCurrentAmount,
+                        "❌ Profit case failed: Invested + Return should equal Current");
+
+            } else if (comparison < 0) {
+                // Loss case
+                expectedCurrentAmount = investedAmount.subtract(returnAmount).setScale(2, RoundingMode.HALF_UP);
+                System.out.println("📉 User is in loss of ₹" + returnAmount);
+
+                Assert.assertEquals(currentAmount, expectedCurrentAmount,
+                        "❌ Loss case failed: Invested - Return should equal Current");
+
+            } else {
+                // No profit/loss case
+                System.out.println("⚖️  No profit or loss.");
+
+                Assert.assertEquals(currentAmount, investedAmount,
+                        "❌ No change case failed: Current should equal Invested");
+            }
+
+            System.out.println("✅ Current amount calculation verified successfully.");
+
+        } catch (Exception e) {
+            System.out.println("❌ Exception during MF tab calculation verification: " + e.getMessage());
+            e.printStackTrace();
+            Assert.fail("Exception occurred in VerifyMFTabCalculation: " + e.getMessage());
+        }
     }
+
+
+
 
     public void SelectUSStockSection() throws InterruptedException {
         Thread.sleep(3000);

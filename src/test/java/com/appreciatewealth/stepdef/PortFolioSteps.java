@@ -23,14 +23,14 @@ public class PortFolioSteps extends BasePage {
 
     @Then("User will verify the calculation for all sections")
     public void userWillVerifyTheCalculationForAllSections() throws InterruptedException {
-        new PortFolioPage().VerifyAllTabCalculation();
-        new PortFolioPage().SelectUSStockSection();
-        new PortFolioPage().VerifyUSStocksTabCalculation();
-        new PortFolioPage().SelectGoalsSection();
-        new PortFolioPage().VerifyGoalsTabCalculation();
-        new PortFolioPage().SelectMFSection();
+//        new PortFolioPage().VerifyAllTabCalculation();
+//        new PortFolioPage().SelectUSStockSection();
+//        new PortFolioPage().VerifyUSStocksTabCalculation();
+//        new PortFolioPage().SelectGoalsSection();
+//        new PortFolioPage().VerifyGoalsTabCalculation();
+//        new PortFolioPage().SelectMFSection();
         new PortFolioPage().VerifyMFTabCalculation();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 }

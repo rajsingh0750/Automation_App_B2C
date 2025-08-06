@@ -375,7 +375,9 @@ Feature: Watchlist Stock
     Then User will  see an error message as "This name is taken, try another watchlist name"
 
 
-    #PRod done 30 jun
+    #PRod done
+
+
 
 
   @Main_Final
@@ -408,7 +410,7 @@ Feature: Watchlist Stock
     When User will click on yes Button
     Then the watchlist will be deleted
 
-    #PROD DONE 30 JUN
+    #PROD DONE
 
 
   @Main_Final
@@ -434,11 +436,54 @@ Feature: Watchlist Stock
     And User click on Apply Button
     And User will be log out
 
-    #PROD DONE 30 JUN
+    #PROD DONE
+
+
+
+
+
+
+
+
+
+    #creating for adding watchlist from every place and verify toast
+#    1. popular us stocks , year hhigh today , top gainers , top loosers , stock details add to watchlist
+#    2. search and add to watchist , also from stock details  -> can add in buy journey
+
 
 
 
   @Main_Final
+  Scenario: Verify user is able to add and remove stock from a watchlist
+    Given the user is on the Dashboard
+    And User Selects the search tab on dashboard
+    And User enter the stock name under search page
+    And User click on the heart icon of displayed stock
+    And User click on the create new watchlist cta
+    And User enters a new watchlist name
+    And User Selects the create Button
+    And User click on the heart icon of displayed stock
+    And User uncheck the created watchlist
+    And User click on save Button
+    And User clear the search bar under US Stocks
+    And User click on the heart icon of listed stock under recently viewed section
+    And User click on created watchlist
+    And User click on add Button
+    When User Selects the watchlist section on home dashboard
+    Then User should see the newly created watchlist
+    And User Selects view all Button
+    And User click on edit Button
+    And User will click on delete Button
+    When User will click on yes Button
+    Then the watchlist will be deleted
+
+     #Done
+
+    #Add top picks in above one and all before is displayed things criteria
+   # yha per save v ho sakta g (issue is coordinate due to uncertainty)
+
+
+  @Main_Final_buy
   Scenario: Verify if the User is able to buy the stock under watchlist section
     Given the user is on the Dashboard
     And User Selects the watchlist section on home dashboard
@@ -453,10 +498,10 @@ Feature: Watchlist Stock
 
 
 
+    #Watchlist All Scenario done  !!
 
-    #creating for adding watchlist from every place and verify toast
-#    1. popular us stocks , year hhigh today , top gainers , top loosers , stock details add to watchlist
-#    2. search and add to watchist , also from stock details  -> can add in buy journey
-#    3. recentely viewed, top picks -> can include in search only in above one
+
+
+
 
 

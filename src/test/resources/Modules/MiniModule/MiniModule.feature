@@ -756,6 +756,9 @@ Feature: MiniModule
     And User Selects Thinking of Hiring
     Then User should see all the options in Add-on Services
 
+    #changes done to new ui
+
+
   Scenario: Validate that the user can view and interact with added accounts under the MiniModule
     Given the User is on MiniModule page
     And the user clicks on the View All Accounts CTA
@@ -766,6 +769,31 @@ Feature: MiniModule
     Then the user should see the added accounts for Mutual Funds
     When the user clicks the Submit a Ticket button under the Mutual Funds section
     Then the user should be able to submit a ticket under the Mutual Funds section
+
+     #changes done to new ui
+
+
+  #Validate error msg also Done
+  Scenario: Validate Support Tab under MiniModule
+    Given the User is on MiniModule page
+    When the User Clicks on Support
+    Then the User should see all section under support page
+    And User Clicks on Submit a Ticket
+    And User Select issue type
+    And User enters Subject
+    And User enters Your message
+    And User clicks on the CTA for Submit a ticket
+    Then User should successfully create a support ticket
+    And User click on Recent Tickets
+    Then User should see all the raised support ticket under Support Tickets Page
+
+
+    #Done
+
+  Scenario: Validate Settings Section under MiniModule
+    Given the User is on MiniModule page
+
+
 
 
 

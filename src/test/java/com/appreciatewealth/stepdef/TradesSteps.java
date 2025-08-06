@@ -1,8 +1,6 @@
 package com.appreciatewealth.stepdef;
 
-import com.appreciatewealth.pages.BasePage;
-import com.appreciatewealth.pages.TradesPage;
-import com.appreciatewealth.pages.WatchlistPage;
+import com.appreciatewealth.pages.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -34,7 +32,9 @@ public class TradesSteps extends BasePage{
 
     @Given("User is on Trade dashboard")
     public void user_is_on_trade_dashboard() throws IOException, InterruptedException {
-        new TradesPage().VerifyUSStocks();
+        //new TradesPage().VerifyUSStocks();
+//        new SignInPage().DynamicSignIn_Prod("raj.singh@ppreciate.com");
+        new SignInPage().DynamicSignIn_Prod("faureretruba-9695@yopmail.com");
     }
 
     @Given("User clicks on Buy now for a stock")
@@ -277,7 +277,17 @@ public class TradesSteps extends BasePage{
 
     @And("User enters the limit price")
     public void userEntersTheLimitPrice() throws InterruptedException {
-        new TradesPage().EnterLimitPrice("1");
+        new TradesPage().EnterLimitPrice();
+    }
+
+    @And("User debugs all price elements on screen")
+    public void userDebugsAllPriceElementsOnScreen() throws InterruptedException {
+        new TradesPage().debugAllPriceElements();
+    }
+
+    @And("User tests stock price extraction")
+    public void userTestsStockPriceExtraction() throws InterruptedException {
+        new TradesPage().testStockPriceExtraction();
     }
 
     @And("User selects order expiry as Till Market is closed")
@@ -305,9 +315,9 @@ public class TradesSteps extends BasePage{
     @Then("Stop order should be placed Successfully")
     public void stopOrderShouldBePlacedSuccessfully() throws InterruptedException {
         new TradesPage().ValidateOrderType("Stop");
-        basePage.AndroidBack();
-        basePage.ClickProfileSettings();
-        basePage.Logout();
+//        basePage.AndroidBack();
+//        basePage.ClickProfileSettings();
+//        basePage.Logout();
     }
 
     @And("User selects order type as MIT order")
@@ -317,8 +327,9 @@ public class TradesSteps extends BasePage{
 
     @Then("MIT order should be placed Successfully")
     public void mitOrderShouldBePlacedSuccessfully() throws InterruptedException {
-        new TradesPage().ValidateOrderType("Market If Touched(MIT)");
-        basePage.AndroidBack();
+        //new TradesPage().ValidateOrderType("Market If Touched(MIT)");
+        new TradesPage().ValidateIfOrderPlaced();
+        //  basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -402,7 +413,7 @@ public class TradesSteps extends BasePage{
     @And("User selects Stop order expiry as Good till Cancelled")
     public void userSelectsStopOrderExpiryAsGoodTillCancelled() throws InterruptedException {
         new TradesPage().OrderExpirytillCancelled();
-        new TradesPage().ClickReviewOrderButton();
+        //new TradesPage().ClickReviewOrderButton();
 //        new TradesPage().ValidateOrderExpiryAsGoodTillCancelled();
 //        new TradesPage().ClickPlaceOrderButton();
     }
@@ -436,7 +447,7 @@ public class TradesSteps extends BasePage{
     @And("User selects MIT order expiry as Custom Date")
     public void userSelectsMITOrderExpiryAsCustomDate() throws InterruptedException {
         new TradesPage().OrderExpiryCustom();
-        new TradesPage().ClickReviewOrderButton();
+        //new TradesPage().ClickReviewOrderButton();
 //        new TradesPage().ValidateCustomExpiryDate();
         //new TradesPage().ClickPlaceOrderButton();
     }
@@ -761,5 +772,166 @@ public class TradesSteps extends BasePage{
     @And("User selects order expiry as Good till market day closed")
     public void userSelectsOrderExpiryAsGoodTillMarketDayClosed() throws InterruptedException {
         new TradesPage().SelectOrderExpiryAsGoodTillMarketDayClosed();
+    }
+
+    @And("User enters the amount using coordinate")
+    public void userEntersTheAmountUsingCoordinate() throws InterruptedException {
+        new TradesPage().EnterAmtUsingCoordinate();
+    }
+
+    @Then("Limit order will be placed Successfully")
+    public void limitOrderWillBePlacedSuccessfully() throws InterruptedException {
+        new TradesPage().ValidateOrderType("Limit");
+    }
+
+    @Then("Stop order will be placed Successfully for all order types")
+    public void stopOrderWillBePlacedSuccessfullyForAllOrderTypes() throws InterruptedException {
+       // new TradesPage().ValidateOrderType("Stop");
+        new TradesPage().ValidateIfOrderPlaced();
+        //  basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @Then("Limit order will be placed Successfully for all order types")
+    public void limitOrderWillBePlacedSuccessfullyForAllOrderTypes() throws InterruptedException {
+      //  new TradesPage().ValidateOrderType("Limit");
+        new TradesPage().ValidateIfOrderPlaced();
+        //  basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+    }
+
+    @And("User enters the Stop price")
+    public void userEntersTheStopPrice() throws InterruptedException {
+       // new TradesPage().EnterStopPrice();
+
+        new TradesPage().EnterStopPriceForSell();
+    }
+
+    @And("User enters the MIT Target price")
+    public void userEntersTheMITTargetPrice() throws InterruptedException {
+       // new TradesPage().EnterTheMITTargetPrice();
+
+        new TradesPage().EnterTheMITTargetPriceForSell();
+    }
+
+    @And("User clears the entered amt")
+    public void userClearsTheEnteredAmt() throws InterruptedException {
+        new TradesPage().ClearEnteredAmtValue();
+    }
+
+    @When("User search the stocks under US Stocks on Prod App")
+    public void userSearchTheStocksUnderUSStocksOnProdApp() throws InterruptedException {
+        new DashboardPage().EnterStockName("FOXO");
+    }
+
+    @And("User click on the Stock on Prod App")
+    public void userClickOnTheStockOnProdApp() throws InterruptedException {
+        new DashboardPage().ClickOnFoxoStockProd();
+    }
+
+    @Then("User should see without enter amount and quantity error message {string}")
+    public void userShouldSeeWithoutEnterAmountAndQuantityErrorMessage(String arg0) throws InterruptedException {
+        new DashboardPage().ValidateAmtAndQuantityError("Please enter amount or qty to proceed");
+    }
+
+    @When("User enter the quantity more then UPI limit")
+    public void userEnterTheQuantityMoreThenUPILimit() throws InterruptedException {
+        new TradesPage().EnterQuantity("99999");
+    }
+
+    @Then("User should see the UPI limit error message per transaction as {string}")
+    public void userShouldSeeTheUPILimitErrorMessagePerTransactionAs(String arg0) throws InterruptedException {
+        new DashboardPage().ValidateUPILimitErrorMessage("UPI limit : ₹1,00,000.00 per transaction");
+        basePage.AndroidBack();
+        new TradesPage().ClickonBuyNow();
+
+    }
+
+    @When("User enters an amount greater than the limit of ${double} or ₹{double}{double}{double}{double} as of today")
+    public void userEntersAnAmountGreaterThanTheLimitOf$Or₹AsOfToday(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) throws InterruptedException {
+        new TradesPage().EnterQuantity("99999999");
+    }
+
+    @Then("User should see the maximum transaction limit error as of today {string}")
+    public void userShouldSeeTheMaximumTransactionLimitErrorAsOfToday(String arg0) throws InterruptedException {
+        new DashboardPage().ValidateMaximumTransactionLimitErrorAsOfToday("Transaction Limit: $250,000 (₹2,18,43,250.00 as of today)");
+        basePage.AndroidBack();
+        new TradesPage().ClickonBuyNow();
+    }
+
+    @When("User try to enter the purchase amount more then his buying power")
+    public void userTryToEnterThePurchaseAmountMoreThenHisBuyingPower() throws InterruptedException {
+        new TradesPage().EnterQuantity("99");
+        // in this amt has to sent more then us wallet
+    }
+
+    @Then("User should see low funds error message as {string}")
+    public void userShouldSeeLowFundsErrorMessageAs(String arg0) throws InterruptedException {
+        new DashboardPage().ValidateLowFundWarningMsg("Low funds! Add funds from YES Bank to trade");
+        basePage.AndroidBack();
+        new TradesPage().ClickonBuyNow();
+    }
+
+    @When("User enters the amount less than the minimum transaction amount")
+    public void userEntersTheAmountLessThanTheMinimumTransactionAmount() throws InterruptedException {
+        new TradesPage().EnterTradeAmount("0.86");
+    }
+
+    @Then("User should see the minimum transaction amount error {string}")
+    public void userShouldSeeTheMinimumTransactionAmountError(String arg0) throws InterruptedException {
+        new DashboardPage().ValidateMinimumTransactionAmountWarning("0.87");
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
+
+    }
+
+    @When("User enters an amount greater than the limit of {string} as of today")
+    public void userEntersAnAmountGreaterThanTheLimitOfAsOfToday(String arg0) throws InterruptedException {
+        new TradesPage().EnterQuantity("999999");
+    }
+
+    @When("User enters the purchase amount")
+    public void userEntersThePurchaseAmount() throws InterruptedException {
+        new TradesPage().EnterThePurchaseAmount();
+       // new TradesPage().EnterTradeAmount("1");
+    }
+
+    @Then("User should see the correct calculation for quantity field")
+    public void userShouldSeeTheCorrectCalculationForQuantityField() throws InterruptedException {
+        new TradesPage().ValidateCalculationForQuantityField();
+        basePage.AndroidBack();
+        new TradesPage().ClickonBuyNow();
+    }
+
+    @When("User enters the purchase quantity")
+    public void userEntersThePurchaseQuantity() throws InterruptedException {
+        //new TradesPage().EnterThePurchaseQuantity();
+        new TradesPage().EnterQuantity("2");
+    }
+
+    @Then("User should see the correct calculation for amount field")
+    public void userShouldSeeTheCorrectCalculationForAmountField() throws InterruptedException {
+        new TradesPage().ValidateCalculationForAmountField();
+
+    }
+
+    @When("User click on total fee dropdown")
+    public void userClickOnTotalFeeDropdown() throws InterruptedException {
+        new TradesPage().ClickOnTotalFeeDropdown();
+    }
+
+    @Then("User should see the correct calculation for quantity and platform fees")
+    public void userShouldSeeTheCorrectCalculationForQuantityAndPlatformFees() throws InterruptedException {
+        new TradesPage().EnterQuantity("2");
+        new TradesPage().CalculatePlatFormFee();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
+        basePage.ClickProfileSettings();
+        basePage.Logout();
     }
 }

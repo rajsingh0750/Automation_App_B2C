@@ -35,7 +35,7 @@ public class TradesSellSteps extends BasePage {
     @Then("the sell order should be placed successfully")
     public void the_sell_order_should_be_placed_successfully() throws InterruptedException {
         new TradesPage().ValidateSellOrderType("Market");
-        basePage.AndroidBack();
+        new TradesPage().GoToTradeDashboard();
         basePage.ClickProfileSettings();
         basePage.Logout();
 
@@ -60,7 +60,7 @@ public class TradesSellSteps extends BasePage {
     @Then("the sell order of quantity type should be placed successfully")
     public void theSellOrderOfQuantityTypeShouldBePlacedSuccessfully() throws InterruptedException {
         new TradesPage().ValidateSellOrderType("Market");
-        basePage.AndroidBack();
+        new TradesPage().GoToTradeDashboard();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -80,7 +80,7 @@ public class TradesSellSteps extends BasePage {
     @Then("Limit order in sell should be placed Successfully")
     public void limitOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
         new TradesPage().ValidateOrderType("Limit");
-        basePage.AndroidBack();
+       // new TradesPage().GoToTradeDashboard();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -90,7 +90,7 @@ public class TradesSellSteps extends BasePage {
     @Then("Stop order in sell should be placed Successfully")
     public void stopOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
         new TradesPage().ValidateOrderType("Stop");
-        basePage.AndroidBack();
+        //new TradesPage().GoToTradeDashboard();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -99,7 +99,7 @@ public class TradesSellSteps extends BasePage {
     @Then("MIT order in sell should be placed Successfully")
     public void mitOrderInSellShouldBePlacedSuccessfully() throws InterruptedException {
         new TradesPage().ValidateOrderType("Market If Touched(MIT)");
-        basePage.AndroidBack();
+       // new TradesPage().GoToTradeDashboard();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -199,7 +199,9 @@ public class TradesSellSteps extends BasePage {
 
     @And("User enters the limit price for sell")
     public void userEntersTheLimitPriceForSell() throws InterruptedException {
-        new TradesPage().EnterLimitPrice("1000");
+       // new TradesPage().EnterLimitPrice();
+
+        new TradesPage().EnterLimitPriceForSell();
     }
 
     @And("User Clicks om Continue")

@@ -249,6 +249,33 @@ public class WatchlistPage extends BasePage {
     @AndroidFindBy(accessibility = "Edit")
     private WebElement EditButton;
 
+
+    @AndroidFindBy(accessibility = "Filter")
+    private WebElement FilterCTA;
+
+    @AndroidFindBy(accessibility = "Create new watchlist")
+    private WebElement CreateNewWatchlist;
+
+    @AndroidFindBy(accessibility = "Add")
+    private WebElement AddCTA;
+
+
+
+    @AndroidFindBy(accessibility = "New")
+    private WebElement NewWatchlist;
+
+
+    @AndroidFindBy(accessibility = "\uE16A")
+    private WebElement SearchBarCTA;
+
+
+    @AndroidFindBy(accessibility = "Recently viewed")
+    private WebElement RecentlyViewedSection;
+
+
+    @AndroidFindBy(accessibility = "Search")
+    private WebElement SearchPage;
+
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]")
     private WebElement DeleteButton;
 
@@ -349,6 +376,8 @@ public class WatchlistPage extends BasePage {
 
 
 
+
+
     @AndroidFindBy(accessibility = "No results for 'amazon'")
     private WebElement NoResultsForAmazon;
 
@@ -403,8 +432,9 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectSearchTabOnDashboard() throws InterruptedException {
-        Thread.sleep(4000);
-        SearchTab.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(SearchTab)).click();
+
     }
 
     public void EnterStockNameUnderSearchPage(String name) throws InterruptedException {
@@ -416,8 +446,17 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectHeartIcon() throws InterruptedException {
-        Thread.sleep(3000);
-        HeartIcon.click();
+        Thread.sleep(5000);
+        int x =639;
+        int y = 555;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+
     }
 
     public void VerifyWatchlistsBotoomSheet() throws InterruptedException {
@@ -628,7 +667,8 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectapplyButton() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(ApplyButton));
         ApplyButton.click();
     }
 
@@ -780,12 +820,16 @@ public class WatchlistPage extends BasePage {
 
     public void VerifyWatchlistNameError(String werror) throws InterruptedException {
         Thread.sleep(3000);
-       String temp =  WatchlistNameError.getAttribute("content-desc");
-       Assert.assertEquals(temp, werror);
+        String temp = WatchlistNameError.getAttribute("content-desc");
+        try {
+            Assert.assertEquals(temp, werror);
+        } catch (AssertionError e) {
+            System.out.println("Assertion failed! Actual error message: " + temp);
+            throw e; // Rethrow to fail the test
+        }
         Thread.sleep(2000);
-
-
     }
+
 
     public void ClickOnPopularStockHeartIcon() throws InterruptedException {
         Thread.sleep(5000);
@@ -1052,6 +1096,73 @@ public class WatchlistPage extends BasePage {
 
     public void VerifyDeletedWatchlistToast() {
         // not able to locate delete toast msg
+    }
+
+    public void ClickOnTheHeartIcon() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait for the FilterCTA element to be visible
+        if (wait.until(ExpectedConditions.visibilityOf(FilterCTA)).isDisplayed()) {
+            Thread.sleep(2000);
+            int x = 639;
+            int y = 555;
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            driver.perform(List.of(tap));
+        }
+    }
+
+    public void ClickOnTheCreateNewWatchlistCta() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(CreateNewWatchlist));
+        CreateNewWatchlist.click();
+
+    }
+
+    public void UncheckTheNewWatchlist() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(CreateNewWatchlist));
+        NewWatchlist.click();
+
+    }
+
+    public void ClearSearchBar() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(SearchPage));
+        SearchBarCTA.click();
+
+    }
+
+    public void ClickOnTheHeartIconOfListedStockUnderRecentlyViewedSection() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(RecentlyViewedSection));
+        Thread.sleep(2000);
+        int x =635;
+        int y = 780;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+    }
+
+    public void ClickOnCreatedWatchlist() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(NewWatchlist));
+
+        NewWatchlist.click();
+
+    }
+
+    public void ValidateNewlyCreatedWatchlist() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(NewWatchlist));
+        NewWatchlist.isDisplayed();
+
     }
 }
 

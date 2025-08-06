@@ -49,6 +49,11 @@ public class BasePage {
 
     WebElement ProfileSettings;
 
+
+
+    @AndroidFindBy(accessibility = "Exit")
+    WebElement ExitAppBox;
+
     //@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Log out\"]")
     @AndroidFindBy(accessibility = "Logout")
     WebElement LogoutButton;
@@ -128,8 +133,8 @@ public class BasePage {
             driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
         }
         //driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"Log out\").instance(0))"));
-        Thread.sleep(3000);
-        LogoutButton.click();
+//        Thread.sleep(3000);
+//        LogoutButton.click();
         //((AndroidDriver)driver).terminateApp("com.appreciatewealth.android.uat");
         //Thread.sleep(6000);
 
@@ -373,9 +378,33 @@ public class BasePage {
 
 
     public void ClickProfileSettings() throws InterruptedException {
+
+//        try {
+//            if (ExitAppBox.isDisplayed()) {
+//                System.out.println("Extra back cta clicked seeing exit pop-up");
+//                AndroidBack();
+//
+//                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//                wait.until(ExpectedConditions.visibilityOf(ProfileSettings));
+//                ProfileSettings.click();
+//            }
+//        } catch (NoSuchElementException | InterruptedException e) {
+//            // ExitAppBox is not present, do nothing
+//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//            wait.until(ExpectedConditions.visibilityOf(ProfileSettings));
+//            ProfileSettings.click();
+//        }
+//
+////        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+////        wait.until(ExpectedConditions.visibilityOf(ProfileSettings));
+////        ProfileSettings.click();
         Thread.sleep(8000);
         ProfileSettings.click();
+
+
     }
+
+
 
     public void AndroidBack() throws InterruptedException {
         Thread.sleep(5000);
@@ -703,4 +732,6 @@ public class BasePage {
         Thread.sleep(3000);
         CrossIcon.click();
     }
+
+
 }

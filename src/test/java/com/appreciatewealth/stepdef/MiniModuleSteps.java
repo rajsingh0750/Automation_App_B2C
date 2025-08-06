@@ -766,6 +766,7 @@ public class MiniModuleSteps extends BasePage {
     @And("the User Clicks on Distributor or Agent Details")
     public void theUserClicksOnDistributorOrAgentDetails() throws InterruptedException {
         new MiniModulePage().ClickDistributorAgent();
+        new MiniModulePage().ValidateDistributorAgentPage();
         //new MiniModulePage().ClickDistributClose();
         basePage.AndroidBack();
     }
@@ -1643,7 +1644,30 @@ public class MiniModuleSteps extends BasePage {
     }
 
     @Then("the user should be able to submit a ticket under the Mutual Funds section")
-    public void theUserShouldBeAbleToSubmitATicketUnderTheMutualFundsSection() {
+    public void theUserShouldBeAbleToSubmitATicketUnderTheMutualFundsSection() throws InterruptedException {
         new MiniModulePage(). ValidateSubmitAicketFunctionalityForMF();
+        new MiniModulePage(). ClickOnAccountsPageBackArrow();
+        basePage.Logout();
+    }
+
+    @Then("the User should see all section under support page")
+    public void theUserShouldSeeAllSectionUnderSupportPage() throws InterruptedException {
+        new MiniModulePage(). ValidateAllSectionUnderSupportPage();
+    }
+
+    @And("User click on Recent Tickets")
+    public void userClickOnRecentTickets() throws InterruptedException {
+        new MiniModulePage(). ClickOnRecentTickets();
+    }
+
+    @Then("User should see all the raised support ticket under Support Tickets Page")
+    public void userShouldSeeAllTheRaisedSupportTicketUnderSupportTicketsPage() throws InterruptedException {
+        new MiniModulePage(). ValidateRaisedSupportTickets();
+        new MiniModulePage(). ClickOnSupportPageBackArrow();
+        new MiniModulePage().ClickTicket();
+        new MiniModulePage().ValidateSubmitATicketErrorMsg();
+        basePage.AndroidBack();
+        basePage.Logout();
+
     }
 }

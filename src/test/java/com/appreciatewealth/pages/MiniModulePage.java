@@ -589,7 +589,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(id ="im_close")
     WebElement DistributorClose;
 
-    @AndroidFindBy(accessibility ="Request other services")
+    @AndroidFindBy(accessibility ="Request advisory services")
     WebElement RequestAdvisory;
 
     @AndroidFindBy(accessibility ="Thinking of hiring")
@@ -605,11 +605,40 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(accessibility ="Recent Tickets")
     WebElement RecentTickets;
 
+
+    @AndroidFindBy(accessibility ="Support Tickets")
+    WebElement SupportTicketsPage;
+
+    @AndroidFindBy(xpath ="//android.view.View[\n" +
+            "  contains(@content-desc, \"Closed\") and \n" +
+            "  contains(@content-desc, \"checking flow\") and \n" +
+            "  contains(@content-desc, \"Ticket Number\")\n" +
+            "]\n")
+    WebElement RaisedSupportTicket;
+
+
+
+    @AndroidFindBy(xpath ="//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[1]")
+    WebElement SupportPageBackArrow;
+
     @AndroidFindBy(xpath ="//android.view.View[@content-desc=\"Closed\n" +
             "3 Apr 2025\n" +
             "checking \n" +
             "Ticket Number: 129609\"]")
     WebElement SupportTickets;
+
+
+    @AndroidFindBy(accessibility ="Recent Tickets")
+    WebElement CallUs;
+
+    @AndroidFindBy(accessibility ="Recent Tickets")
+    WebElement ChatWithWhatsapp;
+
+    @AndroidFindBy(accessibility ="Recent Tickets")
+    WebElement helpdesk;
+
+    @AndroidFindBy(accessibility ="Recent Tickets")
+    WebElement FAQ;
 
     @AndroidFindBy(xpath ="//*[@text='Documents']")
     WebElement Documents;
@@ -1099,6 +1128,24 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(accessibility = "General questions")
     WebElement GeneralQuestionIssueType;
 
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\" Subject\"]/android.widget.EditText")
+    WebElement MFSubmitATicketSubject;
+
+
+    @AndroidFindBy(xpath = "//android.widget.EditText")
+    WebElement MFSubmitATicketSubjectValue;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\" Your message\"]/android.widget.EditText")
+    WebElement MFSubmitATicketYourMsg;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\" Your message\"]/android.widget.EditText")
+    WebElement MFSubmitATicketYourMsgValue;
+
+
+
     @AndroidFindBy(xpath = "//android.widget.EditText")
     WebElement EnterSubjectUnderPANVerificationArea;
 
@@ -1149,6 +1196,14 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(accessibility = "Submit")
     WebElement SubmitBtn;
 
+
+    @AndroidFindBy(accessibility = "Please enter subject")
+    WebElement EnterSubjectErrorMsg;
+
+    @AndroidFindBy(accessibility = "Please enter your message")
+    WebElement EnterMsgError;
+
+
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"US Stocks\n" +
             "Tab 1 of 2\"]")
     WebElement USStocks;
@@ -1159,6 +1214,14 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(xpath = "//android.widget.Button[contains(@content-desc, 'Yes Bank')]")
     WebElement AddedYesBankAct;
+
+
+    @AndroidFindBy(xpath = "Submit a ticket")
+    WebElement SubmitATicketForMutualFunds;
+
+
+    @AndroidFindBy(xpath = "")
+    WebElement DistributorAgentPage;
 
 
     @AndroidFindBy(xpath = "//*[contains(@content-desc, 'Submit a ticket')]")
@@ -1522,6 +1585,13 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(accessibility = "No, thanks")
     WebElement NoThanks;
+
+
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ImageView")
+    WebElement AccountsPageBackArrow;
+
+    @AndroidFindBy(accessibility = "enter code")
+    WebElement EnterCodeCTA;
 
 
 
@@ -2038,11 +2108,11 @@ public class MiniModulePage extends BasePage {
 
     public void SupportPage() throws InterruptedException {
         Thread.sleep(3000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
-                        ".scrollIntoView(new UiSelector().description(\"Support\").instance(0))"));
-
-        Thread.sleep(3000);
+//        driver.findElement(new AppiumBy.ByAndroidUIAutomator(
+//                "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
+//                        ".scrollIntoView(new UiSelector().description(\"Support\").instance(0))"));
+//
+//        Thread.sleep(3000);
         Support.click();
 
     }
@@ -4447,12 +4517,88 @@ public class MiniModulePage extends BasePage {
 
     public void ClickOnSubmitATicketForMutualFunds() throws InterruptedException {
         Thread.sleep(3000);
+        SubmitATicketForMutualFunds.click();
+
+    }
+
+    public void ValidateSubmitAicketFunctionalityForMF() throws InterruptedException {
+        GeneralQuestionIssueType.click();
+
+        MFSubmitATicketSubject.click();
+        Thread.sleep(2000);
+        MFSubmitATicketSubjectValue.sendKeys("Checking flow");
+        Thread.sleep(2000);
+        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 800,
+                "direction", "down",
+                "percent", 0.1
+        ));
+
+        Thread.sleep(2000);
+        MFSubmitATicketYourMsg.click();
+        Thread.sleep(2000);
+        MFSubmitATicketYourMsgValue.sendKeys("Checking flow");
+
+        Thread.sleep(2000);
+
+        SubmitBtn.click();
+
+        Thread.sleep(4000);
+        AccountsPage.isDisplayed();
+
+
 
 
     }
 
-    public void ValidateSubmitAicketFunctionalityForMF() {
-        
+    public void ValidateDistributorAgentPage() throws InterruptedException {
+        Thread.sleep(3000);
+        //DistributorAgentPage.isDisplayed();
+        EnterCodeCTA.isDisplayed();
+        NoThanks.isDisplayed();
+    }
+
+    public void ClickOnAccountsPageBackArrow() throws InterruptedException {
+        Thread.sleep(3000);
+        AccountsPageBackArrow.click();
+
+    }
+
+    public void ValidateAllSectionUnderSupportPage() throws InterruptedException {
+        Thread.sleep(4000);
+        RecentTickets.isDisplayed();
+        SubmitATicket.isDisplayed();
+        CallUs.isDisplayed();
+        ChatWithWhatsapp.isDisplayed();
+        helpdesk.isDisplayed();
+        FAQ.isDisplayed();
+    }
+
+    public void ClickOnRecentTickets() throws InterruptedException {
+        Thread.sleep(3000);
+        RecentTickets.click();
+
+    }
+
+    public void ValidateRaisedSupportTickets() throws InterruptedException {
+        Thread.sleep(5000);
+        SupportTicketsPage.isDisplayed();
+
+        RaisedSupportTicket.isDisplayed();
+    }
+
+    public void ClickOnSupportPageBackArrow() throws InterruptedException {
+        Thread.sleep(2000);
+        SupportPageBackArrow.click();
+    }
+
+    public void ValidateSubmitATicketErrorMsg() throws InterruptedException {
+        Thread.sleep(3000);
+        SubmitBtn.click();
+        Thread.sleep(2000);
+        EnterSubjectErrorMsg.isDisplayed();
+        EnterMsgError.isDisplayed();
+
     }
 }
 

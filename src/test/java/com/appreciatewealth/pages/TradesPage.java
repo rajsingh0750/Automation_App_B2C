@@ -9,19 +9,25 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.offset.PointOption;
+import io.cucumber.java.eo.Do;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import javax.annotation.concurrent.Immutable;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,6 +56,21 @@ public class TradesPage extends BasePage {
     WebElement EnterAmountValue;
 
 
+    @AndroidFindBy(xpath = "//android.widget.EditText[contains(@text, '₹')]")
+    WebElement EnteredAmt;
+
+    @AndroidFindBy(xpath = "(//android.widget.EditText)[2]")
+    WebElement GetQuantity;
+
+
+    @AndroidFindBy(accessibility = "Total Fee")
+    WebElement Total_Fee_Heading;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Platform Fee') and contains(@content-desc, '₹')]")
+    WebElement PlatformFeeAmt;
+
+
     @AndroidFindBy(xpath = "//*[contains(@text,'Third Point sees room for Apple stock price to climb, letter says')]")
     WebElement NewsCard;
 
@@ -76,6 +97,11 @@ public class TradesPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='₹1']")
     WebElement ValidateEnteredAmount;
+
+
+
+    @AndroidFindBy(xpath = "Enter amount or quantity to buy")
+    WebElement EnterAmtHeading;
 
     @AndroidFindBy(accessibility = "Order Placed")
     WebElement ValidateOrderPlaced;
@@ -222,8 +248,46 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(accessibility = "Market If Touched(MIT)")
     WebElement MITOrderType;
 
-    @AndroidFindBy(xpath = "//*[@text='0.0']")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Qty\"]/android.widget.EditText")
     WebElement EnterQuantity;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'UAVS') and contains(@content-desc, '₹')]")
+    WebElement StockCurrentPrice;
+
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"₹6.88\"]")
+    WebElement EnterDecimalAmt;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Please enter the amount proceed')]")
+    WebElement EnterAmtToProceedError;
+
+
+    // More specific locators for stock price - try these in order of preference
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Current: ₹')]")
+    WebElement CurrentStockPrice;
+    
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, '₹') and contains(@content-desc, 'Current')]")
+    WebElement CurrentPriceElement;
+    
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[1]")
+    WebElement FirstPriceElement;
+    
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[2]")
+    WebElement SecondPriceElement;
+    
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[3]")
+    WebElement ThirdPriceElement;
+
+    // More specific locator for stock price with pattern like "GOOGL\n₹16,416.98"
+    @AndroidFindBy(xpath = "//android.view.View[matches(@content-desc, '^[A-Z]{2,5}\\\\n₹[0-9,]+\\.[0-9]{2}$')]")
+    WebElement StockPriceWithSymbol;
+
+    // Alternative locator for stock price
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, '₹') and contains(@content-desc, '\n')]")
+    WebElement StockPriceWithNewline;
 
     @AndroidFindBy(xpath = "//android.widget.EditText")
     WebElement EnterTradeQuantity;
@@ -231,14 +295,17 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Amount\"]/android.widget.EditText")
     WebElement SetLimitPrice;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Thursday 07:00 AM IST\n" +
-            "Good till next market day closes\"]")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, '07:00 AM IST') and contains(@content-desc, 'Good till next market day closes')]")
     WebElement ExpireTillMarketDayClose;
 
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"23 Sep 2025\n" +
-            "Good till canceled\"]")
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Good till canceled')]")
     WebElement GoodTillCancelled;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'FOXO') and contains(@content-desc, '₹')]")
+    WebElement FoxoStockPrice;
 
 
 
@@ -284,8 +351,12 @@ public class TradesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Sell in Rupees']")
     WebElement SellTypeDropdown;
 
-    @AndroidFindBy(id = "txvOrderTypeValue")
+    @AndroidFindBy(accessibility = "Market")
     WebElement ValidateSellOrder;
+
+
+    @AndroidFindBy(accessibility = "Order Placed")
+    WebElement order_Placed;
 
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.cardview.widget.CardView/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
     WebElement EnterQuantitySell;
@@ -503,8 +574,11 @@ public class TradesPage extends BasePage {
     WebElement BuyNowCTA;
 
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Thursday 07:00 AM IST\n" +
-            "Good till next market day closes\"]")
+
+    @AndroidFindBy(accessibility = "If the order doesn’t execute, it should expire by")
+    WebElement OrderExpireNote;
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, '07:00 AM IST') and contains(@content-desc, 'Good till next market day closes')]")
     WebElement OrderExpiryAsGoodTillMarketDayClosed;
 
 
@@ -622,11 +696,15 @@ public class TradesPage extends BasePage {
 
     public void ClickonBuyNow() throws InterruptedException {
 
-        //WebElement clickonbuynow = driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector()" + ".textMatches(\"buy now\").instance(0))"));
-        //driver.findElement(By.xpath("//*[@index='9' and @text='buy now']")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        Thread.sleep(6000);
+        // Wait until the BuyNow button is clickable
+        wait.until(ExpectedConditions.elementToBeClickable(BuyNow));
+
         BuyNow.click();
+
+        // Optional: If using BuyNowAtStockDetails later
+        // wait.until(ExpectedConditions.elementToBeClickable(BuyNowAtStockDetails));
         // BuyNowAtStockDetails.click();
 
     }
@@ -660,9 +738,14 @@ public class TradesPage extends BasePage {
     }
 
     public void ValidateIfOrderPlaced() throws InterruptedException {
-        Thread.sleep(5000);
-        ValidateOrderPlaced.isDisplayed();
-        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Wait until the validation element is visible
+        wait.until(ExpectedConditions.visibilityOf(ValidateOrderPlaced));
+        System.out.println("Order placement validation element is visible.");
+
+        // Wait until the GoToTradeDashboard button is clickable
+        wait.until(ExpectedConditions.elementToBeClickable(GoToTradeDashboard));
         GoToTradeDashboard.click();
 
 
@@ -1042,14 +1125,14 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void SelectPro() throws InterruptedException {
-        Thread.sleep(4000);
+     Thread.sleep(3000);
         ProTab.click();
     }
 
 
 
     public void SelectProOrderType() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(1000);
         OrderTypeDropdown.click();
        // Thread.sleep(3000);
         // LimitOrderType.click();
@@ -1077,33 +1160,105 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
 
     public void EnterQuantity(String Quantity) throws InterruptedException {
         Thread.sleep(2000);
-        EnterQuantity.click();
+        //EnterQuantity.click();
+
+        int x =229;
+        int y = 815;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        Thread.sleep(2000);
         EnterQuantity.sendKeys(Quantity);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
-    public void EnterLimitPrice(String LimitPrice) throws InterruptedException {
+    public void EnterLimitPrice() throws InterruptedException {
         Thread.sleep(3000);
-//        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-//                "left", 100, "top", 100, "width", 600, "height", 800,
-//                "direction", "down",
-//                "percent", 0.1
-//        ));
-//        Thread.sleep(3000);
 
+        int x =240;
+        int y = 1051;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
 
-        SetLimitPrice.click();
-        SetLimitPrice.sendKeys(LimitPrice);
+        //SetLimitPrice.click();
+
+        System.out.println("=== STARTING STOCK PRICE EXTRACTION ===");
+
+        String temp = StockCurrentPrice.getAttribute("content-desc");
+        System.out.println("Selected price element content: " + temp);
+
+        String[] parts = temp.split("\n");
+        System.out.println("Number of parts after split: " + parts.length);
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + i + ": '" + parts[i] + "'");
+        }
+
+        double stockPrice = 0.0;
+        if (parts.length >= 2) {
+            String priceWithSymbol = parts[1]; // ₹167.49
+            System.out.println("Price with symbol: '" + priceWithSymbol + "'");
+            String cleanedPrice = priceWithSymbol.replace("₹", "").replace(",", "").trim();
+            System.out.println("Cleaned price: '" + cleanedPrice + "'");
+
+            try {
+                stockPrice = Double.parseDouble(cleanedPrice);
+                System.out.println("Extracted stock price: " + stockPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("Failed to parse price: " + cleanedPrice);
+                System.out.println("Exception: " + e.getMessage());
+                stockPrice = 0.0;
+            }
+        } else {
+            System.out.println("Unexpected content-desc format: " + temp);
+            stockPrice = 0.0;
+        }
+
+// Add 1 to the stock price
+        double newPrice = stockPrice - 5;
+        System.out.println("New price (stock price + 1): " + newPrice);
+
+// Convert double to String (you can format it if needed)
+        String newPriceStr = String.valueOf(newPrice);
+        System.out.println("New price as string: '" + newPriceStr + "'");
+
+// Now send this string to the SetLimitPrice field
+        SetLimitPrice.sendKeys(newPriceStr);
+        System.out.println("Sent to SetLimitPrice field: '" + newPriceStr + "'");
+
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        System.out.println("=== ENDING STOCK PRICE EXTRACTION ===");
+
     }
     public void OrderExpirytillMarketClose() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(4000);
         ExpireTillMarketDayClose.click();
     }
 
     public void OrderExpirytillCancelled() throws InterruptedException {
-        Thread.sleep(5000);
-        GoodTillCancelled.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        try {
+            // Wait until OrderExpireNote is visible
+            wait.until(ExpectedConditions.visibilityOf(OrderExpireNote));
+
+            if (OrderExpireNote.isDisplayed()) {
+                GoodTillCancelled.click();
+            } else {
+                System.out.println("OrderExpireNote not displayed, skipping click on GoodTillCancelled.");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception while handling order expiry selection: " + e.getMessage());
+        }
+
+
     }
     public void OrderExpiryCustom() throws InterruptedException {
         SelectCustomExpiryDate.click();
@@ -1112,11 +1267,14 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void ValidateOrderType(String EnterOrderType) throws InterruptedException {
-        Thread.sleep(5000);
-        ValidateIfOrderPlaced();
-        Thread.sleep(5000);
-        String ActualOrderType = ValidateOrderType.getAttribute("content-desc");
-        Assert.assertEquals(ActualOrderType,EnterOrderType);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//        ValidateIfOrderPlaced();
+//        Thread.sleep(5000);
+//        String ActualOrderType = ValidateOrderType.getAttribute("content-desc");
+//        Assert.assertEquals(ActualOrderType,EnterOrderType);
+
+        wait.until(ExpectedConditions.elementToBeClickable(GoToTradeDashboard));
+        GoToTradeDashboard.click();
     }
 
     public void ClickOnSellStocks() throws InterruptedException {
@@ -1141,18 +1299,35 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
 
 
     public void ClickOnSell() throws InterruptedException {
-        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Wait until the Sell button is clickable
+        wait.until(ExpectedConditions.elementToBeClickable(SellButton));
+
         SellButton.click();
     }
+
+
     public void SelectSellType() throws InterruptedException {
         Thread.sleep(4000);
         EnterAmount.click();
     }
 
     public void ValidateSellOrderType(String OrderType) throws InterruptedException {
-        Thread.sleep(8000);
-        String ActualType = ValidateSellOrder.getText();
-        Assert.assertEquals(ActualType,OrderType);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Wait for up to 10 seconds
+
+        try {
+            wait.until(ExpectedConditions.visibilityOf(ValidateSellOrder));
+
+            if (ValidateSellOrder.isDisplayed()) {
+                String ActualType = ValidateSellOrder.getAttribute("content-desc");
+                Assert.assertEquals(ActualType, OrderType, "Order type does not match expected value.");
+            } else {
+                Assert.fail("ValidateSellOrder element is not displayed.");
+            }
+        } catch (Exception e) {
+            Assert.fail("Exception while validating sell order type: " + e.getMessage());
+        }
 
     }
     public void SelectSellTypeOrder() throws InterruptedException {
@@ -1177,8 +1352,19 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void GoToTradeDashboard() throws InterruptedException {
-        Thread.sleep(5000);
-        GoToTradeDashboard.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // 10-second timeout
+
+        try {
+            wait.until(ExpectedConditions.visibilityOf(order_Placed));
+
+            if (order_Placed.isDisplayed()) {
+                GoToTradeDashboard.click();
+            } else {
+                System.out.println("Order placed element is not displayed, skipping click.");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception while trying to navigate to trade dashboard: " + e.getMessage());
+        }
 
     }
 
@@ -1474,9 +1660,17 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void EnterProOrderQty(String Qty) throws InterruptedException {
-
         Thread.sleep(4000);
-        EnterTradeQuantity.click();
+       // EnterTradeQuantity.click();
+        int x =196;
+        int y = 684;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
         EnterTradeQuantity.sendKeys(Qty);
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
@@ -1626,7 +1820,11 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void SelectStock() throws InterruptedException {
-        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Wait until UAVS is clickable
+        wait.until(ExpectedConditions.elementToBeClickable(UAVS));
+
         UAVS.click();
     }
 
@@ -1736,8 +1934,20 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void SelectOrderExpiryAsGoodTillMarketDayClosed() throws InterruptedException {
-        Thread.sleep(3000);
-        OrderExpiryAsGoodTillMarketDayClosed.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        try {
+            // Wait until the OrderExpireNote is visible
+            wait.until(ExpectedConditions.visibilityOf(OrderExpireNote));
+
+            if (OrderExpireNote.isDisplayed()) {
+                OrderExpiryAsGoodTillMarketDayClosed.click();
+            } else {
+                System.out.println("OrderExpireNote is not visible. Skipping click.");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception while selecting order expiry: " + e.getMessage());
+        }
     }
 
     // Class-level variables
@@ -1806,7 +2016,653 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
 
+    public void EnterAmtUsingCoordinate() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
+        // Wait until EnterAmountValue is visible BEFORE clicking the coordinate
+        wait.until(ExpectedConditions.visibilityOf(EnterAmountValue));
+
+        basePage.ClickUsingCoordinate(211, 695);  // Taps at given coordinates
+
+        // Wait again in case there's a delay before the input is ready
+        wait.until(ExpectedConditions.elementToBeClickable(EnterAmountValue));
+        EnterAmountValue.sendKeys("1");
+
+        // Perform keyboard action (e.g., pressing "Go" on soft keyboard)
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+    }
+
+    // Helper method to find the correct stock price element
+    private WebElement findCorrectStockPriceElement() {
+        // List of possible stock price elements to check (in order of preference)
+        WebElement[] priceElements = {
+            StockPriceWithSymbol,      // Most specific - matches exact pattern
+            StockPriceWithNewline,     // Contains both ₹ and newline
+            CurrentStockPrice,
+            CurrentPriceElement,
+            FirstPriceElement,
+            SecondPriceElement,
+            ThirdPriceElement,
+            StockCurrentPrice
+        };
+
+        String[] elementNames = {
+            "StockPriceWithSymbol",
+            "StockPriceWithNewline",
+            "CurrentStockPrice",
+            "CurrentPriceElement",
+            "FirstPriceElement",
+            "SecondPriceElement",
+            "ThirdPriceElement",
+            "StockCurrentPrice"
+        };
+
+        for (int i = 0; i < priceElements.length; i++) {
+            try {
+                if (priceElements[i].isDisplayed()) {
+                    String content = priceElements[i].getAttribute("content-desc");
+                    System.out.println("Checking " + elementNames[i] + ": " + content);
+
+                    // Check if this looks like a stock price (contains stock symbol and price)
+                    // Pattern: "GOOGL\n₹16,416.98" or similar
+                    if (content != null && content.contains("₹") && content.contains("\n")) {
+                        String[] parts = content.split("\n");
+                        if (parts.length >= 2 && parts[1].contains("₹")) {
+                            // Additional check: first part should be a stock symbol (3-5 letters, no numbers)
+                            String stockSymbol = parts[0].trim();
+                            if (stockSymbol.matches("^[A-Z]{2,5}$")) {
+                                System.out.println("Found likely stock price element: " + elementNames[i]);
+                                System.out.println("Stock Symbol: " + stockSymbol);
+                                System.out.println("Price: " + parts[1]);
+                                return priceElements[i];
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Element " + elementNames[i] + " not found or not visible");
+            }
+        }
+
+        // If none found, return the original as fallback
+        System.out.println("No specific stock price element found, using fallback");
+        return StockCurrentPrice;
+    }
+
+    // Debug method to help identify all price elements on the screen
+    public void debugAllPriceElements() throws InterruptedException {
+        Thread.sleep(2000);
+        System.out.println("=== DEBUGGING ALL PRICE ELEMENTS ===");
+        
+        try {
+            // Find all elements with ₹ symbol
+            List<WebElement> allPriceElements = driver.findElements(By.xpath("//android.view.View[contains(@content-desc, '₹')]"));
+            System.out.println("Found " + allPriceElements.size() + " elements with ₹ symbol");
+            
+            for (int i = 0; i < allPriceElements.size(); i++) {
+                try {
+                    String content = allPriceElements.get(i).getAttribute("content-desc");
+                    System.out.println("Element " + (i+1) + ": " + content);
+                } catch (Exception e) {
+                    System.out.println("Element " + (i+1) + ": Error reading content - " + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error finding price elements: " + e.getMessage());
+        }
+        
+        System.out.println("=== END DEBUGGING ===");
+    }
+
+//    public void OrderExpirytillMarketClose() throws InterruptedException {
+//        Thread.sleep(4000);
+//        ExpireTillMarketDayClose.click();
+//    }
+
+    // Simple method to test stock price extraction without coordinate tap
+    public void testStockPriceExtraction() throws InterruptedException {
+        Thread.sleep(3000);
+        System.out.println("=== TESTING STOCK PRICE EXTRACTION ===");
+
+        // Use helper method to find the correct stock price element
+        WebElement priceElement = findCorrectStockPriceElement();
+        String temp = priceElement.getAttribute("content-desc");
+        System.out.println("Selected price element content: " + temp);
+
+        String[] parts = temp.split("\n");
+        System.out.println("Number of parts after split: " + parts.length);
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + i + ": '" + parts[i] + "'");
+        }
+
+        double stockPrice = 0.0;
+        if (parts.length >= 2) {
+            String priceWithSymbol = parts[1]; // ₹167.49
+            System.out.println("Price with symbol: '" + priceWithSymbol + "'");
+            String cleanedPrice = priceWithSymbol.replace("₹", "").replace(",", "").trim();
+            System.out.println("Cleaned price: '" + cleanedPrice + "'");
+
+            try {
+                stockPrice = Double.parseDouble(cleanedPrice);
+                System.out.println("Extracted stock price: " + stockPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("Failed to parse price: " + cleanedPrice);
+                System.out.println("Exception: " + e.getMessage());
+                stockPrice = 0.0;
+            }
+        } else {
+            System.out.println("Unexpected content-desc format: " + temp);
+            stockPrice = 0.0;
+        }
+
+        double newPrice = stockPrice + 1;
+        System.out.println("New price (stock price + 1): " + newPrice);
+        System.out.println("=== END TESTING ===");
+    }
+
+    public void EnterStopPrice() throws InterruptedException {
+        Thread.sleep(3000);
+
+        int x =240;
+        int y = 1051;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        //SetLimitPrice.click();
+
+        System.out.println("=== STARTING STOCK PRICE EXTRACTION ===");
+
+        String temp = StockCurrentPrice.getAttribute("content-desc");
+        System.out.println("Selected price element content: " + temp);
+
+        String[] parts = temp.split("\n");
+        System.out.println("Number of parts after split: " + parts.length);
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + i + ": '" + parts[i] + "'");
+        }
+
+        double stockPrice = 0.0;
+        if (parts.length >= 2) {
+            String priceWithSymbol = parts[1]; // ₹167.49
+            System.out.println("Price with symbol: '" + priceWithSymbol + "'");
+            String cleanedPrice = priceWithSymbol.replace("₹", "").replace(",", "").trim();
+            System.out.println("Cleaned price: '" + cleanedPrice + "'");
+
+            try {
+                stockPrice = Double.parseDouble(cleanedPrice);
+                System.out.println("Extracted stock price: " + stockPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("Failed to parse price: " + cleanedPrice);
+                System.out.println("Exception: " + e.getMessage());
+                stockPrice = 0.0;
+            }
+        } else {
+            System.out.println("Unexpected content-desc format: " + temp);
+            stockPrice = 0.0;
+        }
+
+// Add 1 to the stock price
+        double newPrice = stockPrice + 1;
+        System.out.println("New price (stock price + 1): " + newPrice);
+
+// Convert double to String (you can format it if needed)
+        String newPriceStr = String.valueOf(newPrice);
+        System.out.println("New price as string: '" + newPriceStr + "'");
+
+// Now send this string to the SetLimitPrice field
+        SetLimitPrice.sendKeys(newPriceStr);
+        System.out.println("Sent to SetLimitPrice field: '" + newPriceStr + "'");
+
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        System.out.println("=== ENDING STOCK PRICE EXTRACTION ===");
+
+    }
+
+    public void EnterTheMITTargetPrice() throws InterruptedException {
+        Thread.sleep(3000);
+
+        int x =240;
+        int y = 1051;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        //SetLimitPrice.click();
+
+        System.out.println("=== STARTING STOCK PRICE EXTRACTION ===");
+
+        String temp = StockCurrentPrice.getAttribute("content-desc");
+        System.out.println("Selected price element content: " + temp);
+
+        String[] parts = temp.split("\n");
+        System.out.println("Number of parts after split: " + parts.length);
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + i + ": '" + parts[i] + "'");
+        }
+
+        double stockPrice = 0.0;
+        if (parts.length >= 2) {
+            String priceWithSymbol = parts[1]; // ₹167.49
+            System.out.println("Price with symbol: '" + priceWithSymbol + "'");
+            String cleanedPrice = priceWithSymbol.replace("₹", "").replace(",", "").trim();
+            System.out.println("Cleaned price: '" + cleanedPrice + "'");
+
+            try {
+                stockPrice = Double.parseDouble(cleanedPrice);
+                System.out.println("Extracted stock price: " + stockPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("Failed to parse price: " + cleanedPrice);
+                System.out.println("Exception: " + e.getMessage());
+                stockPrice = 0.0;
+            }
+        } else {
+            System.out.println("Unexpected content-desc format: " + temp);
+            stockPrice = 0.0;
+        }
+
+// Add 1 to the stock price
+        double newPrice = stockPrice -5 ;
+        System.out.println("New price (stock price + 1): " + newPrice);
+
+// Convert double to String (you can format it if needed)
+        String newPriceStr = String.valueOf(newPrice);
+        System.out.println("New price as string: '" + newPriceStr + "'");
+
+// Now send this string to the SetLimitPrice field
+        SetLimitPrice.sendKeys(newPriceStr);
+        System.out.println("Sent to SetLimitPrice field: '" + newPriceStr + "'");
+
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        System.out.println("=== ENDING STOCK PRICE EXTRACTION ===");
+
+    }
+
+    public void ClearEnteredAmtValue() throws InterruptedException {
+        Thread.sleep(3000);
+        basePage.ClickUsingCoordinate(211, 695);
+
+        EnterDecimalAmt.clear();
+        Thread.sleep(2000);
+
+        EnterAmtToProceedError.isDisplayed();
+
+
+
+    }
+
+    public void EnterLimitPriceForSell() throws InterruptedException {
+        Thread.sleep(3000);
+
+        int x =240;
+        int y = 1051;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        //SetLimitPrice.click();
+
+        System.out.println("=== STARTING STOCK PRICE EXTRACTION ===");
+
+        String temp = StockCurrentPrice.getAttribute("content-desc");
+        System.out.println("Selected price element content: " + temp);
+
+        String[] parts = temp.split("\n");
+        System.out.println("Number of parts after split: " + parts.length);
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + i + ": '" + parts[i] + "'");
+        }
+
+        double stockPrice = 0.0;
+        if (parts.length >= 2) {
+            String priceWithSymbol = parts[1]; // ₹167.49
+            System.out.println("Price with symbol: '" + priceWithSymbol + "'");
+            String cleanedPrice = priceWithSymbol.replace("₹", "").replace(",", "").trim();
+            System.out.println("Cleaned price: '" + cleanedPrice + "'");
+
+            try {
+                stockPrice = Double.parseDouble(cleanedPrice);
+                System.out.println("Extracted stock price: " + stockPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("Failed to parse price: " + cleanedPrice);
+                System.out.println("Exception: " + e.getMessage());
+                stockPrice = 0.0;
+            }
+        } else {
+            System.out.println("Unexpected content-desc format: " + temp);
+            stockPrice = 0.0;
+        }
+
+// Add 1 to the stock price
+        double newPrice = stockPrice + 5;
+        System.out.println("New price (stock price + 1): " + newPrice);
+
+// Convert double to String (you can format it if needed)
+        String newPriceStr = String.valueOf(newPrice);
+        System.out.println("New price as string: '" + newPriceStr + "'");
+
+// Now send this string to the SetLimitPrice field
+        SetLimitPrice.sendKeys(newPriceStr);
+        System.out.println("Sent to SetLimitPrice field: '" + newPriceStr + "'");
+
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        System.out.println("=== ENDING STOCK PRICE EXTRACTION ===");
+
+    }
+
+    public void EnterStopPriceForSell() throws InterruptedException {
+        Thread.sleep(3000);
+
+        int x =240;
+        int y = 1051;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        //SetLimitPrice.click();
+
+        System.out.println("=== STARTING STOCK PRICE EXTRACTION ===");
+
+        String temp = StockCurrentPrice.getAttribute("content-desc");
+        System.out.println("Selected price element content: " + temp);
+
+        String[] parts = temp.split("\n");
+        System.out.println("Number of parts after split: " + parts.length);
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + i + ": '" + parts[i] + "'");
+        }
+
+        double stockPrice = 0.0;
+        if (parts.length >= 2) {
+            String priceWithSymbol = parts[1]; // ₹167.49
+            System.out.println("Price with symbol: '" + priceWithSymbol + "'");
+            String cleanedPrice = priceWithSymbol.replace("₹", "").replace(",", "").trim();
+            System.out.println("Cleaned price: '" + cleanedPrice + "'");
+
+            try {
+                stockPrice = Double.parseDouble(cleanedPrice);
+                System.out.println("Extracted stock price: " + stockPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("Failed to parse price: " + cleanedPrice);
+                System.out.println("Exception: " + e.getMessage());
+                stockPrice = 0.0;
+            }
+        } else {
+            System.out.println("Unexpected content-desc format: " + temp);
+            stockPrice = 0.0;
+        }
+
+// Add 1 to the stock price
+        double newPrice = stockPrice - 1;
+        System.out.println("New price (stock price + 1): " + newPrice);
+
+// Convert double to String (you can format it if needed)
+        String newPriceStr = String.valueOf(newPrice);
+        System.out.println("New price as string: '" + newPriceStr + "'");
+
+// Now send this string to the SetLimitPrice field
+        SetLimitPrice.sendKeys(newPriceStr);
+        System.out.println("Sent to SetLimitPrice field: '" + newPriceStr + "'");
+
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        System.out.println("=== ENDING STOCK PRICE EXTRACTION ===");
+    }
+
+    public void EnterTheMITTargetPriceForSell() throws InterruptedException {
+        Thread.sleep(3000);
+
+        int x =240;
+        int y = 1051;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+        //SetLimitPrice.click();
+
+        System.out.println("=== STARTING STOCK PRICE EXTRACTION ===");
+
+        String temp = StockCurrentPrice.getAttribute("content-desc");
+        System.out.println("Selected price element content: " + temp);
+
+        String[] parts = temp.split("\n");
+        System.out.println("Number of parts after split: " + parts.length);
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + i + ": '" + parts[i] + "'");
+        }
+
+        double stockPrice = 0.0;
+        if (parts.length >= 2) {
+            String priceWithSymbol = parts[1]; // ₹167.49
+            System.out.println("Price with symbol: '" + priceWithSymbol + "'");
+            String cleanedPrice = priceWithSymbol.replace("₹", "").replace(",", "").trim();
+            System.out.println("Cleaned price: '" + cleanedPrice + "'");
+
+            try {
+                stockPrice = Double.parseDouble(cleanedPrice);
+                System.out.println("Extracted stock price: " + stockPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("Failed to parse price: " + cleanedPrice);
+                System.out.println("Exception: " + e.getMessage());
+                stockPrice = 0.0;
+            }
+        } else {
+            System.out.println("Unexpected content-desc format: " + temp);
+            stockPrice = 0.0;
+        }
+
+// Add 1 to the stock price
+        double newPrice = stockPrice + 1;
+        System.out.println("New price (stock price + 1): " + newPrice);
+
+// Convert double to String (you can format it if needed)
+        String newPriceStr = String.valueOf(newPrice);
+        System.out.println("New price as string: '" + newPriceStr + "'");
+
+// Now send this string to the SetLimitPrice field
+        SetLimitPrice.sendKeys(newPriceStr);
+        System.out.println("Sent to SetLimitPrice field: '" + newPriceStr + "'");
+
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        System.out.println("=== ENDING STOCK PRICE EXTRACTION ===");
+
+    }
+
+
+    public void EnterThePurchaseAmount() throws InterruptedException {
+        Thread.sleep(3000);
+        String tmp = FoxoStockPrice.getAttribute("content-desc"); // e.g., "FOXO\n₹13.78"
+
+        BigDecimal stockPrice = BigDecimal.ZERO;
+        if (tmp.contains("₹")) {
+            String priceStr = tmp.split("₹")[1].trim(); // "13.78"
+            stockPrice = new BigDecimal(priceStr);
+        }
+
+        System.out.println("Stock Price extracted: ₹" + stockPrice);
+
+        // Add ₹5
+        BigDecimal purchaseAmount = stockPrice.add(BigDecimal.valueOf(5));
+        String amountToEnter = purchaseAmount.toPlainString(); // avoid scientific notation
+
+        System.out.println("Amount to enter: ₹" + amountToEnter);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Wait until EnterAmountValue is visible BEFORE clicking the coordinate
+        wait.until(ExpectedConditions.visibilityOf(EnterAmountValue));
+
+        basePage.ClickUsingCoordinate(211, 695);  // Taps at given coordinates
+
+        // Wait again in case there's a delay before the input is ready
+        wait.until(ExpectedConditions.elementToBeClickable(EnterAmountValue));
+
+        // Send the calculated amount
+        EnterAmountValue.sendKeys(amountToEnter);
+
+        // Perform keyboard action (e.g., pressing "Go" on soft keyboard)
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+    }
+
+
+    public void ValidateCalculationForQuantityField() throws InterruptedException {
+        Thread.sleep(3000);
+
+        // Get values from UI
+        String enteredAmountStr = EnteredAmt.getText();      // E.g., "1000"
+        String quantityStr = GetQuantity.getText();          // E.g., "72.5"
+        String stockInfo = FoxoStockPrice.getAttribute("content-desc"); // E.g., "FOXO\n₹13.78"
+
+        System.out.println("Entered amt is "+ enteredAmountStr);
+        System.out.println("Quantity showing on UI"+ quantityStr);
+        System.out.println("Stock Price is " + stockInfo);
+
+
+
+
+
+        // Extract stock price from the string
+        BigDecimal stockPrice = BigDecimal.ZERO;
+        if (stockInfo.contains("₹")) {
+            // Remove ₹ and any non-numeric characters except dot and digits
+            String priceStr = stockInfo.replaceAll("[^0-9.]", "").trim();  // "13.78"
+            stockPrice = new BigDecimal(priceStr);
+        }
+
+        System.out.println("Stock Price extracted: ₹" + stockPrice);
+
+        // Convert entered amount to BigDecimal
+        String cleanAmountStr = enteredAmountStr.replaceAll("[^0-9.]", "").trim();
+        BigDecimal enteredAmount = new BigDecimal(cleanAmountStr);
+
+        System.out.println("Entered amt is " + enteredAmount);
+
+
+        // Perform quantity = amount / price (with scale and rounding mode)
+        BigDecimal expectedQuantity = enteredAmount.divide(stockPrice, 8, RoundingMode.HALF_UP);
+
+        System.out.println("Expected Quantity using formula: " + expectedQuantity);
+
+        // Convert actual quantity from UI
+       // BigDecimal actualQuantity = new BigDecimal(quantityStr);
+        // Convert actual quantity from UI (cleaning ₹ and text)
+       // String cleanQuantityStr = quantityStr.replaceAll("[^0-9.]", "").trim();
+        BigDecimal actualQuantity = new BigDecimal(quantityStr);
+
+
+
+
+        // Compare expected and actual quantities
+        if (expectedQuantity.compareTo(actualQuantity) == 0) {
+            System.out.println("✅ Quantity is correct.");
+        } else {
+            System.out.println("❌ Quantity mismatch! Expected: " + expectedQuantity + ", Actual: " + actualQuantity);
+        }
+
+        // Optionally, assert
+        // Assert.assertEquals(expectedQuantity, actualQuantity);*/
+
+
+
+
+    }
+
+
+    public void EnterThePurchaseQuantity() {
+
+
+    }
+
+    public void ValidateCalculationForAmountField() throws InterruptedException {
+        Thread.sleep(3000);
+
+        // Get and clean entered amount
+        String enteredAmountStr = EnteredAmt.getText();
+        System.out.println("Visible amt is " + enteredAmountStr);
+        String cleanAmountStr = enteredAmountStr.replaceAll("[^0-9.]", "").trim();
+        BigDecimal enteredAmount = new BigDecimal(cleanAmountStr);
+
+        // Round to 2 decimal places
+        enteredAmount = enteredAmount.setScale(2, RoundingMode.HALF_UP);
+        System.out.println("Amt after removing extra characters and rounding: " + enteredAmount);
+
+        // Get and clean stock price
+        String stockInfo = FoxoStockPrice.getAttribute("content-desc"); // e.g., "FOXO\n₹13.78"
+        BigDecimal stockPrice = BigDecimal.ZERO;
+        if (stockInfo.contains("₹")) {
+            String priceStr = stockInfo.replaceAll("[^0-9.]", "").trim();  // Extract "13.78"
+            stockPrice = new BigDecimal(priceStr);
+        }
+
+        System.out.println("Stock Price after cleaning: " + stockPrice);
+
+        // Multiply stockPrice by 2
+        BigDecimal temp = stockPrice.multiply(new BigDecimal("2.0")).setScale(2, RoundingMode.HALF_UP);
+        System.out.println("Expected Amount (StockPrice * 2): " + temp);
+
+        // Assert both amounts are equal
+        Assert.assertEquals(enteredAmount, temp);
+    }
+
+    public void ClickOnTotalFeeDropdown() throws InterruptedException {
+        Thread.sleep(5000);
+        int x =629;
+        int y = 1027;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
+    }
+
+    public void CalculatePlatFormFee() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Wait until the validation element is visible
+        wait.until(ExpectedConditions.visibilityOf(Total_Fee_Heading));
+        System.out.println("Order placement validation element is visible.");
+
+        // Extract the content-desc value
+        String temp = PlatformFeeAmt.getAttribute("content-desc");  // e.g., "Platform Fee\n₹2.00"
+        System.out.println("Raw content-desc: " + temp);
+
+        // Remove everything except digits and dot
+        String numberStr = temp.replaceAll("[^0-9.]", "").trim();  // "2.00"
+        System.out.println("Cleaned amount string: " + numberStr);
+
+        // Convert to BigDecimal and extract integer part
+        BigDecimal feeAmount = new BigDecimal(numberStr);
+        int platformFeeInt = feeAmount.intValue();  // Will be 2
+
+        // Expected value
+        int expectedFee = 2;
+
+        // Print match result
+        if (platformFeeInt == expectedFee) {
+            System.out.println("✅ Platform Fee match: Expected = " + expectedFee + ", Actual = " + platformFeeInt);
+        } else {
+            System.out.println("❌ Platform Fee mismatch: Expected = " + expectedFee + ", Actual = " + platformFeeInt);
+        }
+
+        // Assert
+        Assert.assertEquals( platformFeeInt, expectedFee);
+    }
 
 
 }

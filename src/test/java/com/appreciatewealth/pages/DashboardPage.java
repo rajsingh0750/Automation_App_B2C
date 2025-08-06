@@ -179,6 +179,38 @@ public class DashboardPage extends BasePage {
     private WebElement SearchPage;
 
 
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Please enter amount or qty to proceed')]")
+    private WebElement AmtAndQuantityError;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'UPI limit')]")
+    private WebElement UPILimitErrorMessage;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Transaction Limit')]")
+    private WebElement AsOfTodayLimitError;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Low funds! Add funds from YES Bank to trade')]")
+    private WebElement LowFundWarningMsg;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Minimum Transaction Amount Should be greater than')]")
+    private WebElement MinimumTransactionAmount;
+
+
+
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"FOXO\n" +
+            "FOXO Technologies Inc\n" +
+            "EQUITY\"]")
+    private WebElement FoxoStock;
+
+
     @AndroidFindBy(accessibility = "Filter")
     private WebElement FilterCTA;
 
@@ -271,6 +303,9 @@ public class DashboardPage extends BasePage {
     @AndroidFindBy(accessibility = "Returns")
     WebElement ReturnsTab;
 
+
+    @AndroidFindBy(accessibility = "Overview")
+    WebElement OverviewTab;
 
 
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.ImageView[2]")
@@ -628,12 +663,18 @@ public class DashboardPage extends BasePage {
     }
 
     public void EnterStockName(String msg) throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Wait for SearchStock to be clickable
+        wait.until(ExpectedConditions.elementToBeClickable(SearchStock));
         SearchStock.click();
-        Thread.sleep(2000);
+
+        // Wait for SendStockName to be visible
+        wait.until(ExpectedConditions.visibilityOf(SendStockName));
         SendStockName.sendKeys(msg);
+
         System.out.println("Entering stock name: " + msg);
-       // Thread.sleep(2000);
+
         //driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
     }
 
@@ -701,8 +742,9 @@ public class DashboardPage extends BasePage {
     }
 
     public void SelectFilterCTA() throws InterruptedException {
-        Thread.sleep(4000);
         //AppliedFilter.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(FilterPage));
         FilterPage.click();
     }
 
@@ -1028,8 +1070,10 @@ public class DashboardPage extends BasePage {
     }
 
     public void VerifyRecentlyViewedSection() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(RecentlyViewedSection));
         // clicking on stock under recently viewed
+        Thread.sleep(2000);
         int x =367;
         int y = 1055;
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -1077,6 +1121,9 @@ public class DashboardPage extends BasePage {
         Thread.sleep(3000);
 
         // clicking on top picks stocks
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(TopPicks));
 
         int x =345;
         int y = 1241;
@@ -1140,7 +1187,9 @@ public class DashboardPage extends BasePage {
     }
 
     public void ClearUSStockSearch() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(ClearCrossIcon));
+
         ClearCrossIcon.click();
     }
 
@@ -1152,7 +1201,7 @@ public class DashboardPage extends BasePage {
     }
 
     public void ClickOnNipponMFFundName() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(NipponIndiaMF));
 
         NipponIndiaMF.click();
@@ -1160,12 +1209,14 @@ public class DashboardPage extends BasePage {
     }
 
     public void ValidateMFDetailsPage() throws InterruptedException {
-        Thread.sleep(4000);
-        ReturnsTab.isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(OverviewTab));
+        OverviewTab.isDisplayed();
     }
 
     public void ClearMFSearchBar() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(SearchPage));
         ClearMFSearchBar.click();
     }
 
@@ -1235,17 +1286,20 @@ public class DashboardPage extends BasePage {
     }
 
     public void SelectEquityOption() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(Equity));
         Equity.click();
     }
 
     public void SecondTimeFilterClick() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(SecondTimeFilter));
         SecondTimeFilter.click();
     }
 
     public void ClearAppliedFilter() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(ClearAllCTA));
         ClearAllCTA.click();
     }
 
@@ -1264,8 +1318,63 @@ public class DashboardPage extends BasePage {
         SearchPage.isDisplayed();
     }
 
+    public void ClickOnFoxoStockProd() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
+        try {
+            // Wait until the FoxoStock element is visible
+            wait.until(ExpectedConditions.visibilityOf(FoxoStock));
 
+            if (FoxoStock.isDisplayed()) {
+                FoxoStock.click();
+            } else {
+                System.out.println("FoxoStock element is not visible. Skipping click.");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception while clicking on FoxoStock: " + e.getMessage());
+        }
+    }
+
+    public void ValidateAmtAndQuantityError(String s) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(AmtAndQuantityError));
+
+        String msg = AmtAndQuantityError.getAttribute("content-desc");
+        System.out.println("Recieved amt and quantity error message " + msg);
+
+    }
+
+    public void ValidateUPILimitErrorMessage(String s) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(UPILimitErrorMessage));
+
+        String msg = UPILimitErrorMessage.getAttribute("content-desc");
+        System.out.println("UPI limit error message " + msg);
+    }
+
+    public void ValidateMaximumTransactionLimitErrorAsOfToday(String s) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(AsOfTodayLimitError));
+
+        String msg = AsOfTodayLimitError.getAttribute("content-desc");
+        System.out.println("As Of today limit error " + msg);
+    }
+
+    public void ValidateLowFundWarningMsg(String s) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(LowFundWarningMsg));
+
+        String msg = LowFundWarningMsg.getAttribute("content-desc");
+        System.out.println("As Of today limit error " + msg);
+    }
+
+    public void ValidateMinimumTransactionAmountWarning(String s) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(MinimumTransactionAmount));
+
+        String msg = MinimumTransactionAmount.getAttribute("content-desc");
+        System.out.println("As Of today limit error " + msg);
+    }
 
 //    public void VerifyDailyReturn() throws InterruptedException {
 //        Thread.sleep(4000);

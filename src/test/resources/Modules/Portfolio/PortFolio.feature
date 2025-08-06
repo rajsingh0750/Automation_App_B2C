@@ -1,5 +1,8 @@
 Feature: Portfolio Calculations
 
+
+  #before running check which tab u invested
+
   @main_final
   Scenario: Verify the calculation for all section under portfolio tab
 #    Given the user is on the Dashboard

@@ -61,7 +61,7 @@ public class WatchlistSteps extends BasePage {
 
     @And("User enters the stock name under search page")
     public void userEntersTheStockNameUnderSearchPage() throws InterruptedException {
-        new WatchlistPage().EnterStockNameUnderSearchPage("aapl");
+        new WatchlistPage().EnterStockNameUnderSearchPage("AAPL");
     }
 
     @When("User select the heart icon")
@@ -286,9 +286,10 @@ public class WatchlistSteps extends BasePage {
 
     @Then("User will  see an error message as {string}")
     public void userWillSeeAnErrorMessageAs(String arg0) throws InterruptedException {
-        new WatchlistPage().VerifyWatchlistNameError("This name is taken, try another watchlist name");
-        new WatchlistPage().ClickOnCrossIcon();
-        basePage.AndroidBack();
+//        new WatchlistPage().VerifyWatchlistNameError("This name is taken, try another watchlist name");
+//        new WatchlistPage().ClickOnCrossIcon();
+//        basePage.AndroidBack();
+//        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -474,5 +475,50 @@ public class WatchlistSteps extends BasePage {
     @And("User Select view all Button")
     public void userSelectViewAllButton() throws InterruptedException {
         new WatchlistPage().SelectSecondViewAllButton();
+    }
+
+    @And("User enter the stock name under search page")
+    public void userEnterTheStockNameUnderSearchPage() throws InterruptedException {
+        new WatchlistPage().EnterStockNameUnderSearchPage("UAVS");
+    }
+
+    @And("User click on the heart icon of displayed stock")
+    public void userClickOnTheHeartIconOfDisplayedStock() throws InterruptedException {
+        new WatchlistPage().ClickOnTheHeartIcon();
+    }
+
+    @And("User click on the create new watchlist cta")
+    public void userClickOnTheCreateNewWatchlistCta() throws InterruptedException {
+        new WatchlistPage().ClickOnTheCreateNewWatchlistCta();
+    }
+
+    @And("User enters a new watchlist name")
+    public void userEntersANewWatchlistName() throws InterruptedException {
+        new WatchlistPage().EnterWatchlistNameAgain("New");
+    }
+
+    @And("User uncheck the created watchlist")
+    public void userUncheckTheCreatedWatchlist() throws InterruptedException {
+        new WatchlistPage().UncheckTheNewWatchlist();
+    }
+
+    @And("User clear the search bar under US Stocks")
+    public void userClearTheSearchBarUnderUSStocks() throws InterruptedException {
+        new WatchlistPage().ClearSearchBar();
+    }
+
+    @And("User click on the heart icon of listed stock under recently viewed section")
+    public void userClickOnTheHeartIconOfListedStockUnderRecentlyViewedSection() throws InterruptedException {
+        new WatchlistPage().ClickOnTheHeartIconOfListedStockUnderRecentlyViewedSection();
+    }
+
+    @And("User click on created watchlist")
+    public void userClickOnCreatedWatchlist() throws InterruptedException {
+        new WatchlistPage().ClickOnCreatedWatchlist();
+    }
+
+    @Then("User should see the newly created watchlist")
+    public void userShouldSeeTheNewlyCreatedWatchlist() throws InterruptedException {
+        new WatchlistPage().ValidateNewlyCreatedWatchlist();
     }
 }

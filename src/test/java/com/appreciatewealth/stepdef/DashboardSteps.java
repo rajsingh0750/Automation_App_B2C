@@ -398,12 +398,12 @@ public class DashboardSteps extends BasePage {
     @Then("User should see all tabs along with recently viewed top picks and crafted list details")
     public void userShouldSeeAllTabsAlongWithRecentlyViewedTopPicksAndCraftedListDetails() throws InterruptedException {
         new DashboardPage().VerifyAllVisibleSection();
-//        new DashboardPage().VerifyCountOfTopGainersStocks();
-//        basePage.AndroidBack();
-//        new DashboardPage().VerifyCountOfTopLosersStocks();
-//        basePage.AndroidBack();
-//        new DashboardPage().VerifyCountOfUSYearLowTodayStocks();
-//        basePage.AndroidBack();
+        new DashboardPage().VerifyCountOfTopGainersStocks();
+        basePage.AndroidBack();
+        new DashboardPage().VerifyCountOfTopLosersStocks();
+        basePage.AndroidBack();
+        new DashboardPage().VerifyCountOfUSYearLowTodayStocks();
+        basePage.AndroidBack();
         new DashboardPage().VerifyCountOfUSYearHighTodayStocks();
         basePage.AndroidBack();
         new DashboardPage().VerifyRecentlyViewedSection();

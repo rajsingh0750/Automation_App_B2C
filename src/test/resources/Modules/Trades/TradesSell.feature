@@ -1,8 +1,8 @@
 Feature: Trades all Sell related scenarios
 
-  @Sanity @Regression
+  @Sanity
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Rupees
-    Given User is on Trade dashboard
+    Given the user is on the Dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
     And User click on the Stock
@@ -14,9 +14,9 @@ Feature: Trades all Sell related scenarios
     #PROD DONE
 
 
-  @Sanity @Regression
+  @Sanity
   Scenario: User with sufficient stocks in holdings should be able to sell stocks in Quantity
-    Given User is on Trade dashboard
+    Given the user is on the Dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
     And User click on the Stock
@@ -30,9 +30,9 @@ Feature: Trades all Sell related scenarios
 
   #for all order type change the stock name with low ruppes
 
-  @Sanity @Regression
+  @Sanity
   Scenario: Validate if the user is able to place Limit order in Sell
-    Given User is on Trade dashboard
+    Given the user is on the Dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
     And User click on the Stock
@@ -53,7 +53,7 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place Stop order in Sell
-    Given User is on Trade dashboard
+    Given the user is on the Dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
     And User click on the Stock
@@ -61,7 +61,7 @@ Feature: Trades all Sell related scenarios
     And User clicks on Pro button
     And User selects order type as Stop order
     And User enters the Sell Quantity
-    And User enters the limit price for sell
+    And User enters the Stop price
     And User selects order expiry as Till Market is closed
     And User selects Stop order expiry as Good till Cancelled
     And User Clicks On Confirm
@@ -73,7 +73,7 @@ Feature: Trades all Sell related scenarios
 
   @Sanity @Regression
   Scenario: Validate if the user is able to place MIT order in Sell
-    Given User is on Trade dashboard
+    Given the user is on the Dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks
     And User click on the Stock
@@ -81,7 +81,7 @@ Feature: Trades all Sell related scenarios
     And User clicks on Pro button
     And User selects order type as MIT order
     And User enters the Sell Quantity
-    And User enters the limit price for sell
+    And User enters the MIT Target price
     And User selects order expiry as Till Market is closed
     And User selects MIT order expiry as Custom Date
     And User Clicks On Confirm
@@ -90,7 +90,7 @@ Feature: Trades all Sell related scenarios
 
    ##PROD DONE
 
-  @Sanity @Regression
+  @Sanity
   Scenario: Validate Quantity in holding is decreased after selling the stock in Quantity during Market close
     Given User is on Trade dashboard
     And User checks the current holdings and clicks on Stock
@@ -103,7 +103,7 @@ Feature: Trades all Sell related scenarios
     #CONFIMR IT
 
 
-  @Sanity @Regression
+  @Sanity
   Scenario: Once the user sells stock in market close then all data points like P&L, total invested and current value should remain as it is until the order is processed
     Given User is on Trade dashboard
     And User Selects the search tab on dashboard

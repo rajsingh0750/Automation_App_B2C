@@ -239,13 +239,9 @@ Feature: Dashboard
 
 
 
-  #SEARCH TAB
+  #OPPTIMISE SEARCH TAB
 
-  #1. COME TO SEARCH -> SEARCH PAGE , us stock, mf news , reasearch  CHOOSE FROM CRAFTED LIST , RECENTELY VIEWD , TOP PICKS
-
- # 2. clear search and moving to stock details for 2 stock , filter also
-
-
+  @main_final
   Scenario: Verify Search page
     Given the user is on the Dashboard
     When User Selects the search tab on dashboard
@@ -295,8 +291,22 @@ Feature: Dashboard
   #Add one scernaiio here which validate all available sections on home dashboard 
 
 
+#1. Our offering
+#    2. Trading signals
+#    3. Popular stocks
+#    4. News
+#    5. Create a goal
+#    6. Top Gainer
+#    7. Popular funds
+#    8. Start with 100
+#    9. Research
+
+  #Few are left to add in UAT /  Prod and UAT are different
 
 
+
+
+  #Search Optimise complete
 
 
 
