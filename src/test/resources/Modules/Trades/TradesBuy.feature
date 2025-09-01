@@ -293,18 +293,20 @@ Feature: Trades all buy related scenarios
 
 
 
-  @Sanity @Regression
-  Scenario: Validate if user cancel the order it should get reflected at minimodule and order details page
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User enters the amount
-    And User Slides to Buy
-    And User click on view in order history
-    And User cancel the order
-    Then User will see the "CANCELLATION SUBMITTED" tag under order details page
+#  @Sanity @Regression
+#  Scenario: Validate if user cancel the order it should get reflected at minimodule and order details page
+#    Given User is on Trade dashboard
+#    And User Selects the search tab on dashboard
+#    When User search the stocks under US Stocks
+#    And User click on the Stock
+#    And User clicks on Buy now for a stock
+#    And User enters the amount
+#    And User Slides to Buy
+#    And User click on view in order history
+#    And User cancel the order
+#    Then User will see the "CANCELLATION SUBMITTED" tag under order details page
+
+
 #    And User come to minimodule page
 #    And User will see "Cancelled" tag under all transactions page
 #    And User will go to order details of the cancelled transaction
@@ -338,245 +340,73 @@ Feature: Trades all buy related scenarios
 
 
 
-
-
-#BUY ALL COMBINED SCENARIO   Run test case from here......
-
-  @Main_Final
-  Scenario: Validate if user stop the buy journey and come to dashboard
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    When User come back to home dashboard
-    Then User should see the resume buying event at home dashboard
-    And User click on Buy now cta under continue where left section
-    And User clicks on Buy now for a stock
-    And User enters the amount
-    And User Slides to Buy
-    Then the order should be placed successfully
-
-
-
-  @Main_Final
-  Scenario: Validate All Buy type scenario
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User enters the amount using coordinate
-    And User Slides to Buy
-    Then the order should be placed successfully
-
-
-
-
-  #Merge -01
-
-  @Main_Final
-  Scenario: Validate All Buy type scenarios for Limit type order
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as limit order
-    And User enters the Pro type order Quantity
-    And User enters the limit price
-    And User selects order expiry as Till Market is closed
-    And User selects order expiry as Good till market day closed
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then Limit order will be placed Successfully
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as limit order
-    And User enters the Pro type order Quantity
-    And User enters the limit price
-    And User selects order expiry as Till Market is closed
-    And User selects Limit order expiry as Good till Cancelled
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then Limit order will be placed Successfully
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as limit order
-    And User enters the Pro type order Quantity
-    And User enters the limit price
-    And User selects order expiry as Till Market is closed
-    And User selects Limit order expiry as Custom Date
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then Limit order will be placed Successfully for all order types
-
-
-
-    #Merge 2
-  @Main_Final
-  Scenario: Validate All Buy type scenarios for Stop type order
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as Stop order
-    And User enters the Pro type order Quantity
-    And User enters the Stop price
-    And User selects order expiry as Till Market is closed
-    And User selects Limit order expiry as Good till Cancelled
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then Stop order should be placed Successfully
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as Stop order
-    And User enters the Pro type order Quantity
-    And User enters the Stop price
-    And User selects order expiry as Till Market is closed
-    And User selects Stop order expiry as Good till Cancelled
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then Stop order should be placed Successfully
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as Stop order
-    And User enters the Pro type order Quantity
-    And User enters the Stop price
-    And User selects order expiry as Till Market is closed
-    And User selects Stop order expiry as Custom Date
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then Stop order will be placed Successfully for all order types
-
-
-#merge 3
-  @Main_Final
-  Scenario: Validate All Buy type scenarios for MIT type order
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as MIT order
-    And User enters the Pro type order Quantity
-    And User enters the MIT Target price
-    And User selects order expiry as Till Market is closed
-#    And User selects order expiry as Till Market is closed
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then MIT order should be placed Successfully
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as MIT order
-    And User enters the Pro type order Quantity
-    And User enters the MIT Target price
-    And User selects order expiry as Till Market is closed
-    And User selects MIT order expiry as Good till Cancelled
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then MIT order should be placed Successfully
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User clicks on Pro button
-    And User selects order type as MIT order
-    And User enters the Pro type order Quantity
-    And User enters the MIT Target price
-    And User selects order expiry as Till Market is closed
-    And User selects MIT order expiry as Custom Date
-    And User Clicks On Confirm
-    And User Slides to Buy
-    Then MIT order should be placed Successfully
-
-
-
-
-  @Sanity @Regression
-  Scenario: Verify the presence of an error message when attempting to purchase stocks exceeding the available buying power.
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User enters the maximum quantity limit
-    Then User should see the following error message Low funds! Add money to your YES Bank AC and transfer to your buying power read more here
-
-    #PROD DONE
-
-
-
-  @Sanity @Regression
-  Scenario: Verify the presence of an error message when usd value crosses the limit of 2,50,000.
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User enters the maximum quantity limit
-    Then User should see the following message Transaction Limit
-
-
-
-  @Regression
-  Scenario: The user should see an error message prompt when attempting to purchase a stock quantity below the minimum required limit.
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User clicks on Buy now for a stock
-    And User enters the amount less than the required limit
-    Then User should be prompted with error message Minimum Transaction Amount Should be 0.85 INR.
-
-
-    #PROD DONE
-
-
-  @Regression
-  Scenario: Validate if the entered amount/quantity in trade is retained once the user switch to other app
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User clicks on Buy now for a stock
-    And User enters the amount
-    And User minimizes the app and again switch to Appreciate app
-    Then the entered value should be retained
-    #PROD DONE
-
-
-  @Sanity @Regression
-  Scenario: Validate on order details page total order amount will equal to Order amount + fees and user is allowed to enter amount at most two decimal place only
-    Given User is on Trade dashboard
-    And User Selects the search tab on dashboard
-    When User search the stocks under US Stocks
-    And User click on the Stock
-    And User clicks on Buy now for a stock
-    And User enters the amount in three or more decimal place
-    Then Amount field should ignore the decimals after two place
-    And User Slides to Buy
-    And User click on view in order history
-    Then the user should see the total order amount equals the order amount plus the fees
-
-    #PROD DONE 30 JUN
+#
+#
+#  @Sanity @Regression
+#  Scenario: Verify the presence of an error message when attempting to purchase stocks exceeding the available buying power.
+#    Given User is on Trade dashboard
+#    And User Selects the search tab on dashboard
+#    When User search the stocks under US Stocks
+#    And User click on the Stock
+#    And User clicks on Buy now for a stock
+#    And User enters the maximum quantity limit
+#    Then User should see the following error message Low funds! Add money to your YES Bank AC and transfer to your buying power read more here
+#
+#    #PROD DONE
+#
+#
+#
+#  @Sanity @Regression
+#  Scenario: Verify the presence of an error message when usd value crosses the limit of 2,50,000.
+#    Given User is on Trade dashboard
+#    And User Selects the search tab on dashboard
+#    When User search the stocks under US Stocks
+#    And User click on the Stock
+#    And User clicks on Buy now for a stock
+#    And User enters the maximum quantity limit
+#    Then User should see the following message Transaction Limit
+#
+#
+#
+#  @Regression
+#  Scenario: The user should see an error message prompt when attempting to purchase a stock quantity below the minimum required limit.
+#    Given User is on Trade dashboard
+#    And User Selects the search tab on dashboard
+#    When User search the stocks under US Stocks
+#    And User clicks on Buy now for a stock
+#    And User enters the amount less than the required limit
+#    Then User should be prompted with error message Minimum Transaction Amount Should be 0.85 INR.
+#
+#
+#    #PROD DONE
+#
+#
+#  @Regression
+#  Scenario: Validate if the entered amount/quantity in trade is retained once the user switch to other app
+#    Given User is on Trade dashboard
+#    And User Selects the search tab on dashboard
+#    When User search the stocks under US Stocks
+#    And User clicks on Buy now for a stock
+#    And User enters the amount
+#    And User minimizes the app and again switch to Appreciate app
+#    Then the entered value should be retained
+#    #PROD DONE
+#
+#
+#  @Sanity @Regression
+#  Scenario: Validate on order details page total order amount will equal to Order amount + fees and user is allowed to enter amount at most two decimal place only
+#    Given User is on Trade dashboard
+#    And User Selects the search tab on dashboard
+#    When User search the stocks under US Stocks
+#    And User click on the Stock
+#    And User clicks on Buy now for a stock
+#    And User enters the amount in three or more decimal place
+#    Then Amount field should ignore the decimals after two place
+#    And User Slides to Buy
+#    And User click on view in order history
+#    Then the user should see the total order amount equals the order amount plus the fees
+#
+#    #PROD DONE 30 JUN
 
 
 
@@ -615,7 +445,7 @@ Feature: Trades all buy related scenarios
     Then User should see the resume buying event at home dashboard
     And User click on Buy now cta under continue where left section
     And User clicks on Buy now for a stock
-    And User enters the amount
+    And User enters the amount using coordinate
     And User Slides to Buy
     Then the order should be placed successfully
 
@@ -633,9 +463,6 @@ Feature: Trades all buy related scenarios
     Then the order should be placed successfully
 
 
-
-
-  #Merge -01
 
   @Prod_Final
   Scenario: Validate All Buy type scenarios for Limit type order on prod
@@ -687,7 +514,7 @@ Feature: Trades all buy related scenarios
 
 
 
-    #Merge 2
+
   @Prod_Final
   Scenario: Validate All Buy type scenarios for Stop type order on prod
     Given User is on Trade dashboard
@@ -732,7 +559,7 @@ Feature: Trades all buy related scenarios
     Then Stop order will be placed Successfully for all order types
 
 
-#merge 3
+
   @Prod_Final
   Scenario: Validate All Buy type scenarios for MIT type order on prod
     Given User is on Trade dashboard
@@ -744,10 +571,8 @@ Feature: Trades all buy related scenarios
     And User selects order type as MIT order
     And User enters the Pro type order Quantity
     And User enters the MIT Target price
-
     And User selects order expiry as Till Market is closed
     And User selects order expiry as Good till market day closed
-
     And User Clicks On Confirm
     And User Slides to Buy
     Then MIT order should be placed Successfully
@@ -759,10 +584,8 @@ Feature: Trades all buy related scenarios
     And User selects order type as MIT order
     And User enters the Pro type order Quantity
     And User enters the MIT Target price
-
     And User selects order expiry as Till Market is closed
     And User selects MIT order expiry as Good till Cancelled
-
     And User Clicks On Confirm
     And User Slides to Buy
     Then MIT order should be placed Successfully
@@ -806,7 +629,7 @@ Feature: Trades all buy related scenarios
 
 
   @Prod_Final
-  Scenario: Validate Trade Buy Amt and quantity calculation
+  Scenario: Validate Trade Buy Amt and quantity calculation along with platform fee
     Given User is on Trade dashboard
     And User Selects the search tab on dashboard
     When User search the stocks under US Stocks on Prod App
@@ -822,5 +645,214 @@ Feature: Trades all buy related scenarios
 
     #Done
 
+
+
+  @UAT_Final
+  Scenario: Validate if user stop the buy journey and come to dashboard
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    When User come back to home dashboard
+    Then User should see the resume buying event at home dashboard
+    And User click on Buy now cta under continue where left section
+    And User clicks on Buy now for a stock
+    And User enters the amount
+    And User Slides to Buy
+    Then the order should be placed successfully
+
+
+
+  @UAT_Final
+  Scenario: Validate All Buy type scenario
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User enters the amount using coordinate
+    And User Slides to Buy
+    Then the order should be placed successfully
+
+
+
+
+  @UAT_Final
+  Scenario: Validate All Buy type scenarios for Limit type order
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as limit order
+    And User enters the Pro type order Quantity
+    And User enters the limit price
+    And User selects order expiry as Till Market is closed
+    And User selects order expiry as Good till market day closed
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then Limit order will be placed Successfully
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as limit order
+    And User enters the Pro type order Quantity
+    And User enters the limit price
+    And User selects order expiry as Till Market is closed
+    And User selects Limit order expiry as Good till Cancelled
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then Limit order will be placed Successfully
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as limit order
+    And User enters the Pro type order Quantity
+    And User enters the limit price
+    And User selects order expiry as Till Market is closed
+    And User selects Limit order expiry as Custom Date
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then Limit order will be placed Successfully for all order types
+
+
+
+  @UAT_Final
+  Scenario: Validate All Buy type scenarios for Stop type order
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as Stop order
+    And User enters the Pro type order Quantity
+    And User enters the Stop price
+    And User selects order expiry as Till Market is closed
+    And User selects Limit order expiry as Good till Cancelled
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then Stop order should be placed Successfully
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as Stop order
+    And User enters the Pro type order Quantity
+    And User enters the Stop price
+    And User selects order expiry as Till Market is closed
+    And User selects Stop order expiry as Good till Cancelled
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then Stop order should be placed Successfully
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as Stop order
+    And User enters the Pro type order Quantity
+    And User enters the Stop price
+    And User selects order expiry as Till Market is closed
+    And User selects Stop order expiry as Custom Date
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then Stop order will be placed Successfully for all order types
+
+
+
+  @UAT_Final
+  Scenario: Validate All Buy type scenarios for MIT type order
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as MIT order
+    And User enters the Pro type order Quantity
+    And User enters the MIT Target price
+    And User selects order expiry as Till Market is closed
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then MIT order should be placed Successfully
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as MIT order
+    And User enters the Pro type order Quantity
+    And User enters the MIT Target price
+    And User selects order expiry as Till Market is closed
+    And User selects MIT order expiry as Good till Cancelled
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then MIT order should be placed Successfully
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks
+    And User click on the Stock
+    And User clicks on Buy now for a stock
+    And User clicks on Pro button
+    And User selects order type as MIT order
+    And User enters the Pro type order Quantity
+    And User enters the MIT Target price
+    And User selects order expiry as Till Market is closed
+    And User selects MIT order expiry as Custom Date
+    And User Clicks On Confirm
+    And User Slides to Buy
+    Then MIT order should be placed Successfully
+
+
+
+  @UAT_Final @cal
+  Scenario: Validate all error msg during buy journey
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks on Prod App
+    And User click on the Stock on Prod App
+    And User clicks on Buy now for a stock
+    When User Slides to Buy
+    Then User should see without enter amount and quantity error message "Please enter amount or qty to proceed"
+    When User enter the quantity more then UPI limit
+    Then User should see the UPI limit error message per transaction as "UPI limit : ₹1,00,000.00 per transaction"
+    When User enters an amount greater than the limit of "$250,000 or ₹2,18,43,250.00" as of today
+    Then User should see the maximum transaction limit error as of today "Transaction Limit: $250,000 (₹2,18,43,250.00 as of today)"
+    When User try to enter the purchase amount more then his buying power
+    Then User should see low funds error message as "Low funds! Add funds from YES Bank to trade"
+    When User enters the amount less than the minimum transaction amount
+    Then User should see the minimum transaction amount error "Minimum Transaction Amount Should be greater than ₹0.88 INR"
+
+
+    #Assertion left due to xpath , ask extract and add
+
+
+  @UAT_Final @cal
+  Scenario: Validate Trade Buy Amt and quantity calculation
+    Given User is on Trade dashboard
+    And User Selects the search tab on dashboard
+    When User search the stocks under US Stocks on Prod App
+    And User click on the Stock on Prod App
+    And User clicks on Buy now for a stock
+    When User enters the purchase amount
+    Then User should see the correct calculation for quantity field
+    When User enters the purchase quantity
+    Then User should see the correct calculation for amount field
+    When User click on total fee dropdown
+    Then User should see the correct calculation for quantity and platform fees
+
+
+    #Done
+
+
+
+  # In merge one : modification if starting one type fail further execution should't stop add try catch and send to further  execution
 
 

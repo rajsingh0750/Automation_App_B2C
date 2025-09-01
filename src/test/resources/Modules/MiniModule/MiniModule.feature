@@ -699,6 +699,10 @@ Feature: MiniModule
   #one scenarios for validating all submit a ticket
 
 
+
+    #New minimodule UI
+
+
   @Main_Final
   Scenario: Verify all submit a support ticket under minimodule
     Given the User is on MiniModule page
@@ -707,18 +711,17 @@ Feature: MiniModule
     Then User should be able to create a support ticket
     And User click on Submit a support ticket for nominee details
     Then User should be able to create a support ticket under nominee
-    And User click on Bank Accounts under minimodule
-    And User click on Submit a ticket for US stocks under Bank Accounts section
-    Then User should be able to create a Ticket for US Stocks
-    And User click on Mutual funds under Bank accounts
-    And User click on Submit a ticket for MF under Bank Accounts section
-    And User click on Support section
-    Then User will verify all the functionality of support section
 
 
+    #ask abhi and add the log out
 
-
-    #New minimodule UI
+#    And User click on Bank Accounts under minimodule
+#    And User click on Submit a ticket for US stocks under Bank Accounts section
+#    Then User should be able to create a Ticket for US Stocks
+#    And User click on Mutual funds under Bank accounts
+#    And User click on Submit a ticket for MF under Bank Accounts section
+#    And User click on Support section
+#    Then User will verify all the functionality of support section
 
 
   Scenario: Verify Refer and Earn Section along with Pricing Section under minimodule
@@ -792,6 +795,31 @@ Feature: MiniModule
 
   Scenario: Validate Settings Section under MiniModule
     Given the User is on MiniModule page
+    When the User click on setting icon
+    Then the User should see all section under settings tab
+    And the User Clicks on Change Passcode
+    And the User Enters the OTP
+    And the User Change the new passcode
+    Then the User Confirm the new passcode
+    When the User Clicks on Change Language
+    And User Clicks on Hindi language
+    And User Select Continue
+    When User is on Passcode page
+    And User Clicks on CTA of Profile
+    And User should see Profile name text must be change to प्रोफाइल
+    Then User should successfully see change language
+    And User click on investment builder
+    Then User should see update investment builder page
+    And User update the typically invest section
+    Then User should see update investment builder page
+    When User come back from update investment builder page
+    Then User should see setting and preferences page
+    When User Select Day Trade Settings
+    And User Clicks on Day Trading
+    And User Clicks on Pattern Day
+    Then User should see all the Trade setting descriptions
+
+
 
 
 

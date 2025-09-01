@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.bouncycastle.asn1.cms.OtherRecipientInfo;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriverException;
@@ -689,6 +690,8 @@ public class WatchlistPage extends BasePage {
 
     public void EntersTheWatchlistName(String test) throws InterruptedException {
         Thread.sleep(4000);
+        EnterWatchlistName.click();
+        Thread.sleep(2000);
         EnterWatchlistName.sendKeys(test);
     }
 
@@ -818,16 +821,20 @@ public class WatchlistPage extends BasePage {
         }
     }
 
-    public void VerifyWatchlistNameError(String werror) throws InterruptedException {
-        Thread.sleep(3000);
-        String temp = WatchlistNameError.getAttribute("content-desc");
+    public void VerifyWatchlistNameError(String werror) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Set max wait time
+
         try {
+            // Wait until the element is visible and has a non-empty content-desc
+            wait.until(ExpectedConditions.attributeToBeNotEmpty(WatchlistNameError, "content-desc"));
+
+            String temp = WatchlistNameError.getAttribute("content-desc");
+
             Assert.assertEquals(temp, werror);
         } catch (AssertionError e) {
-            System.out.println("Assertion failed! Actual error message: " + temp);
+            System.out.println("Assertion failed! Actual error message: " + WatchlistNameError.getAttribute("content-desc"));
             throw e; // Rethrow to fail the test
         }
-        Thread.sleep(2000);
     }
 
 
@@ -1139,9 +1146,9 @@ public class WatchlistPage extends BasePage {
     public void ClickOnTheHeartIconOfListedStockUnderRecentlyViewedSection() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(RecentlyViewedSection));
-        Thread.sleep(2000);
-        int x =635;
-        int y = 780;
+        Thread.sleep(4000);
+        int x =639;
+        int y = 813;
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence tap = new Sequence(finger, 1);
         tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));

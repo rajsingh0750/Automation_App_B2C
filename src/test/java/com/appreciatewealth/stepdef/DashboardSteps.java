@@ -497,7 +497,8 @@ public class DashboardSteps extends BasePage {
 
     @And("User Select Equity option")
     public void userSelectEquityOption() throws InterruptedException {
-        new DashboardPage().SelectEquityOption();
+        //new DashboardPage().SelectEquityOption();
+        new DashboardPage(). SelectStockOption();
     }
 
     @And("User again click on filter CTA")
@@ -521,6 +522,30 @@ public class DashboardSteps extends BasePage {
         new DashboardPage().VerifySearchPage();
         basePage.ClickProfileSettings();
         basePage.Logout();
+    }
+
+    @Then("the user should be able to see our offerings sections along with popular and news section")
+    public void theUserShouldBeAbleToSeeOurOfferingsSectionsAlongWithPopularAndNewsSection() {
+        new DashboardPage().ValidateOurOfferingsSectionsAlongWithPopularAndNewsSection();
+    }
+
+    @And("the user should also be able to see popular funds start sip along with create goals section")
+    public void theUserShouldAlsoBeAbleToSeePopularFundsStartSipAlongWithCreateGoalsSection() throws InterruptedException {
+            basePage.ScrollDown(1);
+            new DashboardPage().ValidatePopularFundsStartSipAlongWithCreateGoalsSection();
+    }
+
+    @And("the user should also be able to see year high today and top gainers")
+    public void theUserShouldAlsoBeAbleToSeeYearHighTodayAndTopGainers() throws InterruptedException {
+        basePage.ScrollDown(1);
+            new DashboardPage().ValidateYearHighTodayAndTopGainers();
+    }
+
+    @And("the user should also be able to see top losers and research and perspectives section")
+    public void theUserShouldAlsoBeAbleToSeeTopLosersAndResearchAndPerspectivesSection() throws InterruptedException {
+
+        basePage.ScrollDown(1);
+            new DashboardPage().ValidateTopLosersAndResearchAndPerspectivesSection();
     }
 }
 

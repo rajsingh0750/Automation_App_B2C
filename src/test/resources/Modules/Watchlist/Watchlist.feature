@@ -353,7 +353,7 @@ Feature: Watchlist Stock
  #for below script should have 2 watchlist , once with name demo 2nd with name testing , demo should be the first and testing will creating with above script
 
 
-  @Main_Final
+#  @Main_Final
   Scenario: Verify if User can create a watchlist , remove a watchlist ,validate special watchlist name and same watchlist name
     Given the user is on the Dashboard
     And User Selects the watchlist section on home dashboard
@@ -379,8 +379,7 @@ Feature: Watchlist Stock
 
 
 
-
-  @Main_Final
+#  @Main_Final
   Scenario: Verify user can add a stock to a Watchlist from home dashboard, watchlist search, edit and delete a watchlist name
     Given the user is on the Dashboard
     And User Selects the search tab on dashboard
@@ -499,6 +498,8 @@ Feature: Watchlist Stock
 
 
     #Watchlist All Scenario done  !!
+
+  #1. without selecting any watchlist if add , should show an error
 
 
 

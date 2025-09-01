@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.math.BigDecimal;
@@ -24,6 +25,13 @@ import java.util.regex.Pattern;
 public class PortFolioPage extends BasePage{
     BasePage basePage = new BasePage();
     SignInPage signInPage = new SignInPage();
+
+   static double USStock_return_Percentage;
+
+   static  double Goals_return_Percentage;
+
+   static double MF_return_Percentage;
+
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Portfolio\n" +
             "Tab 2 of 5\"]")
@@ -86,6 +94,36 @@ public class PortFolioPage extends BasePage{
     WebElement MF;
 
 
+    @AndroidFindBy(accessibility = "Our Offerings")
+    WebElement OurOfferings;
+
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%') and contains(@content-desc, 'Total returns')])[1]")
+    WebElement USStocksReturnPercentage_HomeDashboard;
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%') and contains(@content-desc, 'Total returns')])[2]")
+    WebElement GoalsReturnPercentage_HomeDashboard;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%') and contains(@content-desc, 'Total returns')])[3]")
+    WebElement MFReturnPercentage_HomeDashboard;
+
+
+
+    @AndroidFindBy(accessibility = "Invested")
+    WebElement Invested;
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
+    WebElement USStockTabTotalReturnPercentage;
+
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
+    WebElement MFTabTotalReturnPercentage;
+
+    @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
+    WebElement GoalTabTotalReturnPercentage;
 
 
 
@@ -366,5 +404,75 @@ public class PortFolioPage extends BasePage{
     public void SelectMFSection() throws InterruptedException {
         Thread.sleep(3000);
         MF.click();
+    }
+
+    public void StoreReturnPercentageValueFromDashboard() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(OurOfferings));
+
+        String temp1 = USStocksReturnPercentage_HomeDashboard.getAttribute("content-desc");
+        String temp2 = GoalsReturnPercentage_HomeDashboard.getAttribute("content-desc");
+        String temp3 = MFReturnPercentage_HomeDashboard.getAttribute("content-desc");
+
+        USStock_return_Percentage = extractPercentageValue(temp1);
+        Goals_return_Percentage = extractPercentageValue(temp2);
+        MF_return_Percentage = extractPercentageValue(temp3);
+
+        System.out.println("US Stock Home Dashboard Return percentage " + USStock_return_Percentage);
+        System.out.println("Goals Home Dashboard Return percentage " + Goals_return_Percentage);
+        System.out.println("MF Home Dashboard Return percentage " + MF_return_Percentage);
+    }
+
+    private double extractPercentageValue(String rawText) {
+        // This will extract the first number it finds (including decimal point)
+        Pattern pattern = Pattern.compile("(\\d+\\.\\d+)");
+        Matcher matcher = pattern.matcher(rawText);
+        if (matcher.find()) {
+            return Double.parseDouble(matcher.group(1));
+        } else {
+            throw new NumberFormatException("No valid percentage found in string: " + rawText);
+        }
+    }
+
+    public void CompareUSStockReturnPercentage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(Invested));
+
+             String temp=    USStockTabTotalReturnPercentage.getAttribute("content-desc");
+             System.out.println(temp);
+
+             Double USStockReturnPercentage = extractPercentageValue(temp);
+
+             Assert.assertEquals(USStock_return_Percentage,USStockReturnPercentage);
+             System.out.println("US Stock return percentage on dashboard and portfolio are matched");
+
+    }
+
+    public void CompareGoalsReturnPercentage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(Invested));
+
+        String temp=    GoalTabTotalReturnPercentage.getAttribute("content-desc");
+        System.out.println(temp);
+
+        Double GoalsReturnPercentage = extractPercentageValue(temp);
+
+        Assert.assertEquals(Goals_return_Percentage,GoalsReturnPercentage);
+        System.out.println("Goals return percentage on dashboard and portfolio are matched");
+
+    }
+
+    public void CompareMFReturnPercentage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(Invested));
+
+        String temp=    MFTabTotalReturnPercentage.getAttribute("content-desc");
+        System.out.println(temp);
+
+        Double MFReturnPercentage = extractPercentageValue(temp);
+
+        Assert.assertEquals(MF_return_Percentage,MFReturnPercentage);
+        System.out.println("Mutual Fund return percentage on dashboard and portfolio are matched");
+
     }
 }

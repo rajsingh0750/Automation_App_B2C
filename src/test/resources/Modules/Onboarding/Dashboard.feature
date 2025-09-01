@@ -288,22 +288,16 @@ Feature: Dashboard
   #PROD DONE
 
 
-  #Add one scernaiio here which validate all available sections on home dashboard 
 
+  @main_final
+  Scenario: Verify All Available section on home dashboard
+    Given the user is on the Dashboard
+    Then the user should be able to see our offerings sections along with popular and news section
+    And the user should also be able to see popular funds start sip along with create goals section
+    And the user should also be able to see year high today and top gainers
+    And the user should also be able to see top losers and research and perspectives section
 
-#1. Our offering
-#    2. Trading signals
-#    3. Popular stocks
-#    4. News
-#    5. Create a goal
-#    6. Top Gainer
-#    7. Popular funds
-#    8. Start with 100
-#    9. Research
-
-  #Few are left to add in UAT /  Prod and UAT are different
-
-
+    #7M AND 20 SEC it's taking
 
 
   #Search Optimise complete

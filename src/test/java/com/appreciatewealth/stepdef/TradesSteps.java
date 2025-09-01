@@ -34,7 +34,8 @@ public class TradesSteps extends BasePage{
     public void user_is_on_trade_dashboard() throws IOException, InterruptedException {
         //new TradesPage().VerifyUSStocks();
 //        new SignInPage().DynamicSignIn_Prod("raj.singh@ppreciate.com");
-        new SignInPage().DynamicSignIn_Prod("faureretruba-9695@yopmail.com");
+       // new SignInPage().DynamicSignIn_Prod("varshatmysuru1992@gmail.com");
+        new SignInPage().Varsha_Act_DynamicSignIn_Prod("varsha.thandav@ppreciate.com");
     }
 
     @Given("User clicks on Buy now for a stock")
@@ -892,7 +893,7 @@ public class TradesSteps extends BasePage{
 
     @When("User enters an amount greater than the limit of {string} as of today")
     public void userEntersAnAmountGreaterThanTheLimitOfAsOfToday(String arg0) throws InterruptedException {
-        new TradesPage().EnterQuantity("999999");
+        new TradesPage().EnterQuantity("9999999");
     }
 
     @When("User enters the purchase amount")

@@ -463,6 +463,9 @@ public class DashboardPage extends BasePage {
     @AndroidFindBy(accessibility = "EQUITY")
     WebElement Equity;
 
+    @AndroidFindBy(accessibility = "STOCK")
+    WebElement STOCK;
+
 
     @AndroidFindBy(accessibility = "Filter(1)")
     WebElement SecondTimeFilter;
@@ -477,6 +480,48 @@ public class DashboardPage extends BasePage {
 
     @AndroidFindBy(accessibility = "All")
     WebElement AllOption;
+
+
+    @AndroidFindBy(accessibility = "Our Offerings")
+    WebElement OurOfferings;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Popular US Stocks\n" +
+            "View all\"]")
+    WebElement PopularUSStocks;
+
+    @AndroidFindBy(accessibility = "News")
+    WebElement NewsSection;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Popular funds\n" +
+            "View all \"]")
+    WebElement PopularFunds;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Start with ₹100\n" +
+            "View all \"]")
+    WebElement StartWith_100;
+
+    @AndroidFindBy(accessibility = "Create Goal")
+    WebElement CreateGoal;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Year High Today\n" +
+            "View all\"]")
+    WebElement YearHighToday;
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Top Gainers\n" +
+            "View all\"]")
+    WebElement TopGainers;
+
+
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Top Losers\n" +
+            "View all\"]")
+    WebElement TopLosers;
+
+    @AndroidFindBy(accessibility = "Research & Perspectives")
+    WebElement ResearchAndPerspectives;
 
 
     public void NavigatetoDashboard() throws IOException, InterruptedException {
@@ -1290,6 +1335,11 @@ public class DashboardPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(Equity));
         Equity.click();
     }
+    public void SelectStockOption() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(STOCK));
+        STOCK.click();
+    }
 
     public void SecondTimeFilterClick() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -1374,6 +1424,37 @@ public class DashboardPage extends BasePage {
 
         String msg = MinimumTransactionAmount.getAttribute("content-desc");
         System.out.println("As Of today limit error " + msg);
+    }
+
+    public void ValidateOurOfferingsSectionsAlongWithPopularAndNewsSection() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        wait.until(ExpectedConditions.visibilityOf(OurOfferings));
+        wait.until(ExpectedConditions.visibilityOf(PopularUSStocks));
+        wait.until(ExpectedConditions.visibilityOf(NewsSection));
+    }
+
+
+    public void ValidatePopularFundsStartSipAlongWithCreateGoalsSection() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(PopularFunds));
+        wait.until(ExpectedConditions.visibilityOf(StartWith_100));
+        wait.until(ExpectedConditions.visibilityOf(CreateGoal));
+    }
+
+    public void ValidateYearHighTodayAndTopGainers() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        wait.until(ExpectedConditions.visibilityOf(YearHighToday));
+        wait.until(ExpectedConditions.visibilityOf(TopGainers));
+
+    }
+
+    public void ValidateTopLosersAndResearchAndPerspectivesSection() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        wait.until(ExpectedConditions.visibilityOf(TopLosers));
+        wait.until(ExpectedConditions.visibilityOf(ResearchAndPerspectives));
     }
 
 //    public void VerifyDailyReturn() throws InterruptedException {

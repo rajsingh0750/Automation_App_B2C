@@ -286,10 +286,10 @@ public class WatchlistSteps extends BasePage {
 
     @Then("User will  see an error message as {string}")
     public void userWillSeeAnErrorMessageAs(String arg0) throws InterruptedException {
-//        new WatchlistPage().VerifyWatchlistNameError("This name is taken, try another watchlist name");
-//        new WatchlistPage().ClickOnCrossIcon();
-//        basePage.AndroidBack();
-//        basePage.AndroidBack();
+        new WatchlistPage().VerifyWatchlistNameError("This name is taken, try another watchlist name");
+        new WatchlistPage().ClickOnCrossIcon();
+        basePage.AndroidBack();
+        basePage.AndroidBack();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }

@@ -314,7 +314,7 @@ public class SignInPage extends BasePage {
         Thread.sleep(5000);
         TapEmail.click();
         TextBox.sendKeys(email);
-        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+       // driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
         Thread.sleep(2000);
         SendOTP.click();
         // Thread.sleep(3000);
@@ -357,6 +357,60 @@ public class SignInPage extends BasePage {
         ));
 
         WebElement element4 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"4\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element4).getId()
+        ));
+
+    }
+
+    public void Varsha_Act_DynamicSignIn_Prod(String email) throws InterruptedException {
+        Thread.sleep(5000);
+        TapEmail.click();
+        TextBox.sendKeys(email);
+        // driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        Thread.sleep(2000);
+        SendOTP.click();
+        // Thread.sleep(3000);
+        //Password.sendKeys(password);
+        // SendOTP.click();
+        Thread.sleep(10000);
+        EnterOTP.sendKeys("769201");
+        driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+        Thread.sleep(2000);
+        confirmOTP.click();
+        Thread.sleep(12000);
+        Thread.sleep(4000);
+        //AllowOTPfromClipboard();
+
+//        Biometric_Cancle();
+//
+//        Thread.sleep(20000);
+
+
+        boolean b = ((AndroidDriver) driver).isKeyboardShown();
+        System.out.println("Keyboard Shown "+b);
+        //Thread.sleep(6000);
+
+        WebElement element = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"2\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId()
+        ));
+
+        WebElement element2 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"1\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element2).getId()
+        ));
+
+        WebElement element3 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"9\"]"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element3).getId()
+        ));
+
+        WebElement element4 = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"2\"]"));
 
         driver.executeScript("mobile: clickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element4).getId()

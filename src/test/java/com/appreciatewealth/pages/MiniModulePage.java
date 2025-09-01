@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.IOException;
@@ -296,8 +298,10 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ImageView")
     private WebElement SupportBack;
 
-    @AndroidFindBy(xpath = "//*[@text='Change Language']")
+    @AndroidFindBy(accessibility = "Change Language")
     private WebElement Language;
+
+
     @AndroidFindBy(xpath = "//*[@text='Hindi']")
     private WebElement Hindi;
 
@@ -561,7 +565,7 @@ public class MiniModulePage extends BasePage {
     @AndroidFindBy(xpath ="//*[@text='Settings & Preferences']")
     WebElement SettingPasscode;
 
-    @AndroidFindBy(xpath ="//*[@text='Change Passcode']")
+    @AndroidFindBy(accessibility ="Change Passcode")
     WebElement ChangePasscode;
 
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.Button")
@@ -1204,6 +1208,14 @@ public class MiniModulePage extends BasePage {
     WebElement EnterMsgError;
 
 
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.widget.ImageView")
+    WebElement SettingIcon;
+
+
+    @AndroidFindBy(accessibility = "Settings")
+    WebElement SettingsHeading;
+
+
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"US Stocks\n" +
             "Tab 1 of 2\"]")
     WebElement USStocks;
@@ -1293,6 +1305,11 @@ public class MiniModulePage extends BasePage {
 
     @AndroidFindBy(accessibility = "Dark mode")
     WebElement DarkMode;
+
+
+    @AndroidFindBy(accessibility = "Use device settings")
+    WebElement UserDeviceSettings;
+
 
     @AndroidFindBy(accessibility = "Deactivate Accounts")
     WebElement DeactivateAccounts;
@@ -2163,12 +2180,6 @@ public class MiniModulePage extends BasePage {
     }
 
     public void ClickChangeLanguage() throws InterruptedException {
-        Thread.sleep(3000);
-        boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                "left", 100, "top", 100, "width", 600, "height", 700,
-                "direction", "down",
-                "percent", 1.0
-        ));
         Thread.sleep(3000);
         Language.click();
 
@@ -3342,7 +3353,15 @@ public class MiniModulePage extends BasePage {
 
     public void ClickOnPersonalDetails() throws InterruptedException {
         Thread.sleep(3000);
-        PersonalDetails.click();
+        //PersonalDetails.click();
+        int x =197;
+        int y = 160;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
     }
 
     public void VerifyAllPersonalDetails() throws InterruptedException {
@@ -4599,6 +4618,26 @@ public class MiniModulePage extends BasePage {
         EnterSubjectErrorMsg.isDisplayed();
         EnterMsgError.isDisplayed();
 
+    }
+
+    public void ClickOnSettingIcon() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(SettingIcon));
+        SettingIcon.click();
+    }
+
+    public void ValidateAllSectionUnderSettings() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(SettingsHeading));
+
+        ChangePasscode.isDisplayed();
+        ChangeLanguage.isDisplayed();
+        InvestmentBuilder.isDisplayed();
+        DayTradeSetting.isDisplayed();
+        Biometric.isDisplayed();
+        DarkMode.isDisplayed();
+        DeactivateAccounts.isDisplayed();
+        UserDeviceSettings.isDisplayed();
     }
 }
 

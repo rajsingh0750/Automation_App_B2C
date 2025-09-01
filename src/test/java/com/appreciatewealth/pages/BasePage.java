@@ -122,6 +122,14 @@ public class BasePage {
         driver.perform(List.of(tap));
     }
 
+    public void ScrollDown(int number_of_scroll) throws InterruptedException {
+        Thread.sleep(4000);
+        for (int i = 0; i < number_of_scroll; i++) {
+            driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollToEnd(1)"));
+        }
+        Thread.sleep(2000);
+
+    }
 
     public void Logout() throws InterruptedException {
 

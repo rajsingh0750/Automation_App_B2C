@@ -37,7 +37,7 @@ public class CapabilitiesManager extends BasePage {
 
 
 
-                    caps.setCapability(MobileCapabilityType.APP,"/Users/raj/Downloads/AppreciateMobileAutomationNewUI_Investment_Final_Updated_With_Flutter/src/test/resources/App/UAT/AppreciateUAT.apk");
+                    caps.setCapability(MobileCapabilityType.APP,"/Users/raj/Downloads/AppreciateMobileAutomationNewUI_Investment_Final_Updated_With_Flutter/src/test/resources/App/Prod/AppreciateProd.apk");
                     //caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
                     //caps.setCapability("systemPort", params.getSystemPort());
                     //caps.setCapability("chromeDriverPort", params.getChromeDriverPort());

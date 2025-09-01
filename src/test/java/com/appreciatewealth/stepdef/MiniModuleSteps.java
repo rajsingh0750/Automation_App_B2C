@@ -699,6 +699,7 @@ public class MiniModuleSteps extends BasePage {
     @And("the User Clicks on Change Passcode")
     public void theUserClicksOnChangePasscode() throws InterruptedException {
         new MiniModulePage().ClickPasscode();
+        new MiniModulePage().ClickPasscode();
 
     }
 
@@ -719,7 +720,8 @@ public class MiniModuleSteps extends BasePage {
         new MiniModulePage().SetPasscode();
         signInPage.DynamicSignIn("varsha.thandav@ppreciate.com");
         new MiniModulePage().NavigateToMiniModule();
-        basePage.Logout();
+        //basePage.Logout();
+        new MiniModulePage(). ClickOnSettingIcon();
 
     }
 
@@ -965,8 +967,8 @@ public class MiniModuleSteps extends BasePage {
         new MiniModulePage().ClickEnableTrading();
         new MiniModulePage().ClickDistributClose();
         basePage.AndroidBack();
-        new MiniModulePage().ClickDocumentsClose();
-        basePage.Logout();
+//        new MiniModulePage().ClickDocumentsClose();
+//        basePage.Logout();
     }
 
     @Given("the User is on the MiniModule page")
@@ -1168,8 +1170,8 @@ public class MiniModuleSteps extends BasePage {
 
     @Then("User should see setting and preferences page")
     public void userShouldSeeSettingAndPreferencesPage() throws InterruptedException {
-        new MiniModulePage(). VerifySettingAndPreferencesPage();
-        basePage.Logout();
+        new MiniModulePage(). ClickOnSettingIcon();
+//        basePage.Logout();
 
     }
 
@@ -1669,5 +1671,15 @@ public class MiniModuleSteps extends BasePage {
         basePage.AndroidBack();
         basePage.Logout();
 
+    }
+
+    @And("the User click on setting icon")
+    public void theUserClickOnSettingIcon() {
+        new MiniModulePage(). ClickOnSettingIcon();
+    }
+
+    @Then("the User should see all section under settings tab")
+    public void theUserShouldSeeAllSectionUnderSettingsTab() {
+        new MiniModulePage(). ValidateAllSectionUnderSettings();
     }
 }
