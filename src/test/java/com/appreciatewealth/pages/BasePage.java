@@ -227,12 +227,6 @@ public class BasePage {
 
     public static void ClickSignOut(AppiumDriver driver) throws InterruptedException {
         Thread.sleep(4000);
-    /*WebElement element= driver.findElement(AppiumBy.xpath("//*[contains(@text,'sign out')]"));
-       // WebElement element4 = driver.findElement(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView"));
-
-        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) element).getId()
-        ));*/
         int x = 542;
         int y = 234;
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -406,8 +400,11 @@ public class BasePage {
 ////        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 ////        wait.until(ExpectedConditions.visibilityOf(ProfileSettings));
 ////        ProfileSettings.click();
-        Thread.sleep(8000);
-        ProfileSettings.click();
+//        Thread.sleep(8000);
+//        ProfileSettings.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(ProfileSettings)).click();
 
 
     }
@@ -685,7 +682,7 @@ public class BasePage {
 
     public void SlideHorizontally(int StartX, int StartY, int EndX, int EndY) throws InterruptedException {
         Thread.sleep(6000);
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        PointerInput finger = new  PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence swipeRight = new Sequence(finger, 1);
 
         // Move to the starting position
@@ -737,8 +734,8 @@ public class BasePage {
     }
 
     public void ClickOnCrossIcon() throws InterruptedException {
-        Thread.sleep(3000);
-        CrossIcon.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(CrossIcon)).click();
+
     }
 
 

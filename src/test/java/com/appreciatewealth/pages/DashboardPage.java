@@ -6,6 +6,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.testng.asserts.SoftAssert;
 
 public class DashboardPage extends BasePage {
     TestUtils utils = new TestUtils();
@@ -209,6 +211,14 @@ public class DashboardPage extends BasePage {
             "FOXO Technologies Inc\n" +
             "EQUITY\"]")
     private WebElement FoxoStock;
+
+
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"BLUWW\n" +
+            "BLUE WATER ACQUISITION C-A\n" +
+            "EQUITY\"]")
+    private WebElement BLUWW_Stock;
+
 
 
     @AndroidFindBy(accessibility = "Filter")
@@ -497,9 +507,8 @@ public class DashboardPage extends BasePage {
             "View all \"]")
     WebElement PopularFunds;
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Start with ₹100\n" +
-            "View all \"]")
-    WebElement StartWith_100;
+    @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Daily SIP Mutual Funds')]")
+    WebElement Daily_SIP_MF;
 
     @AndroidFindBy(accessibility = "Create Goal")
     WebElement CreateGoal;
@@ -754,8 +763,8 @@ public class DashboardPage extends BasePage {
     }
 
     public void SelectNewsTab() throws InterruptedException {
-        Thread.sleep(4000);
-        NewsTab.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(NewsTab)).click();
+
     }
 
     public void VerifyStockNews() throws InterruptedException {
@@ -840,11 +849,23 @@ public class DashboardPage extends BasePage {
     }
 
     public void VerifyCountOfTopLosersStocks() throws InterruptedException {
-        Thread.sleep(3000);
-        USTopLosers.click();
-        Thread.sleep(4000);
-        TopLosersHeading.isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
+        wait.until(ExpectedConditions.elementToBeClickable(USTopLosers)).click();
+
+
+        wait.until(ExpectedConditions.visibilityOf(TopLosersHeading));
+
+        // Wait for content-desc attribute of TopGainersStocksCount to be non-empty
+        wait.until(driver -> {
+            String contentDesc = TopGainersStocksCount.getAttribute("content-desc");
+            return contentDesc != null && !contentDesc.trim().isEmpty();
+        });
+
+        // Now safely get the attribute
         String accessibilityId = TopGainersStocksCount.getAttribute("content-desc");
+        System.out.println("Accessibility ID: " + accessibilityId);
 
         String regex = "(\\d+) items";
         Pattern pattern = Pattern.compile(regex);
@@ -865,11 +886,25 @@ public class DashboardPage extends BasePage {
     }
 
     public void VerifyCountOfUSYearHighTodayStocks() throws InterruptedException {
-        Thread.sleep(3000);
-        USYearHighToday.click();
-        Thread.sleep(4000);
-        USYearHighTodayHeading.isDisplayed();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
+        wait.until(ExpectedConditions.elementToBeClickable(USYearHighToday)).click();
+
+
+        wait.until(ExpectedConditions.visibilityOf(USYearHighTodayHeading));
+
+        // Wait for content-desc attribute of TopGainersStocksCount to be non-empty
+        wait.until(driver -> {
+            String contentDesc = TopGainersStocksCount.getAttribute("content-desc");
+            return contentDesc != null && !contentDesc.trim().isEmpty();
+        });
+
+        // Now safely get the attribute
         String accessibilityId = TopGainersStocksCount.getAttribute("content-desc");
+        System.out.println("Accessibility ID: " + accessibilityId);
+
 
         String regex = "(\\d+) items";
         Pattern pattern = Pattern.compile(regex);
@@ -1082,25 +1117,64 @@ public class DashboardPage extends BasePage {
     }
 
     public void VerifyAllVisibleSection() throws InterruptedException {
-        Thread.sleep(5000);
-        SearchPage.isDisplayed();
-        UsStocks.isDisplayed();
-        MutualFunds.isDisplayed();
-        News.isDisplayed();
-        ReasearchTab.isDisplayed();
-        CraftedListSection.isDisplayed();
-        RecentlyViewedSection.isDisplayed();
-        ViewAllbtn.isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        SoftAssert softAssert = new SoftAssert();
+
+        WebElement[] elements = {
+                SearchPage,
+                UsStocks,
+                MutualFunds,
+                News,
+                ReasearchTab,
+                CraftedListSection,
+                RecentlyViewedSection,
+                ViewAllbtn
+        };
+
+        String[] elementNames = {
+                "SearchPage",
+                "UsStocks",
+                "MutualFunds",
+                "News",
+                "ReasearchTab",
+                "CraftedListSection",
+                "RecentlyViewedSection",
+                "ViewAllbtn"
+        };
+
+        for (int i = 0; i < elements.length; i++) {
+            try {
+                wait.until(ExpectedConditions.visibilityOf(elements[i]));
+                softAssert.assertTrue(elements[i].isDisplayed(), elementNames[i] + " is not visible");
+            } catch (Exception e) {
+                softAssert.fail(elementNames[i] + " is not visible or not found: " + e.getMessage());
+            }
+        }
+
+        softAssert.assertAll();
 
 
     }
 
     public void VerifyCountOfUSYearLowTodayStocks() throws InterruptedException {
-        Thread.sleep(3000);
-        USYearLowToday.click();
-        Thread.sleep(4000);
-        USYearLowTodayHeading.isDisplayed();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait for USTopLosers to be clickable and click
+        wait.until(ExpectedConditions.elementToBeClickable(USYearLowToday)).click();
+
+        // Wait for TopLosersHeading to be visible
+        wait.until(ExpectedConditions.visibilityOf(USYearLowTodayHeading));
+
+        // Wait for content-desc attribute of TopGainersStocksCount to be non-empty
+        wait.until(driver -> {
+            String contentDesc = TopGainersStocksCount.getAttribute("content-desc");
+            return contentDesc != null && !contentDesc.trim().isEmpty();
+        });
+
+        // Now safely get the attribute
         String accessibilityId = TopGainersStocksCount.getAttribute("content-desc");
+        System.out.println("Accessibility ID: " + accessibilityId);
 
         String regex = "(\\d+) items";
         Pattern pattern = Pattern.compile(regex);
@@ -1116,33 +1190,41 @@ public class DashboardPage extends BasePage {
 
     public void VerifyRecentlyViewedSection() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
         wait.until(ExpectedConditions.visibilityOf(RecentlyViewedSection));
-        // clicking on stock under recently viewed
-        Thread.sleep(2000);
-        int x =367;
+
+
+        int x = 367;
         int y = 1055;
+
+        // Create touch input sequence for tap
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence tap = new Sequence(finger, 1);
         tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
         tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        // Perform tap
         driver.perform(List.of(tap));
 
-        Thread.sleep(5000);
-        BuyCTA.isDisplayed();
+        // Wait until BuyCTA is clickable, then click
+        wait.until(ExpectedConditions.elementToBeClickable(BuyCTA)).click();
 
 
     }
 
     public void VerifyRecentlyViewedFromViewAllButton() throws InterruptedException {
-        Thread.sleep(3000);
-        ViewAllbtn.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        Thread.sleep(3000);
-        RecentlyviewedPage.isDisplayed();
 
-        // clicking on stock using coordinate not getting xpath
-        int x =387;
+        wait.until(ExpectedConditions.elementToBeClickable(ViewAllbtn)).click();
+
+
+        wait.until(ExpectedConditions.visibilityOf(RecentlyviewedPage));
+
+
+        int x = 387;
         int y = 1360;
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence tap = new Sequence(finger, 1);
@@ -1151,26 +1233,25 @@ public class DashboardPage extends BasePage {
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(List.of(tap));
 
-        Thread.sleep(3000);
-        BuyCTA.isDisplayed();
-
+        wait.until(ExpectedConditions.visibilityOf(BuyCTA));
     }
 
-    public void ClickOnTopPicksStock() throws InterruptedException {
-        Thread.sleep(3000);
+
+    public void ClickOnTopPicksStock() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Perform the scroll gesture (assuming 1 scroll here)
         boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
                 "left", 100, "top", 100, "width", 600, "height", 800,
                 "direction", "down",
                 "percent", 0.1
         ));
-        Thread.sleep(3000);
 
-        // clicking on top picks stocks
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        // Wait until TopPicks element is visible after scroll
         wait.until(ExpectedConditions.visibilityOf(TopPicks));
 
-        int x =345;
+        // Tap on the TopPicks coordinate
+        int x = 345;
         int y = 1241;
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence tap = new Sequence(finger, 1);
@@ -1179,40 +1260,51 @@ public class DashboardPage extends BasePage {
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(List.of(tap));
 
-        Thread.sleep(5000);
-        BuyCTA.isDisplayed();
-
+        // Wait explicitly for BuyCTA to be visible and displayed
+        wait.until(ExpectedConditions.visibilityOf(BuyCTA));
     }
 
-    public void VerifyTopPicksFromViewAllButton() throws InterruptedException {
-        Thread.sleep(3000);
+    public void VerifyTopPicksFromViewAllButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Perform scroll gesture
         boolean canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
                 "left", 100, "top", 100, "width", 600, "height", 800,
                 "direction", "down",
                 "percent", 0.1
         ));
-        Thread.sleep(3000);
-        TopPicksViewAllbtn.click();
-        Thread.sleep(3000);
+
+        wait.until(ExpectedConditions.elementToBeClickable(TopPicksViewAllbtn)).click();
+
+        // Wait until the 'content-desc' attribute of TopPicksStocksCount is present and not empty
+        wait.until(driver -> {
+            String contentDesc = TopPicksStocksCount.getAttribute("content-desc");
+            return contentDesc != null && !contentDesc.trim().isEmpty();
+        });
+
+        // Now safely get the attribute
         String accessibilityId = TopPicksStocksCount.getAttribute("content-desc");
 
+        // Regex to extract numeric value before "items"
         String regex = "(\\d+) items";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(accessibilityId);
 
         if (matcher.find()) {
             String number = matcher.group(1);
-            System.out.println("The numeric value of top picks stocks are: " + number);
+            System.out.println("The numeric value of top picks stocks is: " + number);
         } else {
             System.out.println("No numeric value found before 'items'.");
         }
-
     }
 
-    public void ClickOnAppleStock() throws InterruptedException {
-        Thread.sleep(4000);
-        AppleStock.click();
+
+    public void ClickOnAppleStock() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(AppleStock))
+                .click();
     }
+
 
     public void VerifyStockDetailsPage() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // waits up to 10 seconds
@@ -1227,8 +1319,8 @@ public class DashboardPage extends BasePage {
     }
 
     public void ClickOnMFTab() throws InterruptedException {
-        Thread.sleep(3000);
-        MFTab.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(MFTab)).click();
+
     }
 
     public void ClearUSStockSearch() throws InterruptedException {
@@ -1238,18 +1330,28 @@ public class DashboardPage extends BasePage {
         ClearCrossIcon.click();
     }
 
-    public void EnterMFName(String nipponIndiaGrowthFund) throws InterruptedException {
-        Thread.sleep(3000);
-        MFSearchTab.click();
-        Thread.sleep(2000);
-        EnterFund.sendKeys(nipponIndiaGrowthFund);
+    public void EnterMFName(String nipponIndiaGrowthFund) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(MFSearchTab)).click();
+        wait.until(ExpectedConditions.visibilityOf(EnterFund)).sendKeys(nipponIndiaGrowthFund);
     }
 
-    public void ClickOnNipponMFFundName() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.elementToBeClickable(NipponIndiaMF));
 
-        NipponIndiaMF.click();
+    public void ClickOnNipponMFFundName() throws InterruptedException {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//        wait.until(ExpectedConditions.elementToBeClickable(NipponIndiaMF));
+//
+//        NipponIndiaMF.click();
+
+        int x =313;
+        int y = 1158;
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(List.of(tap));
+
 
     }
 
@@ -1267,7 +1369,7 @@ public class DashboardPage extends BasePage {
 
     public void NavigatedToTheNewsDetailsPage() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(6000);
 
             // Tap on the specified coordinates
             int x = 363;
@@ -1297,7 +1399,7 @@ public class DashboardPage extends BasePage {
 
     public void NavigatedToTheResearchDetailsPage() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(6000);
 
             // Tap on the specified coordinates
             int x = 363;
@@ -1326,8 +1428,8 @@ public class DashboardPage extends BasePage {
     }
 
     public void ClickOnResearchTab() throws InterruptedException {
-        Thread.sleep(3000);
-        ResearchTab.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(ResearchTab)).click();
+
     }
 
     public void SelectEquityOption() throws InterruptedException {
@@ -1354,18 +1456,18 @@ public class DashboardPage extends BasePage {
     }
 
     public void ClickOnIndustrySection() throws InterruptedException {
-        Thread.sleep(3000);
-        IndustrySection.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(IndustrySection)).click();
     }
 
     public void SelectOneOptionFromIndustrySection() throws InterruptedException {
-        Thread.sleep(3000);
-        AllOption.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(AllOption)).click();
+
     }
 
     public void VerifySearchPage() throws InterruptedException {
-        Thread.sleep(3000);
-        SearchPage.isDisplayed();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(SearchPage));
+
+
     }
 
     public void ClickOnFoxoStockProd() throws InterruptedException {
@@ -1373,10 +1475,10 @@ public class DashboardPage extends BasePage {
 
         try {
             // Wait until the FoxoStock element is visible
-            wait.until(ExpectedConditions.visibilityOf(FoxoStock));
+            wait.until(ExpectedConditions.visibilityOf(BLUWW_Stock));
 
-            if (FoxoStock.isDisplayed()) {
-                FoxoStock.click();
+            if (BLUWW_Stock.isDisplayed()) {
+                BLUWW_Stock.click();
             } else {
                 System.out.println("FoxoStock element is not visible. Skipping click.");
             }
@@ -1438,7 +1540,7 @@ public class DashboardPage extends BasePage {
     public void ValidatePopularFundsStartSipAlongWithCreateGoalsSection() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(PopularFunds));
-        wait.until(ExpectedConditions.visibilityOf(StartWith_100));
+        wait.until(ExpectedConditions.visibilityOf(Daily_SIP_MF));
         wait.until(ExpectedConditions.visibilityOf(CreateGoal));
     }
 
@@ -1455,6 +1557,23 @@ public class DashboardPage extends BasePage {
 
         wait.until(ExpectedConditions.visibilityOf(TopLosers));
         wait.until(ExpectedConditions.visibilityOf(ResearchAndPerspectives));
+    }
+
+    public void ClickOnBLUWWStockProd() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        try {
+            // Wait until the FoxoStock element is visible
+            wait.until(ExpectedConditions.visibilityOf(BLUWW_Stock));
+
+            if (BLUWW_Stock.isDisplayed()) {
+                BLUWW_Stock.click();
+            } else {
+                System.out.println("FoxoStock element is not visible. Skipping click.");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception while clicking on FoxoStock: " + e.getMessage());
+        }
     }
 
 //    public void VerifyDailyReturn() throws InterruptedException {

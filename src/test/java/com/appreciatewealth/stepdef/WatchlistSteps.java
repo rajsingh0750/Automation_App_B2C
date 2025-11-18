@@ -318,6 +318,7 @@ public class WatchlistSteps extends BasePage {
     public void userWillComeBackToWatchlistPage() throws InterruptedException {
 //        new WatchlistPage().ComeToWatchlistPage();
         basePage.AndroidBack();
+        basePage.AndroidBack();
     }
 
     @Then("User should see the created watchlist")

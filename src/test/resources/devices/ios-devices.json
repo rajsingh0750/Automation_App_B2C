@@ -1,0 +1,45 @@
+{
+  "iosDevices": [
+    {
+      "deviceName": "iPhone 14",
+      "platformVersion": "16.0",
+      "platformName": "iOS",
+      "deviceId": "iphone_14",
+      "resolution": "1170x2532",
+      "dpi": "460"
+    },
+    {
+      "deviceName": "iPhone 13 Pro",
+      "platformVersion": "15.0",
+      "platformName": "iOS", 
+      "deviceId": "iphone_13_pro",
+      "resolution": "1170x2532",
+      "dpi": "460"
+    },
+    {
+      "deviceName": "iPhone 12",
+      "platformVersion": "14.0",
+      "platformName": "iOS",
+      "deviceId": "iphone_12",
+      "resolution": "1170x2532",
+      "dpi": "460"
+    },
+    {
+      "deviceName": "iPhone SE (3rd generation)",
+      "platformVersion": "15.0",
+      "platformName": "iOS",
+      "deviceId": "iphone_se_3rd_gen",
+      "resolution": "750x1334",
+      "dpi": "326"
+    },
+    {
+      "deviceName": "iPad Pro (6th generation)",
+      "platformVersion": "16.0",
+      "platformName": "iOS",
+      "deviceId": "ipad_pro_6th_gen",
+      "resolution": "2048x2732",
+      "dpi": "264"
+    }
+  ]
+}
+

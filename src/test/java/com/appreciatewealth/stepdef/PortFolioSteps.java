@@ -28,8 +28,8 @@ public class PortFolioSteps extends BasePage {
         new PortFolioPage().VerifyUSStocksTabCalculation();
         new PortFolioPage().SelectGoalsSection();
         new PortFolioPage().VerifyGoalsTabCalculation();
-        new PortFolioPage().SelectMFSection();
-        new PortFolioPage().VerifyMFTabCalculation();
+//        new PortFolioPage().SelectMFSection();
+//        new PortFolioPage().VerifyMFTabCalculation();
         basePage.ClickProfileSettings();
         basePage.Logout();
     }
@@ -69,5 +69,88 @@ public class PortFolioSteps extends BasePage {
         new PortFolioPage().CompareMFReturnPercentage();
         basePage.ClickProfileSettings();
         basePage.Logout();
+    }
+
+
+    @Then("User Clicks on US Stocks in Portfolio")
+    public void userClicksOnUSStocksInPortfolio() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().ClickOnUSStocks();
+    }
+
+    @Then("User Clicks on Goals in Portfolio")
+    public void userClicksOnGoalsInPortfolio() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().ClickOnGoals();
+    }
+
+    @And("User will verify calculation of US Stocks")
+    public void userWillVerifyCalculationOfUSStocks() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().VerifyUSStocksCalculation();
+    }
+
+    @And("User will verify calculation of Goals")
+    public void userWillVerifyCalculationOfGoals() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().VerifyGoalsCalculation();
+    }
+
+    @Then("User Clicks on Mutual Funds in Portfolio")
+    public void userClicksOnMutualFundsInPortfolio() throws InterruptedException{
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().ClickOnMF();
+    }
+
+    @And("User will verify calculation of Mutual Funds")
+    public void userWillVerifyCalculationOfMutualFunds() throws InterruptedException{
+        // Write code here that turns the phrase above into concrete actions
+       // new PortFolioPage().VerifyMFCalculation();
+        ClickProfileSettings();
+        Logout();
+    }
+
+    @Then("User will verify the calculation of all sections")
+    public void userWillVerifyTheCalculationOfAllSections() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().VerifyAllCalculation();
+    }
+
+    @Then("User gets the US Stocks value on Home Dashboard")
+    public void userGetsTheUSStocksValueOnHomeDashboard() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().GetUSStock_ValueOn_Dashboard();
+    }
+
+    @And("User gets the Goals value on Home Dashboard")
+    public void userGetsTheGoalsValueOnHomeDashboard() throws InterruptedException{
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().GetGoals_ValueOn_Dashboard();
+    }
+
+    @And("User gets the Mutual Funds Value on Home Dashboard")
+    public void userGetsTheMutualFundsValueOnHomeDashboard() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().GetMF_ValueOn_Dashboard();
+    }
+
+    @And("User verify the US Stocks value with US Stocks value on Home Dashboard")
+    public void userVerifyTheUSStocksValueWithUSStocksValueOnHomeDashboard() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().USStockVerify();
+    }
+
+    @And("User verify the Mutual Funds value with Mutual Funds value on Home Dashboard")
+    public void userVerifyTheMutualFundsValueWithMutualFundsValueOnHomeDashboard() throws InterruptedException{
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().MFStockVerify();
+        ClickProfileSettings();
+        Logout();
+    }
+
+    @And("User verify the Goals value with Goals value on Home Dashboard")
+    public void userVerifyTheGoalsValueWithGoalsValueOnHomeDashboard() throws InterruptedException{
+        // Write code here that turns the phrase above into concrete actions
+        new PortFolioPage().GoalsVerify();
     }
 }

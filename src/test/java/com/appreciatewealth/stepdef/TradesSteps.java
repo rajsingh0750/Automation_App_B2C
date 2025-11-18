@@ -34,8 +34,8 @@ public class TradesSteps extends BasePage{
     public void user_is_on_trade_dashboard() throws IOException, InterruptedException {
         //new TradesPage().VerifyUSStocks();
 //        new SignInPage().DynamicSignIn_Prod("raj.singh@ppreciate.com");
-       // new SignInPage().DynamicSignIn_Prod("varshatmysuru1992@gmail.com");
-        new SignInPage().Varsha_Act_DynamicSignIn_Prod("varsha.thandav@ppreciate.com");
+        new SignInPage().DynamicSignIn_Prod("varshatmysuru1992@gmail.com");
+        //new SignInPage().Varsha_Act_DynamicSignIn_Prod("varsha.thandav@ppreciate.com");
     }
 
     @Given("User clicks on Buy now for a stock")
@@ -64,6 +64,7 @@ public class TradesSteps extends BasePage{
         new TradesPage().ValidateIfOrderPlaced();
       //  basePage.AndroidBack();
         basePage.ClickProfileSettings();
+        ClickProfileSettings();
         basePage.Logout();
     }
 
@@ -824,12 +825,13 @@ public class TradesSteps extends BasePage{
 
     @When("User search the stocks under US Stocks on Prod App")
     public void userSearchTheStocksUnderUSStocksOnProdApp() throws InterruptedException {
-        new DashboardPage().EnterStockName("FOXO");
+        new DashboardPage().EnterStockName("BLUWW");
     }
 
     @And("User click on the Stock on Prod App")
     public void userClickOnTheStockOnProdApp() throws InterruptedException {
-        new DashboardPage().ClickOnFoxoStockProd();
+        //new DashboardPage().ClickOnFoxoStockProd();
+        new DashboardPage().ClickOnBLUWWStockProd();
     }
 
     @Then("User should see without enter amount and quantity error message {string}")

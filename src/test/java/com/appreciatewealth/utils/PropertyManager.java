@@ -6,6 +6,7 @@ import java.util.Properties;
 
 public class PropertyManager {
     private static Properties props = new Properties();
+    private static Properties browserStackProps = new Properties();
     TestUtils utils = new TestUtils();
 
     public Properties getProps() throws IOException {
@@ -28,5 +29,27 @@ public class PropertyManager {
             }
         }
         return props;
+    }
+
+    public Properties getBrowserStackProps() throws IOException {
+        InputStream is = null;
+        String propsFileName = "browserstack.properties";
+
+        if(browserStackProps.isEmpty()){
+            try{
+                utils.log().info("loading BrowserStack properties");
+                is = getClass().getClassLoader().getResourceAsStream(propsFileName);
+                browserStackProps.load(is);
+            } catch (IOException e) {
+                e.printStackTrace();
+                utils.log().fatal("Failed to load BrowserStack properties. ABORT!!" + e.toString());
+                throw e;
+            } finally {
+                if(is != null){
+                    is.close();
+                }
+            }
+        }
+        return browserStackProps;
     }
 }

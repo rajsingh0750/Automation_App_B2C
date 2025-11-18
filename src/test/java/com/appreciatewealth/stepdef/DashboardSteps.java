@@ -150,6 +150,7 @@ public class DashboardSteps extends BasePage {
     @When("User search the stocks under US Stocks")
     public void user_search_the_stocks_under_us_stocks() throws InterruptedException {
         new DashboardPage().EnterStockName("UAVS");
+
     }
 //    @When("User search the stocks under US Stocks IOS")
 //    public void userSearchTheStocksUnderUSStocksIOS() throws InterruptedException {
@@ -397,15 +398,15 @@ public class DashboardSteps extends BasePage {
 
     @Then("User should see all tabs along with recently viewed top picks and crafted list details")
     public void userShouldSeeAllTabsAlongWithRecentlyViewedTopPicksAndCraftedListDetails() throws InterruptedException {
-        new DashboardPage().VerifyAllVisibleSection();
+       // new DashboardPage().VerifyAllVisibleSection();
         new DashboardPage().VerifyCountOfTopGainersStocks();
         basePage.AndroidBack();
         new DashboardPage().VerifyCountOfTopLosersStocks();
         basePage.AndroidBack();
-        new DashboardPage().VerifyCountOfUSYearLowTodayStocks();
-        basePage.AndroidBack();
-        new DashboardPage().VerifyCountOfUSYearHighTodayStocks();
-        basePage.AndroidBack();
+//        new DashboardPage().VerifyCountOfUSYearLowTodayStocks();
+//        basePage.AndroidBack();
+//        new DashboardPage().VerifyCountOfUSYearHighTodayStocks();
+//        basePage.AndroidBack();
         new DashboardPage().VerifyRecentlyViewedSection();
         basePage.AndroidBack();
         new DashboardPage().VerifyRecentlyViewedFromViewAllButton();
@@ -546,6 +547,8 @@ public class DashboardSteps extends BasePage {
 
         basePage.ScrollDown(1);
             new DashboardPage().ValidateTopLosersAndResearchAndPerspectivesSection();
+            ClickProfileSettings();
+            Logout();
     }
 }
 

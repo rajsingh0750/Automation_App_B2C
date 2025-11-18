@@ -1,0 +1,206 @@
+name: BrowserStack Watchlist Feature Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'src/test/resources/Modules/Watchlist/**'
+      - 'src/test/java/com/appreciatewealth/stepdef/WatchlistSteps.java'
+      - 'src/test/java/com/appreciatewealth/pages/WatchlistPage.java'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/test/resources/Modules/Watchlist/**'
+      - 'src/test/java/com/appreciatewealth/stepdef/WatchlistSteps.java'
+      - 'src/test/java/com/appreciatewealth/pages/WatchlistPage.java'
+  schedule:
+    - cron: '0 9 * * *'  # Daily at 9 AM
+  workflow_dispatch:  # Manual trigger
+
+env:
+  BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+  BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+  BROWSERSTACK_APP_ID: ${{ secrets.BROWSERSTACK_APP_ID }}
+
+jobs:
+  # Watchlist Sanity Tests on Android
+  watchlist-android-sanity:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        device: 
+          - { name: "Samsung Galaxy S23", version: "13.0", platform: "Android" }
+          - { name: "Google Pixel 7", version: "13.0", platform: "Android" }
+          - { name: "OnePlus 11", version: "13.0", platform: "Android" }
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up JDK 20
+        uses: actions/setup-java@v3
+        with:
+          java-version: '20'
+          distribution: 'temurin'
+          
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+          
+      - name: Run Watchlist Sanity Tests on ${{ matrix.device.name }}
+        run: |
+          mvn test -Pbrowserstack \
+            -Dcucumber.filter.tags="@Sanity and @Watchlist" \
+            -DdeviceName="${{ matrix.device.name }}" \
+            -DplatformVersion="${{ matrix.device.version }}" \
+            -DplatformName="${{ matrix.device.platform }}" \
+            -DthreadCount=1
+            
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: watchlist-android-sanity-results-${{ matrix.device.name }}
+          path: |
+            target/cucumber-reports/
+            target/logs/
+          retention-days: 30
+
+  # Watchlist Regression Tests on iOS
+  watchlist-ios-regression:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        device: 
+          - { name: "iPhone 14", version: "16.0", platform: "iOS" }
+          - { name: "iPhone 13 Pro", version: "15.0", platform: "iOS" }
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up JDK 20
+        uses: actions/setup-java@v3
+        with:
+          java-version: '20'
+          distribution: 'temurin'
+          
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+          
+      - name: Run Watchlist Regression Tests on ${{ matrix.device.name }}
+        run: |
+          mvn test -Pbrowserstack \
+            -Dcucumber.filter.tags="@Regression and @Watchlist" \
+            -DdeviceName="${{ matrix.device.name }}" \
+            -DplatformVersion="${{ matrix.device.version }}" \
+            -DplatformName="${{ matrix.device.platform }}" \
+            -DthreadCount=1
+            
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: watchlist-ios-regression-results-${{ matrix.device.name }}
+          path: |
+            target/cucumber-reports/
+            target/logs/
+          retention-days: 30
+
+  # Complete Watchlist Feature Tests
+  watchlist-complete-feature:
+    runs-on: ubuntu-latest
+    needs: [watchlist-android-sanity, watchlist-ios-regression]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up JDK 20
+        uses: actions/setup-java@v3
+        with:
+          java-version: '20'
+          distribution: 'temurin'
+          
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+          
+      - name: Run Complete Watchlist Feature Tests
+        run: |
+          mvn test -Pbrowserstack \
+            -Dcucumber.filter.tags="@Main_Final" \
+            -DthreadCount=5
+            
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: watchlist-complete-feature-results
+          path: |
+            target/cucumber-reports/
+            target/logs/
+          retention-days: 30
+
+  # Watchlist Performance Tests
+  watchlist-performance:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up JDK 20
+        uses: actions/setup-java@v3
+        with:
+          java-version: '20'
+          distribution: 'temurin'
+          
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+          
+      - name: Run Watchlist Performance Tests
+        run: |
+          mvn test -Pbrowserstack \
+            -Dcucumber.filter.tags="@Watchlist" \
+            -DthreadCount=10 \
+            -Dbrowserstack.performance=true
+            
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: watchlist-performance-results
+          path: |
+            target/cucumber-reports/
+            target/logs/
+          retention-days: 30
+
+  # Notification on completion
+  notify-completion:
+    runs-on: ubuntu-latest
+    needs: [watchlist-android-sanity, watchlist-ios-regression, watchlist-complete-feature]
+    if: always()
+    
+    steps:
+      - name: Notify completion
+        run: |
+          echo "Watchlist feature tests completed!"
+          echo "Android Sanity Tests: ${{ needs.watchlist-android-sanity.result }}"
+          echo "iOS Regression Tests: ${{ needs.watchlist-ios-regression.result }}"
+          echo "Complete Feature Tests: ${{ needs.watchlist-complete-feature.result }}"

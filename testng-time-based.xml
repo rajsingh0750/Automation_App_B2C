@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TimeBasedSuite" parallel="tests">
+    
+    <!-- Morning Tests (9 AM - 12 PM) -->
+    <test name="MorningTests">
+        <parameter name="platformName" value="Android" />
+        <parameter name="udid" value="DQE6O78HZP9HPF5H" />
+        <parameter name="deviceName" value="POCO C65" />
+        <parameter name="systemPort" value="10000" />
+        <parameter name="chromeDriverPort" value="11000" />
+        <parameter name="timeSlot" value="morning" />
+        <classes>
+            <class name="com.appreciatewealth.runners.TimeBasedRunnerTest"/>
+        </classes>
+    </test>
+    
+    <!-- Afternoon Tests (12 PM - 4 PM) -->
+    <test name="AfternoonTests">
+        <parameter name="platformName" value="Android" />
+        <parameter name="udid" value="DQE6O78HZP9HPF5H" />
+        <parameter name="deviceName" value="POCO C65" />
+        <parameter name="systemPort" value="10000" />
+        <parameter name="chromeDriverPort" value="11000" />
+        <parameter name="timeSlot" value="afternoon" />
+        <classes>
+            <class name="com.appreciatewealth.runners.TimeBasedRunnerTest"/>
+        </classes>
+    </test>
+    
+    <!-- Evening Tests (4 PM - 9 PM) -->
+    <test name="EveningTests">
+        <parameter name="platformName" value="Android" />
+        <parameter name="udid" value="DQE6O78HZP9HPF5H" />
+        <parameter name="deviceName" value="POCO C65" />
+        <parameter name="systemPort" value="10000" />
+        <parameter name="chromeDriverPort" value="11000" />
+        <parameter name="timeSlot" value="evening" />
+        <classes>
+            <class name="com.appreciatewealth.runners.TimeBasedRunnerTest"/>
+        </classes>
+    </test>
+    
+    <!-- Night Tests (9 PM - 9 AM) -->
+    <test name="NightTests">
+        <parameter name="platformName" value="Android" />
+        <parameter name="udid" value="DQE6O78HZP9HPF5H" />
+        <parameter name="deviceName" value="POCO C65" />
+        <parameter name="systemPort" value="10000" />
+        <parameter name="chromeDriverPort" value="11000" />
+        <parameter name="timeSlot" value="night" />
+        <classes>
+            <class name="com.appreciatewealth.runners.TimeBasedRunnerTest"/>
+        </classes>
+    </test>
+    
+</suite>

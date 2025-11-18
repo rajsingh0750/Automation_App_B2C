@@ -529,6 +529,7 @@ Feature: MiniModule
     #Done Time
 
 
+
   @Regression
   Scenario: Verify US Wallet under MiniModule
 #    Given the User is on MiniModule page

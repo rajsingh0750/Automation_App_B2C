@@ -1829,8 +1829,7 @@ public void CompareInvestedandCurrentValue() throws InterruptedException {
     }
 
     public void SelectUSStockTab() throws InterruptedException {
-        Thread.sleep(3000);
-        USStocks.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(USStocks)).click();
     }
 
 

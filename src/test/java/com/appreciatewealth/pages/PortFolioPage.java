@@ -4,10 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,15 +19,15 @@ import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PortFolioPage extends BasePage{
+public class PortFolioPage extends BasePage {
     BasePage basePage = new BasePage();
     SignInPage signInPage = new SignInPage();
 
-   static double USStock_return_Percentage;
+    static double USStock_return_Percentage;
 
-   static  double Goals_return_Percentage;
+    static double Goals_return_Percentage;
 
-   static double MF_return_Percentage;
+    static double MF_return_Percentage;
 
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Portfolio\n" +
@@ -64,7 +61,6 @@ public class PortFolioPage extends BasePage{
     WebElement USStocksReturnPercentage;
 
 
-
     @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '₹')])[2]")
     WebElement GoalsTabInvestedAmount;
 
@@ -76,7 +72,6 @@ public class PortFolioPage extends BasePage{
 
     @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%')])[1]")
     WebElement GoalsTabReturnPercentage;
-
 
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"US Stocks\n" +
@@ -98,7 +93,6 @@ public class PortFolioPage extends BasePage{
     WebElement OurOfferings;
 
 
-
     @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%') and contains(@content-desc, 'Total returns')])[1]")
     WebElement USStocksReturnPercentage_HomeDashboard;
 
@@ -108,7 +102,6 @@ public class PortFolioPage extends BasePage{
 
     @AndroidFindBy(xpath = "(//android.view.View[contains(@content-desc, '%') and contains(@content-desc, 'Total returns')])[3]")
     WebElement MFReturnPercentage_HomeDashboard;
-
 
 
     @AndroidFindBy(accessibility = "Invested")
@@ -126,12 +119,13 @@ public class PortFolioPage extends BasePage{
     WebElement GoalTabTotalReturnPercentage;
 
 
-
-
     public void ClickOnPortFolioTab() throws InterruptedException {
-        Thread.sleep(3000);
-        PortFolioTab.click();
+//        new WebDriverWait(driver, Duration.ofSeconds(10))
+//                .until(ExpectedConditions.elementToBeClickable(PortFolioTab))
+//                .click();
 
+        Thread.sleep(5000);
+        PortFolioTab.click();
     }
 
 
@@ -190,8 +184,6 @@ public class PortFolioPage extends BasePage{
             System.out.println("❌ Current amount mismatch. Expected: " + expectedCurrentAmount + " | Actual: " + currentAmount);
         }
     }
-
-
 
 
     public void VerifyUSStocksTabCalculation() throws InterruptedException {
@@ -260,9 +252,9 @@ public class PortFolioPage extends BasePage{
     }
 
 
-
     public void VerifyGoalsTabCalculation() throws InterruptedException {
         Thread.sleep(6000);
+
 
         // 1. Get values from UI
         String investAmtStr = GoalsTabInvestedAmount.getAttribute("content-desc");
@@ -328,7 +320,6 @@ public class PortFolioPage extends BasePage{
     }
 
 
-
     public void VerifyMFTabCalculation() throws InterruptedException {
         Thread.sleep(6000);
 
@@ -389,8 +380,6 @@ public class PortFolioPage extends BasePage{
     }
 
 
-
-
     public void SelectUSStockSection() throws InterruptedException {
         Thread.sleep(3000);
         USStock.click();
@@ -438,13 +427,13 @@ public class PortFolioPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(Invested));
 
-             String temp=    USStockTabTotalReturnPercentage.getAttribute("content-desc");
-             System.out.println(temp);
+        String temp = USStockTabTotalReturnPercentage.getAttribute("content-desc");
+        System.out.println(temp);
 
-             Double USStockReturnPercentage = extractPercentageValue(temp);
+        Double USStockReturnPercentage = extractPercentageValue(temp);
 
-             Assert.assertEquals(USStock_return_Percentage,USStockReturnPercentage);
-             System.out.println("US Stock return percentage on dashboard and portfolio are matched");
+        Assert.assertEquals(USStock_return_Percentage, USStockReturnPercentage);
+        System.out.println("US Stock return percentage on dashboard and portfolio are matched");
 
     }
 
@@ -452,12 +441,12 @@ public class PortFolioPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(Invested));
 
-        String temp=    GoalTabTotalReturnPercentage.getAttribute("content-desc");
+        String temp = GoalTabTotalReturnPercentage.getAttribute("content-desc");
         System.out.println(temp);
 
         Double GoalsReturnPercentage = extractPercentageValue(temp);
 
-        Assert.assertEquals(Goals_return_Percentage,GoalsReturnPercentage);
+        Assert.assertEquals(Goals_return_Percentage, GoalsReturnPercentage);
         System.out.println("Goals return percentage on dashboard and portfolio are matched");
 
     }
@@ -466,13 +455,419 @@ public class PortFolioPage extends BasePage{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(Invested));
 
-        String temp=    MFTabTotalReturnPercentage.getAttribute("content-desc");
+        String temp = MFTabTotalReturnPercentage.getAttribute("content-desc");
         System.out.println(temp);
 
         Double MFReturnPercentage = extractPercentageValue(temp);
 
-        Assert.assertEquals(MF_return_Percentage,MFReturnPercentage);
+        Assert.assertEquals(MF_return_Percentage, MFReturnPercentage);
         System.out.println("Mutual Fund return percentage on dashboard and portfolio are matched");
 
     }
+
+
+//    public void SelectUSStockSection() throws InterruptedException {
+//        Thread.sleep(3000);
+//        USStock.click();
+//    }
+//
+//    public void SelectGoalsSection() throws InterruptedException {
+//        Thread.sleep(3000);
+//        Goals.click();
+//    }
+//
+//    public void SelectMFSection() throws InterruptedException {
+//        Thread.sleep(3000);
+//        MF.click();
+//    }
+
+    public void ClickOnUSStocks() throws InterruptedException {
+        USStock.click();
+    }
+
+    public void ClickOnGoals() throws InterruptedException {
+        Goals.click();
+    }
+
+    public void VerifyAllCalculation() throws InterruptedException {
+        Thread.sleep(6000);
+
+        // 1. Get values from UI
+        String investAmtStr = InvestedAmount.getAttribute("content-desc");     // e.g., "₹5,000.00"
+        String currentAmtStr = CurrentAmount.getAttribute("content-desc");     // e.g., "₹4,800.00"
+        String returnPercStr = ReturnPercentage.getAttribute("content-desc");  // e.g., "-4.00%"
+        String returnAmtStr = ReturnAmount.getAttribute("content-desc");       // e.g., "-₹200.00"
+
+        // 2. Log UI values
+        System.out.println("Invested amount: " + investAmtStr);
+        System.out.println("Current amount: " + currentAmtStr);
+        System.out.println("Overall return percentage: " + returnPercStr);
+        System.out.println("Total return amount: " + returnAmtStr);
+
+        // 3. Clean and convert to numbers
+        double investedAmount = new BigDecimal(investAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double currentAmount = new BigDecimal(currentAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double returnAmount = new BigDecimal(returnAmtStr.replaceAll("[^0-9.-]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double returnPercentage = new BigDecimal(returnPercStr.replaceAll("[^0-9.-]", "")).setScale(2, RoundingMode.HALF_UP).doubleValue();
+
+        // 4. Profit or Loss Check
+        if (currentAmount > investedAmount) {
+            System.out.println("User is in profit.");
+            if (investedAmount + returnAmount == currentAmount) {
+                System.out.println("Getting correct current amount");
+            } else {
+                System.out.println("Getting incorrect current amount");
+            }
+            System.out.println(investedAmount + " + " + returnAmount + " = " + currentAmount);
+        } else if (currentAmount < investedAmount) {
+            System.out.println("User is in loss.");
+            if (investedAmount - returnAmount == currentAmount) {
+                System.out.println("getting correct current amount");
+            } else {
+                System.out.println("getting incorrect current amount");
+            }
+            System.out.println(investedAmount + " + " + returnAmount + " = " + currentAmount);
+        } else {
+            System.out.println("No profit, no loss.");
+            System.out.println(investedAmount + " + " + returnAmount + " = " + currentAmount);
+        }
+
+
+    }
+
+    public void VerifyUSStocksCalculation() throws InterruptedException {
+
+        Thread.sleep(6000);
+
+        // Get values from UI
+        String investAmtStr = USStocksInvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = USStocksCurrentAmount.getAttribute("content-desc");
+        String returnPercStr = USStocksReturnPercentage.getAttribute("content-desc");
+        String returnAmtStr = USStocksReturnAmount.getAttribute("content-desc");
+
+        // Print initial values
+        System.out.println("📊 Invested amount is " + investAmtStr);
+        System.out.println("📊 Current amount is " + currentAmtStr);
+        System.out.println("📊 Overall return percentage " + returnPercStr);
+        System.out.println("📊 Overall Total return " + returnAmtStr);
+
+        // Parse and round values
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnAmount = new BigDecimal(returnAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        if (currentAmount > investedAmount) {
+            System.out.println("User is in Profit");
+            if (investedAmount + returnAmount == currentAmount) {
+                System.out.println("getting correct current amount");
+            } else {
+                System.out.println("getting incorrect current amount");
+            }
+            System.out.println(investedAmount + " + " + returnAmount + " = " + currentAmount);
+        } else if (investedAmount > currentAmount) {
+            System.out.println("User is in Loss");
+            if (investedAmount - returnAmount == currentAmount) {
+                System.out.println("getting correct current amount");
+            } else {
+                System.out.println("getting incorrect current amount");
+            }
+            System.out.println(investedAmount + " - " + returnAmount + " = " + currentAmount);
+        } else {
+            System.out.println("No profit,no loss");
+        }
+    }
+
+    public void VerifyGoalsCalculation() throws InterruptedException {
+        Thread.sleep(6000);
+
+        // 1. Get values from UI
+        String investAmtStr = GoalsTabInvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = GoalsTabCurrentAmount.getAttribute("content-desc");
+        String returnPercStr = GoalsTabReturnPercentage.getAttribute("content-desc");
+        String returnAmtStr = GoalsTabReturnAmount.getAttribute("content-desc");
+
+        // 2. Log UI values (formatted with 📊)
+        System.out.println("📊 Invested amount is " + investAmtStr);
+        System.out.println("📊 Current amount is " + currentAmtStr);
+        System.out.println("📊 Overall return percentage " + returnPercStr);
+        System.out.println("📊 Overall Total return " + returnAmtStr);
+
+        // 3. Clean and convert to double with 2 decimal rounding
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnAmount = new BigDecimal(returnAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double returnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        if (currentAmount > investedAmount) {
+            System.out.println("User is in Profit");
+            if (investedAmount + returnAmount == currentAmount) {
+                System.out.println("getting correct current amount");
+            } else {
+                System.out.println("getting incorrect current amount");
+            }
+            System.out.println(investedAmount + " + " + returnAmount + " = " + currentAmount);
+        } else if (investedAmount > currentAmount) {
+            System.out.println("User is in Loss");
+            if (investedAmount - returnAmount == currentAmount) {
+                System.out.println("getting correct current amount");
+            } else {
+                System.out.println("getting incorrect current amount");
+            }
+            System.out.println(investedAmount + " - " + returnAmount + " = " + currentAmount);
+        } else {
+            System.out.println("No profit,no loss");
+        }
+    }
+
+    public void ClickOnMF() throws InterruptedException {
+        MF.click();
+    }
+
+    public void VerifyMFCalculation() throws InterruptedException {
+        Thread.sleep(6000);
+
+        String investAmtStr = InvestedAmount.getAttribute("content-desc");     // e.g., "₹9,100.00"
+        String currentAmtStr = CurrentAmount.getAttribute("content-desc");     // e.g., "₹9,350.80"
+        String returnPercStr = ReturnPercentage.getAttribute("content-desc");  // e.g., "2.76%"
+        String returnAmtStr = ReturnAmount.getAttribute("content-desc");       // e.g., "₹250.80" or "-₹250.80"
+
+        System.out.println("Invested amount: " + investAmtStr);
+        System.out.println("Current amount: " + currentAmtStr);
+        System.out.println("Return percentage: " + returnPercStr);
+        System.out.println("Return amount: " + returnAmtStr);
+
+        BigDecimal investedAmount = new BigDecimal(investAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal currentAmount = new BigDecimal(currentAmtStr.replaceAll("[^0-9.]", "")).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal returnAmount = new BigDecimal(returnAmtStr.replaceAll("[^0-9.\\-]", "")).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal returnPercentage = new BigDecimal(returnPercStr.replaceAll("[^0-9.\\-]", "")).setScale(2, RoundingMode.HALF_UP);
+
+        int comparison = currentAmount.compareTo(investedAmount);
+        BigDecimal expectedCurrentAmount;
+
+        if (comparison > 0) {
+            System.out.println("User is in profit");
+            expectedCurrentAmount = investedAmount.add(returnAmount);
+            if (expectedCurrentAmount.equals(currentAmount)) {
+                System.out.println("Getting Correct Current Amount");
+            } else {
+                System.out.println("Getting Incorrect Current Amount");
+            }
+            System.out.println(investedAmount + " + " + returnAmount + " = " + currentAmount);
+        } else if (comparison < 0) {
+            System.out.println("User is in loss");
+            expectedCurrentAmount = investedAmount.subtract(returnAmount);
+            if (expectedCurrentAmount.equals(currentAmount)) {
+                System.out.println("Getting Correct Current Amount");
+            } else {
+                System.out.println("Getting Incorrect Current Amount");
+            }
+            System.out.println(investedAmount + " - " + returnAmount + " = " + currentAmount);
+        } else {
+            System.out.println("No profit,no loss");
+        }
+
+    }
+
+    private static double usStockValue;
+    private static double  mfValue;
+    private static double goalValue;
+
+    public void GetUSStock_ValueOn_Dashboard() throws InterruptedException {
+        Thread.sleep(100000);
+        WebElement el = driver.findElement(
+                By.xpath("(//android.view.View[contains(@content-desc,'Total returns')])[1]")
+        );
+        String desc = el.getAttribute("content-desc");
+        String cleaned = desc.replace("\n", " ").trim();
+        int pctIndex = cleaned.indexOf('%');
+        if (pctIndex > 0) cleaned = cleaned.substring(0, pctIndex);
+        usStockValue = new BigDecimal(cleaned).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        System.out.println("US Value on Home (double): " + usStockValue);
+    }
+
+    public void GetGoals_ValueOn_Dashboard() {
+        WebElement GoalsValue = driver.findElement(
+                By.xpath("(//android.view.View[contains(@content-desc,'Total returns')])[3]")
+        );
+        String value = GoalsValue.getAttribute("content-desc");
+        String cleaned = value.replace("\n", " ").trim();
+        int pctIndex = cleaned.indexOf('%');
+        if (pctIndex > 0) {
+            cleaned = cleaned.substring(0, pctIndex);
+        }
+
+        goalValue = new BigDecimal(cleaned).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        System.out.println("Goals Value on Home: "+goalValue );
+    }
+
+    public void    GetMF_ValueOn_Dashboard() {
+        WebElement MFValue = driver.findElement(
+                By.xpath("(//android.view.View[contains(@content-desc,'Total returns')])[2]")
+        );
+        String value = MFValue.getAttribute("content-desc");
+        String cleaned = value.replace("\n", " ").trim();
+        int pctIndex = cleaned.indexOf('%');
+        if (pctIndex > 0) {
+            cleaned = cleaned.substring(0, pctIndex);
+        }
+
+        mfValue = new BigDecimal(cleaned).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        System.out.println("MF Value on Home: "+mfValue );
+    }
+
+    public void USStockVerify() throws InterruptedException {
+        System.out.println("US Value on Home (double): " + usStockValue);
+        Thread.sleep(6000);
+
+        String investAmtStr = USStocksInvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = USStocksCurrentAmount.getAttribute("content-desc");
+        String returnPercStr = USStocksReturnPercentage.getAttribute("content-desc");
+
+        System.out.println("Invested amount is " + investAmtStr);
+        System.out.println("Current amount is " + currentAmtStr);
+        System.out.println("UI Return Percentage " + returnPercStr);
+
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double uiReturnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double calculatedReturnPercentage = ((currentAmount - investedAmount) / investedAmount) * 100;
+        calculatedReturnPercentage = new BigDecimal(calculatedReturnPercentage)
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        System.out.println("📈 Calculated Return Percentage: " + calculatedReturnPercentage + "%");
+
+        if (calculatedReturnPercentage == usStockValue) {
+            System.out.println("Return percentage is correct");
+        } else {
+            System.out.println("Return percentage mismatch calculatedReturnPercentage = "
+                    + calculatedReturnPercentage + " usStockValue = " + usStockValue);
+        }
+    }
+
+    public void MFStockVerify() throws InterruptedException{
+        Thread.sleep(6000);
+
+        // Get values from UI
+        String investAmtStr = USStocksInvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = USStocksCurrentAmount.getAttribute("content-desc");
+        String returnPercStr = USStocksReturnPercentage.getAttribute("content-desc");
+
+        // Print initial values
+        System.out.println("Invested amount is " + investAmtStr);
+        System.out.println("Current amount is " + currentAmtStr);
+        System.out.println("UI Return Percentage " + returnPercStr);
+
+        // Parse values
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double uiReturnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        // Calculate return percentage manually
+        double calculatedReturnPercentage = ((currentAmount - investedAmount) / investedAmount) * 100;
+
+        // Round both percentages to 2 decimals
+        calculatedReturnPercentage = new BigDecimal(calculatedReturnPercentage)
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        // Print
+        System.out.println("📈 Calculated Return Percentage: " + calculatedReturnPercentage + "%");
+
+        if(calculatedReturnPercentage==mfValue){
+            System.out.println("Return percentage is correct");
+        } else {
+            System.out.println("Return percentage mismatch! UI");
+        }
+    }
+
+    public void GoalsVerify() throws InterruptedException{
+        Thread.sleep(6000);
+
+        // Get values from UI
+        String investAmtStr = USStocksInvestedAmount.getAttribute("content-desc");
+        String currentAmtStr = USStocksCurrentAmount.getAttribute("content-desc");
+        String returnPercStr = USStocksReturnPercentage.getAttribute("content-desc");
+
+        // Print initial values
+        System.out.println("Invested amount is " + investAmtStr);
+        System.out.println("Current amount is " + currentAmtStr);
+        System.out.println("UI Return Percentage " + returnPercStr);
+
+        // Parse values
+        double investedAmount = new BigDecimal(investAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double currentAmount = new BigDecimal(currentAmtStr.replace("₹", "").replace(",", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double uiReturnPercentage = new BigDecimal(returnPercStr.replace("%", "").trim())
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        // Calculate return percentage manually
+        double calculatedReturnPercentage = ((currentAmount - investedAmount) / investedAmount) * 100;
+
+        // Round both percentages to 2 decimals
+        calculatedReturnPercentage = new BigDecimal(calculatedReturnPercentage)
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        // Print
+        System.out.println("📈 Calculated Return Percentage: " + calculatedReturnPercentage + "%");
+
+
+        if(calculatedReturnPercentage==goalValue){
+            System.out.println("Return percentage is correct");
+        } else {
+            System.out.println("Return percentage mismatch");
+        }
+    }
+
+
+
+
+
 }

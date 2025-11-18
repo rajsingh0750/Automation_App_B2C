@@ -1,0 +1,45 @@
+{
+  "androidDevices": [
+    {
+      "deviceName": "Samsung Galaxy S23",
+      "platformVersion": "13.0",
+      "platformName": "Android",
+      "deviceId": "samsung_galaxy_s23",
+      "resolution": "1080x2340",
+      "dpi": "420"
+    },
+    {
+      "deviceName": "Google Pixel 7",
+      "platformVersion": "13.0", 
+      "platformName": "Android",
+      "deviceId": "google_pixel_7",
+      "resolution": "1080x2400",
+      "dpi": "420"
+    },
+    {
+      "deviceName": "OnePlus 11",
+      "platformVersion": "13.0",
+      "platformName": "Android", 
+      "deviceId": "oneplus_11",
+      "resolution": "1440x3216",
+      "dpi": "525"
+    },
+    {
+      "deviceName": "Samsung Galaxy A54",
+      "platformVersion": "13.0",
+      "platformName": "Android",
+      "deviceId": "samsung_galaxy_a54", 
+      "resolution": "1080x2340",
+      "dpi": "420"
+    },
+    {
+      "deviceName": "Xiaomi Redmi Note 12",
+      "platformVersion": "12.0",
+      "platformName": "Android",
+      "deviceId": "xiaomi_redmi_note_12",
+      "resolution": "1080x2400", 
+      "dpi": "400"
+    }
+  ]
+}
+

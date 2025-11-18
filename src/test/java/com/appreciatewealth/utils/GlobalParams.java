@@ -69,28 +69,43 @@ public class GlobalParams {
         webkitDebugProxyPort.set(webkitDebugProxyPort2);
     }
 
+    /**
+     * Initialize global parameters with system properties or default values
+     * This method should be called before using any GlobalParams instance
+     */
     public void initializeGlobalParams(){
-        GlobalParams params = new GlobalParams();
-        params.setPlatformName(System.getProperty("platformName", "Android"));
-        params.setUDID(System.getProperty("udid", "DQE6O78HZP9HPF5H"));
-        params.setDeviceName(System.getProperty("deviceName", "POCO C65"));
-       // params.setPlatformName(System.getProperty("platformName", "iOS"));
-       // params.setUDID(System.getProperty("udid", "00008030-001605CE3CD2802E"));
-      //  params.setDeviceName(System.getProperty("deviceName", "iphone 11"));
-
-
-
-        switch (params.getPlatformName()) {
+        // Set basic device parameters
+        setPlatformName(System.getProperty("platformName", "Android"));
+        setUDID(System.getProperty("udid", "DQE6O78HZP9HPF5H"));
+        setDeviceName(System.getProperty("deviceName", "POCO C65"));
+        
+        // Set platform-specific parameters
+        switch (getPlatformName()) {
             case "Android" -> {
-                params.setSystemPort(System.getProperty("systemPort", "10000"));
-                params.setChromeDriverPort(System.getProperty("chromeDriverPort", "11000"));
+                setSystemPort(System.getProperty("systemPort", "10000"));
+                setChromeDriverPort(System.getProperty("chromeDriverPort", "11000"));
             }
             case "iOS" -> {
-                params.setWdaLocalPort(System.getProperty("wdaLocalPort", "10001"));
-                params.setWebkitDebugProxyPort(System.getProperty("webkitDebugProxyPort", "11001"));
+                setWdaLocalPort(System.getProperty("wdaLocalPort", "10001"));
+                setWebkitDebugProxyPort(System.getProperty("webkitDebugProxyPort", "11001"));
             }
-            default -> throw new IllegalStateException("Invalid Platform Name!");
+            default -> throw new IllegalStateException("Invalid Platform Name: " + getPlatformName() + 
+                ". Supported platforms: Android, iOS");
         }
+    }
+    
+    /**
+     * Clear all thread-local parameters
+     * Useful for cleanup after test execution
+     */
+    public void clearGlobalParams() {
+        platformName.remove();
+        udid.remove();
+        deviceName.remove();
+        systemPort.remove();
+        chromeDriverPort.remove();
+        wdaLocalPort.remove();
+        webkitDebugProxyPort.remove();
     }
 
 

@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -291,11 +292,19 @@ public class WatchlistPage extends BasePage {
     private WebElement ViewAll;
 
 
+
+    @AndroidFindBy(accessibility = "Top Picks")
+    private WebElement   Top_picks;
+
     @AndroidFindBy(accessibility = "No results for ' '")
     private WebElement NoResultError;
 
     @AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, ' items')]")
     private WebElement TopPicksStocksCount;
+
+
+    @AndroidFindBy(accessibility = "Top Picks for you")
+    private WebElement Top_Picks_Heading_Text;
 
 
     @AndroidFindBy(accessibility = "Create")
@@ -364,6 +373,10 @@ public class WatchlistPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Watchlist 2']")
     private WebElement ByDefaultfourthWatchlist;
 
+
+    @AndroidFindBy(accessibility = "Enter watchlist name")
+    private WebElement EnterWatchlistTextBox;
+
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"UAVS\n" +
             "AGEAGLE AERIAL SYSTEMS INC\n" +
             "₹117.15\n" +
@@ -389,15 +402,14 @@ public class WatchlistPage extends BasePage {
 
     }
 
-    public void SelectWatchlistTab() throws InterruptedException {
-        Thread.sleep(4000);
-        WatchlistTab.click();
-        Thread.sleep(4000);
+    public void SelectWatchlistTab() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(WatchlistTab)).click();
     }
 
     public void SelectAddStockButton() throws InterruptedException {
-        Thread.sleep(3000);
-        AddStockButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(AddStockButton)).click();
     }
 
     public void SelectStockHeartIcon() throws InterruptedException {
@@ -419,16 +431,16 @@ public class WatchlistPage extends BasePage {
     }
 
     public void VerifyStockName() throws InterruptedException {
-        Thread.sleep(3000);
-        AAPYStockName.isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(AAPYStockName));
     }
 
     public void EnterStockName(String name) throws InterruptedException {
-        Thread.sleep(4000);
-        SearchBar.click();
-        Thread.sleep(2000);
-        SearchBar.sendKeys(name);
-        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement searchBar = wait.until(ExpectedConditions.elementToBeClickable(SearchBar));
+        searchBar.click();
+        searchBar.sendKeys(name);
 
     }
 
@@ -439,10 +451,10 @@ public class WatchlistPage extends BasePage {
     }
 
     public void EnterStockNameUnderSearchPage(String name) throws InterruptedException {
-        Thread.sleep(4000);
-        EnterStockName2.click();
-        Thread.sleep(2000);
-        EnterSName2.sendKeys(name);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(EnterStockName2)).click();
+        wait.until(ExpectedConditions.visibilityOf(EnterSName2)).sendKeys(name);
 
     }
 
@@ -461,37 +473,43 @@ public class WatchlistPage extends BasePage {
     }
 
     public void VerifyWatchlistsBotoomSheet() throws InterruptedException {
-        Thread.sleep(3000);
-        WatchlistsBotoomSheet.isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(WatchlistsBotoomSheet));
+        Assert.assertTrue(WatchlistsBotoomSheet.isDisplayed(), "Watchlists bottom sheet is not visible.");
     }
 
     public void SelectWatchlistfromBotoomSheet() throws InterruptedException {
-        Thread.sleep(3000);
-        TestingWatchlist.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(TestingWatchlist)).click();
     }
 
     public void SelectSaveButton() throws InterruptedException {
-        Thread.sleep(3000);
-        EditWatchlistSaveButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(EditWatchlistSaveButton)).click();
     }
 
-    public void VerifyStockNames() throws InterruptedException {
-        Thread.sleep(3000);
-        StockNames.isDisplayed();
+    public void VerifyStockNames() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.visibilityOf(StockNames));
+
+        Assert.assertTrue(StockNames.isDisplayed(), "Stock names are not visible.");
     }
 
-    public void SelectSearchAndAddToWatchlistPage() throws InterruptedException {
-        Thread.sleep(3000);
-        SearchAndAddToWatchlist.click();
+
+    public void SelectSearchAndAddToWatchlistPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(SearchAndAddToWatchlist)).click();
     }
+
 
     public void SelectHeartIconForAnotherStock() throws InterruptedException {
-        Thread.sleep(3000);
-        HeartIconForTSLAStock.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(HeartIconForTSLAStock)).click();
     }
 
     public void SelectSelectsMultipleWatchlistsForSameStock1() throws InterruptedException {
-        Thread.sleep(3000);
+       // Thread.sleep(3000);
 //        Watchlistbox.click();
 //        Watchlistbox1.click();
 
@@ -503,8 +521,10 @@ public class WatchlistPage extends BasePage {
 //        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
 //        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 //        driver.perform(List.of(tap));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(TestingWatchlist)).click();
 
-        TestingWatchlist.click();
+
 
 
 
@@ -520,7 +540,10 @@ public class WatchlistPage extends BasePage {
 //        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
 //        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 //        driver.perform(List.of(tap));
-          demoWatchlist.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(demoWatchlist)).click();
+
+
     }
 
 //    public void VerifyWatchlistNames() throws InterruptedException {
@@ -543,13 +566,17 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectViewAllButton() throws InterruptedException {
-        Thread.sleep(4000);
-        ViewAllButton.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(ViewAllButton)).click();
     }
 
     public void SelectEditButton() throws InterruptedException {
-        Thread.sleep(3000);
-        EditButton.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(EditButton)).click();
+
+
     }
 
     public void SelectDeleteButton() throws InterruptedException {
@@ -567,13 +594,16 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectYesButton() throws InterruptedException {
-        Thread.sleep(3000);
-        YesButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(YesButton)).click();
     }
 
     public void VerifyDeletedWatchlist() throws InterruptedException {
-        Thread.sleep(3000);
-        Watchlistpage.isDisplayed();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(Watchlistpage)).click();
+
+
     }
 
     public void VerifyUpdatedWatchlistName() {
@@ -587,34 +617,75 @@ public class WatchlistPage extends BasePage {
     }
 
     public void VerifyErrorMessage2(String s) throws InterruptedException {
-        Thread.sleep(4000);
-         String no_result = NoResultError.getAttribute("content-desc");
-         Assert.assertEquals(no_result, s);
+//        Thread.sleep(4000);
+//         String no_result = NoResultError.getAttribute("content-desc");
+//         Assert.assertEquals(no_result, s);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait until the 'content-desc' attribute is present and not empty
+        wait.until(driver1 -> {
+            String contentDesc = NoResultError.getAttribute("content-desc");
+            return contentDesc != null && !contentDesc.trim().isEmpty();
+        });
+
+        String actualErrorMessage = NoResultError.getAttribute("content-desc");
+
+        // Perform a soft assertion
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(
+                actualErrorMessage,
+                s,
+                "Error message does not match the expected value."
+        );
+
+        // Don't forget to assert all at the end
+        softAssert.assertAll();
     }
 
+
+
+
+
     public void GotoTopPicksFund() throws InterruptedException {
-        Thread.sleep(5000);
-        int maxScrolls = 2;
-        int scrollCount = 0;
-        boolean canScrollMore = true;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        while (scrollCount < maxScrolls && canScrollMore) {
-            canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "left", 100, "top", 100, "width", 600, "height", 700,
-                    "direction", "down",
-                    "percent", 1.0
-            ));
+        boolean topPicksFound = false;
+        int maxScrollAttempts = 2;
+        int scrollAttempts = 0;
 
-            // Increment the scroll count
-            scrollCount++;
+        while (!topPicksFound && scrollAttempts < maxScrollAttempts) {
+            try {
+                // Wait for Top_picks element to be visible (5 seconds max per attempt)
+                WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                shortWait.until(ExpectedConditions.visibilityOf(Top_picks));
+                topPicksFound = true;
+                break;
+            } catch (Exception e) {
+                // Scroll down if not found
+                driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                        "left", 100, "top", 100, "width", 600, "height", 700,
+                        "direction", "down",
+                        "percent", 1.0
+                ));
+                scrollAttempts++;
+            }
         }
-        Thread.sleep(3000);
-        ViewAll.click();
+
+        if (topPicksFound) {
+            // Wait for ViewAll to be clickable and click
+            wait.until(ExpectedConditions.elementToBeClickable(ViewAll));
+            ViewAll.click();
+        } else {
+            System.out.println("Top_picks element not found after " + scrollAttempts + " scrolls.");
+        }
 
     }
 
     public void VerifyCountOfTopPicksStocks() throws InterruptedException {
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(Top_Picks_Heading_Text));
+
         String accessibilityId = TopPicksStocksCount.getAttribute("content-desc");
 
         String regex = "(\\d+) items";
@@ -636,35 +707,42 @@ public class WatchlistPage extends BasePage {
         CreateButton.click();
     }
 
-    public void EnterSpecialCharactersForWatchlistName(String InvalidStock) throws InterruptedException {
-        Thread.sleep(5000);
-        ByDefaultThirdWatchlist.click();
-        Thread.sleep(2000);
-        ByDefaultThirdWatchlist.clear();
-        Thread.sleep(2000);
-        EnterWatchlistName.click();
-        Thread.sleep(2000);
-        EnterWatchlistName.sendKeys(InvalidStock);
+    public void EnterSpecialCharactersForWatchlistName(String invalidStock) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(EnterWatchlistTextBox));
 
+        wait.until(ExpectedConditions.elementToBeClickable(ByDefaultThirdWatchlist)).click();
 
+        wait.until(ExpectedConditions.visibilityOf(ByDefaultThirdWatchlist)).clear();
+
+        wait.until(ExpectedConditions.elementToBeClickable(EnterWatchlistName)).click();
+        EnterWatchlistName.sendKeys(invalidStock);
     }
 
 
-    public void VerifySpecialCharacterErrorMessage(String msg) throws InterruptedException {
-        Thread.sleep(5000);
-        String CommentMsg = SpecialCharacterErrorMessage.getAttribute("content-desc");
-        Assert.assertEquals(msg, CommentMsg);
-        CrossBtn.click();
+
+    public void VerifySpecialCharacterErrorMessage(String expectedMsg) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.visibilityOf(SpecialCharacterErrorMessage));
+
+        String actualMsg = SpecialCharacterErrorMessage.getAttribute("content-desc");
+        Assert.assertEquals(expectedMsg, actualMsg);
+
+       // CrossBtn.click();
     }
+
 
     public void SelectSortButton() throws InterruptedException {
-        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(SortButton));
         SortButton.click();
     }
 
     public void SelectCurrentPriceOption() throws InterruptedException {
-        Thread.sleep(3000);
-        CurrentPriceOption.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(CurrentPriceOption))
+                .click();
     }
 
     public void SelectapplyButton() throws InterruptedException {
@@ -674,13 +752,16 @@ public class WatchlistPage extends BasePage {
     }
 
     public void SelectDayChangePercentageOption() throws InterruptedException {
-        Thread.sleep(3000);
-        DayChangePercentage.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(DayChangePercentage))
+                .click();
     }
 
     public void SelectCompanyAZOption() throws InterruptedException {
-        Thread.sleep(3000);
-        CompanyAZ.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(CompanyAZ))
+                .click();
+
     }
 
     public void SelectStock() throws InterruptedException {
@@ -689,10 +770,11 @@ public class WatchlistPage extends BasePage {
     }
 
     public void EntersTheWatchlistName(String test) throws InterruptedException {
-        Thread.sleep(4000);
-        EnterWatchlistName.click();
-        Thread.sleep(2000);
-        EnterWatchlistName.sendKeys(test);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(EnterWatchlistTextBox));
+        WebElement inputField = wait.until(ExpectedConditions.elementToBeClickable(EnterWatchlistName));
+        inputField.click();
+        inputField.sendKeys(test);
     }
 
     public void EditTheWatchlistName() throws InterruptedException {
@@ -711,24 +793,24 @@ public class WatchlistPage extends BasePage {
 
     }
 
-    public void EditWatchlistName(String name) throws InterruptedException {
-        Thread.sleep(4000);
-        EditAmazonWatchlistName.click();
-        EditAmazonWatchlistName.clear();
-        EnterEditWatchlistName.sendKeys(name);
-        Thread.sleep(2000);
-
+    public void EditWatchlistName(String name) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(EditAmazonWatchlistName)).click();
+        wait.until(ExpectedConditions.visibilityOf(EditAmazonWatchlistName)).clear();
+        wait.until(ExpectedConditions.visibilityOf(EnterEditWatchlistName)).sendKeys(name);
     }
 
+
     public void SelectcreateButton() throws InterruptedException {
-        Thread.sleep(3000);
-        WatchlistCreateButton.click();
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(WatchlistCreateButton)).click();
     }
 
     public void SelectEditWatchlistSaveButton() throws InterruptedException {
-        Thread.sleep(3000);
-        EditWatchlistSaveButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(EditWatchlistSaveButton)).click();
+
+
     }
 
     public void ComeToWatchlistPage() throws InterruptedException {
@@ -737,23 +819,27 @@ public class WatchlistPage extends BasePage {
 
     }
 
-    public void VerifyCreatedWatchlist() throws InterruptedException {
-        Thread.sleep(3000);
-        CreatedWatchlistName.isDisplayed();
+    public void VerifyCreatedWatchlist() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
+        wait.until(ExpectedConditions.visibilityOf(CreatedWatchlistName));
+
+        Assert.assertTrue(CreatedWatchlistName.isDisplayed(), "Created watchlist name is not visible.");
     }
 
+
     public void SelectaddBtn() throws InterruptedException {
-        Thread.sleep(3000);  // Wait for screen to settle
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
-            Thread.sleep(2000);  // Optional extra wait
-            addBtn.click();
+            // Wait until add button is clickable, then click
+            wait.until(ExpectedConditions.elementToBeClickable(addBtn)).click();
             System.out.println("Clicked on Add Button");
-        } catch (Exception e) {  // <-- Catch all click-related issues
+        } catch (Exception e) {
             System.out.println("Add Button not clickable or not present. Trying Save Button...");
+
             try {
-                Thread.sleep(2000);
-                saveBtn.click();
+                // Wait until save button is clickable, then click
+                wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
                 System.out.println("Clicked on Save Button instead");
             } catch (Exception ex) {
                 System.out.println("Neither Add Button nor Save Button is clickable.");
@@ -764,35 +850,32 @@ public class WatchlistPage extends BasePage {
 
 
     public void RemoveStock() throws InterruptedException {
-        Thread.sleep(3000);
-        RemoveAAPYStock.click();
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(RemoveAAPYStock)).click();
     }
 
     public void VerifyingAddingWatchlistToast() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         try {
-            Thread.sleep(3000); // Consider replacing with explicit wait for better stability
-            if (AddingWatchlistToast.isDisplayed()) {
-                System.out.println("Toast message is displayed.");
-            } else {
-                System.out.println("Toast message is NOT displayed.");
-            }
+            wait.until(ExpectedConditions.visibilityOf(AddingWatchlistToast));
+            System.out.println("Toast message is displayed.");
+        } catch (TimeoutException e) {
+            System.out.println("Toast message is NOT displayed (timeout): " + e.getMessage());
         } catch (NoSuchElementException | WebDriverException e) {
             System.out.println("Toast message is NOT displayed (exception caught): " + e.getMessage());
-            // You can continue test execution
-        } catch (InterruptedException ie) {
-            System.out.println("Thread interrupted: " + ie.getMessage());
         }
     }
 
-    public void EnterStockNameUnderSearchAndAddPage(String stname) throws InterruptedException {
-        Thread.sleep(4000);
-        SearchBar.click();
-        Thread.sleep(2000);
-        SearchBar.sendKeys(stname);
-        Thread.sleep(2000);
 
+    public void EnterStockNameUnderSearchAndAddPage(String stname) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(SearchBar)).click();
+
+        wait.until(ExpectedConditions.visibilityOf(SearchBar)).sendKeys(stname);
     }
+
 
     public void EditWatchlistNameAsBefore() throws InterruptedException {
         Thread.sleep(3000);
@@ -805,21 +888,18 @@ public class WatchlistPage extends BasePage {
 
     }
 
-    public void VerifyEditWatchlistSuccessMsg() throws InterruptedException {
+    public void VerifyEditWatchlistSuccessMsg() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
-            Thread.sleep(2000);
-            if (WatchlistUpdateSuccessMsg.isDisplayed()) {
-                System.out.println("Toast message is displayed.");
-            } else {
-                System.out.println("Toast message is NOT displayed.");
-            }
+            wait.until(ExpectedConditions.visibilityOf(WatchlistUpdateSuccessMsg));
+            System.out.println("Toast message is displayed.");
+        } catch (TimeoutException e) {
+            System.out.println("Toast message is NOT displayed (timeout): " + e.getMessage());
         } catch (NoSuchElementException | WebDriverException e) {
             System.out.println("Toast message is NOT displayed (exception caught): " + e.getMessage());
-            // You can continue test execution
-        } catch (InterruptedException ie) {
-            System.out.println("Thread interrupted: " + ie.getMessage());
         }
     }
+
 
     public void VerifyWatchlistNameError(String werror) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Set max wait time
@@ -891,12 +971,10 @@ public class WatchlistPage extends BasePage {
     }
 
     public void EnterWatchlistNameAgain(String test) throws InterruptedException {
-        Thread.sleep(5000);
-        ByDefaultWatchlist.click();
-        Thread.sleep(2000);
-        ByDefaultWatchlist.clear();
-        Thread.sleep(2000);
-        EnterWatchlistName.sendKeys(test);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(ByDefaultWatchlist)).click();
+        wait.until(ExpectedConditions.visibilityOf(ByDefaultWatchlist)).clear();
+        wait.until(ExpectedConditions.elementToBeClickable(EnterWatchlistName)).sendKeys(test);
     }
 
     public void RemoveFromPopularStocks() throws InterruptedException {

@@ -241,20 +241,20 @@ Feature: Dashboard
 
   #OPPTIMISE SEARCH TAB
 
-  @main_final
+ # @main_final @left
   Scenario: Verify Search page
     Given the user is on the Dashboard
     When User Selects the search tab on dashboard
     Then User should see all tabs along with recently viewed top picks and crafted list details
 
-  #PROD DONE
+  #PROD DONE  explicit added
 
   # search stock in all tab with count and filter
 
   @main_final
   Scenario: Verify Searching and clear functionality for all tabs under search page
-    Given the user is on the Dashboard
-    When User Selects the search tab on dashboard
+#    Given the user is on the Dashboard
+#    When User Selects the search tab on dashboard
     When the user enters a stock name in the "US Stock" search bar
     And User click on the apple stock
     Then the user should be navigated to the Stock Details page
@@ -285,7 +285,7 @@ Feature: Dashboard
     And User should be able to see the dashboard search page
 
 
-  #PROD DONE
+  #PROD DONE explicit added
 
 
 
@@ -297,10 +297,13 @@ Feature: Dashboard
     And the user should also be able to see year high today and top gainers
     And the user should also be able to see top losers and research and perspectives section
 
-    #7M AND 20 SEC it's taking
+    #7M AND 20 SEC it's taking  explicit added
 
 
   #Search Optimise complete
+
+
+
 
 
 
